@@ -9,38 +9,41 @@ theme: jekyll-theme-chirpy
 lang: ko-KR
 
 # Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
-timezone:
+timezone: Asia/Seoul
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: FOX # the main title
+title: Foxlog # the main title
 
-tagline: 주니어개발자 Fox 입니다 🦊 # it will display as the subtitle
+tagline: 꾸준하게 조금씩 🦊 # it will display as the subtitle
 
-description: >- # used by seo meta and the atom feed
+description: 개발과 일상의 생각을 천천히 기록하는 공간, Foxlog. # used by seo meta and the atom feed
 
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
-url: ""
+url: "https://rlckdwkd55.github.io"
 
 github:
-  username: https://rlckdwkd55.github.io # change to your GitHub username
+  username: rlckdwkd55 # change to your GitHub username
 
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: your_full_name
+  name: ImGiChang
   email: rlckdwkd55@naver.com # change to your email address
   links:
+    - https://github.com/rlckdwkd55
     # The first element serves as the copyright owner's link
-    - https://github.com/rlckdwkd55 # change to your GitHub homepage
+    # change to your GitHub homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
 
 # Site Verification Settings
+# 소유자 인증
+# 지금은 사용안할거임
 webmaster_verifications:
   google: # fill in your Google verification code
   bing: # fill in your Bing verification code
@@ -53,6 +56,8 @@ webmaster_verifications:
 # The end of `jekyll-seo-tag` settings
 
 # Web Analytics Settings
+# 방문자 통계 설정
+# 하나만 사용해도 무방 지금은 사용안할거임
 analytics:
   google:
     id: # fill in your Google Analytics ID
@@ -70,6 +75,8 @@ analytics:
     id: # fill in your Fathom Site ID
 
 # Page views settings
+# 조회수 설정
+# 추후 설정 예정
 pageviews:
   provider: # now only supports 'goatcounter'
 
@@ -84,6 +91,8 @@ pageviews:
 #     light — Use the light color scheme
 #     dark — Use the dark color scheme
 #
+# 테마 모드
+# 현재는 클릭으로 light, dark 변경 가능하기에 현행유지
 theme_mode: # [light | dark]
 
 # The CDN endpoint for media resources.
@@ -93,26 +102,23 @@ theme_mode: # [light | dark]
 # e.g. 'https://cdn.com'
 cdn:
 
-# the avatar on sidebar, support local or CORS resources
-avatar: /assets/images/common/profile.png
 
-# The URL of the site-wide social preview image used in SEO `og:image` meta tag.
-# It can be overridden by a customized `page.image` in front matter.
-social_preview_image: # string, local or CORS resources
+# the avatar on sidebar, support local or CORS resources
+avatar: /assets/img/common/profile.png
 
 # boolean type, the global switch for TOC in posts.
 toc: true
 
 comments:
   # Global switch for the post-comment system. Keeping it empty means disabled.
-  provider: # [disqus | utterances | giscus]
+  provider: utterances # [disqus | utterances | giscus]
   # The provider options are as follows:
   disqus:
     shortname: # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
   # utterances settings › https://utteranc.es/
   utterances:
-    repo: # <gh-username>/<repo>
-    issue_term: # < url | pathname | title | ...>
+    repo: rlckdwkd55/rlckdwkd55.github.io # <gh-username>/<repo>
+    issue_term: pathname # < url | pathname | title | ...>
   # Giscus options › https://giscus.app
   giscus:
     repo: # <gh-username>/<repo>
@@ -126,6 +132,8 @@ comments:
     reactions_enabled: # optional, default to the value of `1`
 
 # Self-hosted static assets, optional › https://github.com/cotes2020/chirpy-static-assets
+# Chirpy 테마가 정적 자산(static assets, 즉 CSS·JS·이미지) 을
+# “로컬로 직접 제공할지, 아니면 외부 CDN에서 가져올지” 선택
 assets:
   self_host:
     enabled: # boolean, keep empty means false
@@ -133,6 +141,8 @@ assets:
     # only works if `assets.self_host.enabled` is 'true'
     env: # [development | production]
 
+# 앱처럼 설치하고 오프라인에서도 볼 수 있게 만들어주는 기능
+# true면 가능한 것
 pwa:
   enabled: true # The option for PWA feature (installable)
   cache:
@@ -150,6 +160,8 @@ baseurl: ""
 
 # ------------ The following options are not recommended to be modified ------------------
 
+# 마크다운 설정
+# 그대로 두자
 kramdown:
   footnote_backlink: "&#8617;&#xfe0e;"
   syntax_highlighter: rouge
@@ -162,11 +174,14 @@ kramdown:
       line_numbers: true
       start_line: 1
 
+# 상단 경로 표시관련 설정
 collections:
   tabs:
     output: true
     sort_by: order
 
+# 파일 종류(포스트, 탭 등)에 따라 자동으로 공통 속성 값을 부여
+# 그대로 두자
 defaults:
   - scope:
       path: "" # An empty string here means all files in the project
@@ -189,9 +204,12 @@ defaults:
       layout: page
       permalink: /:title/
 
+# 배포용 최적화 버전으로 css 출력
 sass:
   style: compressed
 
+# HTML 압축(minify) 기능
+# 파일 크기를 줄이고 로딩 속도를 빠르게
 compress_html:
   clippings: all
   comments: all
@@ -201,6 +219,7 @@ compress_html:
   ignore:
     envs: [development]
 
+# 빌드 대상에서 제외할 파일/폴더를 지정하는 설정
 exclude:
   - "*.gem"
   - "*.gemspec"
@@ -212,6 +231,7 @@ exclude:
   - "*.config.js"
   - "package*.json"
 
+# 카테고리별/태그별 목록 페이지를 자동으로 생성해주는 기능
 jekyll-archives:
   enabled: [categories, tags]
   layouts:
