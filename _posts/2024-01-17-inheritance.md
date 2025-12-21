@@ -2,7 +2,10 @@
 title: "상속(Inheritance)"
 date: 2024-01-17 10:00:00 +0900
 categories: [Java]
-description: "Java 상속의 개념과 특징, 클래스·인터페이스 상속의 차이를 정리합니다."
+tags: [basics, oop, inheritance, extends, implements]
+description: "Java 상속의 개념과 특징, 클래스 상속과 인터페이스 구현의 차이를 정리합니다."
+image:
+  path: /assets/img/thumbnails/java.png
 ---
 
 # 상속이란?
@@ -243,4 +246,4 @@ public class Main {
 
 
 <br><br><br><br><br><br>
-참고 : [https://jaynamm.tistory.com/entry/JAVA-상속Inheritance-기본-개념-정리](https://jaynamm.tistory.com/entry/JAVA-%EC%83%81%EC%86%8DInheritance-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC) [제이로그:티스토리]
+참고 : https://jaynamm.tistory.com/entry/JAVA-상속Inheritance-기본-개념-정리
