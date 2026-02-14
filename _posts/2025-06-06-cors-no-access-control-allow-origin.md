@@ -176,4 +176,4 @@ async function parseRSSFeed(feedUrl) {
 CORS 문제는 출처가 다른 클라이언트와 외부 서버 간의 보안 정책으로 인해 발생하며, 여러 방법을 시도했지만, **서버 설정만으로는 해결되지 않았다**.
 프록시 서버를 통해 요청을 우회하는 방식이 가장 효과적이었으며, Spring과 JavaScript의 연동으로 이 문제를 해결할 수 있었다.
 
-**프록시 방식**을 선택한 이유는, 동일한 출처의 **localhost:8080**에서 **http://localhost:3000**으로 요청할 때**는 web.xml 또는 security-context.xml 설정으로 해결할 수 있겠지만 **localhost:8080**에서 **https://www.naver.com** 처럼 **외부 URL로 요청하는 경우**, 해당 서버의 CORS 정책을 우회할 수 없으므로 **프록시 서버**를 통해 해결했다.
+**프록시 방식**을 선택한 이유는, 동일한 출처의 **localhost:8080**에서 **http://localhost:3000**으로 요청할 때는 web.xml 또는 security-context.xml 설정으로 해결할 수 있겠지만, **localhost:8080**에서 **https://www.naver.com** 처럼 **외부 URL로 요청하는 경우** 해당 서버의 CORS 정책을 우회할 수 없으므로 **프록시 서버**를 통해 해결했다.

@@ -58,7 +58,7 @@ Pseudo Code 수도 코드란 의사(가짜) 코드라는 의미를 가진,
 ```
 
 ```java
-if (age <= 60) { // 만약 age(나이)가 60 이상이면
+if (age >= 60) { // 만약 age(나이)가 60 이상이면
   System.out.println("passed") // 'passed'를 출력하고
 } else { // 아니면
   System.out.println("failed") // 'failed'를 출력한다.

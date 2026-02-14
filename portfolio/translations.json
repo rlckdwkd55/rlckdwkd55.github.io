@@ -1,0 +1,126 @@
+{
+  "en": {
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "skills": "Skills",
+      "projects": "Projects",
+      "contact": "Contact"
+    },
+    "hero": {
+      "greeting": "HELLO, I'M",
+      "title": "Developer",
+      "location": "Seoul, South Korea",
+      "description": "Placeholder description - Update with your introduction.",
+      "downloadResume": "Download Resume"
+    },
+    "about": {
+      "title": "About Me",
+      "role": "Your Role Here",
+      "intro": "Write your introduction here. Describe who you are, what you do, and what drives you.",
+      "details": "Add more details about your background, experience, and goals.",
+      "education": "Education",
+      "educationText": "Your University - Your Major",
+      "experience": "Experience",
+      "experienceText": "Your Experience Here",
+      "projectsCompleted": "Projects",
+      "projectsCompletedLine2": "Completed",
+      "technologiesUsed": "Technologies",
+      "technologiesUsedLine2": "Used"
+    },
+    "skills": {
+      "title": "Technical Skills",
+      "languages": "Languages",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "toolsDevops": "Tools & DevOps",
+      "databases": "Databases"
+    },
+    "projects": {
+      "title": "Projects",
+      "completed": "Completed",
+      "inProgress": "In Progress",
+      "categoryType": "Category / Type",
+      "description": "Describe what this project does, the problem it solves, and your role in building it.",
+      "result": "Result:",
+      "resultText": "Describe the outcome or impact",
+      "resultInProgress": "Work in progress...",
+      "viewCode": "View Code",
+      "projectTitle1": "Project Title 1",
+      "projectTitle2": "Project Title 2",
+      "projectTitle3": "Project Title 3"
+    },
+    "contact": {
+      "title": "Get In Touch",
+      "description": "Feel free to reach out for collaboration, questions, or just to say hello.",
+      "email": "Email",
+      "github": "GitHub",
+      "blog": "Blog"
+    },
+    "footer": {
+      "rights": "All rights reserved."
+    }
+  },
+  "ko": {
+    "nav": {
+      "home": "홈",
+      "about": "소개",
+      "skills": "기술",
+      "projects": "프로젝트",
+      "contact": "연락처"
+    },
+    "hero": {
+      "greeting": "안녕하세요,",
+      "title": "개발자",
+      "location": "대한민국, 서울",
+      "description": "플레이스홀더 - 자기소개를 입력해주세요.",
+      "downloadResume": "이력서 다운로드"
+    },
+    "about": {
+      "title": "소개",
+      "role": "직함을 입력하세요",
+      "intro": "여기에 자기소개를 작성하세요. 어떤 사람인지, 무엇을 하는지, 무엇이 당신을 움직이게 하는지 설명하세요.",
+      "details": "배경, 경험, 목표에 대해 더 자세히 추가하세요.",
+      "education": "학력",
+      "educationText": "대학교 - 전공을 입력하세요",
+      "experience": "경력",
+      "experienceText": "경력을 입력하세요",
+      "projectsCompleted": "완료한",
+      "projectsCompletedLine2": "프로젝트",
+      "technologiesUsed": "사용",
+      "technologiesUsedLine2": "기술"
+    },
+    "skills": {
+      "title": "기술 스택",
+      "languages": "프로그래밍 언어",
+      "frontend": "프론트엔드",
+      "backend": "백엔드",
+      "toolsDevops": "도구 & DevOps",
+      "databases": "데이터베이스"
+    },
+    "projects": {
+      "title": "프로젝트",
+      "completed": "완료",
+      "inProgress": "진행 중",
+      "categoryType": "카테고리 / 유형",
+      "description": "이 프로젝트가 무엇을 하는지, 어떤 문제를 해결하는지, 어떤 역할을 했는지 설명하세요.",
+      "result": "결과:",
+      "resultText": "결과 또는 성과를 설명하세요",
+      "resultInProgress": "진행 중...",
+      "viewCode": "코드 보기",
+      "projectTitle1": "프로젝트 제목 1",
+      "projectTitle2": "프로젝트 제목 2",
+      "projectTitle3": "프로젝트 제목 3"
+    },
+    "contact": {
+      "title": "연락하기",
+      "description": "협업, 질문, 또는 인사를 나누고 싶다면 편하게 연락해주세요.",
+      "email": "이메일",
+      "github": "GitHub",
+      "blog": "블로그"
+    },
+    "footer": {
+      "rights": "All rights reserved."
+    }
+  }
+}
