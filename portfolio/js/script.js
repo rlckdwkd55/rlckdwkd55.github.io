@@ -38,6 +38,15 @@ function setLanguage(lang) {
             el.textContent = text;
         }
     });
+
+    // Update elements with data-i18n-html (allows <br> bullet formatting)
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.dataset.i18nHtml;
+        const html = getNestedTranslation(translations[lang], key);
+        if (html) {
+            el.innerHTML = html;
+        }
+    });
 }
 
 // Wait for DOM to be fully loaded
