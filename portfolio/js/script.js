@@ -1,6 +1,6 @@
 // ===== Translations =====
 let translations = {};
-let currentLang = localStorage.getItem('portfolio-lang') || 'en';
+let currentLang = localStorage.getItem('portfolio-lang') || 'ko';
 
 // Load translations from JSON file
 fetch('translations.json')
@@ -49,9 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const navMenu = document.getElementById('navMenu');
 
     // ===== Dark Mode Toggle =====
-    // Load saved theme (default: dark, set via <html class="dark">)
-    if (localStorage.getItem('portfolio-theme') === 'light') {
-        html.classList.remove('dark');
+    // Default: light. Apply dark only if explicitly saved.
+    if (localStorage.getItem('portfolio-theme') === 'dark') {
+        html.classList.add('dark');
     }
 
     themeToggle.addEventListener('click', () => {
@@ -99,10 +99,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===== Active Nav Link on Scroll =====
     const sections = document.querySelectorAll('section[id]');
     const scrollToTopBtn = document.getElementById('scrollToTop');
+    const scrollProgress = document.getElementById('scrollProgress');
+
+    const nav = document.querySelector('nav');
 
     // Combined scroll handler for better performance
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
+
+        // Scroll progress bar
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (scrollProgress && totalHeight > 0) {
+            scrollProgress.style.width = (scrollY / totalHeight * 100) + '%';
+        }
+
+        // Nav transparent → frosted on scroll
+        nav.classList.toggle('scrolled', scrollY > 20);
 
         // Update active nav links
         sections.forEach(section => {

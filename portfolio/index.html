@@ -1,33 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
-
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ImGiChang - Full Stack Developer Portfolio. Explore my projects, skills, and experience in web development.">
-    <meta name="keywords" content="ImGiChang, Developer, Portfolio, Web Development, Full Stack">
-    <meta name="author" content="ImGiChang">
-
-    <!-- Open Graph / Facebook -->
+    <meta name="description" content="ImGiChang - Full Stack Developer Portfolio.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rlckdwkd55.github.io/portfolio/">
     <meta property="og:title" content="ImGiChang | Developer Portfolio">
-    <meta property="og:description" content="Full Stack Developer Portfolio. Explore my projects, skills, and experience.">
-    <meta property="og:image" content="https://rlckdwkd55.github.io/portfolio/og-image.png">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://rlckdwkd55.github.io/portfolio/">
-    <meta property="twitter:title" content="ImGiChang | Developer Portfolio">
-    <meta property="twitter:description" content="Full Stack Developer Portfolio. Explore my projects, skills, and experience.">
-    <meta property="twitter:image" content="https://rlckdwkd55.github.io/portfolio/og-image.png">
-
-    <!-- Favicon -->
-<!--    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">-->
-<!--    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">-->
-<!--    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">-->
+    <meta property="og:description" content="Full Stack Developer Portfolio.">
 
     <title>ImGiChang | Portfolio</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -35,7 +23,7 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                        sans: ['Space Grotesk', 'Inter', '-apple-system', 'sans-serif'],
                     },
                 }
             }
@@ -47,10 +35,13 @@
           crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 
-<body class="bg-gray-50 dark:bg-[#121212] text-gray-800 dark:text-gray-200 leading-relaxed overflow-x-hidden">
+<body class="leading-relaxed">
+
+    <!-- Scroll Progress Bar -->
+    <div id="scrollProgress" aria-hidden="true"></div>
 
     <!-- Skip to content -->
-    <a href="#home" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-blue-500 focus:text-white focus:px-4 focus:py-2 focus:rounded">
+    <a href="#home" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-violet-600 focus:text-white focus:px-4 focus:py-2 focus:rounded">
         Skip to main content
     </a>
 
@@ -63,160 +54,310 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 w-full bg-white/95 dark:bg-neutral-900/95 backdrop-blur-md shadow-sm z-[1000] transition-all duration-300" aria-label="Main navigation">
+    <nav aria-label="Main navigation">
         <div class="max-w-7xl mx-auto px-8 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold text-blue-500">ImGiChang</div>
+            <div class="text-xl font-bold text-gradient tracking-tight">ImGiChang</div>
+
             <ul id="navMenu" class="hidden md:flex list-none gap-8">
-                <li><a href="#home" class="nav-link" data-i18n="nav.home">Home</a></li>
-                <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
-                <li><a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a></li>
+                <li><a href="#home"     class="nav-link" data-i18n="nav.home">Home</a></li>
+                <li><a href="#about"    class="nav-link" data-i18n="nav.about">About</a></li>
+                <li><a href="#skills"   class="nav-link" data-i18n="nav.skills">Skills</a></li>
                 <li><a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a></li>
-                <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+                <li><a href="#contact"  class="nav-link" data-i18n="nav.contact">Contact</a></li>
             </ul>
-            <div class="flex items-center gap-4">
-                <!-- Language Toggle -->
-                <button id="langToggle" aria-label="Toggle language" class="text-sm font-semibold text-gray-400 flex items-center gap-1 bg-transparent border-none cursor-pointer p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-800 transition-all">
+
+            <div class="flex items-center gap-3">
+                <button id="langToggle" aria-label="Toggle language"
+                    class="text-sm flex items-center gap-1 bg-transparent border-none cursor-pointer p-1.5 rounded-lg transition-all">
                     <span class="lang-option active" data-lang="en">EN</span>
-                    <span class="opacity-30">/</span>
+                    <span class="opacity-30" style="color:var(--text-muted)">/</span>
                     <span class="lang-option" data-lang="ko">KO</span>
                 </button>
-                <!-- Dark Mode Toggle -->
-                <button id="themeToggle" aria-label="Toggle dark mode" class="relative w-10 h-10 flex items-center justify-center bg-transparent border-none cursor-pointer rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-800 transition-all text-xl">
-                    <i class="fas fa-sun text-amber-400 absolute transition-all duration-300 dark:rotate-180 dark:opacity-0"></i>
-                    <i class="fas fa-moon text-blue-400 absolute transition-all duration-300 rotate-180 opacity-0 dark:rotate-0 dark:opacity-100"></i>
+                <button id="themeToggle" aria-label="Toggle dark mode"
+                    class="relative w-8 h-8 flex items-center justify-center bg-transparent border-none cursor-pointer rounded-lg text-base transition-all">
+                    <i class="fas fa-sun text-amber-400 absolute transition-all duration-300 dark:rotate-90 dark:opacity-0"></i>
+                    <i class="fas fa-moon absolute transition-all duration-300 rotate-90 opacity-0 dark:rotate-0 dark:opacity-100" style="color:var(--violet-light)"></i>
                 </button>
-                <!-- Hamburger -->
-                <button id="hamburger" aria-label="Toggle menu" aria-expanded="false" class="flex flex-col cursor-pointer md:hidden gap-[5px] bg-transparent border-none p-2">
-                    <span class="w-6 h-[3px] bg-gray-800 dark:bg-gray-200 transition-all"></span>
-                    <span class="w-6 h-[3px] bg-gray-800 dark:bg-gray-200 transition-all"></span>
-                    <span class="w-6 h-[3px] bg-gray-800 dark:bg-gray-200 transition-all"></span>
+                <a href="#contact" class="nav-cta hidden md:inline-flex" data-i18n="nav.hireMe">
+                    Hire Me <i class="fas fa-arrow-right text-xs"></i>
+                </a>
+                <button id="hamburger" aria-label="Toggle menu" aria-expanded="false"
+                    class="flex flex-col cursor-pointer md:hidden gap-[5px] bg-transparent border-none p-1.5">
+                    <span class="w-5 h-[2px] transition-all" style="background:var(--text-secondary)"></span>
+                    <span class="w-5 h-[2px] transition-all" style="background:var(--text-secondary)"></span>
+                    <span class="w-5 h-[2px] transition-all" style="background:var(--text-secondary)"></span>
                 </button>
             </div>
         </div>
     </nav>
 
     <main>
-        <!-- Scroll to Top Button -->
-        <button id="scrollToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-blue-500 text-white rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-blue-600 hover:-translate-y-1 z-[999]" aria-label="Scroll to top">
-            <i class="fas fa-arrow-up"></i>
+        <!-- Scroll to Top -->
+        <button id="scrollToTop"
+            class="fixed bottom-8 right-8 w-11 h-11 text-white rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:-translate-y-1 z-[999]"
+            aria-label="Scroll to top"
+            style="background:linear-gradient(135deg,var(--violet),var(--violet-mid))">
+            <i class="fas fa-arrow-up text-sm"></i>
         </button>
 
-        <!-- Hero Section -->
-        <section id="home" class="min-h-screen flex items-center justify-center text-center px-8 pt-32 pb-16 relative z-[1]">
-            <div class="max-w-3xl fade-in">
-                <p class="text-sm tracking-[2px] text-gray-500 dark:text-gray-400 mb-2 font-semibold" data-i18n="hero.greeting">HELLO, I'M</p>
-                <h1 class="text-5xl md:text-7xl font-extrabold text-gray-800 dark:text-white mb-2 leading-tight">ImGiChang</h1>
-                <p class="text-xl md:text-2xl text-blue-500 font-semibold mb-2" data-i18n="hero.title">Developer</p>
-                <p class="text-red-500 text-lg mb-8">
-                    <i class="fas fa-map-marker-alt mr-2"></i>
-                    <span data-i18n="hero.location">Seoul, South Korea</span>
-                </p>
-                <p class="text-lg text-gray-500 dark:text-gray-400 leading-relaxed mb-10" data-i18n="hero.description">
-                    Placeholder description - Update with your introduction.
-                </p>
-                <div class="flex gap-4 justify-center flex-wrap">
-                    <a href="#" download class="px-8 py-3 rounded-lg bg-blue-500 text-white border-2 border-blue-500 font-semibold inline-flex items-center gap-2 hover:bg-transparent hover:text-blue-500 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300">
-                        <i class="fas fa-download"></i>
-                        <span data-i18n="hero.downloadResume">Download Resume</span>
-                    </a>
+        <!-- ======== HERO ======== -->
+        <section id="home" class="relative z-[1]">
+            <div class="hero-grid">
+
+                <!-- Left -->
+                <div class="hero-left fade-in">
+                    <div class="badge-available">
+                        <span class="availability-dot"></span>
+                        <span data-i18n="hero.available">Available for work</span>
+                    </div>
+
+                    <p class="text-xs tracking-[0.2em] font-semibold uppercase mb-3"
+                       style="color:var(--text-muted)" data-i18n="hero.greeting">HELLO, I'M</p>
+
+                    <h1 class="text-[3.75rem] md:text-[5rem] font-bold leading-[1.02] tracking-[-0.04em] mb-4 text-gradient-hero">
+                        ImGiChang
+                    </h1>
+
+                    <p class="text-lg md:text-xl font-semibold mb-5 text-gradient" data-i18n="hero.title">
+                        Full-Stack Developer
+                    </p>
+
+                    <p class="text-base leading-relaxed mb-8 max-w-md" style="color:var(--text-secondary)"
+                       data-i18n="hero.description">
+                        Placeholder description — Update with your introduction.
+                    </p>
+
+                    <div class="flex gap-3 flex-wrap mb-8">
+                        <a href="#" download class="btn-gradient">
+                            <i class="fas fa-download text-sm"></i>
+                            <span data-i18n="hero.downloadResume">Download Resume</span>
+                        </a>
+                        <a href="#projects" class="btn-outline-violet">
+                            <span data-i18n="hero.viewProjects">View Projects</span>
+                            <i class="fas fa-arrow-right text-sm"></i>
+                        </a>
+                    </div>
+
+                    <!-- Social -->
+                    <div class="flex gap-3">
+                        <a href="https://github.com/rlckdwkd55" target="_blank" rel="noopener noreferrer"
+                           aria-label="GitHub"
+                           class="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-250 hover:-translate-y-0.5 hover:border-violet-500"
+                           style="border:1px solid var(--border);background:var(--card-bg);color:var(--text-secondary)">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:rlckdwkd55@naver.com" aria-label="Email"
+                           class="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-250 hover:-translate-y-0.5"
+                           style="border:1px solid var(--border);background:var(--card-bg);color:var(--text-secondary)">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://rlckdwkd55.github.io" target="_blank" rel="noopener noreferrer" aria-label="Blog"
+                           class="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-250 hover:-translate-y-0.5"
+                           style="border:1px solid var(--border);background:var(--card-bg);color:var(--text-secondary)">
+                            <i class="fas fa-blog"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Profile Card -->
+                <div class="hero-right fade-in" style="transition-delay:0.15s">
+                    <!-- Floating badges -->
+                    <div class="float-badge float-badge--tl">
+                        <i class="fas fa-code text-xs" style="color:var(--violet-mid)"></i>
+                        <span data-i18n="hero.floatBadge1">Full-Stack</span>
+                    </div>
+                    <div class="float-badge float-badge--tr">
+                        <i class="fas fa-location-dot text-xs" style="color:var(--accent-3)"></i>
+                        <span data-i18n="hero.location">Seoul</span>
+                    </div>
+                    <div class="float-badge float-badge--br">
+                        <i class="fas fa-star text-xs" style="color:#f59e0b"></i>
+                        <span data-i18n="hero.floatBadge2">Open to work</span>
+                    </div>
+
+                    <!-- Main profile card -->
+                    <div class="profile-card">
+                        <div class="profile-card-top">
+                            <div class="profile-avatar">
+                                <img src="./assets/profile.jpg"
+                                     alt="임기창 프로필 사진"
+                                     class="profile-avatar-img"
+                                     onerror="this.style.display='none'">
+                                <span class="profile-avatar-fallback">IGC</span>
+                            </div>
+                            <div>
+                                <p class="font-bold text-sm" style="color:var(--text-primary)">ImGiChang</p>
+                                <p class="text-xs" style="color:var(--text-muted)" data-i18n="hero.cardRole">Full-Stack Developer</p>
+                            </div>
+                        </div>
+                        <div class="profile-card-body">
+                            <div class="stat-row">
+                                <div class="stat-item">
+                                    <span class="stat-num">0+</span>
+                                    <span class="stat-label" data-i18n="hero.statProjects">Projects</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-num">0+</span>
+                                    <span class="stat-label" data-i18n="hero.statSkills">Skills</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-num">0+</span>
+                                    <span class="stat-label" data-i18n="hero.statYears">Years</span>
+                                </div>
+                            </div>
+                            <p class="profile-section-label" data-i18n="hero.primaryStack">Primary Stack</p>
+                            <div class="stack-tags">
+                                <span class="stack-tag">Python</span>
+                                <span class="stack-tag">React</span>
+                                <span class="stack-tag">TypeScript</span>
+                                <span class="stack-tag">Node.js</span>
+                                <span class="stack-tag">Docker</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="py-20 px-8 relative z-[1] bg-white/85 dark:bg-neutral-900/85">
+        <!-- ======== ABOUT ======== -->
+        <section id="about" class="py-28 px-8 relative z-[1]">
             <div class="max-w-5xl mx-auto">
+                <span class="section-label fade-in" data-i18n="about.sectionLabel">WHO I AM</span>
                 <h2 class="section-title fade-in" data-i18n="about.title">About Me</h2>
-                <div class="max-w-4xl mx-auto fade-in">
-                    <h3 class="text-red-500 text-2xl mb-6" data-i18n="about.role">Your Role Here</h3>
-                    <p class="text-lg text-gray-500 dark:text-gray-400 mb-6 leading-relaxed" data-i18n="about.intro">
-                        Write your introduction here. Describe who you are, what you do, and what drives you.
-                    </p>
-                    <p class="text-lg text-gray-500 dark:text-gray-400 mb-6 leading-relaxed" data-i18n="about.details">
-                        Add more details about your background, experience, and goals.
-                    </p>
 
-                    <!-- Education -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-12">
-                        <div class="flex items-start gap-4 p-6 bg-gray-50 dark:bg-neutral-800 rounded-xl">
-                            <i class="fas fa-graduation-cap text-3xl text-blue-500"></i>
-                            <div>
-                                <h4 class="font-bold text-gray-800 dark:text-white mb-1" data-i18n="about.education">Education</h4>
-                                <p class="text-gray-500 dark:text-gray-400" data-i18n="about.educationText">Your University - Your Major</p>
-                            </div>
+                <div class="about-grid fade-in">
+                    <!-- Left: Photo + Text -->
+                    <div>
+                        <div class="about-photo-wrap">
+                            <img src="./assets/profile.jpg"
+                                 alt="임기창 프로필 사진"
+                                 class="about-photo"
+                                 onerror="this.parentElement.style.display='none'">
                         </div>
-                        <div class="flex items-start gap-4 p-6 bg-gray-50 dark:bg-neutral-800 rounded-xl">
-                            <i class="fas fa-briefcase text-3xl text-blue-500"></i>
-                            <div>
-                                <h4 class="font-bold text-gray-800 dark:text-white mb-1" data-i18n="about.experience">Experience</h4>
-                                <p class="text-gray-500 dark:text-gray-400" data-i18n="about.experienceText">Your Experience Here</p>
-                            </div>
-                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-gradient" data-i18n="about.role">Your Role Here</h3>
+                        <p class="text-base leading-relaxed mb-4" style="color:var(--text-secondary)"
+                           data-i18n="about.intro">
+                            Write your introduction here.
+                        </p>
+                        <p class="text-base leading-relaxed" style="color:var(--text-secondary)"
+                           data-i18n="about.details">
+                            Add more details about your background, experience, and goals.
+                        </p>
                     </div>
 
-                    <!-- Stats -->
-                    <div class="flex justify-center gap-16 mt-12 flex-wrap">
-                        <div class="text-center">
-                            <h3 class="text-5xl font-bold text-blue-500 mb-2">0+</h3>
-                            <p class="text-gray-500 dark:text-gray-400 text-sm">
-                                <span data-i18n="about.projectsCompleted">Projects</span><br>
-                                <span data-i18n="about.projectsCompletedLine2">Completed</span>
-                            </p>
+                    <!-- Right: Info cards + Stats -->
+                    <div class="flex flex-col gap-4">
+                        <div class="glass flex items-start gap-4 p-5">
+                            <div class="skill-icon-wrap flex-shrink-0">
+                                <i class="fas fa-graduation-cap text-sm" style="color:var(--violet-mid)"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-sm mb-0.5" style="color:var(--text-primary)"
+                                    data-i18n="about.education">Education</h4>
+                                <p class="text-sm" style="color:var(--text-secondary)"
+                                   data-i18n="about.educationText">Your University — Your Major</p>
+                            </div>
                         </div>
-                        <div class="text-center">
-                            <h3 class="text-5xl font-bold text-blue-500 mb-2">0+</h3>
-                            <p class="text-gray-500 dark:text-gray-400 text-sm">
-                                <span data-i18n="about.technologiesUsed">Technologies</span><br>
-                                <span data-i18n="about.technologiesUsedLine2">Used</span>
-                            </p>
+                        <div class="glass flex items-start gap-4 p-5">
+                            <div class="skill-icon-wrap flex-shrink-0">
+                                <i class="fas fa-briefcase text-sm" style="color:var(--violet-mid)"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-sm mb-0.5" style="color:var(--text-primary)"
+                                    data-i18n="about.experience">Experience</h4>
+                                <p class="text-sm" style="color:var(--text-secondary)"
+                                   data-i18n="about.experienceText">Your Experience Here</p>
+                            </div>
+                        </div>
+
+                        <!-- Stats -->
+                        <div class="grid grid-cols-2 gap-4 mt-1">
+                            <div class="glass p-5 text-center">
+                                <span class="block text-4xl font-bold tracking-tight text-gradient mb-1">0+</span>
+                                <span class="text-xs uppercase tracking-widest" style="color:var(--text-muted)">
+                                    <span data-i18n="about.projectsCompleted">Projects</span>
+                                </span>
+                            </div>
+                            <div class="glass p-5 text-center">
+                                <span class="block text-4xl font-bold tracking-tight text-gradient mb-1">0+</span>
+                                <span class="text-xs uppercase tracking-widest" style="color:var(--text-muted)">
+                                    <span data-i18n="about.technologiesUsed">Tech</span>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="py-20 px-8 relative z-[1]">
-            <div class="w-full">
+        <!-- ======== SKILLS ======== -->
+        <section id="skills" class="py-28 px-8 relative z-[1]">
+            <div class="max-w-5xl mx-auto">
+                <span class="section-label fade-in" data-i18n="skills.sectionLabel">WHAT I USE</span>
                 <h2 class="section-title fade-in" data-i18n="skills.title">Technical Skills</h2>
-                <div class="flex gap-8 overflow-x-auto py-8">
-                    <div class="skill-card fade-in">
-                        <h3 class="font-bold text-lg text-gray-800 dark:text-white mb-6" data-i18n="skills.languages">Languages</h3>
-                        <div class="flex flex-wrap gap-3">
+
+                <div class="bento-grid">
+                    <div class="skill-card bento-cell--languages fade-in">
+                        <div class="skill-icon-wrap">
+                            <i class="fas fa-code text-sm" style="color:#a855f7"></i>
+                        </div>
+                        <h3 class="font-semibold mb-4" style="color:var(--text-primary)"
+                            data-i18n="skills.languages">Languages</h3>
+                        <div class="flex flex-wrap gap-2">
                             <span class="skill-tag">Python</span>
                             <span class="skill-tag">JavaScript</span>
                             <span class="skill-tag">TypeScript</span>
                             <span class="skill-tag">SQL</span>
                         </div>
                     </div>
-                    <div class="skill-card fade-in">
-                        <h3 class="font-bold text-lg text-gray-800 dark:text-white mb-6" data-i18n="skills.frontend">Frontend</h3>
-                        <div class="flex flex-wrap gap-3">
+
+                    <div class="skill-card bento-cell--frontend fade-in">
+                        <div class="skill-icon-wrap">
+                            <i class="fas fa-palette text-sm" style="color:#e879f9"></i>
+                        </div>
+                        <h3 class="font-semibold mb-4" style="color:var(--text-primary)"
+                            data-i18n="skills.frontend">Frontend</h3>
+                        <div class="flex flex-wrap gap-2">
                             <span class="skill-tag">React</span>
                             <span class="skill-tag">HTML/CSS</span>
                             <span class="skill-tag">Tailwind CSS</span>
                         </div>
                     </div>
-                    <div class="skill-card fade-in">
-                        <h3 class="font-bold text-lg text-gray-800 dark:text-white mb-6" data-i18n="skills.backend">Backend</h3>
-                        <div class="flex flex-wrap gap-3">
+
+                    <div class="skill-card bento-cell--backend fade-in">
+                        <div class="skill-icon-wrap">
+                            <i class="fas fa-server text-sm" style="color:#22d3ee"></i>
+                        </div>
+                        <h3 class="font-semibold mb-4" style="color:var(--text-primary)"
+                            data-i18n="skills.backend">Backend</h3>
+                        <div class="flex flex-wrap gap-2">
                             <span class="skill-tag">Node.js</span>
                             <span class="skill-tag">Express</span>
                             <span class="skill-tag">Django</span>
                         </div>
                     </div>
-                    <div class="skill-card fade-in">
-                        <h3 class="font-bold text-lg text-gray-800 dark:text-white mb-6" data-i18n="skills.toolsDevops">Tools & DevOps</h3>
-                        <div class="flex flex-wrap gap-3">
+
+                    <div class="skill-card bento-cell--tools fade-in">
+                        <div class="skill-icon-wrap">
+                            <i class="fas fa-wrench text-sm" style="color:#f59e0b"></i>
+                        </div>
+                        <h3 class="font-semibold mb-4" style="color:var(--text-primary)"
+                            data-i18n="skills.toolsDevops">Tools & DevOps</h3>
+                        <div class="flex flex-wrap gap-2">
                             <span class="skill-tag">Git</span>
                             <span class="skill-tag">Docker</span>
                             <span class="skill-tag">GitHub Actions</span>
                             <span class="skill-tag">Linux</span>
                         </div>
                     </div>
-                    <div class="skill-card fade-in">
-                        <h3 class="font-bold text-lg text-gray-800 dark:text-white mb-6" data-i18n="skills.databases">Databases</h3>
-                        <div class="flex flex-wrap gap-3">
+
+                    <div class="skill-card bento-cell--databases fade-in">
+                        <div class="skill-icon-wrap">
+                            <i class="fas fa-database text-sm" style="color:#34d399"></i>
+                        </div>
+                        <h3 class="font-semibold mb-4" style="color:var(--text-primary)"
+                            data-i18n="skills.databases">Databases</h3>
+                        <div class="flex flex-wrap gap-2">
                             <span class="skill-tag">PostgreSQL</span>
                             <span class="skill-tag">MySQL</span>
                             <span class="skill-tag">MongoDB</span>
@@ -226,111 +367,169 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="py-20 px-8 relative z-[1] bg-white/85 dark:bg-neutral-900/85">
+        <!-- ======== PROJECTS ======== -->
+        <section id="projects" class="py-28 px-8 relative z-[1]">
             <div class="max-w-5xl mx-auto">
+                <span class="section-label fade-in" data-i18n="projects.sectionLabel">WHAT I BUILT</span>
                 <h2 class="section-title fade-in" data-i18n="projects.title">Projects</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
                     <!-- Project 1 -->
                     <div class="project-card fade-in">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-bold text-lg text-gray-800 dark:text-white flex-1" data-i18n="projects.projectTitle1">Project Title 1</h3>
-                            <span class="px-3 py-1 rounded-full text-xs font-semibold uppercase bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-400" data-i18n="projects.completed">Completed</span>
+                        <div class="project-card-header">
+                            <div class="project-card-header-icon">
+                                <i class="fas fa-layer-group"></i>
+                            </div>
                         </div>
-                        <p class="text-gray-500 dark:text-gray-400 text-sm italic mb-4" data-i18n="projects.categoryType">Category / Type</p>
-                        <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6" data-i18n="projects.description">
-                            Describe what this project does, the problem it solves, and your role in building it.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="tech-badge">Tech 1</span>
-                            <span class="tech-badge">Tech 2</span>
-                            <span class="tech-badge">Tech 3</span>
+                        <div class="project-card-body">
+                            <div class="flex justify-between items-start mb-1">
+                                <h3 class="font-bold text-base flex-1" style="color:var(--text-primary)"
+                                    data-i18n="projects.projectTitle1">Project Title 1</h3>
+                                <span class="ml-2 px-2 py-0.5 rounded-full text-[10px] font-semibold flex-shrink-0"
+                                      style="background:rgba(34,197,94,0.10);border:1px solid rgba(34,197,94,0.25);color:#4ade80;"
+                                      data-i18n="projects.completed">Completed</span>
+                            </div>
+                            <p class="text-xs italic mb-4" style="color:var(--text-muted)"
+                               data-i18n="projects.categoryType1">Category / Type</p>
+                            <p class="text-sm leading-relaxed mb-4 flex-grow" style="color:var(--text-secondary)"
+                               data-i18n="projects.description1">
+                                프로젝트 1 설명을 입력하세요.
+                            </p>
+                            <div class="flex flex-wrap gap-1.5 mb-4">
+                                <span class="tech-badge">Tech 1</span>
+                                <span class="tech-badge">Tech 2</span>
+                                <span class="tech-badge">Tech 3</span>
+                            </div>
+                            <div class="result-box mb-4">
+                                <i class="fas fa-chart-line mr-1.5" style="color:var(--violet-mid)"></i>
+                                <strong style="color:var(--text-primary)" data-i18n="projects.result">Result:</strong>
+                                <span data-i18n="projects.resultText1"> 결과 또는 성과를 입력하세요</span>
+                            </div>
+                            <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i>
+                                <span data-i18n="projects.viewCode">View Code</span>
+                            </a>
                         </div>
-                        <div class="p-4 bg-gray-50 dark:bg-neutral-700 rounded-lg text-sm mb-4">
-                            <i class="fas fa-chart-line text-blue-500 mr-2"></i>
-                            <strong data-i18n="projects.result">Result:</strong>
-                            <span data-i18n="projects.resultText">Describe the outcome or impact</span>
-                        </div>
-                        <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i> <span data-i18n="projects.viewCode">View Code</span>
-                        </a>
                     </div>
 
                     <!-- Project 2 -->
                     <div class="project-card fade-in">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-bold text-lg text-gray-800 dark:text-white flex-1" data-i18n="projects.projectTitle2">Project Title 2</h3>
-                            <span class="px-3 py-1 rounded-full text-xs font-semibold uppercase bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-400" data-i18n="projects.completed">Completed</span>
+                        <div class="project-card-header">
+                            <div class="project-card-header-icon">
+                                <i class="fas fa-cube"></i>
+                            </div>
                         </div>
-                        <p class="text-gray-500 dark:text-gray-400 text-sm italic mb-4" data-i18n="projects.categoryType">Category / Type</p>
-                        <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6" data-i18n="projects.description">
-                            Describe what this project does, the problem it solves, and your role in building it.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="tech-badge">Tech 1</span>
-                            <span class="tech-badge">Tech 2</span>
-                            <span class="tech-badge">Tech 3</span>
+                        <div class="project-card-body">
+                            <div class="flex justify-between items-start mb-1">
+                                <h3 class="font-bold text-base flex-1" style="color:var(--text-primary)"
+                                    data-i18n="projects.projectTitle2">Project Title 2</h3>
+                                <span class="ml-2 px-2 py-0.5 rounded-full text-[10px] font-semibold flex-shrink-0"
+                                      style="background:rgba(34,197,94,0.10);border:1px solid rgba(34,197,94,0.25);color:#4ade80;"
+                                      data-i18n="projects.completed">Completed</span>
+                            </div>
+                            <p class="text-xs italic mb-4" style="color:var(--text-muted)"
+                               data-i18n="projects.categoryType2">Category / Type</p>
+                            <p class="text-sm leading-relaxed mb-4 flex-grow" style="color:var(--text-secondary)"
+                               data-i18n="projects.description2">
+                                프로젝트 2 설명을 입력하세요.
+                            </p>
+                            <div class="flex flex-wrap gap-1.5 mb-4">
+                                <span class="tech-badge">Tech 1</span>
+                                <span class="tech-badge">Tech 2</span>
+                                <span class="tech-badge">Tech 3</span>
+                            </div>
+                            <div class="result-box mb-4">
+                                <i class="fas fa-check-circle mr-1.5" style="color:var(--violet-mid)"></i>
+                                <strong style="color:var(--text-primary)" data-i18n="projects.result">Result:</strong>
+                                <span data-i18n="projects.resultText2"> 결과 또는 성과를 입력하세요</span>
+                            </div>
+                            <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i>
+                                <span data-i18n="projects.viewCode">View Code</span>
+                            </a>
                         </div>
-                        <div class="p-4 bg-gray-50 dark:bg-neutral-700 rounded-lg text-sm mb-4">
-                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                            <strong data-i18n="projects.result">Result:</strong>
-                            <span data-i18n="projects.resultText">Describe the outcome or impact</span>
-                        </div>
-                        <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i> <span data-i18n="projects.viewCode">View Code</span>
-                        </a>
                     </div>
 
                     <!-- Project 3 -->
                     <div class="project-card fade-in">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-bold text-lg text-gray-800 dark:text-white flex-1" data-i18n="projects.projectTitle3">Project Title 3</h3>
-                            <span class="px-3 py-1 rounded-full text-xs font-semibold uppercase bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-400" data-i18n="projects.inProgress">In Progress</span>
+                        <div class="project-card-header">
+                            <div class="project-card-header-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
                         </div>
-                        <p class="text-gray-500 dark:text-gray-400 text-sm italic mb-4" data-i18n="projects.categoryType">Category / Type</p>
-                        <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6" data-i18n="projects.description">
-                            Describe what this project does, the problem it solves, and your role in building it.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="tech-badge">Tech 1</span>
-                            <span class="tech-badge">Tech 2</span>
-                            <span class="tech-badge">Tech 3</span>
+                        <div class="project-card-body">
+                            <div class="flex justify-between items-start mb-1">
+                                <h3 class="font-bold text-base flex-1" style="color:var(--text-primary)"
+                                    data-i18n="projects.projectTitle3">Project Title 3</h3>
+                                <span class="ml-2 px-2 py-0.5 rounded-full text-[10px] font-semibold flex-shrink-0"
+                                      style="background:rgba(168,85,247,0.10);border:1px solid rgba(168,85,247,0.25);color:#c084fc;"
+                                      data-i18n="projects.inProgress">In Progress</span>
+                            </div>
+                            <p class="text-xs italic mb-4" style="color:var(--text-muted)"
+                               data-i18n="projects.categoryType3">Category / Type</p>
+                            <p class="text-sm leading-relaxed mb-4 flex-grow" style="color:var(--text-secondary)"
+                               data-i18n="projects.description3">
+                                프로젝트 3 설명을 입력하세요.
+                            </p>
+                            <div class="flex flex-wrap gap-1.5 mb-4">
+                                <span class="tech-badge">Tech 1</span>
+                                <span class="tech-badge">Tech 2</span>
+                                <span class="tech-badge">Tech 3</span>
+                            </div>
+                            <div class="result-box mb-4">
+                                <i class="fas fa-spinner mr-1.5" style="color:var(--violet-mid)"></i>
+                                <strong style="color:var(--text-primary)" data-i18n="projects.result">Result:</strong>
+                                <span data-i18n="projects.resultInProgress"> Work in progress...</span>
+                            </div>
+                            <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i>
+                                <span data-i18n="projects.viewCode">View Code</span>
+                            </a>
                         </div>
-                        <div class="p-4 bg-gray-50 dark:bg-neutral-700 rounded-lg text-sm mb-4">
-                            <i class="fas fa-spinner text-blue-500 mr-2"></i>
-                            <strong data-i18n="projects.result">Result:</strong>
-                            <span data-i18n="projects.resultInProgress">Work in progress...</span>
-                        </div>
-                        <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i> <span data-i18n="projects.viewCode">View Code</span>
-                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-20 px-8 relative z-[1]">
+        <!-- ======== CONTACT ======== -->
+        <section id="contact" class="py-28 px-8 relative z-[1]">
             <div class="max-w-5xl mx-auto">
-                <h2 class="section-title fade-in" data-i18n="contact.title">Get In Touch</h2>
-                <p class="text-center text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto mb-12 fade-in" data-i18n="contact.description">
+                <span class="section-label fade-in" data-i18n="contact.sectionLabel">GET IN TOUCH</span>
+                <h2 class="section-title fade-in" data-i18n="contact.title">Contact</h2>
+                <p class="contact-cta-headline fade-in" data-i18n="contact.ctaHeadline">
+                    함께 만들어 봐요.
+                </p>
+                <p class="text-center text-base max-w-xl mx-auto mb-12 fade-in" style="color:var(--text-secondary)"
+                   data-i18n="contact.description">
                     Feel free to reach out for collaboration, questions, or just to say hello.
                 </p>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-3xl mx-auto">
                     <a href="mailto:rlckdwkd55@naver.com" class="contact-card fade-in">
-                        <i class="fas fa-envelope text-4xl text-blue-500 mb-4"></i>
-                        <h3 class="font-bold text-gray-800 dark:text-white mb-2" data-i18n="contact.email">Email</h3>
-                        <p class="text-gray-500 dark:text-gray-400 break-all text-sm">rlckdwkd55@naver.com</p>
+                        <div class="contact-icon-wrap">
+                            <i class="fas fa-envelope text-xl" style="color:var(--violet-mid)"></i>
+                        </div>
+                        <h3 class="font-semibold mb-1.5" style="color:var(--text-primary)"
+                            data-i18n="contact.email">Email</h3>
+                        <p class="text-xs break-all" style="color:var(--text-muted)">rlckdwkd55@naver.com</p>
                     </a>
-                    <a href="https://github.com/rlckdwkd55" class="contact-card fade-in" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github text-4xl text-blue-500 mb-4"></i>
-                        <h3 class="font-bold text-gray-800 dark:text-white mb-2" data-i18n="contact.github">GitHub</h3>
-                        <p class="text-gray-500 dark:text-gray-400 text-sm">github.com/rlckdwkd55</p>
+                    <a href="https://github.com/rlckdwkd55" class="contact-card fade-in"
+                       target="_blank" rel="noopener noreferrer">
+                        <div class="contact-icon-wrap">
+                            <i class="fab fa-github text-xl" style="color:var(--violet-mid)"></i>
+                        </div>
+                        <h3 class="font-semibold mb-1.5" style="color:var(--text-primary)"
+                            data-i18n="contact.github">GitHub</h3>
+                        <p class="text-xs" style="color:var(--text-muted)">github.com/rlckdwkd55</p>
                     </a>
-                    <a href="https://rlckdwkd55.github.io" class="contact-card fade-in" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-blog text-4xl text-blue-500 mb-4"></i>
-                        <h3 class="font-bold text-gray-800 dark:text-white mb-2" data-i18n="contact.blog">Blog</h3>
-                        <p class="text-gray-500 dark:text-gray-400 text-sm">Foxlog</p>
+                    <a href="https://rlckdwkd55.github.io" class="contact-card fade-in"
+                       target="_blank" rel="noopener noreferrer">
+                        <div class="contact-icon-wrap">
+                            <i class="fas fa-blog text-xl" style="color:var(--violet-mid)"></i>
+                        </div>
+                        <h3 class="font-semibold mb-1.5" style="color:var(--text-primary)"
+                            data-i18n="contact.blog">Blog</h3>
+                        <p class="text-xs" style="color:var(--text-muted)">Foxlog</p>
                     </a>
                 </div>
             </div>
@@ -338,11 +537,15 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 dark:bg-neutral-950 text-white text-center py-8 relative z-[1]">
-        <p>&copy; <span id="year"></span> ImGiChang. <span data-i18n="footer.rights">All rights reserved.</span></p>
+    <footer class="relative z-[1] py-8 text-center"
+            style="border-top:1px solid var(--border);background:var(--bg-surface)">
+        <p class="text-sm" style="color:var(--text-muted)">
+            &copy; <span id="year"></span>
+            <span class="font-semibold text-gradient">ImGiChang</span>.
+            <span data-i18n="footer.rights">All rights reserved.</span>
+        </p>
     </footer>
 
     <script src="js/script.js"></script>
 </body>
-
 </html>
