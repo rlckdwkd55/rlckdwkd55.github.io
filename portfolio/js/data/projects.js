@@ -87,7 +87,7 @@ export const PROJECTS = [
     result: '소셜 로그인·결제 연동 완성. GitHub 공개.',
     links: [
       { type: 'github', href: 'https://github.com/rlckdwkd55/SulSul' },
-      { type: 'site', href: 'https://drive.google.com/file/d/1gzjefGhRO_p6A22L3OOAgt7gsozHCn6Y/view' }
+      { type: 'media', href: 'https://drive.google.com/file/d/1gzjefGhRO_p6A22L3OOAgt7gsozHCn6Y/view' }
     ]
   }
 ];
