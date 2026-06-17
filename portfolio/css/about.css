@@ -1,0 +1,58 @@
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.about-photo-wrap {
+    width: 180px;
+    height: 180px;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    border: 2px solid var(--border);
+    box-shadow: var(--card-shadow);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.about-photo-wrap:hover {
+    transform: scale(1.02);
+    box-shadow: var(--glow);
+}
+
+.about-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+.float-badge {
+    position: absolute;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 0.875rem;
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    z-index: 3;
+    animation: floatY 4s ease-in-out infinite;
+    white-space: nowrap;
+}
+
+.float-badge--tl { top: -18px;  left: -30px;  animation-delay: 0s;   }
+.float-badge--tr { top: 30%;    right: -34px; animation-delay: 0.8s; }
+.float-badge--br { bottom: -16px; right: -28px; animation-delay: 1.5s; }
+
+.dark .float-badge {
+    box-shadow: 0 0 20px rgba(124,58,237,0.2), 0 4px 16px rgba(0,0,0,0.4);
+}

@@ -1,0 +1,66 @@
+.aurora-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(110px);
+    will-change: transform;
+    pointer-events: none;
+}
+
+.orb-1 { width: 700px; height: 700px; top: -20%; left: -15%; background: rgba(109,40,217,0.20); animation: aM1 18s ease-in-out infinite alternate; }
+.orb-2 { width: 500px; height: 500px; top: 30%; right: -10%; background: rgba(124,58,237,0.15); animation: aM2 22s ease-in-out infinite alternate; }
+.orb-3 { width: 450px; height: 450px; bottom: -5%; left: 30%; background: rgba(168,85,247,0.12); animation: aM3 20s ease-in-out infinite alternate; }
+.orb-4 { width: 350px; height: 350px; top: 10%; left: 55%; background: rgba(79,70,229,0.14); animation: aM4 25s ease-in-out infinite alternate; }
+
+.dark .orb-1 { background: rgba(109,40,217,0.32); }
+.dark .orb-2 { background: rgba(124,58,237,0.25); }
+.dark .orb-3 { background: rgba(168,85,247,0.18); }
+.dark .orb-4 { background: rgba(79,70,229,0.22); }
+
+@keyframes aM1 { 0% { transform: translate(0,0) scale(1); } 50% { transform: translate(70px,45px) scale(1.12); } 100% { transform: translate(-25px,70px) scale(1.05); } }
+@keyframes aM2 { 0% { transform: translate(0,0) scale(1); } 50% { transform: translate(-60px,-35px) scale(1.1); } 100% { transform: translate(-90px,25px) scale(1.18); } }
+@keyframes aM3 { 0% { transform: translate(0,0) scale(1); } 50% { transform: translate(55px,-45px) scale(1.08); } 100% { transform: translate(-35px,-65px) scale(1.04); } }
+@keyframes aM4 { 0% { transform: translate(0,0) scale(1); } 50% { transform: translate(-45px,55px) scale(1.12); } 100% { transform: translate(60px,-35px) scale(1.08); } }
+
+@keyframes floatY {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes shimmer {
+    0%   { left: -100%; }
+    100% { left: 180%; }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(4px);
+    transition: opacity 0.65s ease-out, transform 0.65s ease-out, filter 0.65s ease-out;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); filter: blur(0); }
+.fade-in:nth-child(1) { transition-delay: 0.05s; }
+.fade-in:nth-child(2) { transition-delay: 0.13s; }
+.fade-in:nth-child(3) { transition-delay: 0.21s; }
+.fade-in:nth-child(4) { transition-delay: 0.29s; }
+.fade-in:nth-child(5) { transition-delay: 0.37s; }
+
+#scrollProgress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0;
+    background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
+    z-index: 2000;
+    transition: width 0.08s linear;
+    pointer-events: none;
+}
+
+#scrollToTop.show { opacity: 1; pointer-events: auto; }
+
+@media (prefers-reduced-motion: reduce) {
+    .aurora-orb, .float-badge { animation: none; }
+    .fade-in, .skill-card, .project-card, .contact-card, .glass {
+        transition: none; transform: none; opacity: 1; filter: none;
+    }
+    #scrollProgress { transition: none; }
+}
