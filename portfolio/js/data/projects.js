@@ -19,12 +19,12 @@ export const PROJECTS = [
     icon: 'fa-layer-group',
     ownerType: 'company',
     ownerLabel: '웨어비즈',
-    tech: ['Java', 'Spring Boot', 'Elasticsearch', 'Redis', 'Next.js'],
+    tech: ['Java', 'Spring Boot', 'Elasticsearch', 'Quartz', 'Apache Tika'],
     resultIcon: 'fa-chart-line',
     title: 'ArgosSearch',
     category: '엔터프라이즈 검색 엔진',
-    description: '· Java 17 / Spring Boot 3 엔터프라이즈 검색 엔진 (Elasticsearch)<br>· 자동완성, 연관검색어, 오타교정, 동의어·불용어 처리 구현<br>· Oracle·PostgreSQL·MariaDB 런타임 동적 외부 DB 연동<br>· Quartz 색인 스케줄러, Apache Tika 파싱 파이프라인 (PDF·Word·Excel)<br>· JWT + Spring Security 인증',
-    result: '안전보건공단, CJ 온리원푸드넷, 고령군청, 연명의료정보원 등 공공·기업 고객에 납품 및 유지보수.',
+    description: '· Elasticsearch 기반 엔터프라이즈 검색 엔진 유지보수·기능 개선<br>· 자동완성·연관검색어·오타교정·동의어·불용어 처리 등 검색 핵심 기능 개선<br>· Oracle·PostgreSQL·MariaDB·TIBERO 런타임 동적 외부 DB 연동 유지보수<br>· Quartz 색인 스케줄러, Apache Tika 파싱 파이프라인 운영 (PDF·Word·Excel)<br>· JWT + Spring Security 인증/인가, Prometheus 기반 모니터링 메트릭 관리',
+    result: '장애 원인 분석 및 설정 조정으로 공공기관·기업 고객사 대상 검색 엔진 안정적 운영 유지. (안전보건공단, CJ 온리원푸드넷, 고령군청 등)',
     links: [
       { type: 'private' },
       { type: 'media', href: '#' }
