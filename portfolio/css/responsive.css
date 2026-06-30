@@ -3,11 +3,5 @@
 }
 
 @media (max-width: 767px) {
-    .bento-grid { grid-template-columns: 1fr; }
-    .bento-cell--languages,
-    .bento-cell--frontend,
-    .bento-cell--backend,
-    .bento-cell--tools,
-    .bento-cell--databases { grid-column: 1; grid-row: auto; }
     .section-title { font-size: 2rem; }
 }

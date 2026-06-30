@@ -43,43 +43,6 @@ nav.scrolled {
 .nav-link:hover::after,
 .nav-link.active::after { width: 100%; }
 
-.nav-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.45rem 1.1rem;
-    background: linear-gradient(135deg, var(--violet), var(--violet-mid));
-    color: #fff;
-    border-radius: 9999px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.nav-cta::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, #5b21b6, #7c3aed);
-    opacity: 0;
-    transition: opacity 0.25s ease;
-}
-
-.nav-cta:hover { transform: translateY(-1px); box-shadow: var(--glow); }
-.nav-cta:hover::after { opacity: 1; }
-.nav-cta > * { position: relative; z-index: 1; }
-
-.lang-option {
-    transition: opacity 0.25s ease, color 0.25s ease;
-    opacity: 0.45;
-    color: var(--text-secondary);
-    font-size: 0.82rem;
-    font-weight: 600;
-}
-.lang-option.active { color: var(--violet-mid); opacity: 1; }
 
 #navMenu.active {
     display: flex;

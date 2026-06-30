@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>임기창 경력기술서</title>
+  <style>
+    :root {
+      --bg: #F9F9F8;
+      --page: #FFFFFF;
+      --t1: #1C1C1E;
+      --t2: #4B5563;
+      --t3: #9CA3AF;
+      --accent: #4338CA;
+      --accent-soft: #EEF2FF;
+      --accent-text: #3730A3;
+      --tag-bg: #F1F0EC;
+      --border: #E8E8E5;
+      --green: #065F46;
+      --green-bg: #D1FAE5;
+      --divider: #F3F4F6;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--t1);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", system-ui, sans-serif;
+      font-size: 13.5px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .page {
+      max-width: 800px;
+      margin: 40px auto;
+      background: var(--page);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+    }
+    /* Header */
+    .header { padding: 44px 52px 36px; border-bottom: 1px solid var(--border); }
+    .header-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; margin-bottom: 20px; }
+    .name { font-size: 2.1rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
+    .doc-type { margin-top: 6px; font-size: 0.95rem; color: var(--t2); }
+    .contact { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; font-size: 12px; color: var(--t2); flex-shrink: 0; }
+    .contact a { color: var(--accent); text-decoration: none; }
+    .summary { font-size: 13px; color: var(--t2); line-height: 1.8; max-width: 660px; }
+    .summary strong { color: var(--t1); font-weight: 600; }
+    /* Body */
+    .body { padding: 0 52px 52px; }
+    .section { padding-top: 32px; }
+    .section-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--t3); display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+    }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    /* Tech Table */
+    .tech-grid { display: grid; grid-template-columns: 100px 1fr; gap: 8px 20px; align-items: start; }
+    .tech-cat { font-size: 11.5px; font-weight: 600; color: var(--t2); padding-top: 3px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .tag { background: var(--tag-bg); color: var(--t2); padding: 2px 9px; border-radius: 4px; font-size: 11.5px; }
+    /* Company */
+    .company-block { margin-bottom: 8px; }
+    .company-header { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+    .company-name { font-size: 15px; font-weight: 800; }
+    .company-period { font-size: 12px; color: var(--t3); white-space: nowrap; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+    .company-sub { font-size: 12px; color: var(--t2); margin-top: 2px; }
+    /* Project */
+    .project { padding: 20px 0; border-top: 1px solid var(--divider); }
+    .project:first-of-type { margin-top: 16px; }
+    .proj-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+    .proj-title { font-size: 14px; font-weight: 700; }
+    .proj-period { font-size: 11.5px; color: var(--t3); white-space: nowrap; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+    .proj-meta { font-size: 11.5px; color: var(--t3); margin-bottom: 10px; }
+    .proj-role { font-size: 12px; color: var(--accent-text); font-weight: 600; background: var(--accent-soft); display: inline-block; padding: 2px 9px; border-radius: 4px; margin-bottom: 8px; }
+    .proj-summary { font-size: 12.5px; color: var(--t2); line-height: 1.75; margin-bottom: 14px; }
+    /* Sub-label */
+    .sub-label { font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--t3); margin-bottom: 7px; }
+    .bullets { list-style: none; display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }
+    .bullets li { font-size: 12.5px; color: var(--t2); padding-left: 16px; position: relative; line-height: 1.6; }
+    .bullets li::before { content: '–'; position: absolute; left: 0; color: var(--t3); }
+    /* Problem-solve */
+    .ps-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+    .ps-item { display: grid; grid-template-columns: 90px 1fr; gap: 0 12px; font-size: 12.5px; }
+    .ps-label { font-weight: 700; color: var(--t1); }
+    .ps-desc { color: var(--t2); line-height: 1.6; }
+    /* Outcome */
+    .outcome {
+      background: var(--green-bg); color: var(--green);
+      border-radius: 6px; padding: 10px 14px;
+      font-size: 12px; line-height: 1.7; font-weight: 600;
+    }
+    /* Badge */
+    .badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--green-bg); color: var(--green);
+      font-size: 11px; font-weight: 700;
+      padding: 3px 10px; border-radius: 100px; margin-top: 8px;
+    }
+    /* Edu */
+    .edu-list { display: flex; flex-direction: column; gap: 10px; }
+    .edu-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+    .edu-name { font-size: 13px; font-weight: 600; }
+    .edu-detail { font-size: 12px; color: var(--t2); margin-top: 1px; }
+    .edu-period { font-size: 12px; color: var(--t3); white-space: nowrap; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+    @media print {
+      body { background: white; }
+      .page { margin: 0; border: none; border-radius: 0; box-shadow: none; max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<script>
+/* ================================================================
+   ▼▼▼  이직 시 이 데이터만 수정하세요  ▼▼▼
+   ================================================================ */
+const DATA = {
+  name: "임기창",
+  docType: "경력기술서",
+  contact: {
+    email: "rlckdwkd55@naver.com",
+    github: { label: "github.com/rlckdwkd55", url: "https://github.com/rlckdwkd55" },
+    portfolio: { label: "rlckdwkd55.github.io/portfolio", url: "https://rlckdwkd55.github.io/portfolio" },
+  },
+  summary: `멀티에이전트 RAG 챗봇 플랫폼(GS 1등급 인증·특허 등록)을 초기 2인 팀으로 기획부터 배포까지 주도한 풀스택 개발자. Elasticsearch 기반 엔터프라이즈 검색 엔진 운영과 공공 SI 시스템 개발을 거쳐, 현재는 <strong>AI 검색·챗봇 도메인</strong>에 특화된 백엔드·풀스택 개발을 담당하고 있습니다. 단순 기능 구현을 넘어 운영 효율성과 확장성, 유지보수성을 고려한 시스템 설계에 집중합니다.`,
+  skills: [
+    { cat: "언어",          items: ["Java", "Python", "JavaScript", "TypeScript"] },
+    { cat: "백엔드",        items: ["Spring Boot", "Spring Security", "JPA", "MyBatis", "FastAPI", "SQLAlchemy", "Node.js"] },
+    { cat: "프론트엔드",    items: ["Next.js", "React", "Zustand"] },
+    { cat: "AI · 검색",     items: ["RAG", "LangChain", "LangGraph", "Qdrant", "Elasticsearch"] },
+    { cat: "데이터베이스",  items: ["PostgreSQL", "Oracle", "Tibero", "MariaDB", "Redis"] },
+    { cat: "인프라 · 도구", items: ["Docker", "Git", "GitHub Actions", "Gradle", "Maven"] },
+  ],
+  companies: [
+    {
+      name: "(주)웨어비즈",
+      sub: "개발사업팀 대리 · 정규직",
+      period: "2025.09 ~ 재직 중",
+      badge: "🏆 GS SW 1등급 인증 · 특허 등록",
+      projects: [
+        {
+          title: "Argos AI Chat Search — 멀티에이전트 RAG 챗봇 플랫폼",
+          period: "2025.09 ~ 재직 중",
+          role: "초기 멤버 2인 중 1인 (핵심 개발)",
+          tech: "Python 3.12 · FastAPI · SQLAlchemy 2.0 · Qdrant · LangChain · LangGraph · Next.js 16 · React 19 · Zustand · Docker",
+          summary: "기업·기관 고객을 위한 멀티에이전트 RAG 챗봇 플랫폼을 초기 멤버로 처음부터 함께 개발했습니다. 제품의 핵심 구조를 직접 설계하고 구현했으며, 백엔드와 프론트엔드, 배포까지 전 영역을 담당했습니다.",
+          tasks: [
+            "LangGraph StateGraph 기반 Supervisor 패턴 멀티에이전트 오케스트레이션 구현 (에이전트별 StructuredTool 래핑, JSON 라우팅 결정)",
+            "BAAI/bge-m3 Dense + BM25 Sparse 하이브리드 벡터 검색 파이프라인 구축 (Qdrant gRPC, top-k=10 → Cross-Encoder 재정렬 top-n=5)",
+            "Docling 기반 다중 포맷 문서 파싱 구현 (PDF·DOCX·XLSX·PPT·이미지, ThreadPoolExecutor CPU 오프로딩)",
+            "FastAPI + SQLAlchemy 2.0 비동기 ORM 기반 DDD 구조 REST API 개발 (14개 도메인, SSE 스트리밍 응답)",
+            "Next.js 16 + Zustand + styled-components 기반 관리자 대시보드 및 챗봇 위젯 개발 (Atomic Design)",
+            "asyncssh + Docker 기반 원격 GPU 서버 vLLM 자동 관리 (다중 모델 동적 포트 할당, nvidia-smi VRAM 기반 스케줄링)",
+            "vLLM(로컬) · OpenAI API · Naver Clova 멀티 LLM 지원 Factory 패턴 구현 — 고객사별 LLM 선택 요구에 대응",
+            "외부 DB(MySQL·PostgreSQL·Oracle·MSSQL·CUBRID) 연동 및 자동 벡터 인덱싱 스케줄러 개발",
+            "시나리오 에이전트 구현 (유사도 임계값 초과 시 즉시 응답, LLM 호출 생략으로 응답 지연 최소화)",
+            "역할 기반 권한 관리(RBAC) 시스템 구현 (멤버·역할·권한 도메인 분리, 엔드포인트별 접근 제어)",
+            "GPU·CPU·메모리 실시간 모니터링 API 구현 (nvidia-ml-py 기반) 및 인메모리 트래픽 모니터링 미들웨어 개발",
+            "Git 브랜치 전략 운영, 코드 리뷰 참여",
+          ],
+          problems: [
+            { label: "할루시네이션 방지", desc: "LLM 기반 Document Grading + Terminology Validation 2단계 관련성 검증으로 근거 없는 답변 억제" },
+            { label: "토큰 폭주 방지", desc: "일정 대화 수 초과 시 요약 프롬프트로 이전 대화 압축, MemorySaver로 세션별 컨텍스트 관리해 맥락 유지와 토큰 절약 동시 달성" },
+            { label: "쿼리 오염 방지", desc: "AgentState에 original_user_question 보존, Query Rewrite 이후에도 원본으로 용어 검증 재수행" },
+          ],
+          outcome: "GS 1등급 인증 취득 및 특허 등록, 공공기관 납품. 기획부터 배포·인증까지 제품의 전체 생애주기 경험.",
+        },
+        {
+          title: "ArgosSearch — 엔터프라이즈 검색 엔진",
+          period: "2025.09 ~ 재직 중",
+          role: "유지보수 및 기능 개선",
+          tech: "Java 17 · Spring Boot 3.3 · Elasticsearch 8 · Quartz · Redis · Apache Tika · Next.js 14",
+          summary: "Elasticsearch 기반 엔터프라이즈 검색 엔진의 유지보수와 기능 개선을 담당하며, 공공기관·기업 고객사 대상 검색 기능을 안정적으로 운영했습니다.",
+          tasks: [
+            "자동완성·연관검색어·오타교정·동의어·불용어 처리 등 검색 핵심 기능 개선 (whitespace_analyzer 기반 한글 단일음절 검색 최적화 포함)",
+            "복합 쿼리 처리 유지보수 (AND/OR/NOT 조합, GeoDistance 지역 검색, Nested 쿼리, 7종 Aggregation 집계)",
+            "Quartz JDBC 기반 색인 스케줄러 운영·개선 (@DisallowConcurrentExecution 동시성 제어, 런타임 동적 스케줄 변경 지원)",
+            "Apache Tika 기반 문서 파싱 파이프라인 운영 (PDF·Word·Excel 지원)",
+            "Oracle·PostgreSQL·MariaDB·TIBERO 런타임 동적 외부 DB 연동 및 색인 기능 유지보수",
+            "JWT·Spring Security 인증/인가 및 Spring Boot Actuator + Prometheus 기반 모니터링 메트릭 관리",
+          ],
+          problems: [
+            { label: "스케줄러 중단", desc: "Tibero 고객사에서 색인 스케줄러 간헐적 중단 → DB 커넥션 풀 고갈로 진단 → 커넥션 풀 설정 조정으로 해결" },
+            { label: "색인 누락", desc: "HTTP 본문 100MB 초과로 데이터 색인 실패 → Elasticsearch http.max_content_length 상향 조정으로 정상 색인 처리" },
+          ],
+          outcome: "장애 원인 분석 및 설정 조정으로 공공기관·기업 고객사 대상 검색 엔진 안정적 운영 유지.",
+        },
+      ],
+    },
+    {
+      name: "(주)케니컴퍼니",
+      sub: "개발부 사원 · 정규직",
+      period: "2023.12 ~ 2025.04 (1년 5개월)",
+      badge: null,
+      projects: [
+        {
+          title: "캐치캣 — 크롤링 & 알림 서비스",
+          period: "2024.11 ~ 2025.04",
+          role: "백엔드 개발 및 크롤링 시스템 구축",
+          tech: "Java · Spring Boot · Node.js · MyBatis · PostgreSQL · FCM",
+          summary: "700개 이상 사이트에서 정보를 수집해 사용자에게 실시간으로 전달하는 크롤링·알림 서비스를 구축했습니다.",
+          tasks: [
+            "700개 이상 사이트 대상 일 3,000건 규모의 대규모 크롤링 시스템 구축",
+            "Node.js 크론 스케줄러 및 FCM 연동 자동 알림 시스템 설계·구현",
+            "Job 스케줄러 기반 자동 실행 로직 및 오류 로그(error_log) 자동 저장 시스템 개발",
+            "Spring 기반 관리자 페이지 개발 및 Node.js 백엔드 연동 최적화",
+            "Git 기반 버전 관리 및 협업 문서화 수행",
+          ],
+          problems: [
+            { label: "CORS 차단", desc: "크롤링 중 CORS 차단 문제 → Proxy 서버 구조로 개선해 안정적인 데이터 수집 환경 확보" },
+            { label: "데이터 누락", desc: "오류 로그 기반 장애 분석 체계 도입, 문제 발생 시 원인 빠르게 파악·해결" },
+          ],
+          outcome: "700개 이상 사이트 대상 일 3,000건 규모 크롤링 시스템 안정적 구축 및 서비스 운영.",
+        },
+        {
+          title: "공공 시스템 (GBMS · 버스파인) — 공공 교통·행정 시스템 유지보수",
+          period: "2024.02 ~ 2024.10",
+          role: "공공 시스템 유지보수 및 기능 개선",
+          tech: "Java · Spring Boot · MyBatis · Oracle · PostgreSQL · JSP",
+          summary: "전자정부프레임워크 기반 공공 교통·행정 시스템의 유지보수와 기능 개선을 담당했습니다.",
+          tasks: [
+            "공공 시스템 주요 기능 유지보수 및 신규 기능 개발",
+            "SXSSFWorkbook을 활용한 대용량 엑셀 다운로드 기능 신규 개발",
+            "초기화면 배너 UI 개선 및 이미지 관리 기능 개발",
+            "공공기관 요청에 따른 기능 변경 및 예외 처리 로직 보강, QC 피드백 대응",
+            "API 요청·응답 최적화, JSP 레거시 코드 유지보수",
+            "기술 문서·개발 매뉴얼·인수인계 문서 등 협업 중심 문서화 수행",
+          ],
+          problems: [],
+          outcome: "공공기관 요청 신규 기능 개발 완료 및 QC 피드백 대응. GBMS: gbms.gg.go.kr · 버스파인: busfine.gtrans.or.kr",
+        },
+      ],
+    },
+  ],
+  personal: [
+    {
+      title: "술술 — 온라인 전통주 쇼핑몰",
+      period: "2023.05 ~ 2023.09",
+      role: "풀스택 설계·개발·배포 (단독)",
+      tech: "Java 11 · Spring Boot · MyBatis · HikariCP · PostgreSQL · AWS EC2",
+      summary: "전통주 커머스 서비스를 처음부터 혼자 설계하고 배포까지 완성한 개인 프로젝트. 풀스택 설계·개발·배포 전 과정을 단독 수행했습니다.",
+      tasks: [
+        "Spring Boot 기반 쇼핑몰 백엔드 설계 및 구현 (회원·장바구니·주문 플로우)",
+        "카카오·네이버 소셜 로그인(OAuth 2.0) 및 결제 API 연동",
+        "HikariCP 커넥션 풀 설정 및 쿼리 최적화",
+        "AWS EC2 배포 및 운영",
+        "Git을 통한 버전 관리 및 단독 개발 전 과정 수행",
+      ],
+      problems: [],
+      outcome: "소셜 로그인·결제 연동까지 완성한 풀스택 쇼핑몰 단독 구현.",
+    },
+  ],
+  education: [
+    { name: "국가평생교육진흥원", detail: "컴퓨터공학 학사 · 재학 중 (2027년 상반기 학위취득 예정)", period: "2025.03 ~" },
+    { name: "KH정보교육원",       detail: "BackEnd 개발자 양성과정 수료",                               period: "2021.06 ~ 11." },
+  ],
+  certifications: [
+    { name: "SQL 개발자 (SQLD)", detail: "한국데이터산업진흥원", period: "2024.04" },
+    { name: "전산회계 1급",       detail: "한국세무사회",         period: "2022.08" },
+  ],
+};
+/* ================================================================
+   ▲▲▲  여기까지만 수정  ▲▲▲
+   ================================================================ */
+
+function projectHtml(p) {
+  const problemsSection = p.problems.length > 0 ? `
+    <div class="sub-label">문제 해결</div>
+    <div class="ps-list">
+      ${p.problems.map(ps => `
+        <div class="ps-item">
+          <span class="ps-label">${ps.label}</span>
+          <span class="ps-desc">${ps.desc}</span>
+        </div>
+      `).join('')}
+    </div>` : '';
+
+  return `
+    <div class="project">
+      <div class="proj-header">
+        <div class="proj-title">${p.title}</div>
+        <span class="proj-period">${p.period}</span>
+      </div>
+      <div class="proj-meta">${p.tech}</div>
+      <div class="proj-role">${p.role}</div>
+      <div class="proj-summary">${p.summary}</div>
+      <div class="sub-label">담당 업무</div>
+      <ul class="bullets">
+        ${p.tasks.map(t => `<li>${t}</li>`).join('')}
+      </ul>
+      ${problemsSection}
+      <div class="outcome">성과: ${p.outcome}</div>
+    </div>`;
+}
+
+function render() {
+  const D = DATA;
+  document.title = `${D.name} 경력기술서`;
+
+  const skillsHtml = D.skills.map(s => `
+    <span class="tech-cat">${s.cat}</span>
+    <div class="tags">${s.items.map(i => `<span class="tag">${i}</span>`).join('')}</div>
+  `).join('');
+
+  const companiesHtml = D.companies.map(c => `
+    <div class="section">
+      <div class="section-label">경력</div>
+      <div class="company-block">
+        <div class="company-header">
+          <span class="company-name">${c.name}</span>
+          <span class="company-period">${c.period}</span>
+        </div>
+        <div class="company-sub">${c.sub}</div>
+        ${c.badge ? `<div class="badge">${c.badge}</div>` : ''}
+      </div>
+      ${c.projects.map(projectHtml).join('')}
+    </div>
+  `).join('');
+
+  const personalHtml = D.personal.map(projectHtml).join('');
+
+  const eduHtml = [...D.education, ...D.certifications].map(e => `
+    <div class="edu-row">
+      <div>
+        <div class="edu-name">${e.name}</div>
+        <div class="edu-detail">${e.detail}</div>
+      </div>
+      <span class="edu-period">${e.period}</span>
+    </div>
+  `).join('');
+
+  document.body.innerHTML = `
+    <div class="page">
+      <div class="header">
+        <div class="header-top">
+          <div>
+            <div class="name">${D.name}</div>
+            <div class="doc-type">${D.docType}</div>
+          </div>
+          <div class="contact">
+            <span>${D.contact.email}</span>
+            <a href="${D.contact.github.url}">${D.contact.github.label}</a>
+            <a href="${D.contact.portfolio.url}">${D.contact.portfolio.label}</a>
+          </div>
+        </div>
+        <p class="summary">${D.summary}</p>
+      </div>
+      <div class="body">
+        <div class="section">
+          <div class="section-label">보유 기술</div>
+          <div class="tech-grid">${skillsHtml}</div>
+        </div>
+        ${companiesHtml}
+        <div class="section">
+          <div class="section-label">개인 프로젝트</div>
+          ${personalHtml}
+        </div>
+        <div class="section">
+          <div class="section-label">학력 · 자격</div>
+          <div class="edu-list">${eduHtml}</div>
+        </div>
+      </div>
+    </div>`;
+}
+render();
+</script>
+</body>
+</html>
