@@ -3,5 +3,10 @@
 }
 
 @media (max-width: 767px) {
-    .section-title { font-size: 2rem; }
+    .section-title { font-size: 2rem; margin-bottom: 2rem; }
+
+    .skill-card { padding: 1.25rem; }
+
+    .project-card-header { height: auto; min-height: 64px; }
+    .project-card-body { padding: 1rem 1.25rem 1.25rem; }
 }
