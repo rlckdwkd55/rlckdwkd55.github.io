@@ -21,14 +21,14 @@ export const SKILLS = [
   {
     icon: 'fa-robot',
     iconColor: '#f472b6',
-    title: 'AI / ML',
-    items: ['LangChain', 'LangGraph', 'RAG', 'FastEmbed', 'Qdrant'],
+    title: 'AI · 검색',
+    items: ['LangChain', 'LangGraph', 'Qdrant', 'Elasticsearch', 'RAG'],
   },
   {
     icon: 'fa-database',
     iconColor: '#34d399',
     title: '데이터베이스',
-    items: ['PostgreSQL', 'Oracle', 'MariaDB', 'Redis', 'Elasticsearch'],
+    items: ['PostgreSQL', 'Oracle', 'MariaDB', 'Redis'],
   },
   {
     icon: 'fa-wrench',

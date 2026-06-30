@@ -11,8 +11,7 @@ export const PROJECTS = [
     description: '· 초기 멤버 2인 멀티에이전트 RAG 챗봇 플랫폼<br>· Supervisor 아키텍처, Qdrant Dense 검색 + CrossEncoder 리랭킹 파이프라인<br>· 유사도 0.9 이상 즉시 응답 시나리오 에이전트 구현<br>· FastAPI + SQLAlchemy 멀티테넌트 관리자 API<br>· Next.js 대시보드·챗봇 위젯 (Zustand), NVIDIA GPU 서버 Docker 배포',
     result: 'GS 1등급 인증 취득. 특허 등록 완료. 검단구 도프네트웍 납품.',
     links: [
-      { type: 'private' },
-      { type: 'media', href: '#' }
+      { type: 'private' }
     ]
   },
   {
@@ -26,8 +25,7 @@ export const PROJECTS = [
     description: '· Elasticsearch 기반 엔터프라이즈 검색 엔진 유지보수·기능 개선<br>· 자동완성·연관검색어·오타교정·동의어·불용어 처리 등 검색 핵심 기능 개선<br>· Oracle·PostgreSQL·MariaDB·TIBERO 런타임 동적 외부 DB 연동 유지보수<br>· Quartz 색인 스케줄러, Apache Tika 파싱 파이프라인 운영 (PDF·Word·Excel)<br>· JWT + Spring Security 인증/인가, Prometheus 기반 모니터링 메트릭 관리',
     result: '장애 원인 분석 및 설정 조정으로 공공기관·기업 고객사 대상 검색 엔진 안정적 운영 유지. (안전보건공단, CJ 온리원푸드넷, 고령군청 등)',
     links: [
-      { type: 'private' },
-      { type: 'media', href: '#' }
+      { type: 'private' }
     ]
   },
   {
