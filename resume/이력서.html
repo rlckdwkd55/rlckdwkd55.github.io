@@ -5,18 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>임기창 이력서</title>
   <style>
-    /* ── 토큰 ── */
     :root {
-      --bg: #F9F9F8;
+      --bg: #F2F2F0;
       --page: #FFFFFF;
-      --t1: #1C1C1E;
+      --t1: #0F0F0F;
       --t2: #4B5563;
       --t3: #9CA3AF;
-      --accent: #4338CA;
+      --accent: #3730A3;
       --accent-soft: #EEF2FF;
       --accent-text: #3730A3;
-      --tag-bg: #F1F0EC;
-      --border: #E8E8E5;
+      --accent-border: #C7D2FE;
+      --tag-bg: #FAFAF9;
+      --tag-border: #D9D9D4;
+      --border: #E5E7EB;
+      --divider: #F3F4F6;
       --green: #065F46;
       --green-bg: #D1FAE5;
     }
@@ -25,71 +27,142 @@
       background: var(--bg);
       color: var(--t1);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", system-ui, sans-serif;
-      font-size: 13.5px;
+      font-size: 13px;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
     }
     .page {
-      max-width: 800px;
-      margin: 40px auto;
+      max-width: 820px;
+      margin: 36px auto;
       background: var(--page);
-      border-radius: 10px;
+      border-radius: 4px;
       border: 1px solid var(--border);
       overflow: hidden;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
     }
-    /* Header */
-    .header { padding: 44px 52px 36px; border-bottom: 1px solid var(--border); }
-    .header-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; margin-bottom: 20px; }
-    .name { font-size: 2.1rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
-    .job-title { margin-top: 6px; font-size: 0.95rem; color: var(--t2); font-weight: 400; }
-    .contact { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; font-size: 12px; color: var(--t2); flex-shrink: 0; }
-    .contact a { color: var(--accent); text-decoration: none; }
-    .summary { font-size: 13px; color: var(--t2); line-height: 1.75; max-width: 660px; }
+
+    /* ── HEADER ── */
+    .header { padding: 40px 52px 32px; border-bottom: 1px solid var(--border); }
+    .header-layout { display: flex; gap: 28px; align-items: flex-start; margin-bottom: 22px; }
+    .photo {
+      width: 90px; height: 90px;
+      border-radius: 10px;
+      object-fit: cover; object-position: center top;
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+      display: block;
+    }
+    .photo-fallback {
+      width: 90px; height: 90px;
+      border-radius: 10px;
+      background: #F3F4F6;
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .header-info { flex: 1; }
+    .name { font-size: 2rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1; margin-bottom: 5px; }
+    .job-title { font-size: 0.88rem; color: var(--t2); margin-bottom: 12px; }
+    .contact-row { display: flex; flex-wrap: wrap; column-gap: 16px; row-gap: 4px; font-size: 11.5px; color: var(--t2); }
+    .contact-row a { color: var(--t2); text-decoration: none; }
+    .cl { font-size: 10px; font-weight: 700; color: var(--t3); letter-spacing: 0.04em; margin-right: 5px; }
+    .summary {
+      font-size: 13px; color: var(--t2); line-height: 1.8;
+      border-left: 2px solid var(--border);
+      padding-left: 14px;
+    }
     .summary strong { color: var(--t1); font-weight: 600; }
-    /* Body */
-    .body { padding: 0 52px 52px; }
-    .section { padding-top: 32px; }
+
+    /* ── HIGHLIGHTS ── */
+    .highlights {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+    }
+    .hl-item {
+      flex: 1;
+      padding: 16px 20px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .hl-item:last-child { border-right: none; }
+    .hl-bar { width: 20px; height: 2px; background: var(--t1); margin: 0 auto 8px; }
+    .hl-title { font-size: 12px; font-weight: 700; color: var(--t1); }
+
+    /* ── BODY ── */
+    .body { padding: 0 52px 48px; }
+    .section { padding-top: 26px; }
     .section-label {
-      font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--t3); display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+      font-size: 11px; font-weight: 800;
+      color: var(--t1);
+      border-bottom: 1.5px solid var(--t1);
+      padding-bottom: 6px;
+      margin-bottom: 14px;
+      letter-spacing: 0.01em;
     }
-    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-    /* Tech */
-    .tech-grid { display: grid; grid-template-columns: 80px 1fr; gap: 8px 20px; align-items: start; }
-    .tech-cat { font-size: 11.5px; font-weight: 600; color: var(--t2); padding-top: 3px; }
+
+    /* ── SKILLS ── */
+    .tech-grid { display: grid; grid-template-columns: 82px 1fr; gap: 8px 16px; align-items: start; }
+    .tech-cat { font-size: 11px; font-weight: 600; color: var(--t2); padding-top: 3px; }
     .tags { display: flex; flex-wrap: wrap; gap: 5px; }
-    .tag { background: var(--tag-bg); color: var(--t2); padding: 2px 9px; border-radius: 4px; font-size: 11.5px; }
-    .tag.primary { background: var(--accent-soft); color: var(--accent-text); font-weight: 600; }
-    /* Career */
-    .career-item { margin-bottom: 24px; }
-    .career-item:last-child { margin-bottom: 0; }
-    .career-header { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
-    .company { font-size: 14.5px; font-weight: 700; }
-    .period { font-size: 11.5px; color: var(--t3); white-space: nowrap; flex-shrink: 0; font-variant-numeric: tabular-nums; }
-    .position { font-size: 12px; color: var(--t2); margin: 3px 0 10px; }
-    .bullets { list-style: none; display: flex; flex-direction: column; gap: 5px; }
-    .bullets li { font-size: 12.5px; color: var(--t2); padding-left: 16px; position: relative; line-height: 1.6; }
-    .bullets li::before { content: '–'; position: absolute; left: 0; color: var(--t3); }
-    .bullets li.key { color: var(--accent-text); font-weight: 600; }
-    .bullets li.key::before { color: var(--accent); }
-    .badge {
-      display: inline-flex; align-items: center; gap: 5px;
-      background: var(--green-bg); color: var(--green);
-      font-size: 11px; font-weight: 700;
-      padding: 3px 10px; border-radius: 100px; margin-top: 8px;
+    .tag {
+      background: var(--tag-bg);
+      color: #1F2937;
+      border: 1px solid var(--tag-border);
+      padding: 2px 9px;
+      border-radius: 4px;
+      font-size: 11px;
     }
-    /* Project */
-    .project-name { font-weight: 700; font-size: 13.5px; }
-    .project-meta { font-size: 11.5px; color: var(--t3); margin: 2px 0 5px; }
-    .project-desc { font-size: 12.5px; color: var(--t2); line-height: 1.65; }
-    /* Edu */
+
+    /* ── CAREER ── */
+    .career-item { margin-bottom: 26px; }
+    .career-item:last-child { margin-bottom: 0; }
+    .career-header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 2px; }
+    .company { font-size: 14px; font-weight: 700; }
+    .period { font-size: 11px; color: var(--t3); white-space: nowrap; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+    .position { font-size: 11.5px; color: var(--t2); margin-bottom: 12px; }
+
+    /* 프로젝트 서브리스트 */
+    .proj-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+    .proj-entry {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 8px 10px;
+      background: #FAFAF8;
+      border-radius: 4px;
+      border-left: 2px solid #DDDBD6;
+    }
+    .proj-entry-name { font-size: 12px; font-weight: 700; color: var(--t1); margin-bottom: 2px; }
+    .proj-entry-desc { font-size: 11.5px; color: var(--t2); line-height: 1.55; }
+    .proj-entry-period { font-size: 10.5px; color: var(--t3); white-space: nowrap; flex-shrink: 0; padding-top: 1px; }
+
+    .sub-label { font-size: 10.5px; font-weight: 700; color: var(--t3); margin-bottom: 7px; letter-spacing: 0.03em; }
+    .bullets { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+    .bullets li { font-size: 12px; color: var(--t2); padding-left: 14px; position: relative; line-height: 1.65; }
+    .bullets li::before { content:'–'; position: absolute; left: 0; color: var(--t3); }
+    .bullets li strong { color: var(--t1); font-weight: 600; }
+    .badge {
+      display: inline-block;
+      background: #F5F4F0; color: #555;
+      font-size: 10.5px; font-weight: 600;
+      padding: 3px 9px; border-radius: 3px; margin-top: 8px;
+      border: 1px solid #E0DDD8;
+    }
+
+    /* ── 개인 프로젝트 ── */
+    .proj-row { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; margin-bottom: 2px; }
+    .proj-name { font-size: 12.5px; font-weight: 700; }
+    .proj-period-sm { font-size: 11px; color: var(--t3); white-space: nowrap; flex-shrink: 0; }
+    .proj-meta { font-size: 11px; color: var(--t3); margin-bottom: 4px; }
+    .proj-desc { font-size: 12px; color: var(--t2); line-height: 1.65; }
+
+    /* ── EDU ── */
     .edu-list { display: flex; flex-direction: column; gap: 10px; }
     .edu-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
-    .edu-name { font-size: 13px; font-weight: 600; }
-    .edu-detail { font-size: 12px; color: var(--t2); margin-top: 1px; }
-    .edu-period { font-size: 12px; color: var(--t3); white-space: nowrap; flex-shrink: 0; font-variant-numeric: tabular-nums; }
-    /* Print */
+    .edu-name { font-size: 12.5px; font-weight: 600; }
+    .edu-detail { font-size: 11.5px; color: var(--t2); margin-top: 1px; }
+    .edu-period { font-size: 11px; color: var(--t3); white-space: nowrap; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+
     @media print {
       body { background: white; }
       .page { margin: 0; border: none; border-radius: 0; box-shadow: none; max-width: 100%; }
@@ -99,65 +172,93 @@
 <body>
 <script>
 /* ================================================================
-   ▼▼▼  이직 시 이 데이터만 수정하세요  ▼▼▼
+   ▼▼▼  이직 시 이 DATA 블록만 수정하세요  ▼▼▼
    ================================================================ */
 const DATA = {
   name: "임기창",
-  title: "Full-Stack Developer",
+  title: "Full-Stack Developer  ·  AI 챗봇 · 엔터프라이즈 검색",
+  photo: "../portfolio/assets/profile.jpg",
   contact: {
     email: "rlckdwkd55@naver.com",
-    phone: "+82 010-4620-6676",
+    phone: "010-4620-6676",
     location: "서울 강서구",
     github: { label: "github.com/rlckdwkd55", url: "https://github.com/rlckdwkd55" },
     portfolio: { label: "rlckdwkd55.github.io/portfolio", url: "https://rlckdwkd55.github.io/portfolio" },
   },
-  summary: `공공 시스템 백엔드 개발에서 출발해, 현재는 엔터프라이즈 검색 엔진 유지보수와 멀티에이전트 AI 챗봇 개발을 담당하는 풀스택 개발자입니다. RAG 챗봇 플랫폼 개발에 초기 핵심 멤버로 참여해 <strong>GS 1등급 인증 취득·특허 등록·공공기관 납품</strong>을 경험했으며, 단순 기능 구현을 넘어 운영 효율성과 확장성, 유지보수성을 고려한 시스템 설계에 집중합니다.`,
+  summary: `GS SW 1등급 인증 RAG 챗봇 플랫폼을 초기 2인 팀으로 기획부터 납품까지 이끈 <strong>3년차 풀스택 개발자</strong>입니다. 공공 SI 백엔드에서 출발해 엔터프라이즈 검색 엔진·멀티에이전트 AI 챗봇까지 직접 구현하고 운영했으며, 확장성·유지보수성을 기능 구현만큼 중요하게 여기는 개발자입니다.`,
+  highlights: [
+    "GS SW 1등급 인증",
+    "저작권 등록",
+    "공공기관 납품",
+  ],
   skills: [
-    { cat: "언어",       items: ["Java","Python","JavaScript","TypeScript"],                                            primary: [0,1] },
-    { cat: "백엔드",     items: ["Spring Boot","Spring Security","FastAPI","SQLAlchemy","Node.js","JPA","MyBatis"],    primary: [0,2] },
-    { cat: "프론트엔드", items: ["Next.js","React","Zustand"],                                                          primary: [] },
-    { cat: "AI · 검색",  items: ["LangChain","LangGraph","Qdrant","Elasticsearch","RAG"],                             primary: [0,1,2,3] },
-    { cat: "DB",         items: ["PostgreSQL","Oracle","MariaDB","Redis"],                                             primary: [] },
-    { cat: "인프라",     items: ["Docker","Git","GitHub Actions","AWS EC2"],                                           primary: [] },
+    { cat: "언어",      items: ["Java","Python","JavaScript","TypeScript"] },
+    { cat: "백엔드",    items: ["Spring Boot","FastAPI","SQLAlchemy","Spring Security","Node.js","JPA","MyBatis"] },
+    { cat: "AI · 검색", items: ["LangChain","LangGraph","Qdrant","Elasticsearch","RAG"] },
+    { cat: "프론트",    items: ["Next.js","React","Zustand"] },
+    { cat: "DB",        items: ["PostgreSQL","Oracle","MariaDB","Redis"] },
+    { cat: "인프라",    items: ["Docker","GitHub Actions","AWS EC2","Git"] },
   ],
   career: [
     {
       company: "(주)웨어비즈",
       position: "개발사업팀 · 대리 · 정규직",
       period: "2025. 09. ~ 재직 중",
-      bullets: [
-        { text: "멀티에이전트 RAG 챗봇 플랫폼(Argos AI Chat Search) <strong>초기 멤버 2인</strong>으로 참여, 핵심 아키텍처 설계 및 개발 전담", key: false },
-        { text: "LangGraph Supervisor 패턴 멀티에이전트 + Qdrant 하이브리드 벡터 검색 + CrossEncoder 리랭킹 파이프라인 설계·구현", key: false },
-        { text: "FastAPI·SQLAlchemy 기반 멀티테넌트 관리자 API 및 Next.js·Zustand 기반 대시보드·챗봇 위젯 풀스택 개발", key: false },
-        { text: "Elasticsearch 기반 엔터프라이즈 검색 엔진(ArgosSearch) 유지보수 — 자동완성·오타교정·동의어 처리 등 검색 기능 개선", key: false },
-        { text: "GS 1등급 인증 취득 및 특허 등록, 공공기관·기업 고객사 납품 대응", key: true },
+      projects: [
+        {
+          name: "Argos AI Chat Search",
+          period: "2025. 09. ~ 재직 중",
+          desc: "멀티에이전트 RAG 챗봇 플랫폼 — 초기 멤버 2인, 핵심 아키텍처 설계·풀스택 개발 전담",
+        },
+        {
+          name: "ArgosSearch",
+          period: "2025. 09. ~ 재직 중",
+          desc: "엔터프라이즈 검색 엔진 유지보수·기능 개선 — 공공기관·기업 고객사 대상 운영",
+        },
       ],
-      badge: "🏆 GS SW 1등급 인증 · 특허 등록",
+      bullets: [
+        "LangGraph Supervisor 멀티에이전트 + Qdrant 하이브리드 벡터 검색 + CrossEncoder 리랭킹 파이프라인 설계·구현 (<strong>초기 2인</strong>)",
+        "FastAPI·SQLAlchemy 2.0 비동기 멀티테넌트 REST API + Next.js·Zustand 관리자 대시보드·챗봇 위젯 풀스택 개발",
+        "Elasticsearch 자동완성·오타교정·동의어·색인 스케줄러 운영 및 실운영 장애 원인 분석·해결",
+        "vLLM·OpenAI API·Naver Clova 멀티 LLM Factory 패턴 구현, NVIDIA GPU 서버 Docker 배포 및 운영",
+      ],
+      badge: "GS SW 1등급 인증 · 저작권 등록 · 공공기관 납품",
     },
     {
       company: "(주)케니컴퍼니",
-      position: "개발부 · 사원 · 정규직",
+      position: "개발부 · 사원 · 정규직 · 스타트업 (개발팀 6인)",
       period: "2023. 12. ~ 2025. 04. (1년 5개월)",
-      bullets: [
-        { text: "700개 이상 사이트 대상 <strong>일 3,000건</strong> 규모 대규모 크롤링 시스템 구축 (Node.js 크론 + FCM 연동 자동 알림)", key: false },
-        { text: "전자정부프레임워크 기반 공공 교통·행정 시스템(GBMS, 버스파인) 유지보수 및 기능 개선", key: false },
-        { text: "SXSSFWorkbook 활용 대용량 엑셀 다운로드 신규 개발 및 API 응답 최적화", key: false },
-        { text: "Spring·MyBatis 기반 백엔드 개발 및 JSP 기반 UI·레거시 코드 유지보수", key: false },
-        { text: "기술 문서·개발 매뉴얼·인수인계 문서 등 협업 중심 문서화 수행", key: false },
+      projects: [
+        {
+          name: "캐치캣",
+          period: "2024. 11. ~ 2025. 04.",
+          desc: "크롤링 & 알림 서비스 — 700개+ 사이트 일 3,000건 수집, FCM 실시간 알림 시스템 구축",
+        },
+        {
+          name: "GBMS · 버스파인",
+          period: "2024. 02. ~ 2024. 10.",
+          desc: "공공 교통·행정 시스템 유지보수 — 경기도 광역버스 관리(GBMS)·시내버스 행정(버스파인, 용인·파주·하남 등) 납품 운영 중",
+        },
       ],
-      badge: null,
+      bullets: [
+        "700개+ 사이트 <strong>일 3,000건</strong> 규모 크롤링 시스템 구축 — Node.js 크론 스케줄러 + FCM 실시간 알림 연동",
+        "전자정부프레임워크 기반 공공 시스템 유지보수·신규 기능 개발 (경기도 GBMS · 버스파인)",
+        "SXSSFWorkbook 대용량 엑셀 다운로드 신규 구현, API 응답 최적화 및 JSP 레거시 코드 유지보수",
+        "기술 문서·개발 매뉴얼·인수인계 문서 등 협업 중심 문서화 수행",
+      ],
+      badge: "경기도 공공기관 시스템 납품 운영 중 (GBMS · 버스파인)",
     },
   ],
-  projects: [
-    {
-      name: "술술 — 온라인 전통주 쇼핑몰",
-      meta: "2023. 05. ~ 2023. 09. · Java 11 · Spring Boot · MyBatis · PostgreSQL · AWS EC2",
-      desc: "Spring Boot 기반 쇼핑몰 백엔드(회원·장바구니·주문) 설계 및 구현, 카카오·네이버 소셜 로그인·결제 API 연동, AWS EC2 배포까지 전 과정 단독 수행.",
-    },
-  ],
+  project: {
+    name: "술술 — 온라인 전통주 쇼핑몰 (개인)",
+    period: "2023. 05. ~ 09.",
+    meta: "Java 11 · Spring Boot · MyBatis · PostgreSQL · AWS EC2",
+    desc: "카카오·네이버 소셜 로그인(OAuth 2.0)·결제 API 연동, AWS EC2 배포까지 쇼핑몰 백엔드 전 과정 단독 설계·구현.",
+  },
   education: [
     { name: "국가평생교육진흥원", detail: "컴퓨터공학 학사 · 재학 중 (2027년 상반기 학위취득 예정)", period: "2025. 03. ~" },
-    { name: "KH정보교육원",       detail: "BackEnd 개발자 양성과정 수료",                               period: "2021. 06. ~ 11." },
+    { name: "KH정보교육원",       detail: "BackEnd 개발자 양성과정 수료",                              period: "2021. 06. ~ 11." },
+    { name: "충남디자인예술고등학교", detail: "패션디자인학과 졸업",                                   period: "2013. 03. ~ 2016. 02." },
   ],
   certifications: [
     { name: "SQL 개발자 (SQLD)", detail: "한국데이터산업진흥원", period: "2024. 04." },
@@ -170,74 +271,116 @@ const DATA = {
 function render() {
   const D = DATA;
   document.title = `${D.name} 이력서`;
+
+  const photoHtml = `<img class="photo" src="${D.photo}" alt="${D.name} 프로필 사진"
+    onerror="this.outerHTML='<div class=\\'photo-fallback\\'></div>'">`;
+
+  const highlightsHtml = D.highlights.map(t =>
+    `<div class="hl-item"><div class="hl-bar"></div><div class="hl-title">${t}</div></div>`
+  ).join('');
+
+  const skillsHtml = D.skills.map(s => `
+    <span class="tech-cat">${s.cat}</span>
+    <div class="tags">${s.items.map(item =>
+      `<span class="tag">${item}</span>`
+    ).join('')}</div>`).join('');
+
+  const careerHtml = D.career.map(c => {
+    const projHtml = c.projects.map(p => `
+      <div class="proj-entry">
+        <div>
+          <div class="proj-entry-name">${p.name}</div>
+          <div class="proj-entry-desc">${p.desc}</div>
+        </div>
+        <div class="proj-entry-period">${p.period}</div>
+      </div>`).join('');
+
+    return `
+      <div class="career-item">
+        <div class="career-header">
+          <span class="company">${c.company}</span>
+          <span class="period">${c.period}</span>
+        </div>
+        <div class="position">${c.position}</div>
+        <div class="sub-label">담당 프로젝트</div>
+        <div class="proj-list">${projHtml}</div>
+        <div class="sub-label">주요 업무</div>
+        <ul class="bullets">
+          ${c.bullets.map(b => `<li>${b}</li>`).join('')}
+        </ul>
+        ${c.badge ? `<div class="badge">${c.badge}</div>` : ''}
+      </div>`;
+  }).join('');
+
+  const p = D.project;
+  const projectHtml = `
+    <div class="proj-row">
+      <span class="proj-name">${p.name}</span>
+      <span class="proj-period-sm">${p.period}</span>
+    </div>
+    <div class="proj-meta">${p.meta}</div>
+    <div class="proj-desc">${p.desc}</div>`;
+
+  const eduHtml = D.education.map(e => `
+    <div class="edu-row">
+      <div>
+        <div class="edu-name">${e.name}</div>
+        <div class="edu-detail">${e.detail}</div>
+      </div>
+      <span class="edu-period">${e.period}</span>
+    </div>`).join('');
+
+  const certHtml = D.certifications.map(e => `
+    <div class="edu-row">
+      <div>
+        <div class="edu-name">${e.name}</div>
+        <div class="edu-detail">${e.detail}</div>
+      </div>
+      <span class="edu-period">${e.period}</span>
+    </div>`).join('');
+
   document.body.innerHTML = `
     <div class="page">
       <div class="header">
-        <div class="header-top">
-          <div>
+        <div class="header-layout">
+          ${photoHtml}
+          <div class="header-info">
             <div class="name">${D.name}</div>
             <div class="job-title">${D.title}</div>
-          </div>
-          <div class="contact">
-            <span>${D.contact.email}</span>
-            <span>${D.contact.phone} · ${D.contact.location}</span>
-            <a href="${D.contact.github.url}">${D.contact.github.label}</a>
-            <a href="${D.contact.portfolio.url}">${D.contact.portfolio.label}</a>
+            <div class="contact-row">
+              <span><span class="cl">이메일</span>${D.contact.email}</span>
+              <span><span class="cl">전화</span>${D.contact.phone}</span>
+              <span><span class="cl">위치</span>${D.contact.location}</span>
+              <a href="${D.contact.github.url}"><span class="cl">GitHub</span>${D.contact.github.label}</a>
+              <a href="${D.contact.portfolio.url}"><span class="cl">포트폴리오</span>${D.contact.portfolio.label}</a>
+            </div>
           </div>
         </div>
         <p class="summary">${D.summary}</p>
       </div>
+
+      <div class="highlights">${highlightsHtml}</div>
+
       <div class="body">
         <div class="section">
           <div class="section-label">기술 스택</div>
-          <div class="tech-grid">
-            ${D.skills.map(s => `
-              <span class="tech-cat">${s.cat}</span>
-              <div class="tags">${s.items.map((item, i) =>
-                `<span class="tag ${s.primary.includes(i) ? 'primary' : ''}">${item}</span>`
-              ).join('')}</div>
-            `).join('')}
-          </div>
+          <div class="tech-grid">${skillsHtml}</div>
         </div>
         <div class="section">
           <div class="section-label">경력</div>
-          ${D.career.map(c => `
-            <div class="career-item">
-              <div class="career-header">
-                <span class="company">${c.company}</span>
-                <span class="period">${c.period}</span>
-              </div>
-              <div class="position">${c.position}</div>
-              <ul class="bullets">
-                ${c.bullets.map(b => `<li class="${b.key ? 'key' : ''}">${b.text}</li>`).join('')}
-              </ul>
-              ${c.badge ? `<div class="badge">${c.badge}</div>` : ''}
-            </div>
-          `).join('')}
+          ${careerHtml}
         </div>
         <div class="section">
           <div class="section-label">개인 프로젝트</div>
-          ${D.projects.map(p => `
-            <div>
-              <div class="project-name">${p.name}</div>
-              <div class="project-meta">${p.meta}</div>
-              <div class="project-desc">${p.desc}</div>
-            </div>
-          `).join('')}
+          ${projectHtml}
         </div>
         <div class="section">
-          <div class="section-label">학력 · 자격</div>
-          <div class="edu-list">
-            ${[...D.education, ...D.certifications].map(e => `
-              <div class="edu-row">
-                <div>
-                  <div class="edu-name">${e.name}</div>
-                  <div class="edu-detail">${e.detail}</div>
-                </div>
-                <span class="edu-period">${e.period}</span>
-              </div>
-            `).join('')}
-          </div>
+          <div class="section-label">학력 · 교육</div>
+          <div class="edu-list">${eduHtml}</div>
+        </div>
+        <div class="section">
+          <div class="section-label">자격증</div>
+          <div class="edu-list">${certHtml}</div>
         </div>
       </div>
     </div>`;

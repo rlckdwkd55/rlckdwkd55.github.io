@@ -6,15 +6,15 @@
   <title>임기창 자기소개서</title>
   <style>
     :root {
-      --bg: #F9F9F8;
+      --bg: #F2F2F0;
       --page: #FFFFFF;
-      --t1: #1C1C1E;
+      --t1: #0F0F0F;
       --t2: #4B5563;
       --t3: #9CA3AF;
-      --accent: #4338CA;
+      --accent: #3730A3;
       --accent-soft: #EEF2FF;
       --accent-text: #3730A3;
-      --border: #E8E8E5;
+      --border: #E5E7EB;
       --warn-bg: #FFFBEB;
       --warn-text: #92400E;
       --warn-border: #FDE68A;
@@ -32,10 +32,10 @@
       max-width: 800px;
       margin: 40px auto;
       background: var(--page);
-      border-radius: 10px;
+      border-radius: 4px;
       border: 1px solid var(--border);
       overflow: hidden;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
     }
     .header { padding: 44px 52px 36px; border-bottom: 1px solid var(--border); }
     .name { font-size: 2.1rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
@@ -43,26 +43,27 @@
     .body { padding: 0 52px 52px; }
     .section { padding-top: 36px; }
     .section-label {
-      font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--t3); display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+      font-size: 11px; font-weight: 800;
+      color: var(--t1);
+      border-bottom: 1.5px solid var(--t1);
+      padding-bottom: 6px;
+      margin-bottom: 16px;
+      letter-spacing: 0.01em;
     }
-    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-    .section-title { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
+    .section-title { font-size: 15px; font-weight: 800; color: var(--t1); margin-bottom: 12px; }
     .prose { font-size: 13px; color: var(--t2); line-height: 1.85; }
     .prose strong { color: var(--t1); font-weight: 600; }
     .prose p + p { margin-top: 10px; }
     /* Guide block */
     .guide {
-      background: var(--warn-bg);
-      border: 1px solid var(--warn-border);
-      border-radius: 6px;
-      padding: 14px 18px;
+      border-left: 2px solid var(--border);
+      padding: 4px 14px;
       font-size: 12px;
-      color: var(--warn-text);
+      color: var(--t3);
       line-height: 1.7;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
-    .guide strong { font-weight: 700; }
+    .guide strong { font-weight: 700; color: var(--t2); }
     /* Table */
     .table-wrap { overflow-x: auto; margin-top: 14px; }
     table { width: 100%; border-collapse: collapse; font-size: 12px; }
@@ -76,12 +77,10 @@
     td:first-child { white-space: nowrap; }
     /* Template */
     .template-block {
-      background: var(--accent-soft);
-      border: 1px solid #C7D2FE;
-      border-radius: 6px;
-      padding: 14px 18px;
-      font-size: 12.5px;
-      color: var(--accent-text);
+      border-left: 2px solid var(--border);
+      padding: 8px 14px;
+      font-size: 12px;
+      color: var(--t2);
       line-height: 1.8;
       margin-top: 14px;
       font-style: italic;
@@ -117,7 +116,7 @@ const DATA = {
       title: "직무 경험 및 핵심 역량",
       paragraphs: [
         `현재 웨어비즈에서는 멀티에이전트 RAG 챗봇 플랫폼(Argos AI Chat Search)을 <strong>초기 멤버 2인</strong> 중 한 명으로 처음부터 함께 개발하며 제품의 핵심 구조를 직접 설계하고 구현하고 있습니다. LangGraph로 Supervisor 아키텍처 기반 멀티에이전트를 구성하고, Qdrant 벡터 검색에 CrossEncoder 리랭킹을 결합한 파이프라인과 유사도 임계값 초과 시 즉시 응답하는 시나리오 에이전트를 구현했습니다.`,
-        `FastAPI·SQLAlchemy 기반 멀티테넌트 관리자 API부터 Next.js·Zustand 기반 관리자 대시보드·챗봇 위젯, NVIDIA GPU 서버 Docker 배포까지 백엔드와 프론트엔드 전 영역을 담당하며, 기획부터 배포와 인증까지 제품의 전체 생애주기를 경험했습니다. 이 제품은 <strong>GS 1등급 인증을 취득해 실제 고객사에 납품</strong>되었습니다.`,
+        `FastAPI·SQLAlchemy 기반 멀티테넌트 관리자 API부터 Next.js·Zustand 기반 관리자 대시보드·챗봇 위젯, NVIDIA GPU 서버 Docker 배포까지 백엔드와 프론트엔드 전 영역을 담당하며, 기획부터 배포와 인증까지 제품의 전체 생애주기를 경험했습니다. 이 제품은 <strong>GS 1등급 인증 취득(TTA, 2026.06)·저작권 등록(2026.03)을 완료해 실제 고객사에 납품</strong>되었습니다.`,
         `함께 운영하는 Elasticsearch 기반 엔터프라이즈 검색 엔진(ArgosSearch)에서는 자동완성·연관검색어·오타교정·동의어 처리 등 검색 핵심 기능과 다중 외부 DB 연동, Apache Tika 문서 파싱 파이프라인의 유지보수와 기능 개선을 담당하며 검색 도메인에 대한 이해를 넓혔습니다.`,
         `이전 케니컴퍼니에서는 700개 이상 사이트를 대상으로 일 3,000건 규모의 대규모 크롤링 시스템과 FCM 연동 자동 알림 서비스를 구축했고, 전자정부프레임워크 기반 공공 시스템(GBMS, 버스파인) 유지보수와 SXSSFWorkbook 기반 대용량 엑셀 다운로드 기능 개발 등을 담당하며 백엔드 기초와 대용량 데이터 처리 역량을 다졌습니다.`,
       ],
@@ -174,14 +173,15 @@ function render() {
     </div>
   `).join('');
 
+  /* ── Section 05 지원동기 ─ 나만 보는 템플릿, 지원 시마다 별도 작성 ──
   const rowsHtml = D.motivation.rows.map(r => `
     <tr>
       <td><strong>${r.type}</strong></td>
       <td>${r.point}</td>
     </tr>
   `).join('');
-
   const templateLines = D.motivation.template.split('\n').join('<br>');
+  */
 
   document.body.innerHTML = `
     <div class="page">
@@ -191,18 +191,7 @@ function render() {
       </div>
       <div class="body">
         ${sectionsHtml}
-        <div class="section">
-          <div class="section-label">${D.motivation.label}</div>
-          <div class="section-title">${D.motivation.title}</div>
-          <div class="guide">⚠ <strong>작성 필요:</strong> ${D.motivation.guide}</div>
-          <div class="table-wrap">
-            <table>
-              <thead><tr>${D.motivation.columns.map(c => `<th>${c}</th>`).join('')}</tr></thead>
-              <tbody>${rowsHtml}</tbody>
-            </table>
-          </div>
-          <div class="template-block">${templateLines}</div>
-        </div>
+        <!-- Section 05 지원동기: 지원 시마다 새로 작성 — DATA.motivation 참고 -->
       </div>
     </div>`;
 }

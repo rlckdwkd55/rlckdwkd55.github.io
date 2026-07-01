@@ -8,8 +8,8 @@ export const PROJECTS = [
     resultIcon: 'fa-check-circle',
     title: 'Argos AI Chat Search',
     category: 'AI 챗봇 플랫폼',
-    description: '· 초기 멤버 2인 멀티에이전트 RAG 챗봇 플랫폼<br>· Supervisor 아키텍처, Qdrant Dense 검색 + CrossEncoder 리랭킹 파이프라인<br>· 유사도 0.9 이상 즉시 응답 시나리오 에이전트 구현<br>· FastAPI + SQLAlchemy 멀티테넌트 관리자 API<br>· Next.js 대시보드·챗봇 위젯 (Zustand), NVIDIA GPU 서버 Docker 배포',
-    result: 'GS 1등급 인증 취득. 특허 등록 완료. 검단구 도프네트웍 납품.',
+    description: '· <strong>초기 멤버 2인</strong>으로 기획부터 배포까지 전 주기 담당 — GS 1등급 인증·저작권 등록 달성<br>· LangGraph Supervisor 멀티에이전트 + Qdrant 하이브리드 벡터 검색 + CrossEncoder 리랭킹 아키텍처 설계<br>· 시나리오 에이전트로 LLM 호출 없이 즉시 응답 — 운영 비용 절감·응답 지연 최소화<br>· FastAPI DDD 구조 멀티테넌트 REST API + Next.js 관리자 대시보드·임베더블 챗봇 위젯 풀스택 개발',
+    result: 'GS SW 1등급 인증 취득(TTA, 2026.06). 저작권 등록(2026.03). 공공기관(검단구 도프네트웍) 납품.',
     links: [
       { type: 'private' }
     ]
@@ -22,8 +22,8 @@ export const PROJECTS = [
     resultIcon: 'fa-chart-line',
     title: 'ArgosSearch',
     category: '엔터프라이즈 검색 엔진',
-    description: '· Elasticsearch 기반 엔터프라이즈 검색 엔진 유지보수·기능 개선<br>· 자동완성·연관검색어·오타교정·동의어·불용어 처리 등 검색 핵심 기능 개선<br>· Oracle·PostgreSQL·MariaDB·TIBERO 런타임 동적 외부 DB 연동 유지보수<br>· Quartz 색인 스케줄러, Apache Tika 파싱 파이프라인 운영 (PDF·Word·Excel)<br>· JWT + Spring Security 인증/인가, Prometheus 기반 모니터링 메트릭 관리',
-    result: '장애 원인 분석 및 설정 조정으로 공공기관·기업 고객사 대상 검색 엔진 안정적 운영 유지. (안전보건공단, CJ 온리원푸드넷, 고령군청 등)',
+    description: '· 안전보건공단·CJ 온리원푸드넷·고령군청 등 공공기관·기업 고객사 대상 실운영 검색 엔진 유지보수<br>· 한글 자동완성·오타교정·동의어·불용어·연관검색어 등 검색 핵심 기능 개선<br>· Quartz JDBC 색인 스케줄러 운영 + Apache Tika 문서 파싱 파이프라인 (PDF·Word·Excel)<br>· Oracle·PostgreSQL·MariaDB·TIBERO 런타임 동적 외부 DB 연동 유지보수<br>· 커넥션 풀 고갈·색인 누락 등 실운영 장애 원인 분석·해결 경험 다수',
+    result: '실운영 장애 원인 분석·해결로 공공기관·기업 고객사 대상 검색 엔진 안정적 운영 유지. (안전보건공단·CJ 온리원푸드넷·고령군청 외)',
     links: [
       { type: 'private' }
     ]
@@ -37,7 +37,7 @@ export const PROJECTS = [
     title: '캐치캣',
     category: '크롤링 & 알림 서비스',
     description: '· 700개+ 사이트 일 3,000건 이상 크롤링 시스템 구축<br>· Node.js 크론 스케줄러, FCM 연동 자동 알림 시스템 구현<br>· Spring 기반 관리자 페이지, Node.js 백엔드 연동 최적화',
-    result: '700개+ 사이트에서 일 3,000건+ 안정 운영. FCM 기반 실시간 알림 서비스 제공.',
+    result: '700개+ 사이트 대상 일 3,000건+ 크롤링·FCM 알림 시스템 개발 완료.',
     links: [
       { type: 'private' },
       { type: 'media', href: 'https://drive.google.com/file/d/1SojMqE4ybqAMY4CPfOlmJI8Bv20y2Xst/view' }
