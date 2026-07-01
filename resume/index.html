@@ -15,8 +15,6 @@
       --accent-soft: #EEF2FF;
       --accent-border: #C7D2FE;
       --border: #E5E7EB;
-      --green: #065F46;
-      --green-bg: #D1FAE5;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -73,7 +71,10 @@
       background: var(--accent-soft);
       border: 1px solid var(--accent-border);
       display: flex; align-items: center; justify-content: center;
-      font-size: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.02em;
       flex-shrink: 0;
     }
     .card-body { flex: 1; }
@@ -82,17 +83,6 @@
     .card-arrow { font-size: 16px; color: var(--t3); flex-shrink: 0; }
     .card:hover .card-arrow { color: var(--accent); }
 
-    .tip {
-      margin-top: 28px;
-      background: var(--green-bg);
-      border-radius: 8px;
-      padding: 12px 16px;
-      font-size: 11.5px;
-      color: var(--green);
-      line-height: 1.6;
-      text-align: center;
-    }
-    .tip strong { font-weight: 700; }
   </style>
 </head>
 <body>
@@ -100,41 +90,36 @@
     <div class="header">
       <a href="../portfolio/" class="back-link">← 포트폴리오로 돌아가기</a>
       <div class="name">임기창</div>
-      <div class="subtitle">취업 서류 모음 · Ctrl+P 또는 인쇄 버튼으로 PDF 저장</div>
+      <div class="subtitle">취업 서류 모음</div>
     </div>
 
     <div class="cards">
       <a href="이력서.html" class="card">
-        <div class="card-icon">📄</div>
+        <div class="card-icon">01</div>
         <div class="card-body">
           <div class="card-title">이력서</div>
-          <div class="card-desc">사진·성과 하이라이트·경력 요약 — 채용 담당자용 1장 개요</div>
+          <div class="card-desc">사진·성과 하이라이트·경력 요약 — 채용 담당자용</div>
         </div>
         <span class="card-arrow">›</span>
       </a>
 
       <a href="경력기술서.html" class="card">
-        <div class="card-icon">📋</div>
+        <div class="card-icon">02</div>
         <div class="card-body">
           <div class="card-title">경력기술서</div>
-          <div class="card-desc">프로젝트별 기술 상세·문제해결·성과 — 기술 면접관용 상세 문서</div>
+          <div class="card-desc">프로젝트별 기술 상세·문제해결·성과 — 기술 면접관용</div>
         </div>
         <span class="card-arrow">›</span>
       </a>
 
       <a href="자기소개서.html" class="card">
-        <div class="card-icon">✍️</div>
+        <div class="card-icon">03</div>
         <div class="card-body">
           <div class="card-title">자기소개서</div>
-          <div class="card-desc">성장과정·직무경험·지원동기 — 회사 유형별 커스터마이징 가이드 포함</div>
+          <div class="card-desc">성장과정·직무경험·지원동기</div>
         </div>
         <span class="card-arrow">›</span>
       </a>
-    </div>
-
-    <div class="tip">
-      <strong>PDF 저장 방법</strong> &nbsp;—&nbsp; 각 문서 열기 후 <strong>Ctrl + P</strong> (또는 Cmd + P) →
-      대상: <strong>PDF로 저장</strong> → 배경 그래픽 체크 후 인쇄
     </div>
   </div>
 </body>

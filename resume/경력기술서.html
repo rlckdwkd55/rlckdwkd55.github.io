@@ -155,12 +155,12 @@ const DATA = {
   },
   summary: `멀티에이전트 RAG 아키텍처(LangGraph·Qdrant)와 Elasticsearch 엔터프라이즈 검색 엔진을 직접 구현·운영한 <strong>3년차 풀스택 개발자</strong>입니다. GS SW 1등급 인증 제품을 초기 2인으로 기획부터 납품까지 주도하며, 확장성·운영 효율성·유지보수성을 동시에 고려하는 설계를 실무에서 검증했습니다.`,
   skills: [
-    { cat: "언어",           items: ["Java 17", "Python 3.12", "JavaScript ES2023", "TypeScript 5"] },
-    { cat: "백엔드",         items: ["Spring Boot 3.x", "Spring Security", "JPA", "MyBatis", "FastAPI", "SQLAlchemy 2.0", "Node.js"] },
-    { cat: "프론트엔드",     items: ["Next.js 16", "React 19", "Zustand", "styled-components"] },
-    { cat: "AI · 검색",      items: ["RAG", "LangChain", "LangGraph", "Qdrant", "Elasticsearch 8", "vLLM", "OpenAI API", "Docling"] },
-    { cat: "데이터베이스",   items: ["PostgreSQL", "Oracle", "Tibero", "MariaDB", "MSSQL", "CUBRID", "Redis"] },
-    { cat: "인프라 · 도구",  items: ["Docker", "GitHub Actions", "AWS EC2", "Gradle", "Maven", "Quartz", "Prometheus"] },
+    { cat: "언어",           items: ["Java", "Python", "JavaScript", "TypeScript"] },
+    { cat: "백엔드",         items: ["Spring Boot", "Spring Security", "JPA", "MyBatis", "FastAPI", "SQLAlchemy", "Node.js"] },
+    { cat: "프론트엔드",     items: ["Next.js", "React", "Zustand", "styled-components"] },
+    { cat: "AI · 검색",      items: ["RAG", "LangChain", "LangGraph", "Qdrant", "Elasticsearch", "vLLM"] },
+    { cat: "데이터베이스",   items: ["PostgreSQL", "Oracle", "MariaDB", "Redis"] },
+    { cat: "인프라 · 도구",  items: ["Docker", "Docker Compose", "GitHub Actions", "Gradle", "Maven", "Git", "GitHub"] },
   ],
   companies: [
     {
@@ -173,7 +173,7 @@ const DATA = {
           title: "Argos AI Chat Search — 멀티에이전트 RAG 챗봇 플랫폼",
           period: "2025.09 ~ 재직 중",
           role: "초기 멤버 2인 · 핵심 아키텍처 설계 및 풀스택 개발 전담",
-          tech: "Python 3.12 · FastAPI · SQLAlchemy 2.0 · Qdrant · LangChain · LangGraph · Docling · Next.js 16 · React 19 · Zustand · Docker · NVIDIA GPU 서버",
+          tech: "Python 3.12 · FastAPI · SQLAlchemy 2.0 · Qdrant · LangChain · LangGraph · Docling · Next.js 16 · React 19 · Zustand · Docker · Docker Compose · NVIDIA GPU 서버",
           summary: "기업·공공기관 고객을 위한 멀티에이전트 RAG 챗봇 플랫폼을 처음부터 함께 설계하고 배포까지 완수했습니다. 초기 2인 팀으로 제품의 핵심 구조를 직접 설계하고, 백엔드·프론트엔드·인프라 전 영역을 담당했습니다.",
           tasks: [
             "<strong>LangGraph StateGraph 기반 Supervisor 패턴</strong> 멀티에이전트 오케스트레이션 구현 — 에이전트별 StructuredTool 래핑, JSON 라우팅으로 확장 가능한 에이전트 추가 구조 설계",
@@ -208,7 +208,7 @@ const DATA = {
           title: "ArgosSearch — 엔터프라이즈 검색 엔진",
           period: "2025.09 ~ 재직 중",
           role: "유지보수 및 기능 개선",
-          tech: "Java 17 · Spring Boot 3.3 · Elasticsearch 8 · Quartz JDBC · Redis · Apache Tika · Spring Security · Prometheus",
+          tech: "Java 17 · Spring Boot 3.3 · Elasticsearch 8 · Quartz JDBC · Redis · Apache Tika · Spring Security · Docker · Docker Compose",
           summary: "안전보건공단·CJ 온리원푸드넷·고령군청 등 공공기관·기업 고객사를 대상으로 운영 중인 Elasticsearch 기반 엔터프라이즈 검색 엔진의 유지보수와 기능 개선을 담당하며, 실운영 환경에서 발생하는 장애를 직접 분석하고 해결했습니다.",
           tasks: [
             "한글 자동완성·연관검색어·오타교정·동의어·불용어 처리 등 검색 핵심 기능 개선 — whitespace_analyzer 기반 한글 단일음절 검색 최적화 포함",
@@ -309,7 +309,9 @@ const DATA = {
     { name: "충남디자인예술고등학교", detail: "패션디자인학과 졸업",                                   period: "2013.03 ~ 2016.02" },
   ],
   certifications: [
-    { name: "SQL 개발자 (SQLD)", detail: "한국데이터산업진흥원", period: "2024.04" },
+    { name: "리눅스마스터 2급",    detail: "한국정보통신자격협회",              period: "2026.07.03" },
+    { name: "네트워크 관리사 2급", detail: "한국정보통신자격협회",              period: "2026.06.30" },
+    { name: "SQL 개발자 (SQLD)",   detail: "한국데이터산업진흥원",              period: "2024.04.05" },
   ],
 };
 /* ================================================================
@@ -407,7 +409,7 @@ function render() {
       </div>
       <div class="body">
         <div class="section">
-          <div class="section-label">보유 기술 (상세)</div>
+          <div class="section-label">기술 스택</div>
           <div class="tech-grid">${skillsHtml}</div>
         </div>
         ${companiesHtml}

@@ -3,26 +3,26 @@ export const SKILLS = [
   {
     icon: 'fa-code',
     iconColor: '#a855f7',
-    title: '프로그래밍 언어',
-    items: ['Java', 'Python', 'JavaScript', 'TypeScript', 'SQL'],
-  },
-  {
-    icon: 'fa-palette',
-    iconColor: '#e879f9',
-    title: '프론트엔드',
-    items: ['Next.js', 'React', 'Zustand', 'Styled-Components', 'Tailwind CSS', 'HTML/CSS'],
+    title: '언어',
+    items: ['Java', 'Python', 'JavaScript', 'TypeScript'],
   },
   {
     icon: 'fa-server',
     iconColor: '#22d3ee',
     title: '백엔드',
-    items: ['Spring Boot', 'Spring Security', 'MyBatis', 'JPA', 'FastAPI', 'SQLAlchemy', 'Node.js'],
+    items: ['Spring Boot', 'Spring Security', 'JPA', 'MyBatis', 'FastAPI', 'SQLAlchemy', 'Node.js'],
+  },
+  {
+    icon: 'fa-palette',
+    iconColor: '#e879f9',
+    title: '프론트엔드',
+    items: ['Next.js', 'React', 'Zustand', 'styled-components'],
   },
   {
     icon: 'fa-robot',
     iconColor: '#f472b6',
     title: 'AI · 검색',
-    items: ['LangChain', 'LangGraph', 'Qdrant', 'Elasticsearch', 'RAG'],
+    items: ['RAG', 'LangChain', 'LangGraph', 'Qdrant', 'Elasticsearch', 'vLLM'],
   },
   {
     icon: 'fa-database',
@@ -33,7 +33,7 @@ export const SKILLS = [
   {
     icon: 'fa-wrench',
     iconColor: '#f59e0b',
-    title: '도구 & DevOps',
-    items: ['Docker', 'AWS EC2', 'GitHub Actions', 'Gradle', 'Maven', 'Git'],
+    title: '인프라 · 도구',
+    items: ['Docker', 'Docker Compose', 'GitHub Actions', 'Gradle', 'Maven', 'Git', 'GitHub'],
   },
 ];

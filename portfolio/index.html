@@ -52,26 +52,26 @@
     <!-- Navigation -->
     <nav aria-label="Main navigation">
         <div class="max-w-7xl mx-auto px-8 py-4 flex justify-between items-center">
-            <ul id="navMenu" class="hidden md:flex list-none gap-8">
-                <li><a href="#home"     class="nav-link">소개</a></li>
-                <li><a href="#skills"   class="nav-link">기술</a></li>
-                <li><a href="#projects" class="nav-link">프로젝트</a></li>
-                <li><a href="#contact"  class="nav-link">연락처</a></li>
-            </ul>
-
-            <div class="flex items-center gap-3">
-                <button id="themeToggle" aria-label="Toggle dark mode"
-                    class="relative w-8 h-8 flex items-center justify-center bg-transparent border-none cursor-pointer rounded-lg text-base transition-all">
-                    <i class="fas fa-sun text-amber-400 absolute transition-all duration-300 dark:rotate-90 dark:opacity-0"></i>
-                    <i class="fas fa-moon absolute transition-all duration-300 rotate-90 opacity-0 dark:rotate-0 dark:opacity-100" style="color:var(--violet-light)"></i>
-                </button>
-<button id="hamburger" aria-label="Toggle menu" aria-expanded="false"
+            <div class="flex items-center">
+                <button id="hamburger" aria-label="Toggle menu" aria-expanded="false"
                     class="flex flex-col cursor-pointer md:hidden gap-[5px] bg-transparent border-none p-1.5">
                     <span class="w-5 h-[2px] transition-all" style="background:var(--text-secondary)"></span>
                     <span class="w-5 h-[2px] transition-all" style="background:var(--text-secondary)"></span>
                     <span class="w-5 h-[2px] transition-all" style="background:var(--text-secondary)"></span>
                 </button>
+                <ul id="navMenu" class="hidden md:flex list-none gap-8">
+                    <li><a href="#home"     class="nav-link">소개</a></li>
+                    <li><a href="#skills"   class="nav-link">기술</a></li>
+                    <li><a href="#projects" class="nav-link">프로젝트</a></li>
+                    <li><a href="#contact"  class="nav-link">연락처</a></li>
+                </ul>
             </div>
+
+            <button id="themeToggle" aria-label="Toggle dark mode"
+                class="relative w-8 h-8 flex items-center justify-center bg-transparent border-none cursor-pointer rounded-lg text-base transition-all">
+                <i class="fas fa-sun text-amber-400 absolute transition-all duration-300 dark:rotate-90 dark:opacity-0"></i>
+                <i class="fas fa-moon absolute transition-all duration-300 rotate-90 opacity-0 dark:rotate-0 dark:opacity-100" style="color:var(--violet-light)"></i>
+            </button>
         </div>
     </nav>
 
@@ -95,9 +95,9 @@
                             <img src="./assets/profile.jpg" alt="임기창 프로필 사진" class="about-photo"
                                  onerror="this.parentElement.style.display='none'">
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 text-gradient">3년차 풀스택 개발자</h3>
+                        <h3 class="text-2xl font-bold mb-4 text-gradient">Full-Stack Developer</h3>
                         <p class="text-base leading-relaxed mb-4" style="color:var(--text-secondary)">
-                            초기 2인 팀으로 GS 1등급 인증 AI 챗봇 플랫폼을 기획부터 납품까지 완수한 3년차 풀스택 개발자입니다.
+                            초기 2인 팀으로 GS 1등급 인증 AI 챗봇 플랫폼을 기획부터 납품까지 완수한 풀스택 개발자입니다.
                         </p>
                         <p class="text-base leading-relaxed" style="color:var(--text-secondary)">
                             공공 SI 백엔드에서 출발해 엔터프라이즈 검색 엔진과 멀티에이전트 AI 챗봇까지 직접 구현하고 운영해 왔습니다. 확장성과 유지보수성을 기능 구현만큼 중요하게 생각합니다.
