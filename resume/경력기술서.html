@@ -170,7 +170,7 @@ const DATA = {
     github: { label: "github.com/rlckdwkd55", url: "https://github.com/rlckdwkd55" },
     portfolio: { label: "rlckdwkd55.github.io/portfolio", url: "https://rlckdwkd55.github.io/portfolio" },
   },
-  summary: `멀티에이전트 RAG 챗봇 플랫폼(LangGraph·Qdrant)을 구현하고, Elasticsearch 기반 엔터프라이즈 검색 엔진을 운영해 온 <strong>3년차 풀스택 개발자</strong>입니다. GS SW 1등급 인증 제품을 기획부터 납품까지 함께 만들며, 확장성·운영 효율성·유지보수성을 동시에 고려하는 설계를 실무에서 검증했습니다.`,
+  summary: `LangGraph·Qdrant 기반 멀티에이전트 RAG 챗봇 플랫폼 개발에 참여하고, Elasticsearch 기반 엔터프라이즈 검색 엔진을 운영해 온 <strong>3년차 풀스택 개발자</strong>입니다. GS SW 1등급 인증 제품을 기획부터 납품까지 함께 만들며, 확장성·운영 효율성·유지보수성을 동시에 고려하는 설계를 실무에서 검증했습니다.`,
   overview: [
     { title: "Argos AI Chat Search", period: "2026.01 ~", contribution: "40%", tech: "LangGraph · Qdrant · FastAPI · Next.js", outcome: "GS SW 1등급 인증, 저작권 등록" },
     { title: "ArgosSearch", period: "2025.09 ~", contribution: "20%", tech: "Spring Boot · Elasticsearch · Quartz", outcome: "실운영 장애 원인 분석·해결" },
@@ -195,13 +195,13 @@ const DATA = {
         {
           title: "Argos AI Chat Search — 멀티에이전트 RAG 챗봇 플랫폼",
           period: "2026.01 ~",
-          role: "핵심 아키텍처 설계 및 풀스택 개발 전담 (기여도 40%)",
+          role: "백엔드 도메인 API·관리자 대시보드·운영 자동화 개발 담당, AI 파이프라인 적용·연동 (기여도 40%)",
           tech: "Python 3.12 · FastAPI · SQLAlchemy 2.0 · Qdrant · LangChain · LangGraph · Next.js 16 · React 19 · Zustand · Docker · Docker Compose · NVIDIA GPU 서버",
-          summary: "기업·공공기관 고객을 위한 멀티에이전트 RAG 챗봇 플랫폼을 함께 설계하고 배포까지 완수했습니다. 제품의 핵심 구조 설계에 참여하고, 백엔드·프론트엔드·인프라 전 영역을 담당했습니다.",
+          summary: "기업·공공기관 고객을 위한 멀티에이전트 RAG 챗봇 플랫폼 개발에 참여했습니다. 백엔드 도메인 API·관리자 대시보드·인프라 배포를 담당하고, LangGraph·Qdrant 기반 AI 파이프라인을 적용했습니다.",
           tasks: [
-            "<strong>LangGraph StateGraph 기반 Supervisor 패턴</strong> 멀티에이전트 오케스트레이션 구현 — 에이전트별 StructuredTool 래핑, JSON 라우팅으로 확장 가능한 에이전트 추가 구조 설계",
-            "<strong>BAAI/bge-m3 Dense + BM25 Sparse 하이브리드 벡터 검색</strong> 파이프라인 구축 (Qdrant gRPC, top-k=10) → Cross-Encoder 재정렬 top-n=5 — 정확도와 속도 동시 확보",
-            "<strong>시나리오 에이전트</strong> 구현 — 유사도 임계값 초과 시 LLM 호출 없이 즉시 응답, 운영 비용 절감 및 응답 지연 최소화",
+            "<strong>LangGraph Supervisor 패턴</strong> 기반 멀티에이전트 오케스트레이션 적용 — 확장 가능한 에이전트 추가 구조 반영",
+            "<strong>Qdrant 하이브리드 벡터 검색</strong>과 <strong>CrossEncoder 리랭킹</strong>을 적용해 검색 정확도 향상",
+            "<strong>시나리오 에이전트</strong> 적용 — 유사도 임계값 초과 시 LLM 호출 없이 즉시 응답, 운영 비용 절감 및 응답 지연 최소화",
             "회원·문서·스케줄러·외부 DB 연동·설정 등 <strong>도메인별 REST API</strong> 개발 (FastAPI + SQLAlchemy 2.0 비동기 ORM, SSE 스트리밍 응답)",
             "Next.js 16 + Zustand + styled-components 기반 <strong>관리자 대시보드</strong> 개발 (Atomic Design 컴포넌트 구조) 및 설치 자동화 스크립트 작성",
             "asyncssh + Docker 기반 원격 GPU 서버 vLLM 자동 관리 — nvidia-smi VRAM 기반 모델 스케줄링, 다중 모델 동적 포트 할당",
@@ -213,15 +213,15 @@ const DATA = {
           problems: [
             {
               label: "할루시네이션",
-              desc: "LLM이 컨텍스트 외 내용을 생성하는 문제 → Document Grading으로 검색 결과 관련성 1차 필터링, Terminology Validation으로 답변 내 핵심 용어 존재 여부 2차 검증하는 2단계 관련성 검증 파이프라인 설계·적용",
+              desc: "LLM이 컨텍스트 외 내용을 생성하는 문제 → Document Grading으로 검색 결과 관련성 1차 필터링, Terminology Validation으로 답변 내 핵심 용어 존재 여부 2차 검증하는 2단계 관련성 검증 파이프라인 적용",
             },
             {
               label: "토큰 폭주",
-              desc: "대화가 길어질수록 컨텍스트 토큰이 누적되어 비용 급증·응답 지연 발생 → 일정 대화 수 초과 시 요약 프롬프트로 이전 대화를 압축하고 LangGraph MemorySaver로 세션별 컨텍스트 관리 — 맥락 유지와 토큰 절감 동시 달성",
+              desc: "대화가 길어질수록 컨텍스트 토큰이 누적되어 비용 급증·응답 지연 발생 → 일정 대화 수 초과 시 요약 프롬프트로 이전 대화를 압축하고 세션별 컨텍스트를 관리 — 맥락 유지와 토큰 절감 동시 달성",
             },
             {
               label: "쿼리 오염",
-              desc: "Query Rewrite 이후 원본 질의 의도가 변형되어 용어 검증이 오작동하는 문제 → AgentState에 original_user_question을 별도 보존, Rewrite 이후에도 원본으로 용어 검증을 재수행하는 구조로 해결",
+              desc: "질의 재작성(Query Rewrite) 이후 원본 질의 의도가 변형되어 용어 검증이 오작동하는 문제 → 원본 질문을 별도 보존해 재작성 이후에도 원본 기준으로 용어 검증을 재수행하도록 구조 개선",
             },
           ],
           outcome: "한국정보통신기술협회(TTA) GS SW 1등급 인증 취득(2026.06.08) 및 저작권 등록(2026.03) 완료. 공공기관 납품까지 이어지며 기획·설계·개발·인증·납품 전 생애주기를 경험했습니다.",

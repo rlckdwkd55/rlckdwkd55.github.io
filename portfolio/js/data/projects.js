@@ -7,7 +7,7 @@ export const PROJECTS = [
     resultIcon: 'fa-check-circle',
     title: 'Argos AI Chat Search',
     category: 'AI 챗봇 플랫폼',
-    description: '· 기획부터 배포까지 전 주기 참여, 핵심 아키텍처 설계 담당<br>· LangGraph Supervisor 멀티에이전트 + Qdrant 하이브리드 벡터 검색 + CrossEncoder 리랭킹 구현<br>· 시나리오 에이전트로 LLM 호출 없이 즉시 응답 — 운영 비용 절감·응답 지연 최소화<br>· 회원·문서·스케줄러 등 도메인별 API 개발 + Next.js 관리자 대시보드 풀스택 개발',
+    description: '· 기획부터 배포까지 전 주기 참여, 백엔드·통합 개발 담당<br>· LangGraph Supervisor 멀티에이전트, Qdrant 하이브리드 벡터 검색, CrossEncoder 리랭킹 적용<br>· 시나리오 에이전트로 LLM 호출 없이 즉시 응답 — 운영 비용 절감·응답 지연 최소화<br>· 회원·문서·스케줄러 등 도메인별 API 개발 + Next.js 관리자 대시보드 풀스택 개발',
     result: 'GS SW 1등급 인증 취득(TTA, 2026.06). 저작권 등록(2026.03). 공공기관 납품.',
     links: [
       { type: 'private' }
