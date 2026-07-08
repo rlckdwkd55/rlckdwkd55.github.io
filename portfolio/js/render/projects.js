@@ -13,14 +13,14 @@ function renderCard(project) {
         <div class="project-card-header-icon">
           <i class="fas ${project.icon}"></i>
         </div>
+        <h3 class="project-card-title">${project.title}</h3>
       </div>
       <div class="project-card-body">
-        <div class="flex justify-between items-start mb-1">
-          <h3 class="font-bold text-base flex-1" style="color:var(--text-primary)">${project.title}</h3>
-          ${renderOwnerBadge(project)}
+        <div class="flex justify-between items-center mb-1">
+          <p class="text-xs font-semibold flex-1" style="color:var(--text-primary)">${project.category}</p>
+          ${renderPeriodBadge(project)}
         </div>
-        <p class="text-xs italic mb-4" style="color:var(--text-muted)">${project.category}</p>
-        <p class="text-sm leading-relaxed mb-4 flex-grow" style="color:var(--text-secondary)">${project.description}</p>
+        <p class="text-sm leading-relaxed mb-4 mt-3 flex-grow" style="color:var(--text-secondary)">${project.description}</p>
         <div class="flex flex-wrap gap-1.5 mb-4">
           ${project.tech.map(t => `<span class="tech-badge">${t}</span>`).join('')}
         </div>
@@ -42,11 +42,8 @@ function renderCard(project) {
   `;
 }
 
-function renderOwnerBadge(project) {
-  if (project.ownerType === 'personal') {
-    return `<span class="owner-badge owner-badge--personal ml-2">개인</span>`;
-  }
-  return `<span class="owner-badge owner-badge--company ml-2">${project.ownerLabel}</span>`;
+function renderPeriodBadge(project) {
+  return `<span class="period-badge ml-2">${project.period}</span>`;
 }
 
 function renderLink(link) {

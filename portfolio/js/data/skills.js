@@ -3,37 +3,37 @@ export const SKILLS = [
   {
     icon: 'fa-code',
     iconColor: '#a855f7',
-    title: '언어',
+    title: 'Language',
     items: ['Java', 'Python', 'JavaScript', 'TypeScript'],
   },
   {
     icon: 'fa-server',
     iconColor: '#22d3ee',
-    title: '백엔드',
+    title: 'Backend',
     items: ['Spring Boot', 'Spring Security', 'JPA', 'MyBatis', 'FastAPI', 'SQLAlchemy', 'Node.js'],
   },
   {
     icon: 'fa-palette',
     iconColor: '#e879f9',
-    title: '프론트엔드',
+    title: 'Frontend',
     items: ['Next.js', 'React', 'Zustand', 'styled-components'],
   },
   {
     icon: 'fa-robot',
     iconColor: '#f472b6',
-    title: 'AI · 검색',
+    title: 'AI & Search',
     items: ['RAG', 'LangChain', 'LangGraph', 'Qdrant', 'Elasticsearch', 'vLLM'],
   },
   {
     icon: 'fa-database',
     iconColor: '#34d399',
-    title: '데이터베이스',
+    title: 'Database',
     items: ['PostgreSQL', 'Oracle', 'MariaDB', 'Redis'],
   },
   {
     icon: 'fa-wrench',
     iconColor: '#f59e0b',
-    title: '인프라 · 도구',
+    title: 'Infra & Tools',
     items: ['Docker', 'Docker Compose', 'GitHub Actions', 'Gradle', 'Maven', 'Git', 'GitHub'],
   },
 ];

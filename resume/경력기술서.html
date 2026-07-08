@@ -109,11 +109,28 @@
     .bullets li::before { content:'–'; position: absolute; left: 0; color: var(--t3); }
     .bullets li strong { color: var(--t1); font-weight: 600; }
 
+    /* ── OVERVIEW TABLE ── */
+    .overview-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .overview-table th {
+      text-align: left; font-size: 10.5px; font-weight: 700; color: var(--t3);
+      letter-spacing: 0.02em; padding: 0 10px 8px; border-bottom: 1.5px solid var(--t1);
+    }
+    .overview-table td { padding: 9px 10px; border-bottom: 1px solid var(--divider); color: var(--t2); vertical-align: top; }
+    .overview-table tr:last-child td { border-bottom: none; }
+    .overview-table .ov-title { font-weight: 700; color: var(--t1); white-space: nowrap; }
+    .overview-table .ov-period, .overview-table .ov-contribution { white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .overview-table .ov-contribution { color: var(--accent-text); font-weight: 600; }
+
     /* ── PROBLEM-SOLVE ── */
-    .ps-list { display: flex; flex-direction: column; gap: 9px; margin-bottom: 14px; }
-    .ps-item { display: grid; grid-template-columns: 96px 1fr; gap: 0 12px; font-size: 12px; }
-    .ps-label { font-weight: 700; color: var(--t1); line-height: 1.6; }
-    .ps-desc { color: var(--t2); line-height: 1.65; }
+    .ps-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 14px; }
+    .ps-table th {
+      text-align: left; font-size: 10.5px; font-weight: 700; color: var(--t3);
+      letter-spacing: 0.02em; padding: 0 12px 6px 0; border-bottom: 1px solid var(--border);
+    }
+    .ps-table td { padding: 8px 12px 8px 0; border-bottom: 1px solid var(--divider); vertical-align: top; }
+    .ps-table tr:last-child td { border-bottom: none; }
+    .ps-table .ps-label { width: 96px; font-weight: 700; color: var(--t1); line-height: 1.6; white-space: nowrap; }
+    .ps-table .ps-desc { color: var(--t2); line-height: 1.65; }
 
     /* ── OUTCOME ── */
     .outcome {
@@ -153,7 +170,13 @@ const DATA = {
     github: { label: "github.com/rlckdwkd55", url: "https://github.com/rlckdwkd55" },
     portfolio: { label: "rlckdwkd55.github.io/portfolio", url: "https://rlckdwkd55.github.io/portfolio" },
   },
-  summary: `멀티에이전트 RAG 아키텍처(LangGraph·Qdrant)와 Elasticsearch 엔터프라이즈 검색 엔진을 직접 구현·운영한 <strong>3년차 풀스택 개발자</strong>입니다. GS SW 1등급 인증 제품을 초기 2인으로 기획부터 납품까지 주도하며, 확장성·운영 효율성·유지보수성을 동시에 고려하는 설계를 실무에서 검증했습니다.`,
+  summary: `멀티에이전트 RAG 챗봇 플랫폼(LangGraph·Qdrant)을 구현하고, Elasticsearch 기반 엔터프라이즈 검색 엔진을 운영해 온 <strong>3년차 풀스택 개발자</strong>입니다. GS SW 1등급 인증 제품을 기획부터 납품까지 함께 만들며, 확장성·운영 효율성·유지보수성을 동시에 고려하는 설계를 실무에서 검증했습니다.`,
+  overview: [
+    { title: "Argos AI Chat Search", period: "2026.01 ~", contribution: "40%", tech: "LangGraph · Qdrant · FastAPI · Next.js", outcome: "GS SW 1등급 인증, 저작권 등록" },
+    { title: "ArgosSearch", period: "2025.09 ~", contribution: "20%", tech: "Spring Boot · Elasticsearch · Quartz", outcome: "실운영 장애 원인 분석·해결" },
+    { title: "캐치캣", period: "2024.11 ~ 2025.04", contribution: "60%", tech: "Node.js · Spring Boot · FCM", outcome: "700+ 사이트 크롤링 시스템 구축" },
+    { title: "GBMS · 버스파인", period: "2024.02 ~ 2024.10", contribution: "15%", tech: "Spring Boot · Oracle · JSP", outcome: "경기도 공공기관 납품 운영" },
+  ],
   skills: [
     { cat: "언어",           items: ["Java", "Python", "JavaScript", "TypeScript"] },
     { cat: "백엔드",         items: ["Spring Boot", "Spring Security", "JPA", "MyBatis", "FastAPI", "SQLAlchemy", "Node.js"] },
@@ -165,23 +188,22 @@ const DATA = {
   companies: [
     {
       name: "(주)웨어비즈",
-      sub: "개발사업팀 대리 · 정규직",
-      period: "2025.09 ~ 재직 중",
+      sub: "개발사업팀 대리",
+      period: "2025.09 ~",
       badge: "GS SW 1등급 인증 (TTA, 2026.06) · 저작권 등록 (2026.03) · 공공기관 납품",
       projects: [
         {
           title: "Argos AI Chat Search — 멀티에이전트 RAG 챗봇 플랫폼",
-          period: "2025.09 ~ 재직 중",
-          role: "초기 멤버 2인 · 핵심 아키텍처 설계 및 풀스택 개발 전담",
-          tech: "Python 3.12 · FastAPI · SQLAlchemy 2.0 · Qdrant · LangChain · LangGraph · Docling · Next.js 16 · React 19 · Zustand · Docker · Docker Compose · NVIDIA GPU 서버",
-          summary: "기업·공공기관 고객을 위한 멀티에이전트 RAG 챗봇 플랫폼을 처음부터 함께 설계하고 배포까지 완수했습니다. 초기 2인 팀으로 제품의 핵심 구조를 직접 설계하고, 백엔드·프론트엔드·인프라 전 영역을 담당했습니다.",
+          period: "2026.01 ~",
+          role: "핵심 아키텍처 설계 및 풀스택 개발 전담 (기여도 40%)",
+          tech: "Python 3.12 · FastAPI · SQLAlchemy 2.0 · Qdrant · LangChain · LangGraph · Next.js 16 · React 19 · Zustand · Docker · Docker Compose · NVIDIA GPU 서버",
+          summary: "기업·공공기관 고객을 위한 멀티에이전트 RAG 챗봇 플랫폼을 함께 설계하고 배포까지 완수했습니다. 제품의 핵심 구조 설계에 참여하고, 백엔드·프론트엔드·인프라 전 영역을 담당했습니다.",
           tasks: [
             "<strong>LangGraph StateGraph 기반 Supervisor 패턴</strong> 멀티에이전트 오케스트레이션 구현 — 에이전트별 StructuredTool 래핑, JSON 라우팅으로 확장 가능한 에이전트 추가 구조 설계",
             "<strong>BAAI/bge-m3 Dense + BM25 Sparse 하이브리드 벡터 검색</strong> 파이프라인 구축 (Qdrant gRPC, top-k=10) → Cross-Encoder 재정렬 top-n=5 — 정확도와 속도 동시 확보",
             "<strong>시나리오 에이전트</strong> 구현 — 유사도 임계값 초과 시 LLM 호출 없이 즉시 응답, 운영 비용 절감 및 응답 지연 최소화",
-            "Docling 기반 다중 포맷 문서 파싱 구현 (PDF·DOCX·XLSX·PPT·이미지) — ThreadPoolExecutor CPU 오프로딩으로 API 블로킹 방지",
-            "FastAPI + SQLAlchemy 2.0 비동기 ORM 기반 <strong>DDD 구조 REST API</strong> 개발 (14개 도메인, SSE 스트리밍 응답, 멀티테넌트 격리)",
-            "Next.js 16 + Zustand + styled-components 기반 관리자 대시보드 및 <strong>임베더블 챗봇 위젯</strong> 개발 (Atomic Design 컴포넌트 구조)",
+            "회원·문서·스케줄러·외부 DB 연동·설정 등 <strong>도메인별 REST API</strong> 개발 (FastAPI + SQLAlchemy 2.0 비동기 ORM, SSE 스트리밍 응답)",
+            "Next.js 16 + Zustand + styled-components 기반 <strong>관리자 대시보드</strong> 개발 (Atomic Design 컴포넌트 구조) 및 설치 자동화 스크립트 작성",
             "asyncssh + Docker 기반 원격 GPU 서버 vLLM 자동 관리 — nvidia-smi VRAM 기반 모델 스케줄링, 다중 모델 동적 포트 할당",
             "vLLM(온프레미스) · OpenAI API · Naver Clova <strong>멀티 LLM Factory 패턴</strong> 구현 — 고객사별 LLM 선택 요구에 코드 변경 없이 대응",
             "외부 DB(MySQL·PostgreSQL·Oracle·MSSQL·CUBRID) 연동 및 <strong>자동 벡터 인덱싱 스케줄러</strong> 개발 — 데이터 갱신 시 색인을 자동으로 최신화",
@@ -202,21 +224,20 @@ const DATA = {
               desc: "Query Rewrite 이후 원본 질의 의도가 변형되어 용어 검증이 오작동하는 문제 → AgentState에 original_user_question을 별도 보존, Rewrite 이후에도 원본으로 용어 검증을 재수행하는 구조로 해결",
             },
           ],
-          outcome: "한국정보통신기술협회(TTA) GS SW 1등급 인증 취득(2026.06.08) · 저작권 등록(2026.03) 완료. 공공기관(검단구 도프네트웍) 납품. 기획→설계→개발→인증→납품까지 제품 전 생애주기 경험.",
+          outcome: "한국정보통신기술협회(TTA) GS SW 1등급 인증 취득(2026.06.08) 및 저작권 등록(2026.03) 완료. 공공기관 납품까지 이어지며 기획·설계·개발·인증·납품 전 생애주기를 경험했습니다.",
         },
         {
           title: "ArgosSearch — 엔터프라이즈 검색 엔진",
-          period: "2025.09 ~ 재직 중",
-          role: "유지보수 및 기능 개선",
-          tech: "Java 17 · Spring Boot 3.3 · Elasticsearch 8 · Quartz JDBC · Redis · Apache Tika · Spring Security · Docker · Docker Compose",
-          summary: "안전보건공단·CJ 온리원푸드넷·고령군청 등 공공기관·기업 고객사를 대상으로 운영 중인 Elasticsearch 기반 엔터프라이즈 검색 엔진의 유지보수와 기능 개선을 담당하며, 실운영 환경에서 발생하는 장애를 직접 분석하고 해결했습니다.",
+          period: "2025.09 ~",
+          role: "운영 및 장애 대응 (기여도 20%)",
+          tech: "Java 17 · Spring Boot 3.3 · Elasticsearch 8 · Quartz JDBC · Redis · Spring Security · Docker · Docker Compose",
+          summary: "안전보건공단·CJ 온리원푸드넷·고령군청 등 공공기관·기업 고객사를 대상으로 제공 중인 Elasticsearch 기반 엔터프라이즈 검색 엔진의 운영·유지보수를 담당하며, 실운영 환경에서 발생하는 장애를 직접 분석하고 해결했습니다.",
           tasks: [
-            "한글 자동완성·연관검색어·오타교정·동의어·불용어 처리 등 검색 핵심 기능 개선 — whitespace_analyzer 기반 한글 단일음절 검색 최적화 포함",
-            "복합 쿼리 유지보수 — AND/OR/NOT 조합, GeoDistance 지역 검색, Nested 쿼리, 7종 Aggregation 집계 처리",
-            "Quartz JDBC 기반 색인 스케줄러 운영·개선 — @DisallowConcurrentExecution 동시성 제어, 런타임 동적 스케줄 변경 지원",
-            "Apache Tika 기반 문서 파싱 파이프라인 운영 (PDF·Word·Excel) 및 파싱 오류 예외처리 보강",
+            "Quartz JDBC 기반 <strong>색인 스케줄러</strong> 동시성 버그 수정 — @DisallowConcurrentExecution 제어 및 `updateLastRunTime` 파라미터화로 증분색인 중복 실행 방지",
+            "Elasticsearch <strong>analyzer·동의어(synonym_graph)</strong> 설정 유지보수 — 고객사 요구에 따른 검색 설정 조정 및 재배포",
+            "<strong>HikariCP 커넥션 풀 튜닝</strong>(최대 크기·leak-detection-threshold 조정)으로 실운영 장애 대응",
             "Oracle·PostgreSQL·MariaDB·TIBERO 런타임 동적 외부 DB 연동 유지보수 및 색인 안정성 개선",
-            "JWT + Spring Security 인증/인가 체계 유지보수 및 Spring Boot Actuator + Prometheus 기반 모니터링 메트릭 관리",
+            "JWT + Spring Security 기반 인증/인가 체계 유지보수",
           ],
           problems: [
             {
@@ -234,14 +255,14 @@ const DATA = {
     },
     {
       name: "(주)케니컴퍼니",
-      sub: "개발부 사원 · 정규직 · 스타트업 (개발팀 6인)",
+      sub: "개발부 사원",
       period: "2023.12 ~ 2025.04 (1년 5개월)",
       badge: "경기도 공공기관 시스템 납품 운영 중 (GBMS · 버스파인)",
       projects: [
         {
           title: "캐치캣 — 크롤링 & 알림 서비스",
           period: "2024.11 ~ 2025.04",
-          role: "백엔드 개발 및 크롤링 시스템 구축",
+          role: "백엔드 개발 및 크롤링 시스템 구축 (기여도 60%)",
           tech: "Java · Spring Boot · Node.js · MyBatis · PostgreSQL · FCM",
           summary: "700개 이상 사이트에서 정보를 수집해 사용자에게 실시간으로 알림을 전달하는 크롤링·알림 서비스를 구축했습니다.",
           tasks: [
@@ -263,9 +284,9 @@ const DATA = {
           outcome: "700개 이상 사이트 대상 일 3,000건 규모 크롤링·FCM 알림 서비스 개발 완료. (회사 경영 사정으로 실서비스 운영 전 종료)",
         },
         {
-          title: "공공 시스템 — GBMS · 버스파인 (용인·파주·하남 등) 유지보수 및 기능 개선",
+          title: "공공 시스템 — GBMS · 버스파인 (용인·파주·하남 등)",
           period: "2024.02 ~ 2024.10",
-          role: "공공 시스템 유지보수 및 신규 기능 개발",
+          role: "공공 시스템 유지보수 및 신규 기능 개발 (기여도 15%)",
           tech: "Java · Spring Boot · MyBatis · Oracle · PostgreSQL · JSP · Apache POI",
           summary: "전자정부프레임워크 기반 경기도 광역 버스 운영 관리 시스템(GBMS)과 경기도 시내버스 행정 시스템(버스파인 — 용인·파주·하남 등 다수 지자체)의 유지보수·기능 개선을 담당하며, 공공기관별 요청 사항을 분석하고 기능을 구현했습니다.",
           tasks: [
@@ -306,7 +327,6 @@ const DATA = {
   education: [
     { name: "국가평생교육진흥원", detail: "컴퓨터공학 학사 · 재학 중 (2027년 상반기 학위취득 예정)", period: "2025.03 ~" },
     { name: "KH정보교육원",       detail: "BackEnd 개발자 양성과정 수료",                              period: "2021.06 ~ 11." },
-    { name: "충남디자인예술고등학교", detail: "패션디자인학과 졸업",                                   period: "2013.03 ~ 2016.02" },
   ],
   certifications: [
     { name: "리눅스마스터 2급",    detail: "한국정보통신자격협회",              period: "2026.07.03" },
@@ -321,13 +341,16 @@ const DATA = {
 function projectHtml(p) {
   const problemsSection = p.problems.length > 0 ? `
     <div class="sub-label">문제 해결</div>
-    <div class="ps-list">
-      ${p.problems.map(ps => `
-        <div class="ps-item">
-          <span class="ps-label">${ps.label}</span>
-          <span class="ps-desc">${ps.desc}</span>
-        </div>`).join('')}
-    </div>` : '';
+    <table class="ps-table">
+      <thead><tr><th>문제</th><th>원인 → 해결</th></tr></thead>
+      <tbody>
+        ${p.problems.map(ps => `
+          <tr>
+            <td class="ps-label">${ps.label}</td>
+            <td class="ps-desc">${ps.desc}</td>
+          </tr>`).join('')}
+      </tbody>
+    </table>` : '';
 
   return `
     <div class="project">
@@ -355,6 +378,23 @@ function render() {
     <span class="tech-cat">${s.cat}</span>
     <div class="tags">${s.items.map(i => `<span class="tag">${i}</span>`).join('')}</div>`
   ).join('');
+
+  const overviewHtml = `
+    <table class="overview-table">
+      <thead>
+        <tr><th>프로젝트</th><th>기간</th><th>기여도</th><th>핵심 기술</th><th>핵심 성과</th></tr>
+      </thead>
+      <tbody>
+        ${D.overview.map(o => `
+          <tr>
+            <td class="ov-title">${o.title}</td>
+            <td class="ov-period">${o.period}</td>
+            <td class="ov-contribution">${o.contribution}</td>
+            <td class="ov-tech">${o.tech}</td>
+            <td class="ov-outcome">${o.outcome}</td>
+          </tr>`).join('')}
+      </tbody>
+    </table>`;
 
   const companiesHtml = D.companies.map(c => `
     <div class="section">
@@ -411,6 +451,10 @@ function render() {
         <div class="section">
           <div class="section-label">기술 스택</div>
           <div class="tech-grid">${skillsHtml}</div>
+        </div>
+        <div class="section">
+          <div class="section-label">프로젝트 요약</div>
+          ${overviewHtml}
         </div>
         ${companiesHtml}
         <div class="section">
