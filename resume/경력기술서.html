@@ -43,13 +43,11 @@
 
     /* ── HEADER ── */
     .header { padding: 40px 52px 32px; border-bottom: 1px solid var(--border); }
-    .header-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 28px; margin-bottom: 18px; }
+    .header-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 28px; }
     .name { font-size: 32px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; margin-bottom: 4px; }
     .doc-type { font-size: 14px; color: var(--t2); }
     .contact { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; font-size: 11px; color: var(--t2); flex-shrink: 0; }
     .contact a { color: var(--t2); text-decoration: none; }
-    .summary { font-size: 13px; color: var(--t2); line-height: 1.8; border-left: 2px solid var(--border); padding-left: 14px; }
-    .summary strong { color: var(--t1); font-weight: 600; }
 
     /* ── BODY ── */
     .body { padding: 0 52px 52px; }
@@ -67,13 +65,13 @@
     .skills-table { width: 100%; border-collapse: collapse; font-size: 12px; }
     .skills-table td { padding: 8px 10px; border-bottom: 1px solid var(--divider); vertical-align: top; }
     .skills-table tr:last-child td { border-bottom: none; }
-    .skills-table .sk-cat { font-size: 11px; font-weight: 600; color: var(--t2); white-space: nowrap; width: 100px; padding-top: 10px; }
+    .skills-table .sk-cat { font-size: 11px; font-weight: 600; color: var(--t2); white-space: nowrap; width: 100px; }
     .skills-table .sk-item { color: var(--t1); font-weight: 600; }
     .skills-table .sk-sep { color: var(--t3); font-weight: 400; }
     .cl { font-size: 11px; font-weight: 700; color: var(--t3); letter-spacing: 0.04em; margin-right: 5px; }
 
     /* ── COMPANY ── */
-    .company-group { margin-top: 28px; }
+    .company-group { margin-top: 18px; }
     .company-group:first-child { margin-top: 0; }
     .company-block {
       margin-bottom: 14px;
@@ -88,7 +86,8 @@
     .company-sub { font-size: 12px; color: var(--t2); margin-top: 2px; }
 
     /* ── PROJECT ── */
-    .project { padding: 18px 0; border-top: 1px solid var(--divider); }
+    .project { padding: 18px 0; }
+    .project + .project { border-top: 1px solid var(--divider); }
     .project:first-of-type { margin-top: 14px; }
     .proj-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 10px; }
     .proj-title { font-size: 14px; font-weight: 700; }
@@ -109,11 +108,12 @@
     .bullets li strong { color: var(--t1); font-weight: 600; }
 
     /* ── OVERVIEW TABLE ── */
-    .overview-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .table-wrap { overflow-x: auto; }
+    .overview-table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 12px; }
     .overview-table th {
       text-align: left; font-size: 11px; font-weight: 700; color: var(--t3);
       letter-spacing: 0.02em; padding: 0 10px 8px; border-bottom: 1.5px solid var(--t1);
-      white-space: nowrap;
+      white-space: nowrap; vertical-align: top;
     }
     .overview-table td { padding: 9px 10px; border-bottom: 1px solid var(--divider); color: var(--t2); vertical-align: top; }
     .overview-table tr:last-child td { border-bottom: none; }
@@ -158,7 +158,6 @@ const DATA = {
     github: { label: "github.com/rlckdwkd55", url: "https://github.com/rlckdwkd55" },
     portfolio: { label: "rlckdwkd55.github.io/portfolio", url: "https://rlckdwkd55.github.io/portfolio" },
   },
-  summary: `LangGraph·Qdrant 기반 멀티에이전트 RAG 챗봇 플랫폼 개발에 참여하고, Elasticsearch 기반 엔터프라이즈 검색 엔진을 운영해 온 <strong>3년차 풀스택 개발자</strong>입니다. <strong>GS SW 1등급 인증</strong> 제품을 기획부터 납품까지 경험했습니다.`,
   overview: [
     { title: "Argos AI Chat Search", period: "2026.01 ~", contribution: "40%", team: "2명", tech: "LangGraph · Qdrant · FastAPI · Next.js", outcome: "AI 챗봇 응답 지연 80% 단축, 토큰 비용 40% 절감" },
     { title: "ArgosSearch", period: "2025.09 ~", contribution: "20%", team: "3명", tech: "Spring Boot · Elasticsearch · Quartz", outcome: "검색 서비스 장애 재발 0건, 대용량 데이터 색인 안정화" },
@@ -166,12 +165,12 @@ const DATA = {
     { title: "GBMS · 버스파인", period: "2024.02 ~ 2024.10", contribution: "15%", team: "6명", tech: "Spring Boot · Oracle · JSP", outcome: "엑셀 다운로드 응답속도 90% 개선" },
   ],
   skills: [
-    { cat: "언어",           items: ["Java", "Python", "JavaScript"] },
-    { cat: "백엔드",         items: ["Spring Boot", "Spring Security", "MyBatis", "FastAPI", "SQLAlchemy", "Node.js"] },
-    { cat: "프론트엔드",     items: ["Next.js", "React", "Zustand"] },
+    { cat: "언어",           items: ["Java", "Python", "JavaScript", "TypeScript"] },
+    { cat: "백엔드",         items: ["Spring Boot", "Spring Security", "JPA", "MyBatis", "FastAPI", "SQLAlchemy", "Node.js"] },
+    { cat: "프론트엔드",     items: ["Next.js", "React", "Zustand", "styled-components"] },
     { cat: "AI · 검색",      items: ["RAG", "LangChain", "LangGraph", "Qdrant", "Elasticsearch", "vLLM"] },
     { cat: "데이터베이스",   items: ["PostgreSQL", "Oracle", "MariaDB", "Redis"] },
-    { cat: "인프라 · 도구",  items: ["Docker", "Docker Compose", "Git", "GitHub"] },
+    { cat: "인프라 · 도구",  items: ["Docker", "Docker Compose", "GitHub Actions", "Gradle", "Maven", "Git", "GitHub"] },
   ],
   companies: [
     {
@@ -185,17 +184,17 @@ const DATA = {
           contribution: "40%",
           team: "2명",
           tech: ["Python", "FastAPI", "SQLAlchemy", "Qdrant", "LangGraph", "Next.js", "Docker"],
-          summary: "기업·공공기관 고객을 위한 멀티에이전트 RAG 챗봇 플랫폼으로, 백엔드 도메인 API·관리자 대시보드·인프라 배포를 담당하며 LangGraph·Qdrant 기반 AI 파이프라인을 적용했습니다. GS SW 1등급 인증(2026.06)과 저작권 등록(2026.03)을 받아 공공기관에 납품된 프로젝트입니다.",
+          summary: "기업·공공기관 고객을 위한 멀티에이전트 RAG 챗봇 플랫폼입니다. 백엔드 도메인 API·관리자 대시보드·인프라 배포를 담당하고 AI 파이프라인을 적용했으며, GS SW 1등급 인증(2026.06)과 저작권 등록(2026.03)을 받아 공공기관에 납품됐습니다.",
           tasks: [
-            "<strong>LangGraph Supervisor 패턴</strong> 기반 멀티에이전트 오케스트레이션 적용 — 에이전트를 확장 가능한 구조로 설계",
-            "<strong>Qdrant 하이브리드 검색 + CrossEncoder 리랭킹</strong> 적용 — 검색 정확도 <strong>약 30%p</strong> 향상",
-            "<strong>시나리오 에이전트</strong> 적용 — 임계값 초과 시 LLM 호출 없이 즉시 응답, 응답 지연 <strong>80% 단축(1.5초 → 0.3초)</strong>·비용 <strong>약 30%</strong> 절감",
-            "회원·문서·스케줄러·외부 DB 연동 등 <strong>도메인별 REST API</strong> 개발 (FastAPI + SQLAlchemy 2.0 비동기, SSE 스트리밍)",
-            "Next.js 16 기반 <strong>관리자 대시보드</strong> 개발(Atomic Design) 및 설치 자동화 스크립트 작성",
-            "asyncssh + Docker 기반 원격 GPU 서버 <strong>vLLM 자동 관리</strong> — VRAM 기반 모델 스케줄링, 다중 모델 동적 포트 할당",
-            "vLLM·OpenAI·Naver Clova <strong>멀티 LLM Factory 패턴</strong> 구현 — 고객사별 LLM 교체 시 코드 수정 <strong>0건</strong>",
-            "외부 DB <strong>5종</strong>(MySQL·PostgreSQL·Oracle·MSSQL·CUBRID) 연동 및 <strong>자동 벡터 인덱싱 스케줄러</strong> 개발",
-            "<strong>RBAC 권한 관리</strong> 구현 — 멤버·역할·권한 분리, 엔드포인트 단위 접근 제어",
+            "LangGraph Supervisor 패턴 기반 멀티에이전트 오케스트레이션 적용 — 확장 가능한 에이전트 구조로 설계",
+            "Qdrant 하이브리드 검색 + CrossEncoder 리랭킹 적용 — 검색 정확도 <strong>약 30%p</strong> 향상",
+            "시나리오 에이전트 적용 — 임계값 초과 시 LLM 호출 없이 즉시 응답, <strong>응답 지연 80% 단축(1.5초 → 0.3초), 비용 약 30% 절감</strong>",
+            "회원·문서·스케줄러·외부 DB 연동 등 도메인별 REST API 개발 (FastAPI + SQLAlchemy 2.0 비동기, SSE 스트리밍)",
+            "Next.js 16 기반 관리자 대시보드 개발(Atomic Design) 및 설치 자동화 스크립트 작성",
+            "asyncssh + Docker 기반 원격 GPU 서버 vLLM 자동 관리 — VRAM 기반 모델 스케줄링, 다중 모델 동적 포트 할당",
+            "vLLM·OpenAI·Naver Clova 멀티 LLM Factory 패턴 구현 — 고객사별 LLM 교체 시 코드 수정 <strong>0건</strong>",
+            "외부 DB <strong>5종</strong>(MySQL·PostgreSQL·Oracle·MSSQL·CUBRID) 연동 및 자동 벡터 인덱싱 스케줄러 개발",
+            "RBAC 권한 관리 구현 — 멤버·역할·권한 분리, 엔드포인트 단위 접근 제어",
             "GPU·CPU·메모리 실시간 모니터링 API 및 트래픽 모니터링 미들웨어 개발",
           ],
           paar: [
@@ -204,7 +203,7 @@ const DATA = {
               p: "LLM이 컨텍스트 밖 내용을 생성하는 할루시네이션 발생",
               a1: "검색 결과와 질문 간 관련성을 1차로 걸러내는 Document Grading 적용",
               a2: "답변 내 핵심 용어 존재 여부를 검증하는 Terminology Validation 2차 단계 추가",
-              r: "2단계 검증 파이프라인으로 컨텍스트 밖 답변 <strong>차단</strong>",
+              r: "2단계 검증 파이프라인으로 컨텍스트 밖 답변 차단",
             },
             {
               title: "장기 대화 토큰 비용 최적화",
@@ -218,7 +217,7 @@ const DATA = {
               p: "Query Rewrite 후 원본 질의 의도가 변형돼 용어 검증이 오작동",
               a1: "원본 질문을 별도로 보존하도록 구조 변경",
               a2: "재작성 이후에도 원본 기준으로 용어 검증을 재수행하도록 로직 개선",
-              r: "재작성 여부와 무관하게 검증 정확도 <strong>유지</strong>",
+              r: "재작성 여부와 무관하게 검증 정확도 유지",
             },
           ],
         },
@@ -228,10 +227,10 @@ const DATA = {
           contribution: "20%",
           team: "3명",
           tech: ["Java", "Spring Boot", "Elasticsearch", "Quartz JDBC", "Redis", "Spring Security", "Docker"],
-          summary: "안전보건공단·CJ 온리원푸드넷·고령군청 등 공공기관·기업 고객사에 제공 중인 Elasticsearch 기반 엔터프라이즈 검색 엔진의 운영·유지보수를 담당하며, 실운영 환경에서 발생하는 장애를 직접 분석하고 해결했습니다.",
+          summary: "안전보건공단·CJ 온리원푸드넷·고령군청 등에 제공 중인 Elasticsearch 기반 검색 엔진의 운영·유지보수를 담당하며 실운영 장애를 직접 분석·해결했습니다.",
           tasks: [
-            "Quartz JDBC 기반 <strong>색인 스케줄러</strong> 동시성 버그 수정 — 파라미터화로 증분색인 중복 실행 방지",
-            "Elasticsearch <strong>analyzer·동의어(synonym_graph)</strong> 설정 유지보수 — 고객사 요구에 따른 검색 설정 조정 및 재배포",
+            "Quartz JDBC 기반 색인 스케줄러 동시성 버그 수정 — 파라미터화로 증분색인 중복 실행 방지",
+            "Elasticsearch analyzer·동의어(synonym_graph) 설정 유지보수 — 고객사 요구에 따른 검색 설정 조정 및 재배포",
             "Oracle·PostgreSQL·MariaDB·TIBERO <strong>4종</strong> 런타임 동적 외부 DB 연동 유지보수 및 색인 안정성 개선",
             "JWT + Spring Security 기반 인증/인가 체계 유지보수",
           ],
@@ -248,7 +247,7 @@ const DATA = {
               p: "요청 본문 <strong>100MB</strong> 초과 시 색인이 거부돼 데이터 누락 발생",
               a1: "Elasticsearch 설정값 분석으로 제한 원인 특정",
               a2: "http.max_content_length 상향 조정 및 재배포",
-              r: "전체 데이터 <strong>정상 색인</strong> 처리",
+              r: "전체 데이터 정상 색인 처리",
             },
           ],
         },
@@ -265,10 +264,10 @@ const DATA = {
           contribution: "60%",
           team: "2명",
           tech: ["Java", "Spring Boot", "Node.js", "MyBatis", "PostgreSQL", "FCM"],
-          summary: "700개 이상 사이트에서 정보를 수집해 사용자에게 실시간으로 알림을 전달하는 크롤링·알림 서비스를 구축했으나, 회사 경영 사정으로 실서비스 운영 전 종료되었습니다.",
+          summary: "700개 이상 사이트를 수집해 실시간 알림을 전달하는 크롤링·알림 서비스를 구축했으나, 회사 경영 사정으로 실서비스 운영 전 종료됐습니다.",
           tasks: [
-            "700개 이상 사이트 대상 <strong>일 3,000건 규모</strong>의 대규모 크롤링 시스템 설계·구축",
-            "Node.js 크론 스케줄러 기반 자동 실행 로직 및 FCM 연동 <strong>실시간 알림 시스템</strong> 설계·구현",
+            "700개 이상 사이트 대상 일 3,000건 규모의 대규모 크롤링 시스템 설계·구축",
+            "Node.js 크론 스케줄러 기반 자동 실행 로직 및 FCM 연동 실시간 알림 시스템 설계·구현",
             "Spring 기반 관리자 페이지 개발 및 Node.js 백엔드 연동 API 설계·최적화",
           ],
           paar: [
@@ -277,14 +276,14 @@ const DATA = {
               p: "크롤링 대상 일부 사이트가 CORS 정책으로 직접 요청을 차단",
               a1: "서버 측 Proxy 구조 설계",
               a2: "Proxy를 통해 클라이언트 IP를 우회하도록 구현",
-              r: "차단 없이 <strong>안정적인 데이터 수집</strong> 환경 확보",
+              r: "차단 없이 안정적인 데이터 수집 환경 확보",
             },
             {
               title: "크롤링 장애 원인 파악 속도 개선",
               p: "크롤링 실패 시 원인 파악에 시간이 오래 소요",
               a1: "error_log 자동 저장 체계 설계",
               a2: "관리자 페이지 모니터링 뷰와 연동",
-              r: "장애 감지·원인 분석 속도 <strong>개선</strong>",
+              r: "장애 감지·원인 분석 속도 개선",
             },
           ],
         },
@@ -294,7 +293,7 @@ const DATA = {
           contribution: "15%",
           team: "6명",
           tech: ["Java", "Spring Boot", "MyBatis", "Oracle", "PostgreSQL", "JSP", "Apache POI"],
-          summary: "전자정부프레임워크 기반 경기도 광역 버스 운영 관리 시스템(GBMS)과 경기도 시내버스 행정 시스템(버스파인 — 용인·파주·하남 등 다수 지자체)의 유지보수·기능 개선을 담당하며, 공공기관별 요청 사항을 분석해 기능을 구현하고 QC 피드백을 전량 반영했습니다. 현재 GBMS(gbms.gg.go.kr)·버스파인(busfine.gtrans.or.kr)으로 납품 운영 중입니다.",
+          summary: "전자정부프레임워크 기반 경기도 광역 버스 운영 관리 시스템(GBMS)과 시내버스 행정 시스템(버스파인, 용인·파주·하남 등)의 유지보수·기능 개선을 담당했습니다. 공공기관 요청 사항을 분석해 기능을 구현하고 QC 피드백을 반영했으며, 현재 두 시스템 모두 납품 운영 중입니다.",
           tasks: [
             "공공기관 요청 기능 변경·예외 처리 로직 보강, QC 피드백 대응",
             "초기 화면 배너 UI 개선, 이미지 관리 기능(업로드·삭제·미리보기) 신규 개발",
@@ -321,7 +320,7 @@ const DATA = {
       contribution: "40%",
       team: "3명",
       tech: ["Java", "Spring Boot", "MyBatis", "HikariCP", "PostgreSQL", "AWS EC2", "OAuth 2.0"],
-      summary: "전통주 이커머스 서비스를 팀 프로젝트로 기획해 배포까지 완성했습니다. 백엔드 아키텍처 설계, 외부 API 연동, 인프라 배포를 담당하며 풀스택 개발 흐름을 경험했고, GitHub에 공개했습니다.",
+      summary: "백엔드 아키텍처 설계, 외부 API 연동, 인프라 배포를 담당하며 풀스택 개발 흐름을 경험했고, GitHub에 공개했습니다.",
       tasks: [
         "Spring Boot 기반 쇼핑몰 백엔드 설계 및 구현 — 회원·장바구니·주문 플로우, RESTful API 설계",
         "카카오·네이버 소셜 로그인(OAuth 2.0) 및 결제 API 연동",
@@ -386,22 +385,24 @@ function render() {
   ).join('');
 
   const overviewHtml = `
-    <table class="overview-table">
-      <thead>
-        <tr><th>프로젝트</th><th>기간</th><th>기여도</th><th>수행인원</th><th>핵심 기술</th><th>핵심 성과</th></tr>
-      </thead>
-      <tbody>
-        ${D.overview.map(o => `
-          <tr>
-            <td class="ov-title">${o.title}</td>
-            <td class="ov-period">${o.period}</td>
-            <td class="ov-contribution">${o.contribution}</td>
-            <td class="ov-team">${o.team}</td>
-            <td class="ov-tech">${o.tech}</td>
-            <td class="ov-outcome">${o.outcome}</td>
-          </tr>`).join('')}
-      </tbody>
-    </table>`;
+    <div class="table-wrap">
+      <table class="overview-table">
+        <thead>
+          <tr><th>프로젝트</th><th>기간</th><th>기여도</th><th>수행인원</th><th>핵심 기술</th><th>핵심 성과</th></tr>
+        </thead>
+        <tbody>
+          ${D.overview.map(o => `
+            <tr>
+              <td class="ov-title">${o.title}</td>
+              <td class="ov-period">${o.period}</td>
+              <td class="ov-contribution">${o.contribution}</td>
+              <td class="ov-team">${o.team}</td>
+              <td class="ov-tech">${o.tech}</td>
+              <td class="ov-outcome">${o.outcome}</td>
+            </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>`;
 
   const companiesHtml = D.companies.map(c => `
     <div class="company-group">
@@ -450,7 +451,6 @@ function render() {
             <a href="${D.contact.portfolio.url}"><span class="cl">포트폴리오</span>${D.contact.portfolio.label}</a>
           </div>
         </div>
-        <p class="summary">${D.summary}</p>
       </div>
       <div class="body">
         <div class="section">

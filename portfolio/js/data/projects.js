@@ -76,7 +76,7 @@ export const PROJECTS = [
     title: '술술 — 온라인 전통주 쇼핑몰',
     category: '이커머스 (개인 프로젝트)',
     description: '· Spring Boot 기반 회원·장바구니·주문 백엔드 설계 및 구현<br>· 카카오·네이버 소셜 로그인(OAuth 2.0) 및 결제 API 연동<br>· HikariCP 커넥션 풀 설정 및 N+1 문제 해결을 포함한 쿼리 최적화<br>· AWS EC2 배포 및 운영 환경 구성',
-    result: '소셜 로그인·결제 연동까지 완성한 풀스택 쇼핑몰 단독 구현. GitHub 공개.',
+    result: '소셜 로그인·결제 연동까지 완성한 풀스택 쇼핑몰, 지인들과 함께 개발. GitHub 공개.',
     links: [
       { type: 'github', href: 'https://github.com/rlckdwkd55/SulSul' },
       { type: 'media', href: 'https://drive.google.com/file/d/1gzjefGhRO_p6A22L3OOAgt7gsozHCn6Y/view' }
