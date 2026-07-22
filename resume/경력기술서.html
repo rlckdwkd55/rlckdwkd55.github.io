@@ -105,7 +105,7 @@
     .bullets { list-style: none; display: flex; flex-direction: column; gap: 4px; margin-bottom: 16px; }
     .bullets li { font-size: 12px; color: var(--t2); padding-left: 14px; position: relative; line-height: 1.65; }
     .bullets li::before { content:'–'; position: absolute; left: 0; color: var(--t3); }
-    .bullets li strong { color: var(--t1); font-weight: 600; }
+    .bullets li strong { color: var(--accent-text); font-weight: 700; }
 
     /* ── OVERVIEW TABLE ── */
     .table-wrap { overflow-x: auto; }
@@ -159,18 +159,18 @@ const DATA = {
     portfolio: { label: "rlckdwkd55.github.io/portfolio", url: "https://rlckdwkd55.github.io/portfolio" },
   },
   overview: [
-    { title: "Argos AI Chat Search", period: "2026.01 ~", contribution: "40%", team: "2명", tech: "LangGraph · Qdrant · FastAPI · Next.js", outcome: "AI 챗봇 응답 지연 80% 단축, 토큰 비용 40% 절감" },
-    { title: "ArgosSearch", period: "2025.09 ~", contribution: "20%", team: "3명", tech: "Spring Boot · Elasticsearch · Quartz", outcome: "검색 서비스 장애 재발 0건, 대용량 데이터 색인 안정화" },
+    { title: "Argos AI Chat Search", period: "2026.01 ~", contribution: "40%", team: "2명", tech: "LangGraph · Qdrant · FastAPI · Next.js", outcome: "검색 정확도 약 30%p 향상, 토큰 비용 40% 절감" },
+    { title: "ArgosSearch", period: "2025.09 ~", contribution: "20%", team: "3명", tech: "Spring Boot · Elasticsearch · Apache Tika", outcome: "문서 색인 CVSS 10.0 취약점 패치, 메모리 74% 절감·처리속도 3.2배" },
     { title: "캐치캣", period: "2024.11 ~ 2025.04", contribution: "60%", team: "2명", tech: "Node.js · Spring Boot · FCM", outcome: "700+ 사이트 크롤링 시스템 구축" },
     { title: "GBMS · 버스파인", period: "2024.02 ~ 2024.10", contribution: "15%", team: "6명", tech: "Spring Boot · Oracle · JSP", outcome: "엑셀 다운로드 응답속도 90% 개선" },
   ],
   skills: [
-    { cat: "언어",           items: ["Java", "Python", "JavaScript", "TypeScript"] },
-    { cat: "백엔드",         items: ["Spring Boot", "Spring Security", "JPA", "MyBatis", "FastAPI", "SQLAlchemy", "Node.js"] },
-    { cat: "프론트엔드",     items: ["Next.js", "React", "Zustand", "styled-components"] },
-    { cat: "AI · 검색",      items: ["RAG", "LangChain", "LangGraph", "Qdrant", "Elasticsearch", "vLLM"] },
-    { cat: "데이터베이스",   items: ["PostgreSQL", "Oracle", "MariaDB", "Redis"] },
-    { cat: "인프라 · 도구",  items: ["Docker", "Docker Compose", "GitHub Actions", "Gradle", "Maven", "Git", "GitHub"] },
+    { cat: "언어",           items: ["Java", "Python", "TypeScript"] },
+    { cat: "백엔드",         items: ["Spring Boot", "Spring Security", "JPA", "MyBatis", "FastAPI"] },
+    { cat: "AI · 검색",      items: ["RAG", "LangGraph", "vLLM", "Qdrant", "Elasticsearch"] },
+    { cat: "프론트엔드",     items: ["Next.js", "React"] },
+    { cat: "데이터베이스",   items: ["PostgreSQL", "Oracle", "Redis"] },
+    { cat: "인프라 · 도구",  items: ["Docker", "GitHub Actions", "Git"] },
   ],
   companies: [
     {
@@ -183,19 +183,17 @@ const DATA = {
           period: "2026.01 ~",
           contribution: "40%",
           team: "2명",
-          tech: ["Python", "FastAPI", "SQLAlchemy", "Qdrant", "LangGraph", "Next.js", "Docker"],
-          summary: "기업·공공기관 고객을 위한 멀티에이전트 RAG 챗봇 플랫폼입니다. 백엔드 도메인 API·관리자 대시보드·인프라 배포를 담당하고 AI 파이프라인을 적용했으며, GS SW 1등급 인증(2026.06)과 저작권 등록(2026.03)을 받아 공공기관에 납품됐습니다.",
+          tech: ["Python", "FastAPI", "LangGraph", "Qdrant", "Next.js"],
+          summary: "기업·공공기관 고객을 위한 멀티에이전트 RAG 챗봇 플랫폼으로, 백엔드 도메인 API·AI 파이프라인·관리자 대시보드·인프라 배포를 담당했습니다. GS SW 1등급 인증(2026.06)과 저작권 등록(2026.03)을 거쳐 공공기관에 납품됐습니다.",
           tasks: [
-            "LangGraph Supervisor 패턴 기반 멀티에이전트 오케스트레이션 적용 — 확장 가능한 에이전트 구조로 설계",
-            "Qdrant 하이브리드 검색 + CrossEncoder 리랭킹 적용 — 검색 정확도 <strong>약 30%p</strong> 향상",
-            "시나리오 에이전트 적용 — 임계값 초과 시 LLM 호출 없이 즉시 응답, <strong>응답 지연 80% 단축(1.5초 → 0.3초), 비용 약 30% 절감</strong>",
-            "회원·문서·스케줄러·외부 DB 연동 등 도메인별 REST API 개발 (FastAPI + SQLAlchemy 2.0 비동기, SSE 스트리밍)",
-            "Next.js 16 기반 관리자 대시보드 개발(Atomic Design) 및 설치 자동화 스크립트 작성",
-            "asyncssh + Docker 기반 원격 GPU 서버 vLLM 자동 관리 — VRAM 기반 모델 스케줄링, 다중 모델 동적 포트 할당",
-            "vLLM·OpenAI·Naver Clova 멀티 LLM Factory 패턴 구현 — 고객사별 LLM 교체 시 코드 수정 <strong>0건</strong>",
-            "외부 DB <strong>5종</strong>(MySQL·PostgreSQL·Oracle·MSSQL·CUBRID) 연동 및 자동 벡터 인덱싱 스케줄러 개발",
-            "RBAC 권한 관리 구현 — 멤버·역할·권한 분리, 엔드포인트 단위 접근 제어",
-            "GPU·CPU·메모리 실시간 모니터링 API 및 트래픽 모니터링 미들웨어 개발",
+            "Qdrant 하이브리드 검색 + CrossEncoder 리랭킹 파이프라인 구축 → 검색 정확도 <strong>약 30%p 향상</strong>",
+            "시나리오 에이전트 구현으로 임계값 초과 질의를 LLM 호출 없이 즉시 응답 → 응답 지연 <strong>80% 단축(1.5초 → 0.3초)</strong>, 호출 비용 약 30% 절감",
+            "Factory 패턴으로 멀티 LLM(vLLM·OpenAI·Naver Clova) 연동 구조 구현 → 고객사별 LLM을 설정 변경만으로 교체",
+            "로컬 모델에 고정돼 있던 임베딩 계층을 확장형 구조로 재설계 → 외부 임베딩 API 3종 연동, 신규 모델은 설정 등록만으로 추가",
+            "FastAPI 비동기 기반 도메인 REST API 개발(회원·문서·스케줄러, SSE 스트리밍) 및 외부 DB 5종(MySQL·PostgreSQL·Oracle·MSSQL·CUBRID) 연동·자동 벡터 인덱싱 스케줄러 구현",
+            "외부 DB로 등록된 문서의 재임베딩 로직 개선 — 기존 벡터를 먼저 삭제하던 순서를 재생성 성공 확인 후 삭제로 변경해 재임베딩 실패 시 문서 데이터 유실 방지",
+            "pytest·Vitest 기반 테스트 인프라 신규 구축(<strong>2,189개 케이스</strong>), RBAC 권한 관리·파일 업로드 Path Traversal 취약점 차단 적용",
+            "Next.js 관리자 대시보드·실시간 리소스 모니터링 API·설치 자동화 스크립트 개발",
           ],
           paar: [
             {
@@ -212,13 +210,6 @@ const DATA = {
               a2: "세션별 컨텍스트 관리 체계를 적용해 압축 이후에도 맥락 유지",
               r: "토큰 사용량 <strong>약 40% 절감</strong>",
             },
-            {
-              title: "질의 재작성 후 용어 검증 오작동 수정",
-              p: "Query Rewrite 후 원본 질의 의도가 변형돼 용어 검증이 오작동",
-              a1: "원본 질문을 별도로 보존하도록 구조 변경",
-              a2: "재작성 이후에도 원본 기준으로 용어 검증을 재수행하도록 로직 개선",
-              r: "재작성 여부와 무관하게 검증 정확도 유지",
-            },
           ],
         },
         {
@@ -226,13 +217,15 @@ const DATA = {
           period: "2025.09 ~",
           contribution: "20%",
           team: "3명",
-          tech: ["Java", "Spring Boot", "Elasticsearch", "Quartz JDBC", "Redis", "Spring Security", "Docker"],
-          summary: "안전보건공단·CJ 온리원푸드넷·고령군청 등에 제공 중인 Elasticsearch 기반 검색 엔진의 운영·유지보수를 담당하며 실운영 장애를 직접 분석·해결했습니다.",
+          tech: ["Java", "Spring Boot", "Elasticsearch", "Apache Tika", "Quartz"],
+          summary: "안전보건공단·CJ 온리원푸드넷·고령군청 등에 제공 중인 Elasticsearch 기반 검색 엔진의 운영·유지보수를 담당하며, Apache Tika 문서 색인 파이프라인의 보안·안정성 결함을 직접 분석·해결했습니다.",
           tasks: [
-            "Quartz JDBC 기반 색인 스케줄러 동시성 버그 수정 — 파라미터화로 증분색인 중복 실행 방지",
-            "Elasticsearch analyzer·동의어(synonym_graph) 설정 유지보수 — 고객사 요구에 따른 검색 설정 조정 및 재배포",
-            "Oracle·PostgreSQL·MariaDB·TIBERO <strong>4종</strong> 런타임 동적 외부 DB 연동 유지보수 및 색인 안정성 개선",
-            "JWT + Spring Security 기반 인증/인가 체계 유지보수",
+            "Apache Tika 문서 색인 파이프라인의 XXE 취약점(CVE-2025-66516) 발견·패치 → <strong>CVSS 10.0</strong> 보안 결함 제거",
+            "파서 문자수 제한으로 장문 문서가 잘리던 결함 수정 → 텍스트 캡처율 <strong>40% → 100%</strong>",
+            "오피스 문서(PPTX/DOCX) 파싱을 SAX 스트리밍 방식으로 전환 → 메모리 <strong>74% 감소</strong>, 처리 속도 <strong>3.2배 개선</strong>",
+            "한글 HWPX 포맷 파싱 지원 추가 → 색인 가능 문서 범위 확대",
+            "대량 배치 색인을 row 단위 예외 격리 구조로 재구성 → 부분 실패 시 데이터 유실 제거",
+            "Elasticsearch analyzer·동의어(synonym_graph), Quartz 색인 스케줄러, 외부 DB 4종(Oracle·PostgreSQL·MariaDB·TIBERO) 연동, JWT·Spring Security 인증 유지보수",
           ],
           paar: [
             {
@@ -263,12 +256,12 @@ const DATA = {
           period: "2024.11 ~ 2025.04",
           contribution: "60%",
           team: "2명",
-          tech: ["Java", "Spring Boot", "Node.js", "MyBatis", "PostgreSQL", "FCM"],
+          tech: ["Java", "Spring Boot", "Node.js", "FCM"],
           summary: "700개 이상 사이트를 수집해 실시간 알림을 전달하는 크롤링·알림 서비스를 구축했으나, 회사 경영 사정으로 실서비스 운영 전 종료됐습니다.",
           tasks: [
-            "700개 이상 사이트 대상 일 3,000건 규모의 대규모 크롤링 시스템 설계·구축",
-            "Node.js 크론 스케줄러 기반 자동 실행 로직 및 FCM 연동 실시간 알림 시스템 설계·구현",
-            "Spring 기반 관리자 페이지 개발 및 Node.js 백엔드 연동 API 설계·최적화",
+            "700개 이상 사이트·일 3,000건 규모의 크롤링 시스템 설계·구축",
+            "Node.js 크론 스케줄러 기반 자동 실행 로직 및 FCM 연동 실시간 알림 시스템 구현",
+            "Spring Boot 관리자 페이지 개발 및 Node.js 백엔드 연동 API 설계·최적화",
           ],
           paar: [
             {
@@ -292,13 +285,13 @@ const DATA = {
           period: "2024.02 ~ 2024.10",
           contribution: "15%",
           team: "6명",
-          tech: ["Java", "Spring Boot", "MyBatis", "Oracle", "PostgreSQL", "JSP", "Apache POI"],
-          summary: "전자정부프레임워크 기반 경기도 광역 버스 운영 관리 시스템(GBMS)과 시내버스 행정 시스템(버스파인, 용인·파주·하남 등)의 유지보수·기능 개선을 담당했습니다. 공공기관 요청 사항을 분석해 기능을 구현하고 QC 피드백을 반영했으며, 현재 두 시스템 모두 납품 운영 중입니다.",
+          tech: ["Java", "Spring Boot", "Oracle", "JSP"],
+          summary: "전자정부프레임워크 기반 경기도 광역버스 운영관리 시스템(GBMS)과 시내버스 행정 시스템(버스파인, 용인·파주·하남 등)의 유지보수·기능 개선을 담당했습니다. 공공기관 요구사항을 분석·구현하고 QC 피드백을 반영했으며, 두 시스템 모두 납품 운영 중입니다.",
           tasks: [
-            "공공기관 요청 기능 변경·예외 처리 로직 보강, QC 피드백 대응",
-            "초기 화면 배너 UI 개선, 이미지 관리 기능(업로드·삭제·미리보기) 신규 개발",
+            "공공기관 요청 기능 변경 및 예외 처리 로직 보강, QC 피드백 대응",
+            "초기 화면 배너 UI 개선 및 이미지 관리 기능(업로드·삭제·미리보기) 신규 개발",
             "API 요청·응답 최적화, JSP 레거시 코드 유지보수 및 SQL 쿼리 개선",
-            "기술 문서·개발 매뉴얼·인수인계 문서 등 협업 중심 문서화 수행",
+            "기술 문서·개발 매뉴얼·인수인계 문서 등 협업 문서화 수행",
           ],
           paar: [
             {
@@ -319,10 +312,10 @@ const DATA = {
       period: "2023.05 ~ 2023.09",
       contribution: "40%",
       team: "3명",
-      tech: ["Java", "Spring Boot", "MyBatis", "HikariCP", "PostgreSQL", "AWS EC2", "OAuth 2.0"],
-      summary: "백엔드 아키텍처 설계, 외부 API 연동, 인프라 배포를 담당하며 풀스택 개발 흐름을 경험했고, GitHub에 공개했습니다.",
+      tech: ["Java", "Spring Boot", "PostgreSQL", "AWS EC2"],
+      summary: "쇼핑몰 백엔드 아키텍처 설계부터 외부 API 연동, AWS 배포까지 직접 수행하며 개발 전 과정을 경험한 개인 프로젝트로, GitHub에 공개했습니다.",
       tasks: [
-        "Spring Boot 기반 쇼핑몰 백엔드 설계 및 구현 — 회원·장바구니·주문 플로우, RESTful API 설계",
+        "Spring Boot 기반 쇼핑몰 백엔드 구현 — 회원·장바구니·주문 플로우 및 RESTful API 설계",
         "카카오·네이버 소셜 로그인(OAuth 2.0) 및 결제 API 연동",
         "HikariCP 커넥션 풀 설정 및 N+1 문제 해결을 포함한 쿼리 최적화",
         "AWS EC2 배포, 환경 변수 분리 및 운영 환경 구성",
@@ -365,7 +358,7 @@ function projectHtml(p) {
       <div class="proj-meta">${p.tech.join(' · ')}</div>
       <div class="proj-stats">기여도 ${p.contribution}${p.team ? ` · 수행인원 ${p.team}` : ''}</div>
       <div class="proj-summary">${p.summary}</div>
-      <div class="sub-label">담당 업무</div>
+      <div class="sub-label">담당 업무 및 성과</div>
       <ul class="bullets">
         ${p.tasks.map(t => `<li>${t}</li>`).join('')}
       </ul>
