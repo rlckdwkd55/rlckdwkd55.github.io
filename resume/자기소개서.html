@@ -54,6 +54,16 @@
     .prose { font-size: 13px; color: var(--t2); line-height: 1.85; }
     .prose strong { color: var(--t1); font-weight: 600; }
     .prose p + p { margin-top: 10px; }
+    .prose .subhead {
+      font-weight: 700; color: var(--accent-text); font-size: 13px;
+      margin: 22px 0 7px; letter-spacing: -0.01em;
+      padding-left: 11px; position: relative;
+    }
+    .prose .subhead::before {
+      content: ''; position: absolute; left: 0; top: 3px; bottom: 3px;
+      width: 3px; border-radius: 2px; background: var(--accent);
+    }
+    .prose .subhead:first-child { margin-top: 0; }
     /* Guide block */
     .guide {
       border-left: 2px solid var(--border);
@@ -104,11 +114,11 @@ const DATA = {
     {
       id: "core",
       label: "Section 01",
-      title: "핵심 역량과 성과",
+      title: "개발자가 된 계기와 지향점",
       paragraphs: [
-        `"이 반복 작업, 더 효율적으로 할 수 없을까?" 세무 업무 중 가졌던 고민은 저를 개발자의 길로 이끌었습니다. 지금은 3년차 개발자입니다.`,
-        `<strong>Argos AI Chat Search</strong> 프로젝트에서는 도메인 API 및 관리자 대시보드 개발과 인프라 배포를 전담했습니다. 특히 임계값 기반의 응답 처리로 불필요한 LLM 호출을 차단해 응답 지연을 대폭 개선했으며, 그 결과 <strong>GS SW 1등급 인증</strong> 및 저작권 등록이라는 성과를 거두었습니다. <strong>ArgosSearch</strong> 운영 시에는 고객사 장애를 직접 진단하고 해결하며 서비스 안정성을 높이는 데 기여했습니다.`,
-        `저는 눈앞의 기능 하나보다, 그 기능이 시스템 전체에 어떤 영향을 미칠지부터 먼저 따져보는 개발자입니다.`,
+        { text: `세무 실무를 하다 보면 반복되는 수작업이 많았는데, 이런 일을 조금 더 편하게 만들 방법이 없을까 궁금해지곤 했습니다. 그 궁금증이 개발로 이어졌고, 지금도 더 나은 방법을 찾아보는 과정 자체에 재미를 느낍니다.` },
+        { text: `실무 3년 차인 지금은 멀티에이전트 RAG 챗봇 플랫폼 <strong>Argos AI Chat Search</strong>에서 백엔드 도메인 API와 관리자 대시보드, 인프라를 맡고 있습니다. 기능을 빨리 늘리기보다 한정된 자원을 아껴 쓰고 오래 안정적으로 쓰이는 결과물을 만드는 쪽을 더 좋아합니다. 불필요한 LLM 호출을 줄여 응답과 비용을 낮추고, 모델을 설정만으로 바꿀 수 있게 구조를 잡아둔 것도 그런 생각에서 나온 선택이었습니다.` },
+        { text: `이 플랫폼은 개발을 이어오며 <strong>GS SW 1등급 인증</strong>과 공공기관 납품이라는 성과를 거뒀으며, 동시에 검색 엔진 <strong>ArgosSearch</strong>를 운영하며 고객사에서 생기는 문제도 직접 해결하고 있습니다. 이렇게 실제 사용자와 맞닿은 시스템을 다루며, 안정적으로 오래 쓰이는 결과물의 가치를 배우고 있습니다.` },
       ],
     },
     {
@@ -116,14 +126,15 @@ const DATA = {
       label: "Section 02",
       title: "문제를 대하는 방식",
       paragraphs: [
-        `"근거 없는 답변은 시스템의 신뢰를 무너뜨린다." AI 챗봇 개발 시 가장 집중한 부분은 답변의 정확성과 신뢰성이었습니다.`,
-        `일례로 검증 파이프라인에서 발생한 논리적 오류를 끈질기게 추적해 해결한 경험이 있습니다. 질문 재작성(Rewrite) 이후 검증 로직이 엉뚱한 결과를 반환하는 원인을 분석한 결과, 재작성된 질문이 검증 기준이 된 것을 파악했습니다. 원본 질문을 따로 보존해 검증 기준으로 삼도록 아키텍처를 수정해 문제를 말끔히 해결했습니다.`,
-        `이 과정에서 막힌 문제를 혼자 껴안고 있기보다, 동료들에게 중간 과정을 투명하게 공유할 때 해결의 실마리를 더 빨리 찾을 수 있었습니다. <strong>문제는 감추는 것이 아니라 먼저 꺼내놓고 함께 푸는 것</strong>, 이것이 제가 협업하고 성장하는 방식입니다.`,
+        { text: `기능 하나를 만들 때도 그것이 시스템 전체에 어떤 영향을 줄지 먼저 살피고, 정상 흐름 이면의 실패 경로까지 짚어 위험을 미리 줄이려 합니다. 또 문제를 혼자 안고 있기보다 동료들과 코드를 함께 보며 풀어가는 편입니다.` },
+        { subhead: `데이터 영구 유실을 막은 선제적 코드 리뷰`, text: `현재 담당 중인 <strong>Argos AI Chat Search</strong>에서 외부 DB에 등록된 문서의 재임베딩 로직을 코드 리뷰할 때의 일입니다. 코드는 '기존 벡터 삭제 후 새 임베딩 생성' 순서였고, 정상 동작에는 문제가 없어 보였습니다. 다만 리뷰 중에 "외부 API 호출이나 저장이 중간에 한 번이라도 실패하면, 이미 지운 데이터는 어떻게 되지?"라는 의문이 들었습니다.` },
+        { text: `실패 경로를 동료와 함께 따라가 보니, 재생성이 중간에 멈추면 원본 문서가 복구할 수 없이 사라지는 구조였습니다. 그래서 '재생성 성공을 먼저 확인한 뒤 기존 벡터를 삭제'하도록 순서를 뒤집자고 제안했고, 덕분에 재임베딩이 실패해도 기존 데이터는 그대로 남게 됐습니다.` },
+        { text: `혼자였다면 정상 흐름만 보고 지나쳤을 문제였는데, 함께 들여다본 덕분에 미리 잡을 수 있었습니다. 그 뒤로 코드를 볼 때면 정상 동작만큼이나 '실패했을 때 어떻게 되는가'를 먼저 고민하려 노력합니다.` },
       ],
     },
   ],
   motivation: {
-    label: "Section 05",
+    label: "Section 03",
     title: "지원 동기 (지원 시마다 새로 작성)",
     guide: "아래는 작성 가이드입니다. 지원 시마다 회사에 맞게 새로 작성하세요. 공통 자기소개서는 합격률이 낮습니다.",
     columns: ["지원 회사 유형", "강조할 경험"],
@@ -167,7 +178,7 @@ function render() {
       <div class="section-label">${s.label}</div>
       <div class="section-title">${s.title}</div>
       <div class="prose">
-        ${s.paragraphs.map(p => `<p>${p}</p>`).join('')}
+        ${s.paragraphs.map(p => `${p.subhead ? `<div class="subhead">${p.subhead}</div>` : ''}<p>${p.text}</p>`).join('')}
       </div>
     </div>
   `).join('');
