@@ -3,11 +3,11 @@ export const PROJECTS = [
   {
     icon: 'fa-cube',
     period: '2026.01 ~',
-    tech: ['Python', 'FastAPI', 'SQLAlchemy', 'LangChain', 'LangGraph', 'Qdrant', 'Next.js', 'Docker', 'Docker Compose'],
+    tech: ['Python', 'FastAPI', 'LangGraph', 'Qdrant', 'Next.js', 'Docker'],
     resultIcon: 'fa-check-circle',
     title: 'Argos AI Chat Search',
     category: 'AI 챗봇 플랫폼',
-    description: '· 기획부터 배포까지 전 주기 참여, 백엔드·통합 개발 담당<br>· LangGraph Supervisor 멀티에이전트, Qdrant 하이브리드 벡터 검색, CrossEncoder 리랭킹 적용<br>· 시나리오 에이전트로 LLM 호출 없이 즉시 응답 — 운영 비용 절감·응답 지연 최소화<br>· 회원·문서·스케줄러 등 도메인별 API 개발 + Next.js 관리자 대시보드 풀스택 개발',
+    description: '· 백엔드 도메인 API·AI 파이프라인·관리자 대시보드·인프라 배포 담당<br>· Qdrant 하이브리드 검색 + CrossEncoder 리랭킹으로 검색 정확도 약 30%p 향상<br>· 시나리오 에이전트로 임계값 초과 질의를 LLM 호출 없이 즉시 응답 — 응답 지연·비용 절감<br>· vLLM·OpenAI·Naver Clova 멀티 LLM Factory 및 외부 임베딩 API 확장 구조 구현<br>· FastAPI 비동기 도메인 API(회원·문서·스케줄러, SSE)와 Next.js 관리자 대시보드 개발',
     result: 'GS SW 1등급 인증 취득(TTA, 2026.06). 저작권 등록(2026.03). 공공기관 납품.',
     links: [
       { type: 'private' }
@@ -16,12 +16,12 @@ export const PROJECTS = [
   {
     icon: 'fa-layer-group',
     period: '2025.09 ~',
-    tech: ['Java', 'Spring Boot', 'Elasticsearch', 'Redis', 'Docker', 'Docker Compose'],
+    tech: ['Java', 'Spring Boot', 'Elasticsearch', 'Apache Tika', 'Quartz'],
     resultIcon: 'fa-chart-line',
     title: 'ArgosSearch',
     category: '엔터프라이즈 검색 엔진',
-    description: '· 안전보건공단·CJ 온리원푸드넷·고령군청 등 공공기관·기업 대상 실운영 검색 엔진 운영·유지보수<br>· Elasticsearch 색인 스케줄러 동시성 버그 수정 및 analyzer·동의어(synonym_graph) 설정 유지보수<br>· HikariCP 커넥션 풀 튜닝 및 다중 외부 DB(Oracle·PostgreSQL·MariaDB·TIBERO) 연동 유지보수<br>· 색인 누락 등 실운영 장애 원인 분석·해결',
-    result: '실운영 장애 분석·해결로 공공기관·기업 고객사(안전보건공단·CJ 온리원푸드넷·고령군청 외) 검색 엔진 안정적 운영 유지.',
+    description: '· 안전보건공단·CJ 온리원푸드넷·고령군청 등 공공기관·기업 대상 검색 엔진 운영·유지보수<br>· Apache Tika 문서 색인 파이프라인 CVSS 10.0 취약점(CVE-2025-66516) 발견·패치<br>· 대용량 오피스 문서 SAX 스트리밍 전환으로 메모리 74% 절감·처리 속도 3.2배 개선<br>· 한글 HWPX 포맷 지원 추가, Elasticsearch 색인 스케줄러·외부 DB 연동 유지보수 및 실운영 장애 대응',
+    result: 'Apache Tika 색인 파이프라인 CVSS 10.0 취약점 패치 및 성능 개선(메모리 74%↓·처리 속도 3.2배)으로 검색 엔진 보안·안정성 강화.',
     links: [
       { type: 'private' }
     ]
@@ -76,7 +76,7 @@ export const PROJECTS = [
     title: '술술 — 온라인 전통주 쇼핑몰',
     category: '이커머스 (개인 프로젝트)',
     description: '· Spring Boot 기반 회원·장바구니·주문 백엔드 설계 및 구현<br>· 카카오·네이버 소셜 로그인(OAuth 2.0) 및 결제 API 연동<br>· HikariCP 커넥션 풀 설정 및 N+1 문제 해결을 포함한 쿼리 최적화<br>· AWS EC2 배포 및 운영 환경 구성',
-    result: '소셜 로그인·결제 연동까지 완성한 풀스택 쇼핑몰, 지인들과 함께 개발. GitHub 공개.',
+    result: '소셜 로그인·결제 연동까지 구현한 쇼핑몰 백엔드, 지인들과 함께 개발. GitHub 공개.',
     links: [
       { type: 'github', href: 'https://github.com/rlckdwkd55/SulSul' },
       { type: 'media', href: 'https://drive.google.com/file/d/1gzjefGhRO_p6A22L3OOAgt7gsozHCn6Y/view' }

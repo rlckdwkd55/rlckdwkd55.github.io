@@ -183,7 +183,7 @@
    ================================================================ */
 const DATA = {
   name: "임기창",
-  title: "Full-Stack Developer",
+  title: "Backend Developer",
   photo: "../portfolio/assets/profile.jpg",
   contact: {
     email: "rlckdwkd55@naver.com",
@@ -192,19 +192,19 @@ const DATA = {
     github: { label: "github.com/rlckdwkd55", url: "https://github.com/rlckdwkd55" },
     portfolio: { label: "rlckdwkd55.github.io/portfolio", url: "https://rlckdwkd55.github.io/portfolio" },
   },
-  summary: `멀티에이전트 RAG 챗봇 플랫폼 개발에 참여하며 GS 1등급 인증 취득까지 경험한 <strong>3년차 풀스택 개발자</strong>입니다. 공공 SI 백엔드에서 출발해 엔터프라이즈 검색 엔진 운영과 AI 챗봇 개발까지 경험을 넓혀왔으며, 기능 구현만큼 서비스의 안정성을 중요하게 생각합니다.`,
+  summary: `멀티에이전트 RAG 챗봇 플랫폼 개발에 참여해 GS SW 1등급 인증까지 경험한 <strong>3년차 백엔드 개발자</strong>입니다. 공공 SI 백엔드에서 출발해 엔터프라이즈 검색 엔진 운영과 AI 챗봇 개발로 경험을 넓혀왔으며, 기능 구현만큼 서비스의 안정성을 중요하게 생각합니다.`,
   highlights: [
     "GS SW 1등급 인증",
     "저작권 등록",
     "공공기관 납품",
   ],
   skills: [
-    { cat: "언어",           items: ["Java","Python","JavaScript","TypeScript"] },
-    { cat: "백엔드",         items: ["Spring Boot","Spring Security","JPA","MyBatis","FastAPI","SQLAlchemy","Node.js"] },
-    { cat: "프론트엔드",     items: ["Next.js","React","Zustand","styled-components"] },
-    { cat: "AI · 검색",      items: ["RAG","LangChain","LangGraph","Qdrant","Elasticsearch","vLLM"] },
-    { cat: "데이터베이스",   items: ["PostgreSQL","Oracle","MariaDB","Redis"] },
-    { cat: "인프라 · 도구",  items: ["Docker","Docker Compose","GitHub Actions","Gradle","Maven","Git","GitHub"] },
+    { cat: "언어",           items: ["Java","Python","TypeScript"] },
+    { cat: "백엔드",         items: ["Spring Boot","Spring Security","JPA","MyBatis","FastAPI"] },
+    { cat: "AI · 검색",      items: ["RAG","LangGraph","vLLM","Qdrant","Elasticsearch"] },
+    { cat: "프론트엔드",     items: ["Next.js","React"] },
+    { cat: "데이터베이스",   items: ["PostgreSQL","Oracle","Redis"] },
+    { cat: "인프라 · 도구",  items: ["Docker","GitHub Actions","Git"] },
   ],
   career: [
     {
@@ -216,23 +216,25 @@ const DATA = {
           name: "Argos AI Chat Search",
           period: "2026. 01. ~",
           contribution: "기여도 40%",
-          desc: "멀티에이전트 RAG 챗봇 플랫폼 — 백엔드·통합 개발 담당, AI 파이프라인 적용",
+          desc: "멀티에이전트 RAG 챗봇 플랫폼 — 백엔드 도메인 API·AI 파이프라인·관리자 대시보드·인프라 배포 담당",
           bullets: [
-            "LangGraph Supervisor 멀티에이전트, Qdrant 벡터 검색, CrossEncoder 리랭킹 적용",
-            "LLM 기반 2단계 관련성 검증(Document Grading·Terminology Validation) 적용으로 할루시네이션 완화",
-            "FastAPI·SQLAlchemy 기반 회원·문서·스케줄러 등 도메인 API 개발, Next.js 관리자 대시보드 및 설치 자동화",
-            "vLLM·OpenAI·Clova 멀티 LLM Factory 패턴 구현, GPU 서버 Docker 배포·운영",
+            "Qdrant 하이브리드 검색 + CrossEncoder 리랭킹으로 검색 정확도 약 30%p 향상, 시나리오 에이전트로 응답 지연·비용 절감",
+            "2단계 관련성 검증(Document Grading·Terminology Validation) 적용으로 할루시네이션 완화",
+            "vLLM·OpenAI·Naver Clova 멀티 LLM Factory 및 외부 임베딩 API 확장 구조 구현",
+            "FastAPI 비동기 도메인 API(회원·문서·스케줄러, SSE) 및 Next.js 관리자 대시보드 개발",
+            "pytest·Vitest 테스트 인프라 신규 구축, 파일 업로드 Path Traversal 취약점 차단",
           ],
         },
         {
           name: "ArgosSearch",
           period: "2025. 09. ~",
           contribution: "기여도 20%",
-          desc: "엔터프라이즈 검색 엔진 운영·유지보수 — 공공기관·기업 고객사 대상 안정화 및 장애 대응",
+          desc: "엔터프라이즈 검색 엔진 운영·유지보수 — Apache Tika 색인 파이프라인 보안·성능 개선, 실운영 장애 대응",
           bullets: [
-            "Elasticsearch 색인 스케줄러 동시성 버그 수정 및 analyzer·동의어(synonym_graph) 설정 유지보수",
-            "HikariCP 커넥션 풀 튜닝, 실운영 장애(동의어 검색 오류 등) 원인 분석·해결",
-            "안전보건공단·CJ 온리원푸드넷·고령군청 등 공공기관·기업 고객사 대상 검색 엔진 안정적 운영 지원",
+            "Apache Tika 문서 색인 파이프라인 CVSS 10.0 취약점(CVE-2025-66516) 발견·패치",
+            "대용량 오피스 문서 SAX 스트리밍 전환으로 메모리 74% 절감·처리 속도 3.2배, 한글 HWPX 포맷 지원 추가",
+            "Elasticsearch 색인 스케줄러·동의어 설정 및 외부 DB 4종 연동 유지보수, 실운영 장애 원인 분석·해결",
+            "안전보건공단·CJ 온리원푸드넷·고령군청 등 공공기관·기업 고객사 대상 검색 엔진 안정적 운영",
           ],
         },
       ],
@@ -247,7 +249,7 @@ const DATA = {
           name: "캐치캣",
           period: "2024. 11. ~ 2025. 04.",
           contribution: "기여도 60%",
-          desc: "크롤링 & 알림 서비스 — 700개+ 사이트 일 3,000건 수집, FCM 실시간 알림 시스템 구축",
+          desc: "크롤링 & 알림 서비스 — 700개+ 사이트 일 3,000건 수집, FCM 실시간 알림 시스템 구축 (경영 사정으로 운영 전 종료)",
           bullets: [
             "700개+ 사이트 일 3,000건 크롤링 시스템 구축(Proxy로 CORS 우회), Node.js 크론 스케줄러·FCM 알림 연동",
             "Spring Boot 기반 관리자 페이지 개발 및 Node.js 백엔드 연동",
@@ -272,7 +274,7 @@ const DATA = {
   project: {
     name: "술술 — 온라인 전통주 쇼핑몰 (개인)",
     period: "2023. 05. ~ 09.",
-    meta: "Java 11 · Spring Boot · MyBatis · PostgreSQL · AWS EC2",
+    meta: "Java · Spring Boot · PostgreSQL · AWS EC2",
     desc: "지인들과 함께한 개인 프로젝트로, 카카오·네이버 소셜 로그인(OAuth 2.0)·결제 API 연동, AWS EC2 배포까지 쇼핑몰 백엔드 설계·구현을 담당.",
   },
   education: [
