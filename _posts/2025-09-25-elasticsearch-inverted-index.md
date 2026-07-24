@@ -6,7 +6,6 @@ tags: [elasticsearch, inverted-index, lucene, analyzer]
 description: "역색인의 구조(텀 사전·포스팅 리스트), 분석기 파이프라인, Lucene 세그먼트의 불변성과 refresh/merge, 텀 빈도가 BM25 점수로 이어지는 흐름을 정리한다."
 image:
   path: /assets/img/thumbnails/elasticsearch.png
-published: false
 ---
 
 관계형 데이터베이스에서 `LIKE '%검색어%'` 로 문자열을 찾으면 인덱스를 타지 못하는 **풀 스캔**이 된다. 앞이 와일드카드라 B-Tree 인덱스가 무력화되고, 모든 행의 문자열을 처음부터 끝까지 훑는다. 그래서 행 수에 비례해 느려진다. 검색 엔진은 이 문제를 조금 빠르게 만드는 게 아니라 **자료구조 자체를 다르게 잡아** 푼다. 그 핵심이 **역색인(inverted index)** 이다. Elasticsearch(이하 ES)는 Apache Lucene 위에 세워진 분산 검색 엔진이고, 색인·검색을 담당하는 실체는 전부 Lucene의 역색인이다. 따라서 "ES가 왜 빠른가"라는 질문의 답은 "Lucene이 데이터를 어떻게 저장하는가"로 내려간다.
@@ -37,7 +36,7 @@ published: false
 
 즉 역색인은 **텀 사전 + 포스팅 리스트** 두 축으로 이뤄진다. 검색은 (1) 텀 사전에서 질의 텀을 찾고 (2) 그 텀의 포스팅 리스트를 꺼내오는 두 단계다.
 
-<!-- 이미지: 구글 검색 "inverted index posting list diagram" · 저장 /assets/img/posts/search/elasticsearch/inverted-index.png -->
+![](/assets/img/posts/search/elasticsearch/inverted-index.png)
 
 ## 포스팅 리스트에 담기는 정보
 
@@ -84,7 +83,7 @@ POST /_analyze
 
 여기서 가장 중요한 규칙이 나온다. **색인 시점과 검색 시점에 서로 짝이 맞는 분석을 적용해야 한다.** 색인 때 "Running"을 `run` 으로 저장해 놓고 검색어 "Running"을 분석 없이 그대로 찾으면 텀 사전에 `Running` 이 없어 매칭되지 않는다. 검색어도 같은(혹은 대응되는) 분석기를 통과해 `run` 이 되어야 비로소 만난다. "분명 있는데 안 잡히는" 검색 버그의 대부분이 여기서 나온다. 한국어는 조사·어미가 어간에 달라붙는 교착어라 이 단계가 더 중요한데, 공백 토크나이저로는 "학교"가 "학교에서"를 못 잡는다. 형태소 분석기는 [Nori 분석기 글](https://rlckdwkd55.github.io/posts/nori-analyzer/)에서 따로 다뤘다.
 
-<!-- 이미지: 구글 검색 "elasticsearch analyzer pipeline char filter tokenizer token filter" · 저장 /assets/img/posts/search/elasticsearch/analysis-pipeline.png -->
+![](/assets/img/posts/search/elasticsearch/analysis-pipeline.png)
 
 ## ES의 데이터 모델
 
@@ -142,7 +141,7 @@ Lucene 인덱스(=샤드)는 여러 개의 **세그먼트(segment)** 로 이뤄�
 
 refresh만으로는 아직 디스크에 안전하게 확정된 게 아니다. 그 사이 장애가 나도 데이터를 잃지 않도록 ES는 **translog(트랜잭션 로그)** 에 먼저 기록해 두고, flush 시점에 세그먼트를 확정하며 translog를 정리한다.
 
-<!-- 이미지: 구글 검색 "elasticsearch segment refresh flush merge translog" · 저장 /assets/img/posts/search/elasticsearch/segment-lifecycle.png -->
+![](/assets/img/posts/search/elasticsearch/segment-lifecycle.svg)
 
 ## 세그먼트 병합(merge)
 
@@ -170,7 +169,7 @@ RDB의 `WHERE` 는 참/거짓만 답한다. 하지만 검색은 "맞다/아니�
 
 역색인은 `LIKE '%...%'` 풀 스캔을 자료구조부터 다르게 뒤집은 구조로, 텀 사전과 포스팅 리스트라는 두 축 위에서 매칭·구 검색·하이라이팅·랭킹을 한꺼번에 지탱한다. 그 위에 분석기가 텀을 만들고, 세그먼트 불변성이 refresh·flush·merge라는 운영 메커니즘을 낳으며, 포스팅에 담긴 TF·DF 통계가 그대로 BM25 점수로 이어진다.
 
-<br><br>
-참고 : https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis.html
-참고 : https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-similarity.html
+<br><br><br><br><br><br><br><br><br><br>
+참고 : https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis.html <br>
+참고 : https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-similarity.html <br>
 참고 : https://lucene.apache.org/core/documentation.html
