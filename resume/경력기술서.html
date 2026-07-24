@@ -137,10 +137,19 @@
     .edu-detail { font-size: 12px; color: var(--t2); margin-top: 1px; }
     .edu-period { font-size: 11px; color: var(--t3); white-space: nowrap; flex-shrink: 0; font-variant-numeric: tabular-nums; }
 
+    @page { size: A4; margin: 12mm 14mm; }
     @media print {
-      body { background: white; }
-      .page { margin: 0; border: none; border-radius: 0; box-shadow: none; max-width: 100%; }
-      .project { page-break-inside: avoid; }
+      html, body { background: #fff; }
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .page { margin: 0; border: none; border-radius: 0; box-shadow: none; max-width: 100%; overflow: visible; }
+      .header { padding: 0 0 22px; }
+      .body { padding: 0; }
+      .section { padding-top: 20px; }
+      .section-label, .sub-label, .proj-header { break-after: avoid; }
+      .company-block, .paar-card, .edu-row, .bullets li { break-inside: avoid; }
     }
   </style>
 </head>
@@ -165,12 +174,12 @@ const DATA = {
     { title: "GBMS · 버스파인", period: "2024.02 ~ 2024.10", contribution: "15%", team: "6명", tech: "Spring Boot · Oracle · JSP", outcome: "엑셀 다운로드 응답속도 90% 개선" },
   ],
   skills: [
-    { cat: "언어",           items: ["Java", "Python", "TypeScript"] },
-    { cat: "백엔드",         items: ["Spring Boot", "Spring Security", "JPA", "MyBatis", "FastAPI"] },
-    { cat: "AI · 검색",      items: ["RAG", "LangGraph", "vLLM", "Qdrant", "Elasticsearch"] },
-    { cat: "프론트엔드",     items: ["Next.js", "React"] },
-    { cat: "데이터베이스",   items: ["PostgreSQL", "Oracle", "Redis"] },
-    { cat: "인프라 · 도구",  items: ["Docker", "GitHub Actions", "Git"] },
+    { cat: "Language",     items: ["Java", "Python", "TypeScript"] },
+    { cat: "Backend",      items: ["Spring Boot", "Spring Security", "JPA", "MyBatis", "FastAPI"] },
+    { cat: "AI & Search",  items: ["RAG", "LangGraph", "vLLM", "Qdrant", "Elasticsearch"] },
+    { cat: "Frontend",     items: ["Next.js", "React"] },
+    { cat: "Database",     items: ["PostgreSQL", "Oracle", "Redis"] },
+    { cat: "Infra & Tools",items: ["Docker", "GitHub Actions", "Git"] },
   ],
   companies: [
     {
@@ -188,12 +197,10 @@ const DATA = {
           tasks: [
             "Qdrant 하이브리드 검색 + CrossEncoder 리랭킹 파이프라인 구축 → 검색 정확도 <strong>약 30%p 향상</strong>",
             "시나리오 에이전트 구현으로 임계값 초과 질의를 LLM 호출 없이 즉시 응답 → 응답 지연 <strong>80% 단축(1.5초 → 0.3초)</strong>, 호출 비용 약 30% 절감",
-            "Factory 패턴으로 멀티 LLM(vLLM·OpenAI·Naver Clova) 연동 구조 구현 → 고객사별 LLM을 설정 변경만으로 교체",
-            "로컬 모델에 고정돼 있던 임베딩 계층을 확장형 구조로 재설계 → 외부 임베딩 API 3종 연동, 신규 모델은 설정 등록만으로 추가",
-            "FastAPI 비동기 기반 도메인 REST API 개발(회원·문서·스케줄러, SSE 스트리밍) 및 외부 DB 5종(MySQL·PostgreSQL·Oracle·MSSQL·CUBRID) 연동·자동 벡터 인덱싱 스케줄러 구현",
-            "외부 DB로 등록된 문서의 재임베딩 로직 개선 — 기존 벡터를 먼저 삭제하던 순서를 재생성 성공 확인 후 삭제로 변경해 재임베딩 실패 시 문서 데이터 유실 방지",
-            "챗봇 응답 품질 자동 평가 파이프라인 신규 구축(데이터셋 등록·실행·LLM judge 채점·통계 자동화) → 사람이 직접 확인하던 수작업 검증 대체, judge의 0/100점 쏠림을 구간별 <strong>rubric</strong> 도입으로 세분화해 채점 신뢰도 개선",
-            "pytest·Vitest 기반 테스트 인프라 신규 구축(<strong>2,189개 케이스</strong>), RBAC 권한 관리·파일 업로드 Path Traversal 취약점 차단 적용",
+            "Factory 패턴으로 멀티 LLM(vLLM·OpenAI·Naver Clova)과 외부 임베딩 API 3종을 확장형 구조로 통합 → 고객사별 모델을 설정 변경만으로 교체·추가",
+            "FastAPI 비동기 도메인 REST API 개발(회원·문서·스케줄러, SSE) 및 외부 DB 5종(MySQL·PostgreSQL·Oracle·MSSQL·CUBRID) 연동·자동 벡터 인덱싱 스케줄러 구현",
+            "재임베딩 로직을 ‘재생성 성공 확인 후 기존 벡터 삭제’ 순서로 개선 → 실패 시 문서 데이터 유실 방지",
+            "챗봇 응답 품질 자동 평가 파이프라인 구축(데이터셋·LLM judge 채점·통계 자동화)으로 수작업 검증 대체 → 구간별 <strong>rubric</strong> 도입으로 채점 신뢰도 개선",
             "Next.js 관리자 대시보드·실시간 리소스 모니터링 API·설치 자동화 스크립트 개발",
           ],
           paar: [
@@ -223,8 +230,7 @@ const DATA = {
           tasks: [
             "Apache Tika 문서 색인 파이프라인의 XXE 취약점(CVE-2025-66516) 발견·패치 → <strong>CVSS 10.0</strong> 보안 결함 제거",
             "파서 문자수 제한으로 장문 문서가 잘리던 결함 수정 → 텍스트 캡처율 <strong>40% → 100%</strong>",
-            "오피스 문서(PPTX/DOCX) 파싱을 SAX 스트리밍 방식으로 전환 → 메모리 <strong>74% 감소</strong>, 처리 속도 <strong>3.2배 개선</strong>",
-            "한글 HWPX 포맷 파싱 지원 추가 → 색인 가능 문서 범위 확대",
+            "오피스 문서(PPTX/DOCX) 파싱을 SAX 스트리밍 방식으로 전환 → 메모리 <strong>74% 감소</strong>·처리 속도 <strong>3.2배 개선</strong>, 한글 HWPX 포맷 지원 추가로 색인 범위 확대",
             "대량 배치 색인을 row 단위 예외 격리 구조로 재구성 → 부분 실패 시 데이터 유실 제거",
             "Elasticsearch analyzer·동의어(synonym_graph), Quartz 색인 스케줄러, 외부 DB 4종(Oracle·PostgreSQL·MariaDB·TIBERO) 연동, JWT·Spring Security 인증 유지보수",
           ],
