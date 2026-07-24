@@ -61,7 +61,7 @@ image:
 
 `_analyze` API로 실제로 어떤 텀이 나오는지 직접 확인할 수 있다.
 
-```json
+```text
 POST /_analyze
 {
   "analyzer": "standard",
@@ -69,7 +69,7 @@ POST /_analyze
 }
 ```
 
-```json
+```text
 // 결과 (요약): standard analyzer는 소문자화 + 문장부호 분리
 { "tokens": [
   { "token": "the",   "position": 0 },
@@ -98,7 +98,7 @@ POST /_analyze
 
 `text` 와 `keyword` 를 혼동하면 검색이 어긋난다. 한 필드에 둘 다 필요할 때가 많아, 실무에서는 `text` 로 두되 하위 필드로 `keyword` 를 같이 매핑하는 **멀티 필드**를 흔히 쓴다.
 
-```json
+```text
 PUT /articles
 {
   "mappings": {
@@ -141,7 +141,7 @@ Lucene 인덱스(=샤드)는 여러 개의 **세그먼트(segment)** 로 이뤄�
 
 refresh만으로는 아직 디스크에 안전하게 확정된 게 아니다. 그 사이 장애가 나도 데이터를 잃지 않도록 ES는 **translog(트랜잭션 로그)** 에 먼저 기록해 두고, flush 시점에 세그먼트를 확정하며 translog를 정리한다.
 
-![](/assets/img/posts/search/elasticsearch/segment-lifecycle.svg)
+![](/assets/img/posts/search/elasticsearch/segment-lifecycle.png)
 
 ## 세그먼트 병합(merge)
 

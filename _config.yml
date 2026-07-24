@@ -93,7 +93,7 @@ pageviews:
 #
 # 테마 모드
 # 현재는 클릭으로 light, dark 변경 가능하기에 현행유지
-theme_mode: # [light | dark]
+theme_mode: light # [light | dark]
 
 # The CDN endpoint for media resources.
 # Notice that once it is assigned, the CDN url
