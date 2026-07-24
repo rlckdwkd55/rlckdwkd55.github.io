@@ -1,8 +1,8 @@
 ---
 title: "파일 업로드 Path Traversal 취약점 방어"
 date: 2026-08-25
-categories: [Security]
-tags: [security, path-traversal, file-upload, fastapi]
+categories: [Problem]
+tags: [path-traversal, file-upload, security]
 description: "사용자 파일명을 검증 없이 저장 경로에 쓰던 코드에서 Path Traversal 위험을 발견하고, 파일명 정규화와 경로 봉쇄 2중 방어로 수정한 과정을 실제 코드로 정리했다."
 image:
   path: /assets/img/thumbnails/path-traversal.png

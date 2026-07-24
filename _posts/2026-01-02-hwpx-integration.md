@@ -2,7 +2,7 @@
 title: "Tika가 못 읽는 HWPX, hwpxlib로 붙이기"
 date: 2026-01-02
 categories: [Search]
-tags: [hwpx, hwpxlib, apache-tika, indexing]
+tags: [hwpx, apache-tika, indexing]
 description: "Tika가 기본 지원하지 않는 HWPX를 hwpxlib로 분기하고, ZIP 컨테이너 내부의 HWPX 엔트리는 커스텀 EmbeddedDocumentExtractor로 위임해 색인 사각지대를 메운 기록."
 image:
   path: /assets/img/thumbnails/hwpx-integration.png

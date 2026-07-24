@@ -2,7 +2,7 @@
 title: "실시간 통신 기술 종류"
 date: 2024-11-21 13:40:00 +0900
 categories: [Web]
-tags: [basics, web, network]
+tags: [websocket, realtime, network]
 description: "실시간 통신 기술의 동작 방식과 활용"
 image:
   path: /assets/img/thumbnails/realtime-communication.png

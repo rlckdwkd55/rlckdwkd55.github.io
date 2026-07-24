@@ -2,10 +2,8 @@
 title: "다중어 동의어 오작동과 하드코딩된 동의어 사전 경로 정리하기"
 date: 2025-10-23
 categories: [Search]
-tags: [elasticsearch, synonym-graph, analyzer, search-quality]
+tags: [elasticsearch, synonym-graph, search-quality]
 description: "색인 분석기만 옛 synonym 필터에 남아 다중어 동의어가 어긋나던 문제를 synonym_graph로 통일하고, 템플릿에 하드코딩돼 있던 동의어 사전 경로를 인덱스별 변수로 걷어낸 기록."
-image:
-  path: /assets/img/thumbnails/synonym-graph.png
 ---
 
 내가 맡은 시스템은 여러 검색 서비스의 Elasticsearch 인덱스를 만들고 관리하는

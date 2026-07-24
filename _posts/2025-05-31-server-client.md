@@ -1,8 +1,8 @@
 ---
 title: "Server와 Client"
 date: 2025-05-31
-categories: [Network]
-tags: [server, client]
+categories: [Web]
+tags: [server, client, network]
 description: "네트워크 환경에서 Server와 Client의 개념, 역할, 종류와 2-Tier·3-Tier 아키텍처 정리"
 image:
   path: /assets/img/thumbnails/server-client.jpg

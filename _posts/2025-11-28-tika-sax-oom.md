@@ -1,7 +1,7 @@
 ---
 title: "대용량 오피스 문서에서 나던 OOM, Tika SAX 스트리밍으로 잡은 이야기"
 date: 2025-11-28
-categories: [Search]
+categories: [Problem]
 tags: [apache-tika, sax, oom, memory]
 description: "대용량 DOCX/PPTX를 색인하다 터지던 OOM을, Tika의 SAX 스트리밍 추출 옵션으로 전환해 메모리 곡선을 평탄하게 만든 실전 회고."
 image:

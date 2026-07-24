@@ -1,8 +1,8 @@
 ---
 title: "Statement와 PreparedStatement란?"
 date: 2024-10-24 16:20:00 +0900
-categories: [Java]
-tags: [basics, java, jdbc, database]
+categories: [Backend]
+tags: [jdbc, database, java]
 description: "JDBC에서 Statement와 PreparedStatement의 차이, 사용 목적과 보안·성능 특성 비교"
 image:
   path: /assets/img/thumbnails/jdbc.jpg

@@ -1,8 +1,8 @@
 ---
 title: "보안·정합성 결함 전수 점검 회고"
 date: 2026-09-02
-categories: [Security]
-tags: [security, data-integrity, refactoring, exception-handling]
+categories: [Problem]
+tags: [security, data-integrity, refactoring]
 description: "파일 업로드·재임베딩 순서·권한 게이트·예외 처리에 숨어 있던 결함들을 한 커밋으로 전수 점검하며 배운 것들을 정리한다."
 image:
   path: /assets/img/thumbnails/security-audit.png

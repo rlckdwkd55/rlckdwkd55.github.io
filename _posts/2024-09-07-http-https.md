@@ -2,7 +2,7 @@
 title: "HTTP와 HTTPS란?"
 date: 2024-09-07 13:40:00 +0900
 categories: [Web]
-tags: [basics, http, https, network, security]
+tags: [http, https, security]
 description: "HTTP와 HTTPS의 차이"
 image:
   path: /assets/img/thumbnails/http-https.jpg

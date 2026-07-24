@@ -1,8 +1,8 @@
 ---
 title: "Steam 게임 데이터 크롤링 프로젝트 (3)"
 date: 2025-03-29
-categories: [Web]
-tags: [crawling, project]
+categories: [Project]
+tags: [java, crawling, project]
 description: "Steam 사이트의 게임 데이터를 수집하기 위한 크롤링 프로젝트"
 image:
   path: /assets/img/thumbnails/steam-crawling-project.jpg

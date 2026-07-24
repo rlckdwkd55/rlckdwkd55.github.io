@@ -2,7 +2,7 @@
 title: "벡터 임베딩과 bge-m3"
 date: 2026-03-15
 categories: [AI]
-tags: [embedding, bge-m3, hybrid-search, semantic-search]
+tags: [embedding, bge-m3, semantic-search]
 description: "텍스트가 대조학습·풀링·정규화를 거쳐 의미 벡터가 되는 과정과, 하나의 모델로 dense·sparse·multi-vector를 동시에 뽑는 bge-m3의 M3 특징을 정리한다."
 image:
   path: /assets/img/thumbnails/embeddings.png

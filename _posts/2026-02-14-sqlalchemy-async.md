@@ -2,7 +2,7 @@
 title: "SQLAlchemy 2.0 비동기(AsyncSession) 정리"
 date: 2026-02-14
 categories: [Backend]
-tags: [sqlalchemy, async, orm, python]
+tags: [sqlalchemy, async, orm]
 description: "AsyncSession으로 DB I/O를 await 가능하게 만들고, async에서 lazy loading이 터지는 이유와 eager 전략, 그 밑을 받치는 greenlet 구조까지 정리한다."
 image:
   path: /assets/img/thumbnails/sqlalchemy-async.png

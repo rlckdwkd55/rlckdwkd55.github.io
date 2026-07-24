@@ -2,7 +2,7 @@
 title: "Spring Annotation 정리"
 date: 2025-06-11
 categories: [Spring]
-tags: [spring, spring-annotation]
+tags: [spring, annotation]
 description: "Spring에서 사용하는 주요 Annotation의 역할과 사용 목적 정리"
 image:
   path: /assets/img/thumbnails/spring-logo.png

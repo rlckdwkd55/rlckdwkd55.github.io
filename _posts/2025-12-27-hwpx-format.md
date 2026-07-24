@@ -2,7 +2,7 @@
 title: "HWPX 포맷이란?"
 date: 2025-12-27
 categories: [Search]
-tags: [hwpx, owpml, text-extraction, korean]
+tags: [hwpx, owpml, korean]
 description: "개방형 표준 HWPX(OWPML)의 ZIP 컨테이너 구조와 본문 XML을 뜯어보며, 바이너리 HWP와의 차이 및 텍스트 추출 지점을 정리한다."
 image:
   path: /assets/img/thumbnails/hwpx.png

@@ -2,7 +2,7 @@
 title: "상속(Inheritance)"
 date: 2024-01-17 10:00:00 +0900
 categories: [Java]
-tags: [basics, oop, inheritance, extends, implements]
+tags: [java, oop, inheritance]
 description: "Java 상속의 개념과 특징, 클래스 상속과 인터페이스 구현의 차이를 정리합니다."
 image:
   path: /assets/img/thumbnails/java.png

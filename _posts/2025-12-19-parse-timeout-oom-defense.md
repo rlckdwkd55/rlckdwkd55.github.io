@@ -1,7 +1,7 @@
 ---
 title: "파싱 타임아웃과 메모리 상한으로 색인 워커 지키기"
 date: 2025-12-19
-categories: [Search]
+categories: [Problem]
 tags: [apache-tika, timeout, oom, resilience]
 description: "손상되거나 비정상적으로 거대한 문서 한 건이 색인 워커 전체를 마비시키던 문제를, 파싱 타임아웃과 메모리/크기 상한이라는 서로 다른 실패 모드를 겨냥한 이중 방어로 막은 실전 회고."
 image:

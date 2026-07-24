@@ -2,7 +2,7 @@
 title: "예외 처리(Exception Handling)"
 date: 2024-02-05 11:25:00 +0900
 categories: [Java]
-tags: [basics, exception, try-catch, throw, throws]
+tags: [java, exception]
 description: "Java에서 예외와 오류의 차이, 예외 처리 방법과 주요 예외 유형을 예제와 함께 정리합니다."
 image:
   path: /assets/img/thumbnails/java.png

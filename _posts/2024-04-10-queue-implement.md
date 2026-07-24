@@ -2,7 +2,7 @@
 title: "Queue 직접 구현하기"
 date: 2024-04-10 22:05:00 +0900
 categories: [Java]
-tags: [basics, queue, collection]
+tags: [java, collection, queue]
 description: "Queue의 FIFO 구조를 더 깊이 이해하기 위해 LinkedList 기반의 Queue를 직접 구현해보자."
 image:
   path: /assets/img/thumbnails/queue-implement.jpg

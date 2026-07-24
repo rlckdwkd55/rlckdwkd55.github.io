@@ -1,8 +1,8 @@
 ---
 title: "nested 검색이 첫 문서 하나로만 잘리던 버그"
 date: 2025-10-31
-categories: [Search]
-tags: [elasticsearch, nested, bug, java]
+categories: [Problem]
+tags: [elasticsearch, nested, bug]
 description: "매칭 문서가 여러 건인데도 nested 검색이 첫 문서의 결과만 돌려주던 버그를, for 루프 안의 성급한 return을 걷어내 실제 diff로 고친 기록."
 ---
 

@@ -2,7 +2,7 @@
 title: "다형성(Polymorphism)"
 date: 2024-01-27 21:40:00 +0900
 categories: [Java]
-tags: [basics, polymorphism, oop, overriding, overloading]
+tags: [java, oop, polymorphism]
 description: "객체 지향 프로그래밍에서 다형성의 개념과 오버로딩, 오버라이딩, 함수형 인터페이스를 통해 구현하는 방법을 정리합니다."
 image:
   path: /assets/img/thumbnails/java.png

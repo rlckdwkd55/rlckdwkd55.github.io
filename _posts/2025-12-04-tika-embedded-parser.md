@@ -2,7 +2,7 @@
 title: "Tika 임베디드 추출기와 ParseContext의 Parser.class 함정"
 date: 2025-12-04
 categories: [Search]
-tags: [apache-tika, parsing, embedded, recursive]
+tags: [apache-tika, parsing, embedded]
 description: "커스텀 EmbeddedDocumentExtractor를 등록해 ZIP 내부 문서까지 추출하려 했는데 컨테이너 내부만 빈 텍스트로 나왔다. 원인은 ParseContext에 재귀 파싱용 Parser를 등록하지 않은 것. Parser.class 한 줄을 넣어 되살린 실전 회고."
 image:
   path: /assets/img/thumbnails/tika-embedded.png

@@ -2,7 +2,7 @@
 title: "분산 락이란?"
 date: 2026-06-29
 categories: [Backend]
-tags: [distributed-lock, concurrency, redis, database]
+tags: [distributed-lock, concurrency, redis]
 description: "여러 인스턴스가 한 작업을 중복 실행하는 문제를 막는 분산 락을 DB·Redis 구현, TTL과 펜싱 토큰, Redlock 논쟁까지 정리한다."
 image:
   path: /assets/img/thumbnails/distributed-lock.png

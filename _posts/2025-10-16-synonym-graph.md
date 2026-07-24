@@ -2,7 +2,7 @@
 title: "동의어 필터 synonym과 synonym_graph, 그리고 필터 순서"
 date: 2025-10-16
 categories: [Search]
-tags: [elasticsearch, synonym-graph, analyzer, token-graph]
+tags: [elasticsearch, synonym-graph, analyzer]
 description: "단일어 동의어는 synonym으로 충분하지만 다중어 동의어는 positionLength 때문에 깨진다. 토큰 그래프와 analyze-time·search-time 선택, 필터 체인 순서까지 동의어 처리를 토큰 스트림 수준에서 정리한다."
 image:
   path: /assets/img/thumbnails/synonym-graph.png

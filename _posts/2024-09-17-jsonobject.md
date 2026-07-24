@@ -1,8 +1,8 @@
 ---
 title: "JSONObject란?"
 date: 2024-09-17 14:05:00 +0900
-categories: [Data]
-tags: [basics, json, api, data]
+categories: [Web]
+tags: [json, api, data]
 description: "JSONObject의 개념과 특징"
 image:
   path: /assets/img/thumbnails/json.jpg

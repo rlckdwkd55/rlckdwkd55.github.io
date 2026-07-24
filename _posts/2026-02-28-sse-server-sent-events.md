@@ -2,7 +2,7 @@
 title: "SSE(Server-Sent Events)란?"
 date: 2026-02-28
 categories: [Backend]
-tags: [sse, streaming, http, websocket]
+tags: [sse, streaming, http]
 description: "챗봇 토큰 스트리밍에 쓰이는 SSE를 text/event-stream 포맷, WebSocket과의 비교, FastAPI 구현, 프록시 버퍼링 함정까지 정리한다."
 image:
   path: /assets/img/thumbnails/sse.png

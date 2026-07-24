@@ -2,7 +2,7 @@
 title: "Apache Tika란?"
 date: 2025-11-06
 categories: [Search]
-tags: [apache-tika, parsing, text-extraction, indexing]
+tags: [apache-tika, parsing, text-extraction]
 description: "PDF·DOCX·HWPX 등 수백 종 포맷에서 텍스트와 메타데이터를 추출하는 Apache Tika의 내부 구조를 검색 색인 관점에서 정리한다."
 image:
   path: /assets/img/thumbnails/apache-tika.png

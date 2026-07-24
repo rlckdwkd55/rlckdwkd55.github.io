@@ -2,7 +2,7 @@
 title: "벡터 유사도: 코사인·내적·유클리드"
 date: 2026-04-05
 categories: [AI]
-tags: [vector, similarity, cosine, embedding]
+tags: [vector, similarity, cosine]
 description: "코사인·내적·유클리드가 각각 무엇을 재는지 손계산으로 확인하고, L2 정규화가 세 지표를 왜 같은 순위로 묶는지, 벡터 DB의 거리 함수는 어떻게 고르는지 정리한다."
 image:
   path: /assets/img/thumbnails/vector-similarity.png

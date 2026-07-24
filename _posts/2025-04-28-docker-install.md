@@ -2,7 +2,7 @@
 title: "Docker 설치"
 date: 2025-04-28
 categories: [DevOps]
-tags: [docker, wsl2, docker-desktop]
+tags: [docker, wsl2]
 description: "Windows 환경에서 WSL2와 Docker Desktop을 이용한 Docker 설치 방법"
 image:
   path: /assets/img/thumbnails/docker.png

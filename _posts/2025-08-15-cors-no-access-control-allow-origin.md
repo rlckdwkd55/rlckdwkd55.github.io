@@ -2,7 +2,7 @@
 title: "(CORS) No 'Access-Control-Allow-Origin' header is present in the requested resource"
 date: 2025-08-15
 categories: [Problem]
-tags: [cors]
+tags: [cors, web-security]
 description: "외부 API 및 RSS 크롤링 과정에서 발생한 CORS 에러와 프록시를 통한 해결 과정"
 ---
 

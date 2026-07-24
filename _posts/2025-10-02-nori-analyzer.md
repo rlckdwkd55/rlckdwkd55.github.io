@@ -4,8 +4,6 @@ date: 2025-10-02
 categories: [Search]
 tags: [elasticsearch, nori, korean, tokenizer]
 description: "교착어인 한국어가 표준 토크나이저로 깨지는 이유부터 Nori의 decompound_mode·품사 필터·사용자 사전까지, _analyze 예시와 재현율·정밀도 트레이드오프 중심으로 정리한다."
-image:
-  path: /assets/img/thumbnails/elasticsearch.png
 ---
 
 검색은 문서 원문을 훑지 않는다. **분석기가 만들어 둔 텀(term)** 끼리 정확히 일치하는지를

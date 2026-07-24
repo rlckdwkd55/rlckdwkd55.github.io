@@ -2,7 +2,7 @@
 title: "Spring 각 xml별 역할"
 date: 2025-02-05 10:30:00 +0900
 categories: [Spring]
-tags: [spring, java]
+tags: [spring, configuration]
 description: "Spring Legacy Project에서 xml의 역할"
 image:
   path: /assets/img/thumbnails/spring.jpg

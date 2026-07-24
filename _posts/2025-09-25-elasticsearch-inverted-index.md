@@ -2,7 +2,7 @@
 title: "Elasticsearch 역색인(Inverted Index)"
 date: 2025-09-25
 categories: [Search]
-tags: [elasticsearch, inverted-index, lucene, analyzer]
+tags: [elasticsearch, lucene, inverted-index]
 description: "역색인의 구조(텀 사전·포스팅 리스트), 분석기 파이프라인, Lucene 세그먼트의 불변성과 refresh/merge, 텀 빈도가 BM25 점수로 이어지는 흐름을 정리한다."
 image:
   path: /assets/img/thumbnails/elasticsearch.png

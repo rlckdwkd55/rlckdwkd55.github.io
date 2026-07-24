@@ -2,7 +2,7 @@
 title: "LinkedList 직접 구현하기"
 date: 2024-04-29 21:20:00 +0900
 categories: [Java]
-tags: [basics, linkedlist, collection]
+tags: [java, collection, linkedlist]
 description: "LinkedList의 구조를 이해하기 위해 핵심 메서드만 직접 구현해보자."
 image:
   path: /assets/img/thumbnails/linkedlist-implement.jpg
