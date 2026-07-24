@@ -4,7 +4,7 @@ export const SKILLS = [
     icon: 'fa-code',
     iconColor: '#a855f7',
     title: 'Language',
-    items: ['Java', 'Python', 'TypeScript'],
+    items: ['Java', 'Python', 'JavaScript', 'TypeScript'],
   },
   {
     icon: 'fa-server',
