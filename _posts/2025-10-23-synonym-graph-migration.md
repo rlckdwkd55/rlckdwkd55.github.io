@@ -5,8 +5,7 @@ categories: [Search]
 tags: [elasticsearch, synonym-graph, analyzer, search-quality]
 description: "색인 분석기만 옛 synonym 필터에 남아 다중어 동의어가 어긋나던 문제를 synonym_graph로 통일하고, 템플릿에 하드코딩돼 있던 동의어 사전 경로를 인덱스별 변수로 걷어낸 기록."
 image:
-  path: /assets/img/thumbnails/synonym-graph-migration.png
-published: false
+  path: /assets/img/thumbnails/synonym-graph.png
 ---
 
 내가 맡은 시스템은 여러 검색 서비스의 Elasticsearch 인덱스를 만들고 관리하는
@@ -35,7 +34,7 @@ published: false
 필터에 그대로 남아 있었다. 동의어를 확장하는 필터가 색인과 검색에서 서로 다른
 알고리즘이었던 것이다.
 
-```json
+```text
 // custom_nori_search_analyzer (검색용) — 이미 synonym_graph
 "filter": [ "lowercase", "synonym_graph", "newword", "stopword", "trim" ]
 
@@ -101,7 +100,7 @@ published: false
 `settings.json`의 필터들은 사전 경로를 인덱스별로 치환할 수 있게 변수로 빼 두는
 게 원칙이었다. 실제로 `synonym`·`newword`·`stopword`는 모두 그랬다.
 
-```json
+```text
 "synonym":  { "type": "synonym",  "synonyms_path": "${synonymPath}",  "lenient": true },
 "newword":  { "type": "synonym",  "synonyms_path": "${newwordPath}",  "lenient": true },
 "stopword": { "type": "stop",     "stopwords_path": "${stopwordPath}" }
@@ -110,7 +109,7 @@ published: false
 그런데 `synonym_graph` 필터 하나만 특정 인덱스의 사전 파일 경로를 그대로 박아
 놓고 있었다(경로는 가공 예시).
 
-```json
+```text
 "synonym_graph": {
   "type": "synonym_graph",
   "synonyms_path": "dictionary/synonym/synonym_acme_product.txt",
@@ -167,4 +166,5 @@ String settings = settingsTemplate
 템플릿에서는 형제 필터들이 이미 지키고 있는 변수화 규칙을 새 설정도 따르는지
 확인하는 것만으로 이런 문제를 예방할 수 있다.
 
+<br><br><br><br><br><br><br><br><br><br>
 참고 : https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-synonym-graph-tokenfilter.html

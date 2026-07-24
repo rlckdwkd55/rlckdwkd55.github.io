@@ -4,8 +4,6 @@ date: 2025-10-31
 categories: [Search]
 tags: [elasticsearch, nested, bug, java]
 description: "매칭 문서가 여러 건인데도 nested 검색이 첫 문서의 결과만 돌려주던 버그를, for 루프 안의 성급한 return을 걷어내 실제 diff로 고친 기록."
-image:
-  path: /assets/img/thumbnails/nested-bug.png
 published: false
 ---
 
@@ -24,7 +22,7 @@ published: false
 부모 문서 두 건(A-001, A-007)이 매칭되고, 그중 A-001 안에 자식 매칭이 두 건 있는
 데이터로 재현했을 때 응답은 이랬다. A-007은 아예 흔적도 없었다.
 
-```json
+```text
 // before — 매칭 부모는 2건인데 첫 문서(A-001)의 자식만 담겨 나온다
 {
   "totalHits": 2,
@@ -56,8 +54,6 @@ Elasticsearch에서 배열 안의 객체를 독립된 하위 문서로 다루고
 안에서 매칭되는지 따질 수 있다. 그리고 nested 쿼리에 `inner_hits`를 켜 두면, 부모 문서
 안에서 **실제로 매칭된 자식 항목들**이 따로 딸려 온다. 우리 검색 로직은 이 `inner_hits`를
 꺼내 평평한 리스트로 변환해서 내려주는 방식이었다.
-
-<!-- 이미지: 구글 검색 "elasticsearch nested query inner hits" · 저장 /assets/img/posts/search/nested-search/inner-hits.png -->
 
 여기서 핵심은 계층이 두 겹이라는 점이다. **매칭되는 부모 문서가 여러 건**일 수 있고, 각
 부모 문서 안에 **매칭되는 자식 항목이 여러 건**일 수 있다. 버그는 이 바깥쪽 계층,
@@ -156,7 +152,7 @@ private List<Map<String, Object>> extractNestedHits(Hit<Map<String, Object>> hit
 같은 데이터로 다시 돌리니 A-007까지 담겨 나왔다. 부모 문서 수(`totalCount`)와 자식
 매칭 총합(`totalHits`)이 이제 서로 다른 값으로, 두 겹 계층을 각각 드러낸다.
 
-```json
+```text
 // after — 매칭 부모 2건의 자식이 모두 담긴다
 {
   "totalCount": 2,
