@@ -6,7 +6,6 @@ tags: [elasticsearch, synonym-graph, analyzer, token-graph]
 description: "단일어 동의어는 synonym으로 충분하지만 다중어 동의어는 positionLength 때문에 깨진다. 토큰 그래프와 analyze-time·search-time 선택, 필터 체인 순서까지 동의어 처리를 토큰 스트림 수준에서 정리한다."
 image:
   path: /assets/img/thumbnails/synonym-graph.png
-published: false
 ---
 
 동의어 필터는 사전에 단어 몇 개를 나열하면 되는 단순한 기능처럼 보인다. 그러나 같은
@@ -88,8 +87,6 @@ published: false
         └──── 빅 ──── 데이터 ────────────────┘
 ```
 
-<!-- 이미지: 구글 검색 "elasticsearch synonym graph token positionlength" · 저장 /assets/img/posts/search/synonym-graph/token-graph.png -->
-
 `빅데이터`라는 하나의 토큰이 `빅 → 데이터` 두 위치를 정확히 가로지른다. positionLength가
 살아 있으니 `분석`의 위치도 어긋나지 않고, phrase 검색이 양쪽 경로 모두에서 성립한다.
 다중어 동의어를 다룬다면 `synonym_graph`가 사실상 표준인 이유다.
@@ -164,5 +161,5 @@ positionLength를 저장할 자리가 없다. 그래서 색인 시점에 그래�
 - 색인 시점 vs 검색 시점 확장은 **저장 공간·사전 반영·속도**의 트레이드오프이고, 기본은 검색 분석기다.
 - 필터 순서가 결과를 바꾼다. **형태소 분석 뒤에** 동의어를 두고, lowercase·stop과의 순서까지 `_analyze`로 검증한다.
 
-<br>
+<br><br><br><br><br><br><br><br><br><br>
 참고 : https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-synonym-graph-tokenfilter.html

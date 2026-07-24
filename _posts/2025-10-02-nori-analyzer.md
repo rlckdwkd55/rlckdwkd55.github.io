@@ -5,8 +5,7 @@ categories: [Search]
 tags: [elasticsearch, nori, korean, tokenizer]
 description: "교착어인 한국어가 표준 토크나이저로 깨지는 이유부터 Nori의 decompound_mode·품사 필터·사용자 사전까지, _analyze 예시와 재현율·정밀도 트레이드오프 중심으로 정리한다."
 image:
-  path: /assets/img/thumbnails/nori.png
-published: false
+  path: /assets/img/thumbnails/elasticsearch.png
 ---
 
 검색은 문서 원문을 훑지 않는다. **분석기가 만들어 둔 텀(term)** 끼리 정확히 일치하는지를
@@ -17,8 +16,6 @@ published: false
 `회의를`, `했다` 가 된다. 사용자가 검색창에 넣은 `학교` 라는 텀은 이 목록 어디에도 없다.
 글자는 겹치는데 텀이 다르니, 검색 입장에선 존재하지 않는 단어다. 이 문제를 푸는 것이 ES의
 공식 한국어 형태소 분석기 **Nori** 다.
-
-<!-- 이미지: 구글 검색 "elasticsearch nori korean tokenizer decompound" · 저장 /assets/img/posts/search/nori/pipeline.png -->
 
 ## 표준 토크나이저가 하는 일
 
@@ -75,7 +72,7 @@ Nori는 ES가 공식 제공하는 한국어 형태소 분석 플러그인(`analy
 `_analyze` API로 실제 분해 결과를 찍어 보면 동작이 분명해진다. 복합명사 하나를 `mixed` 로
 돌린다.
 
-```json
+```text
 POST /_analyze
 {
   "tokenizer": {
@@ -140,7 +137,7 @@ POST /_analyze
 **`stoptags`** 에 나열한 품사의 형태소를 색인에서 제외한다. 조사(J)·어미(E)처럼 검색 변별력이
 없는 형태소를 걸러 내는 역할이다.
 
-```json
+```text
 "nori_pos_filter": {
   "type": "nori_part_of_speech",
   "stoptags": ["E", "IC", "J", "MAG", "MAJ", "MM", "SP", "SSC",
@@ -201,5 +198,5 @@ POST /_analyze
 어떻게 조합하든, 색인과 검색 양쪽에서 같은 텀이 나오는지를 `_analyze` 로 확인하고 나서야 설정이
 끝난다.
 
-<br><br>
+<br><br><br><br><br><br><br><br><br><br>
 참고 : https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-nori.html
