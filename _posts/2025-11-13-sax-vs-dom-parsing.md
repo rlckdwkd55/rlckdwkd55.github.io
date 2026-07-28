@@ -112,7 +112,7 @@ parser.parse(new File("big.xml"), new TextExtractHandler()); // 스트리밍하�
 잡은 과정은 [대용량 오피스 문서 OOM을 SAX로 잡기](https://rlckdwkd55.github.io/posts/tika-sax-oom/)에
 따로 정리했다.
 
-![](/assets/img/posts/search/parsing/sax-vs-dom-memory.png)
+![](/assets/img/posts/search/parsing/sax-vs-dom.png)
 
 ## 중간 지대 — StAX (pull 방식)
 

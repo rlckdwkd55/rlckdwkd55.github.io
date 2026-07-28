@@ -4,9 +4,6 @@ date: 2025-11-28
 categories: [Problem]
 tags: [apache-tika, sax, oom, memory]
 description: "대용량 DOCX/PPTX를 색인하다 터지던 OOM을, Tika의 SAX 스트리밍 추출 옵션으로 전환해 메모리 곡선을 평탄하게 만든 실전 회고."
-image:
-  path: /assets/img/thumbnails/tika-sax.png
-published: false
 ---
 
 > DOM과 SAX의 개념 차이 자체는 [SAX vs DOM 파싱](https://rlckdwkd55.github.io/posts/sax-vs-dom-parsing/)에서 따로
@@ -58,8 +55,6 @@ DOM 트리가 부풀어 오르고, 결국 힙 한계를 넘어 OOM으로 이어�
 이건 나만 겪은 문제가 아니라 Tika 쪽에서도 알려진 이슈(TIKA-2201 계열)였고, 그래서 Tika는
 이 문제를 우회할 **SAX 기반 스트리밍 추출기**를 옵션으로 제공하고 있었다.
 
-<!-- 이미지: 구글 검색 "DOM SAX 메모리 사용량 비교" · 저장 /assets/img/posts/search/tika/sax-memory.png -->
-
 ## 해결: SAX 스트리밍 추출로 전환
 
 핵심은 "문서 구조 전체를 메모리에 올리지 말고, **이벤트 단위로 흘려보내며** 텍스트만
@@ -74,7 +69,7 @@ DOM 트리가 부풀어 오르고, 결국 힙 한계를 넘어 OOM으로 이어�
 AutoDetectParser parser = new AutoDetectParser();
 ParseContext context = new ParseContext();
 
-// TIKA-2201: 기본 DOM 파서는 대용량 docx/pptx에서 OOM을 유발할 수 있어
+// TIKA-2201(pptx)·TIKA-1321(docx): 기본 DOM 파서는 대용량 문서에서 OOM을 유발할 수 있어
 // SAX 스트리밍 추출로 전환
 OfficeParserConfig officeParserConfig = new OfficeParserConfig();
 officeParserConfig.setUseSAXDocxExtractor(true);
@@ -90,9 +85,10 @@ return handler.toString();
 
 바뀐 지점은 결국 두 줄이다. `setUseSAXDocxExtractor(true)`와
 `setUseSAXPptxExtractor(true)`. 이 스위치 하나로 파서는 문서 XML을 **DOM 트리로
-쌓지 않고 SAX 이벤트로 스트리밍**하면서 텍스트를 뽑는다. 문서가 아무리 커도 메모리에
-한꺼번에 올라가는 건 "지금 처리 중인 이벤트 근처"뿐이라, 메모리 사용이 문서 크기에 거의
-비례하지 않고 **평탄해진다.**
+쌓지 않고 SAX 이벤트로 스트리밍**하면서 텍스트를 뽑는다. 문서 구조를 담아 두던 트리가
+사라지니 파싱 쪽 메모리는 문서 크기에 거의 비례하지 않고 **평탄해진다.** 남는 것은
+뽑아낸 텍스트 자체인데, 그건 위 코드의 `BodyContentHandler(maxContentChars)`가 상한을
+쥐고 있다.
 
 > 이 커밋에서는 SAX 전환 외에도 write limit 처리, 파싱 타임아웃 같은 방어 장치를 함께
 > 넣었다. 그 부분은 [Tika의 조용한 10만자 절단](https://rlckdwkd55.github.io/posts/tika-silent-truncation/)과
