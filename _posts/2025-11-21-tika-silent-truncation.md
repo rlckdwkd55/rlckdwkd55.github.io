@@ -4,9 +4,6 @@ date: 2025-11-21
 categories: [Problem]
 tags: [apache-tika, parsing, text-extraction]
 description: "장문 문서가 색인에서 뒷부분만 통째로 누락되던 원인이 Tika facade의 기본 write limit(10만 자) 침묵 절단임을 밝히고, AutoDetectParser와 BodyContentHandler로 write limit을 명시적으로 다뤄 텍스트 캡처율을 되살린 실전 회고."
-image:
-  path: /assets/img/thumbnails/tika-truncation.png
-published: false
 ---
 
 첨부문서 색인 파이프라인을 다시 들여다보다가, 한동안 "그러려니" 하고 넘겼던 버그의
@@ -92,7 +89,7 @@ private String extractWithTika(String filePath) throws Exception {
     AutoDetectParser parser = new AutoDetectParser();
     ParseContext context = new ParseContext();
 
-    // (임베디드 문서 재귀 파싱용 Parser 등록, Office SAX 스트리밍 설정 등은 생략)
+    // (대용량 오피스 문서용 SAX 스트리밍 설정 등 같은 커밋의 다른 방어 장치는 생략)
 
     // 기본 facade(new Tika().parseToString())는 10만자에서 예외 없이 조용히 잘리므로,
     // write limit을 명시적으로 크게 잡고 초과 시에도 그 시점까지의 텍스트를 그대로 사용한다.
@@ -111,8 +108,9 @@ private String extractWithTika(String filePath) throws Exception {
 1. **편의 facade를 버리고 파서를 직접 구성했다.** `parseToString` 이 숨기던 조립
    과정(parser + handler + metadata + context)을 밖으로 꺼내니, 상한을 포함한
    모든 손잡이가 내 코드에 드러난다. 이 명시적 조립은 write limit뿐 아니라
-   대용량 Office 문서의 SAX 스트리밍 전환이나 임베디드 문서 추출기 등록 같은
-   다른 개선의 토대이기도 했다(아래 링크 참고).
+   [대용량 Office 문서의 SAX 스트리밍 전환](https://rlckdwkd55.github.io/posts/tika-sax-oom/)이나
+   [임베디드 문서 추출기 등록](https://rlckdwkd55.github.io/posts/tika-embedded-parser/) 같은
+   다른 개선의 토대이기도 했다.
 2. **상한을 눈에 보이는 설정값으로 끌어올렸다.** 숨은 10만 자 대신
    `maxContentChars`(기본 5,000,000)를 `BodyContentHandler` 에 넘긴다.
    프로퍼티라 운영 중에도 조정할 수 있다.
@@ -159,7 +157,7 @@ private String extractWithTika(String filePath) throws Exception {
 마지막으로 표본을 넓혔다. 길이가 제각각인 문서 여러 건을 재색인하면서, before/after의
 추출 길이를 나란히 로그로 남겨 **10만 근처에서 잘린 흔적이 있던 문서들이 after에서
 전부 그 벽을 넘겼는지**를 확인했다. 그리고 `WriteLimitReachedException` 경고
-로그가 정상 문서 범위에서는 더 이상 찍히지 않는 것으로, 5백만이라는 상한이 실무
+로그가 정상 문서 범위에서는 한 번도 찍히지 않는 것으로, 5백만이라는 상한이 실무
 문서에 충분한 여유임을 함께 검증했다.
 
 세 가지가 모두 맞아떨어지고 나서야 "캡처율이 회복됐다"고 말할 수 있었다.
@@ -174,10 +172,3 @@ private String extractWithTika(String filePath) throws Exception {
   부른다. 현실을 크게 웃도는 유한 상한 + 초과 시 경고가 두 위험 사이의 균형점이었다.
 - **조용한 실패는 조용한 검증으로 못 잡는다.** 문자 수 비교, 꼬리 검색, 표본
   재색인처럼 눈에 보이는 지표로 회복을 확인했다.
-
-> 이 변경은 Tika 파이프라인 전반을 손본 작업의 일부였다. 같은 커밋에서 다룬
-> [대용량 Office 문서 SAX 전환](https://rlckdwkd55.github.io/posts/tika-sax-oom/),
-> [HWPX 포맷 연동](https://rlckdwkd55.github.io/posts/hwpx-integration/),
-> [XXE(CVE) 대응](https://rlckdwkd55.github.io/posts/tika-xxe-cve/),
-> [의존성 충돌 해결](https://rlckdwkd55.github.io/posts/tika-dependency-conflict/)은 각각 따로 정리해 뒀다.
-{: .prompt-info }
