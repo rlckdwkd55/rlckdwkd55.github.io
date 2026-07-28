@@ -6,7 +6,6 @@ tags: [apache-tika, parsing, text-extraction]
 description: "PDF·DOCX·HWPX 등 수백 종 포맷에서 텍스트와 메타데이터를 추출하는 Apache Tika의 내부 구조를 검색 색인 관점에서 정리한다."
 image:
   path: /assets/img/thumbnails/apache-tika.png
-published: false
 ---
 
 검색 파이프라인에서 색인 대상은 결국 텍스트다. 그러나 사용자가 올리는 파일은 PDF,
@@ -16,8 +15,8 @@ Word(DOCX), 한글(HWP/HWPX), 엑셀, 스캔 이미지까지 제각각이고, �
 
 Tika는 수백 종의 바이너리 포맷에서 **본문 텍스트와 메타데이터**를 하나의 API로 뽑아
 주는 도구다. 다만 "하나의 API"라는 표현은 오해를 부른다. `parseToString()` 한 줄이면
-끝날 것 같지만, 그 뒤에는 MIME 감지·파서 위임·SAX 수집·컨텍스트 설정이라는 네 조각의
-구조가 있다. 이 구조를 모른 채 facade만 쓰면 문서가 조용히 잘리거나 첨부가 통째로
+끝날 것 같지만, 그 뒤에는 MIME 감지·파서 위임·SAX 수집·메타데이터·컨텍스트 설정이라는
+다섯 조각의 구조가 있다. 이 구조를 모른 채 facade만 쓰면 문서가 조용히 잘리거나 첨부가 통째로
 누락된다. 여기서는 그 토대가 되는 뼈대에 집중하고, 개별 함정은 각각의 글로 넘긴다.
 
 동작 설명은 실제 파이프라인에서 쓰고 있는 **Tika 2.9.2 / 3.2.2** 기준이다. 1.x와는
@@ -25,9 +24,9 @@ Tika는 수백 종의 바이너리 포맷에서 **본문 텍스트와 메타데�
 
 ---
 
-## 추출은 네 조각의 협업이다
+## 추출은 다섯 조각의 협업이다
 
-Tika의 파싱은 네 개의 구성요소가 맞물려 돌아간다. 이 넷의 역할을 구분해 두면 이후에
+Tika의 파싱은 다섯 개의 구성요소가 맞물려 돌아간다. 이 다섯의 역할을 구분해 두면 이후에
 나오는 거의 모든 문제를 "어느 조각의 책임인가"로 나눠 볼 수 있다.
 
 | 구성요소 | 역할 | 대표 구현 |
@@ -36,6 +35,7 @@ Tika의 파싱은 네 개의 구성요소가 맞물려 돌아간다. 이 넷의 
 | **Parser** | 포맷을 해석해 이벤트를 발생 | `AutoDetectParser`, `PDFParser` |
 | **ContentHandler** | 파서가 뽑은 내용을 수집 | `BodyContentHandler` |
 | **Metadata** | 부가 정보를 담는 키-값 저장소 | `Metadata` |
+| **ParseContext** | 파싱 동작을 어떻게 할지 담는 설정 | `Parser`, `OfficeParserConfig` 등록 |
 
 가장 기본적인 추출 코드는 다음과 같다.
 
@@ -56,7 +56,7 @@ String title = metadata.get(TikaCoreProperties.TITLE);
 `parse()` 하나에 스트림·핸들러·메타데이터·컨텍스트가 전부 인자로 들어간다. 이
 시그니처만 이해하면 Tika의 절반은 이해한 셈이다.
 
-<!-- 이미지: 구글 검색 "Apache Tika 구조" · 저장 /assets/img/posts/search/tika/architecture.png -->
+![](/assets/img/posts/search/tika/architecture.png)
 
 ---
 
@@ -168,7 +168,7 @@ String pages  = metadata.get(PagedText.N_PAGES);
 
 ## 편의 facade의 함정 — `parseToString()`
 
-Tika에는 위의 네 조각을 몰라도 되는 한 줄짜리 편의 API가 있다.
+Tika에는 위의 다섯 조각을 몰라도 되는 한 줄짜리 편의 API가 있다.
 
 ```java
 String text = new Tika().parseToString(stream);
@@ -190,9 +190,10 @@ String text = new Tika().parseToString(stream);
 순간, 그동안 대신 처리되던 배선의 책임이 통째로 내 코드로 넘어온다. 그 배선을 놓쳐
 첨부가 빈 값으로 나왔던 사례는 아래 재귀 파싱 절에서 이어 다룬다.
 
-색인 파이프라인에서는 facade 대신 `AutoDetectParser` + `BodyContentHandler(-1)`(또는
-의도한 상한값) 조합으로 **한계를 코드에 드러내는** 편이 안전하다. 편의 API는 스크립트나
-탐색용으로만 쓴다.
+색인 파이프라인에서는 facade 대신 `AutoDetectParser` + `BodyContentHandler(의도한 상한값)`
+조합으로 **한계를 코드에 드러내는** 편이 안전하다. 무제한(`-1`)으로 열 수도 있지만, 크기를
+통제할 수 없는 입력에서는 상한을 아예 없애는 것 자체가 또 다른 위험이 된다. 편의 API는
+스크립트나 탐색용으로만 쓴다.
 
 ---
 

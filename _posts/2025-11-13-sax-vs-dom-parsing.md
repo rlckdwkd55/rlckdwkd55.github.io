@@ -6,7 +6,6 @@ tags: [parsing, sax, dom, xml]
 description: "문서를 트리로 통째로 올리는 DOM과 이벤트로 흘려보내는 SAX가 메모리·속도·구현 난이도에서 갈리는 지점을, 대용량에서 OOM이 나는 원인과 함께 코드로 정리한다."
 image:
   path: /assets/img/thumbnails/sax-vs-dom.png
-published: false
 ---
 
 문서 색인 파이프라인에서 어떤 문서는 문제없이 처리되고 어떤 문서는 서버 전체를
@@ -113,7 +112,7 @@ parser.parse(new File("big.xml"), new TextExtractHandler()); // 스트리밍하�
 잡은 과정은 [대용량 오피스 문서 OOM을 SAX로 잡기](https://rlckdwkd55.github.io/posts/tika-sax-oom/)에
 따로 정리했다.
 
-<!-- 이미지: 구글 검색 "SAX DOM 파싱 방식 차이" · 저장 /assets/img/posts/search/parsing/sax-vs-dom-memory.png -->
+![](/assets/img/posts/search/parsing/sax-vs-dom-memory.png)
 
 ## 중간 지대 — StAX (pull 방식)
 
@@ -142,10 +141,14 @@ while (reader.hasNext()) {
 | 메모리 | 문서 크기에 비례(큼) | 거의 상수(작음) | 거의 상수(작음) |
 | 방식 | 트리 적재 | push(콜백) | pull(당겨오기) |
 | 탐색 | 양방향·임의 접근 | 단방향·순차 | 단방향·순차 |
-| 수정 | 가능 | 불가(읽기 전용) | 불가(읽기 전용) |
+| 수정 | 가능 | 불가(읽기 전용) | 제자리 수정 불가 |
 | 구현 난이도 | 낮음(직관적) | 높음(상태 관리) | 중간 |
 | 속도 | 트리 빌드 부담 | 단일 패스로 빠름 | 단일 패스로 빠름 |
 | 적합 | 작은 문서·조작 | **대용량 텍스트 추출** | 대용량·제어 필요 |
+
+"수정" 행은 읽어들인 문서를 되돌아가 고칠 수 있느냐를 말한다. SAX는 파싱 전용이라 쓰기 API가
+아예 없지만, StAX는 제자리 수정만 불가할 뿐 `XMLStreamWriter`로 XML을 새로 만들어 내보내는
+것은 지원한다. 스트리밍이라 "이미 지나간 지점"을 되돌릴 수 없을 뿐이다.
 
 ## Tika가 SAX를 쓰는 이유
 
@@ -173,5 +176,5 @@ while (reader.hasNext()) {
 - **크기를 모르는 문서**를 다룬다면 SAX 스트리밍이 안전한 기본값이고, Tika가 바로 그 선택
   위에 서 있다.
 
-<br>
+<br><br><br><br><br><br><br><br><br><br>
 참고 : https://docs.oracle.com/javase/tutorial/jaxp/sax/index.html
