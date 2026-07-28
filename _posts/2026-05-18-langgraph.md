@@ -91,7 +91,7 @@ START → retrieve → generate → [validate] ──(충실 or 상한)──►
                        └──────────── regenerate ─────────────────┘
 ```
 
-<!-- 이미지: 구글 검색 "langgraph state node edge conditional graph" · 저장 /assets/img/posts/ai/langgraph/<name>.png -->
+<!-- 이미지: 구글 검색 "LangGraph 노드 엣지 그래프 구조" · 저장 /assets/img/posts/ai/langgraph/graph-flow.png -->
 
 ```python
 from langgraph.graph import StateGraph, START, END

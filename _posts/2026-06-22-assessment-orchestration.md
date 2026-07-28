@@ -114,7 +114,7 @@ await asyncio.gather(*[
 느리다. 실패율이 튀지 않는 선을 기준으로 값을 잡았다. 최대한 병렬로 돌리는 것 자체가
 목적이 아니라, 과부하 없이 얻을 수 있는 만큼만 병렬로 얻는 것이 목적이었기 때문이다.
 
-<!-- 이미지: 구글 검색 "asyncio semaphore concurrency limit" · 저장 /assets/img/posts/backend/assessment/semaphore.png -->
+<!-- 이미지: 구글 검색 "세마포어 동시 실행 제한" · 저장 /assets/img/posts/backend/assessment/semaphore.png -->
 
 다만 세마포어는 프로세스 하나 안에서만 유효하다. 인스턴스가 여러 대라면 각자 자기
 세마포어를 들고 있어 전체 동시성은 그만큼 곱해진다. 그건 세마포어가 아니라

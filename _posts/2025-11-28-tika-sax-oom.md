@@ -58,7 +58,7 @@ DOM 트리가 부풀어 오르고, 결국 힙 한계를 넘어 OOM으로 이어�
 이건 나만 겪은 문제가 아니라 Tika 쪽에서도 알려진 이슈(TIKA-2201 계열)였고, 그래서 Tika는
 이 문제를 우회할 **SAX 기반 스트리밍 추출기**를 옵션으로 제공하고 있었다.
 
-<!-- 이미지: 구글 검색 "DOM vs SAX parsing memory usage curve" · 저장 /assets/img/posts/search/tika/sax-memory.png -->
+<!-- 이미지: 구글 검색 "DOM SAX 메모리 사용량 비교" · 저장 /assets/img/posts/search/tika/sax-memory.png -->
 
 ## 해결: SAX 스트리밍 추출로 전환
 

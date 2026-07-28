@@ -29,7 +29,7 @@ published: false
 그 글에서는 쿼리 문자열에 입력을 붙였고, 이번에는 파일 경로에 붙였다는 차이가 있을 뿐
 "입력을 신뢰했다"는 뿌리는 같다.
 
-<!-- 이미지: 구글 검색 "path traversal directory traversal attack" · 저장 /assets/img/posts/security/path-traversal/overview.png -->
+<!-- 이미지: 구글 검색 "경로 탐색 공격 디렉터리 트래버설" · 저장 /assets/img/posts/security/path-traversal/overview.png -->
 
 ---
 
@@ -61,7 +61,7 @@ upload_dir / unique_filename : /app/uploads/../../../../etc/cron.d/20260825_a1b2
 resolve() 결과 : /etc/cron.d/20260825_a1b2_evil   ← 업로드 루트 밖
 ```
 
-<!-- 이미지: 구글 검색 "path traversal directory traversal attack" · 저장 /assets/img/posts/security/path-traversal/before-escape.png -->
+<!-- 이미지: 구글 검색 "파일 업로드 경로 검증 우회" · 저장 /assets/img/posts/security/path-traversal/before-escape.png -->
 
 ---
 

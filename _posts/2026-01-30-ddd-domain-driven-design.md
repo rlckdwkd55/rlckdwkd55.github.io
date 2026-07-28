@@ -123,12 +123,19 @@ class OrderItem:              # 애그리거트 내부 엔티티
     quantity: int
     unit_price: Money
 
-@dataclass
+@dataclass(eq=False)          # 동등성은 전 필드가 아니라 식별자로 판단한다
 class Order:                  # 애그리거트 루트
     id: int | None
     member_id: int            # 다른 애그리거트는 ID로만 참조
     status: OrderStatus = OrderStatus.DRAFT
     items: list[OrderItem] = field(default_factory=list)
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Order):
+            return NotImplemented
+        if self.id is None or other.id is None:
+            return self is other          # 아직 저장 전이면 인스턴스 동일성으로
+        return self.id == other.id        # 저장 뒤엔 식별자만 본다
 
     def add_item(self, item: OrderItem) -> None:
         if self.status != OrderStatus.DRAFT:
@@ -143,6 +150,12 @@ class Order:                  # 애그리거트 루트
 
 `add_item`, `place` 같은 행위가 규칙과 함께 엔티티 안에 있다. 이게 빈약한 모델과의 결정적
 차이다. "빈 주문 확정 금지" 규칙이 서비스 여기저기 흩어지지 않고 한곳에 모인다.
+
+`Order`에만 `eq=False`를 준 것도 앞의 구분을 코드로 옮긴 것이다. `@dataclass`는 기본으로
+**모든 필드를 비교하는** `__eq__`를 만들어 주는데, 값 객체인 `Money`에는 그게 정확히 맞는
+동작이다(금액과 통화가 같으면 같은 값이다). 반면 엔티티는 배송지가 바뀌어도 같은 주문이어야
+하므로 필드 비교를 끄고 식별자로 판단해야 한다. 같은 데코레이터라도 값 객체와 엔티티에서
+정반대로 써야 하는 지점이다.
 
 **리포지토리**는 도메인 계층에 인터페이스(추상)만 둔다. 도메인이 DB를 모르게 하기 위해서다.
 
@@ -197,7 +210,7 @@ class SqlAlchemyOrderRepository(OrderRepository):
 로직이 흔들리지 않는다. **헥사고날(포트-어댑터) 아키텍처** 도 같은 지향으로, 도메인이 정의한
 인터페이스가 "포트", 인프라의 구현이 "어댑터"다. 앞서 본 부패 방지 계층도 하나의 어댑터다.
 
-<!-- 이미지: 구글 검색 "ddd layered hexagonal architecture dependency" · 저장 /assets/img/posts/backend/ddd/layers.png -->
+<!-- 이미지: 구글 검색 "DDD 계층형 아키텍처 의존성 방향" · 저장 /assets/img/posts/backend/ddd/layers.png -->
 
 이름이 같아 헷갈리는 두 서비스는 역할이 다르다.
 

@@ -52,7 +52,7 @@ d(A, B) = √( Σ (aᵢ - bᵢ)² )        (작을수록 가까움)
 좌표 공간에서 두 점을 잇는 **직선의 길이**다. 유사도가 아니라 거리라서, 값이
 **작을수록** 가깝다는 점이 앞의 둘과 반대다.
 
-<!-- 이미지: 구글 검색 "cosine similarity dot product euclidean distance vectors" · 저장 /assets/img/posts/ai/vector-similarity/metrics.png -->
+<!-- 이미지: 구글 검색 "코사인 유사도 유클리드 거리 비교" · 저장 /assets/img/posts/ai/vector-similarity/metrics.png -->
 
 ## 정규화하면 셋이 한 순위로 묶인다
 
@@ -165,8 +165,8 @@ print(dot(qn, d2n), cosine(qn, d2n))   # 0.707... 0.707...
 
 ## 벡터 DB에서의 거리 함수 선택
 
-[Qdrant](https://rlckdwkd55.github.io/posts/qdrant/)는 컬렉션을 만들 때 거리 척도를
-`Cosine / Dot / Euclid` 중에서 고른다. 여기서 앞의 결론이 실무 판단으로 이어진다.
+Qdrant는 컬렉션을 만들 때 거리 척도를 `Cosine / Dot / Euclid` 중에서 고른다. 여기서 앞의
+결론이 실무 판단으로 이어진다.
 
 - 임베딩 모델이 **코사인 기준으로 학습**됐다면(bge-m3를 비롯한 대부분) 코사인 계열을 쓴다.
 - **벡터를 미리 L2 정규화해 저장**한다면 `Dot`이 유리할 수 있다. 정규화가 보장된 상태에서

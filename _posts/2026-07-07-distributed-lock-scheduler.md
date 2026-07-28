@@ -11,7 +11,7 @@ published: false
 
 분산 락의 개념·TTL·펜싱 토큰 같은 원리는 [분산 락 글](https://rlckdwkd55.github.io/posts/distributed-lock/)에 따로 정리했다. 이 글은 그 원리를 실제 스케줄러에 적용한 구현 기록이다. 코드는 사내 서비스에서 발췌하되 식별 정보는 지웠다.
 
-<!-- 이미지: 구글 검색 "distributed lock scheduler multiple instances" · 저장 /assets/img/posts/backend/scheduler/multi-instance.png -->
+<!-- 이미지: 구글 검색 "다중 인스턴스 스케줄러 중복 실행" · 저장 /assets/img/posts/backend/scheduler/multi-instance.png -->
 
 ## 재동기화 Cron이 인스턴스 수만큼 돌았다
 

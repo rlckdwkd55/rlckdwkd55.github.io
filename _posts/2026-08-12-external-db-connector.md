@@ -212,7 +212,8 @@ O(N²)). 수십만 행짜리 뷰라면 뒷부분에서 급격히 느려진다.
 def fetch_rows_batched(self, query, batch_size=1000):
     engine = self._build_engine()
     try:
-        with engine.connect() as conn:
+        # stream_results=True 가 있어야 서버사이드 커서로 실제 스트리밍이 된다
+        with engine.connect().execution_options(stream_results=True) as conn:
             result = conn.execute(text(query))
             columns = list(result.keys())
             while True:
@@ -223,6 +224,12 @@ def fetch_rows_batched(self, query, batch_size=1000):
     finally:
         engine.dispose()
 ```
+
+여기서 `stream_results=True`를 빠뜨리면 절반만 고친 셈이 된다. **OFFSET의 O(N²)를 없애는
+것과 메모리를 스트리밍하는 것은 별개 문제**이기 때문이다. 이 옵션이 없으면 pymysql 같은
+기본 커서는 쿼리 결과 **전량을 클라이언트 메모리로 먼저 받아 놓고**, `fetchmany`는 그렇게
+쌓아 둔 것을 나눠 줄 뿐이다. 재조회 비용은 사라지지만 수십만 행이 한꺼번에 힙에 올라오는
+건 그대로다. 서버사이드 커서를 세워야 비로소 "조금씩 당겨온다"가 성립한다.
 
 이 동기 제너레이터를 비동기 쪽에서는 `run_in_executor`로 한 배치씩 당겨 감싼다. 이벤트
 루프를 막지 않으면서 스트리밍을 유지하는 다리 역할이다.

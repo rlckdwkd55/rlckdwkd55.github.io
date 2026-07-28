@@ -59,7 +59,7 @@ async def update_chunk(self, collection_name, point_id, new_content, metadata):
 "수정"을 눌렀을 뿐인데 원본이 통째로 사라진다. 정상 흐름 테스트로는 절대 안 잡히고,
 오직 실패 경로(fail path)에만 숨어 있던 결함이었다.
 
-<!-- 이미지: 구글 검색 "blue green reindex build then swap" · 저장 /assets/img/posts/ai/reembedding/<name>.png -->
+<!-- 이미지: 구글 검색 "블루그린 무중단 전환 방식" · 저장 /assets/img/posts/ai/reembedding/build-then-swap.png -->
 
 ---
 

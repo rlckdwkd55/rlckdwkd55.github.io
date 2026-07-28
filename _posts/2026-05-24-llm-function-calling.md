@@ -58,7 +58,7 @@ Function Calling은 이 세 가지를 "도구(tool)"라는 인터페이스로 �
 [LangGraph](https://rlckdwkd55.github.io/posts/langgraph/)로 그래프를 그려 관리하는
 편이 낫다.
 
-<!-- 이미지: 구글 검색 "llm function calling tool use round trip" · 저장 /assets/img/posts/ai/function-calling/round-trip.png -->
+<!-- 이미지: 구글 검색 "LLM Function Calling 동작 흐름" · 저장 /assets/img/posts/ai/function-calling/round-trip.png -->
 
 ## 도구 스키마 — 모델이 읽는 유일한 설명서
 
@@ -98,8 +98,10 @@ Function Calling은 이 세 가지를 "도구(tool)"라는 인터페이스로 �
 
 한 번의 응답에서 모델이 여러 tool call을 동시에 요청할 수 있다. "서울과 부산 날씨"를
 물으면 `get_weather("서울")`, `get_weather("부산")` 두 호출이 한 응답에 담긴다. 이때 앱은
-각각 실행한 뒤 **모든 결과를 한 번에 모아** 다음 요청에 넣어야 한다. 결과를 쪼개서 여러
-번에 나눠 보내면 모델이 병렬 호출을 점점 안 하도록 학습되는 부작용이 있다.
+각각 실행한 뒤 **모든 결과를 빠짐없이 모아** 다음 요청에 넣어야 한다. 하나라도 빠뜨리면
+모델이 삐지는 게 아니라 **대화 이력의 짝이 맞지 않아 API가 요청 자체를 거부한다.**
+tool call 하나에는 그에 대응하는 결과 메시지 하나가 반드시 따라붙어야 한다는 게 프로토콜의
+계약이고, OpenAI 계열은 이걸 어기면 400을 돌려준다.
 
 ## 가장 큰 함정 — 모델은 인자를 틀리게, 때로 환각으로 채운다
 

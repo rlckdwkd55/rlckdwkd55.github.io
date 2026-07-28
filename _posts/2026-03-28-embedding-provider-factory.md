@@ -41,7 +41,7 @@ class AiEmbeddingModelEntity(Base):
 
 이게 가능한 이유는 대부분의 임베딩 제공자가 **OpenAI 호환 엔드포인트**를 노출하기 때문이다. 그래서 로컬이든 클라우드든 팩토리는 두 갈래로만 갈린다.
 
-<!-- 이미지: 구글 검색 "factory pattern strategy provider" · 저장 /assets/img/posts/ai/embedding-provider/factory-branches.png -->
+<!-- 이미지: 구글 검색 "팩토리 패턴 구조" · 저장 /assets/img/posts/ai/embedding-provider/factory-branches.png -->
 
 ```python
 def create_dense_embeddings(ai_embedding_model: Optional[AiEmbeddingModelEntity]):

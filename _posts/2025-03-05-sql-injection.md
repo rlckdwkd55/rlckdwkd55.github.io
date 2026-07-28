@@ -37,13 +37,17 @@ image:
 SELECT * FROM users WHERE username = '[username]' AND password = '[password]'
 ```
 
-공격자가 사용자 이름 필드에 `' OR '1'='1`를 입력하면, SQL 쿼리는 아래와 같이 변한다
+공격자가 사용자 이름 필드에 `' OR '1'='1' --`를 입력하면, SQL 쿼리는 아래와 같이 변한다
 
 ```sql
-SELECT * FROM users WHERE username = '' OR '1'='1' AND password = '[password]'
+SELECT * FROM users WHERE username = '' OR '1'='1' -- ' AND password = '[password]'
 ```
 
-여기서 `'1'='1'`은 항상 참이므로, 공격자는 비밀번호를 모르더라도 로그인에 성공하게 된다.
+`'1'='1'`은 항상 참이고, 뒤에 붙인 `--`가 그 이후를 전부 주석으로 만들어 비밀번호 조건을 지워 버린다.
+그래서 공격자는 비밀번호를 모르더라도 로그인에 성공하게 된다.
+
+참고로 주석 없이 `' OR '1'='1`만 넣으면 통하지 않는다. SQL에서 `AND`가 `OR`보다 먼저 묶여
+`username = '' OR ('1'='1' AND password = '...')`로 해석되는 탓에, 비밀번호 조건이 그대로 살아남기 때문이다.
 
 <br>
 

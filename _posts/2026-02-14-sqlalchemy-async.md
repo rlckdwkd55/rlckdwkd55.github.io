@@ -16,7 +16,7 @@ SQLAlchemy 2.0의 `AsyncSession`은 이 DB 왕복을 `await` 가능한 지점으
 async 엔진 구성, 2.0 select() 스타일, lazy loading 함정과 그 밑의 greenlet 순으로
 짚는다.
 
-<!-- 이미지: 구글 검색 "sqlalchemy async session greenlet architecture" · 저장 /assets/img/posts/backend/sqlalchemy/async-arch.png -->
+<!-- 이미지: 구글 검색 "SQLAlchemy 비동기 세션 구조" · 저장 /assets/img/posts/backend/sqlalchemy/async-arch.png -->
 
 ## 왜 비동기 ORM인가
 

@@ -38,7 +38,7 @@ RAG에서 사실상 기본값으로 쓰이는 **bge-m3**를 뜯어본다.
 왜 강한지, 유클리드 거리와 뭐가 다른지는
 [벡터 유사도 계산](https://rlckdwkd55.github.io/posts/vector-similarity/)에서 따로 다뤘다.
 
-<!-- 이미지: 구글 검색 "text embedding vector space bge-m3" · 저장 /assets/img/posts/ai/embeddings/vector-space.png -->
+<!-- 이미지: 구글 검색 "텍스트 임베딩 벡터 공간" · 저장 /assets/img/posts/ai/embeddings/vector-space.png -->
 
 ---
 

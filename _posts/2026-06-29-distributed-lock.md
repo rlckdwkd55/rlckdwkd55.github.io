@@ -145,7 +145,7 @@ t=35   A가 깨어남 → "나 아직 락 있지?" 하며 작업 계속
 크래시 후 복구가 느려지고, 짧게 잡으면 이 위험이 커진다. 어느 쪽도 근본 해결이 아니다. 락을 잡았다는 사실은
 **어느 시점에 참이었다는 스냅숏일 뿐 지금 이 순간의 보장이 아니라는** 것이 분산 락의 본질적 한계다.
 
-<!-- 이미지: 구글 검색 "distributed lock fencing token ttl" · 저장 /assets/img/posts/backend/distributed-lock/ttl-window.png -->
+<!-- 이미지: 구글 검색 "분산 락 TTL 만료 구간" · 저장 /assets/img/posts/backend/distributed-lock/ttl-window.png -->
 
 ---
 

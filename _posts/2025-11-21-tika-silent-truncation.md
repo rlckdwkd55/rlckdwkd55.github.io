@@ -111,9 +111,8 @@ private String extractWithTika(String filePath) throws Exception {
 1. **편의 facade를 버리고 파서를 직접 구성했다.** `parseToString` 이 숨기던 조립
    과정(parser + handler + metadata + context)을 밖으로 꺼내니, 상한을 포함한
    모든 손잡이가 내 코드에 드러난다. 이 명시적 조립은 write limit뿐 아니라
-   대용량 Office 문서의 [SAX 스트리밍 전환](https://rlckdwkd55.github.io/posts/sax-vs-dom-parsing/)이나
-   [임베디드 문서 추출기 등록](https://rlckdwkd55.github.io/posts/tika-embedded-parser/) 같은 다른 개선의
-   토대이기도 했다.
+   대용량 Office 문서의 SAX 스트리밍 전환이나 임베디드 문서 추출기 등록 같은
+   다른 개선의 토대이기도 했다(아래 링크 참고).
 2. **상한을 눈에 보이는 설정값으로 끌어올렸다.** 숨은 10만 자 대신
    `maxContentChars`(기본 5,000,000)를 `BodyContentHandler` 에 넘긴다.
    프로퍼티라 운영 중에도 조정할 수 있다.

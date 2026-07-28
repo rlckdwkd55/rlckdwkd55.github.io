@@ -14,8 +14,7 @@ published: false
 
 첨부문서 색인 파이프라인에 커스텀 `EmbeddedDocumentExtractor`를 붙이던 중이었다. ZIP 같은
 컨테이너 안에 HWPX 엔트리가 있으면 hwpxlib로 직접 뽑고, 나머지는 Tika 기본 재귀에 맡기려는
-[HwpxAwareEmbeddedDocumentExtractor](https://rlckdwkd55.github.io/posts/hwpx-integration/)를 만들어 `ParseContext`에
-등록했다. 단위 테스트에서 단독 파일은 잘 됐다. 그런데 **컨테이너 파일을 넣는 순간 내부가
+`HwpxAwareEmbeddedDocumentExtractor`를 만들어 `ParseContext`에 등록했다. 단위 테스트에서 단독 파일은 잘 됐다. 그런데 **컨테이너 파일을 넣는 순간 내부가
 전부 빈 값**으로 나왔다. 에러 한 줄 없었다. 이번에도 "조용한 실패"였다.
 
 ## 증상: 컨테이너는 인식되는데, 그 안이 전부 빔
@@ -126,7 +125,7 @@ private String extractWithTika(String filePath) throws Exception {
 
 `context.set(Parser.class, parser)` 이 한 줄로 컨테이너 내부 엔트리가 전부 정상 추출됐다.
 최상위 파싱에 쓰는 `AutoDetectParser`를 그대로 재귀 파싱에도 넘긴 셈이라, 내부의 docx는
-docx대로, hwpx는 [커스텀 분기](https://rlckdwkd55.github.io/posts/hwpx-integration/)로 각자 제 파서를 타게 됐다.
+docx대로, hwpx는 커스텀 분기로 각자 제 파서를 타게 됐다.
 
 한 가지 짚어 둘 점은, `HwpxAwareEmbeddedDocumentExtractor` 생성자에 넘기는 `context`가
 **이 시점의 context**라는 것이다. 등록 순서상 `Parser.class`를 먼저 넣어 뒀기 때문에, 그
@@ -150,7 +149,7 @@ facade는 파서·핸들러·context를 알아서 조립해 준다. 재귀 파�
 예외가 아니라 **빈 결과**로 나타나니, 계약 위반을 계약처럼 알려 주지 않는다.
 
 셋째, 그래서 이건 우리 파이프라인에 반복해서 나타난 **"조용한 실패"의 또 다른 얼굴**이었다.
-[10만 자 침묵 절단](https://rlckdwkd55.github.io/posts/tika-silent-truncation/)이 성공한 얼굴로 잘린 텍스트를 돌려줬듯,
+앞서 본 10만 자 침묵 절단이 성공한 얼굴로 잘린 텍스트를 돌려줬듯,
 이 함정도 성공한 얼굴로 빈 텍스트를 돌려줬다. 에러가 없다는 게 정상이라는 뜻이 아니라는
 걸, 또 한 번 값을 직접 찍어 보고 나서야 깨달았다.
 

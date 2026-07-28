@@ -101,7 +101,7 @@ scores = model.predict(pairs)                   # 쌍마다 관련도를 직접 
 ranked = sorted(zip(candidates, scores), key=lambda x: x[1], reverse=True)
 ```
 
-<!-- 이미지: 구글 검색 "bi-encoder vs cross-encoder reranking architecture" · 저장 /assets/img/posts/ai/reranking/architecture.png -->
+<!-- 이미지: 구글 검색 "바이인코더 크로스인코더 차이" · 저장 /assets/img/posts/ai/reranking/architecture.png -->
 
 ---
 

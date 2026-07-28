@@ -14,7 +14,7 @@ SSE(Server-Sent Events)는 서버가 클라이언트로 데이터를 밀어 주�
 받는 `EventSource`라는 표준 API가 들어 있다. LLM 토큰 스트리밍, 진행률 표시, 서버 알림처럼
 클라이언트가 서버로 말을 걸 필요 없이 서버가 한 방향으로 데이터를 흘려보내면 되는 자리에 쓰인다.
 
-<!-- 이미지: 구글 검색 "server sent events vs websocket flow" · 저장 /assets/img/posts/backend/sse/sse-vs-ws.png -->
+<!-- 이미지: 구글 검색 "SSE 와 WebSocket 차이" · 저장 /assets/img/posts/backend/sse/sse-vs-ws.png -->
 
 ## HTTP 위의 단방향 스트림
 
@@ -116,7 +116,7 @@ HTTP를 그대로 쓰니 기존 인증·프록시·로드밸런서 설정을 대
 
 FastAPI(정확히는 Starlette)에선 `StreamingResponse`에 제너레이터를 넘긴다. 제너레이터가
 `yield`하는 순간순간이 곧 클라이언트로 흘러가는 스트림 조각이 된다. FastAPI의 기본기는
-[https://rlckdwkd55.github.io/posts/fastapi/](https://rlckdwkd55.github.io/posts/fastapi/) 에서 정리했다.
+[FastAPI 정리](https://rlckdwkd55.github.io/posts/fastapi/)에 적어 뒀다.
 
 ```python
 import asyncio
@@ -213,10 +213,9 @@ data: [DONE]
 
 프런트가 `status`로 로딩 표시를, `sources`로 출처 목록을, 기본 메시지로 토큰을 받아 각각 다른
 UI에 꽂을 수 있다. [RAG](https://rlckdwkd55.github.io/posts/rag/) 파이프라인에서 검색 → 근거 →
-생성의 각 단계를 실시간으로 보여 주는 방식이 이것이다.
-[vLLM](https://rlckdwkd55.github.io/posts/vllm/) 같은 추론 엔진의 OpenAI 호환 API도 스트리밍
-응답을 SSE(`data:` 청크)로 내려 주므로, 백엔드는 그 스트림을 받아 프런트로 그대로 중계(relay)하는
-구조가 자연스럽다.
+생성의 각 단계를 실시간으로 보여 주는 방식이 이것이다. vLLM 같은 추론 엔진의 OpenAI 호환 API도
+스트리밍 응답을 SSE(`data:` 청크)로 내려 주므로, 백엔드는 그 스트림을 받아 프런트로 그대로
+중계(relay)하는 구조가 자연스럽다.
 
 SSE는 HTTP 응답을 끊지 않고 흘려보내는 방식으로, `text/event-stream` + `data:`/`event:`/`id:`/`retry:`
 필드 + 빈 줄로 이벤트를 구분하는 것이 전부다. 단방향이면 SSE, 양방향이면 WebSocket이 맞고, SSE는

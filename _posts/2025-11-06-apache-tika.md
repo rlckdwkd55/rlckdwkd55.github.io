@@ -20,6 +20,9 @@ Tika는 수백 종의 바이너리 포맷에서 **본문 텍스트와 메타데�
 구조가 있다. 이 구조를 모른 채 facade만 쓰면 문서가 조용히 잘리거나 첨부가 통째로
 누락된다. 여기서는 그 토대가 되는 뼈대에 집중하고, 개별 함정은 각각의 글로 넘긴다.
 
+동작 설명은 실제 파이프라인에서 쓰고 있는 **Tika 2.9.2 / 3.2.2** 기준이다. 1.x와는
+기본 배선이 달라진 부분이 있어, 오래된 예제를 그대로 옮기면 어긋나는 지점이 몇 군데 있다.
+
 ---
 
 ## 추출은 네 조각의 협업이다
@@ -53,7 +56,7 @@ String title = metadata.get(TikaCoreProperties.TITLE);
 `parse()` 하나에 스트림·핸들러·메타데이터·컨텍스트가 전부 인자로 들어간다. 이
 시그니처만 이해하면 Tika의 절반은 이해한 셈이다.
 
-<!-- 이미지: 구글 검색 "apache tika autodetect parser architecture" · 저장 /assets/img/posts/search/tika/architecture.png -->
+<!-- 이미지: 구글 검색 "Apache Tika 구조" · 저장 /assets/img/posts/search/tika/architecture.png -->
 
 ---
 
@@ -65,8 +68,9 @@ String title = metadata.get(TikaCoreProperties.TITLE);
 
 Tika는 대신 파일 앞부분의 **시그니처(magic bytes)** 를 먼저 본다. `%PDF-`로 시작하면
 PDF, `PK\x03\x04`로 시작하면 ZIP 계열(DOCX·PPTX·HWPX가 전부 여기 속한다)로 판별한다.
-이 magic 정의는 `tika-mimetypes.xml` 리소스에 선언되어 있어, 필요하면 커스텀 포맷을
-추가로 등록할 수도 있다.
+이 magic 정의는 Tika 내장 리소스인 `tika-mimetypes.xml`에 선언되어 있다. 커스텀 포맷을
+더하고 싶을 때는 이 파일을 고치는 것이 아니라, 클래스패스에
+`org/apache/tika/mime/custom-mimetypes.xml`을 얹으면 내장 정의에 병합된다.
 
 ```java
 Tika tika = new Tika();
@@ -126,8 +130,11 @@ Tika는 모든 문서를 내부적으로 **XHTML 이벤트 스트림**으로 정
 - **`ToXMLContentHandler`** — 구조를 살린 XHTML로 뽑는다. 표·제목 구조가 필요할 때.
 - **`LinkContentHandler`** — 문서 안의 링크만 수집한다.
 
-`BodyContentHandler`의 생성자 인자는 나중에 큰 함정이 된다. 인자 없이 만들면 **기본
-10만 자에서 잘리기 때문**인데, 이 이야기는 아래에서 이어진다.
+`BodyContentHandler`의 생성자 인자는 나중에 큰 함정이 된다. 인자 없이 만들면 내부의
+`WriteOutContentHandler`가 **기본 10만 자(`100 * 1000`)** 로 잡힌다. 주의할 점은 이 한도에
+닿았을 때 조용히 잘리는 게 아니라 `WriteLimitReachedException`(`SAXException`의 하위)이
+**던져진다**는 것이다. 그래서 핸들러를 직접 조립해 쓰면 절단은 최소한 예외로 드러난다.
+문제는 이 예외를 누가 삼키느냐이고, 그 이야기는 아래에서 이어진다.
 
 ---
 
@@ -140,11 +147,16 @@ Tika는 모든 문서를 내부적으로 **XHTML 이벤트 스트림**으로 정
 
 ```java
 Metadata metadata = new Metadata();
-metadata.set(Metadata.RESOURCE_NAME_KEY, "report.pdf"); // 감지 힌트
+metadata.set(TikaCoreProperties.RESOURCE_NAME_KEY, "report.pdf"); // 감지 힌트
 // parse() 이후
 String author = metadata.get(TikaCoreProperties.CREATOR);
-String pages  = metadata.get(Office.PAGE_COUNT);
+String pages  = metadata.get(PagedText.N_PAGES);
 ```
+
+키 상수는 2.x로 넘어오며 자리를 옮겼다. 1.x 예제에 자주 보이는
+`Metadata.RESOURCE_NAME_KEY`는 지금 `TikaCoreProperties`에 있고, 페이지 수도
+`Office.PAGE_COUNT`는 OOXML 계열에서만 채워지므로 포맷을 가리지 않으려면
+`PagedText.N_PAGES`(`xmpTPg:NPages`)를 보는 편이 낫다.
 
 **`ParseContext`** 는 "파싱 동작을 어떻게 할지"를 담는 설정 주머니다. 어떤 타입에 어떤
 파서를 쓸지, 재귀 파싱을 어떻게 처리할지, 이미지에 OCR을 적용할지 같은 옵션을 여기에
@@ -162,16 +174,21 @@ Tika에는 위의 네 조각을 몰라도 되는 한 줄짜리 편의 API가 있
 String text = new Tika().parseToString(stream);
 ```
 
-간단해서 예제마다 이것을 쓰지만, 실무에 그대로 올리면 두 가지가 조용히 무너진다.
+간단해서 예제마다 이것을 쓰지만, 실무에 그대로 올리면 조용히 무너지는 지점이 있다.
 
-첫째, 이 facade는 내부적으로 `BodyContentHandler`를 **기본 10만 자(write limit)** 로
-만든다. 그보다 긴 문서는 **예외도 로그도 없이 뒷부분이 잘린다.** "왜 이 문서는 앞부분만
-검색되지?"의 범인이 대개 이것이다. 내부적으로는 한도 초과 시 `WriteLimitReachedException`을
-던지고 facade가 이를 삼키는 구조라, 명시적으로 처리하지 않으면 침묵한다. 이 침묵 절단은
+이 facade는 내부적으로 `BodyContentHandler`를 **기본 10만 자(write limit)** 로 만든다.
+그보다 긴 문서는 **예외도 로그도 없이 뒷부분이 잘린다.** "왜 이 문서는 앞부분만
+검색되지?"의 범인이 대개 이것이다. 앞에서 본 `WriteLimitReachedException`이 여기서도
+똑같이 던져지지만, `parseToString()`이 `WriteLimitReachedException.isWriteLimitReached()`로
+걸러 삼키고 잘린 문자열을 정상 반환값처럼 돌려주기 때문이다. 이 침묵 절단은
 [Tika가 문서를 조용히 자를 때](https://rlckdwkd55.github.io/posts/tika-silent-truncation/)에서
 원인과 해법을 다룬다.
 
-둘째, 아래의 재귀 파싱이 기본값으로는 잘 걸리지 않아 첨부문서가 통째로 빠진다.
+한 가지 오해하기 쉬운 점은, facade가 일을 덜 한다는 뜻이 아니라는 것이다. 오히려
+`parseToString()`은 파서·핸들러·컨텍스트를 알아서 조립하고 **재귀 파싱에 쓸 `Parser`까지
+`ParseContext`에 심어 준다.** 그래서 write limit 하나를 통제하려고 facade를 걷어내는
+순간, 그동안 대신 처리되던 배선의 책임이 통째로 내 코드로 넘어온다. 그 배선을 놓쳐
+첨부가 빈 값으로 나왔던 사례는 아래 재귀 파싱 절에서 이어 다룬다.
 
 색인 파이프라인에서는 facade 대신 `AutoDetectParser` + `BodyContentHandler(-1)`(또는
 의도한 상한값) 조합으로 **한계를 코드에 드러내는** 편이 안전하다. 편의 API는 스크립트나
@@ -186,14 +203,26 @@ DOCX·PPTX·HWPX·ZIP처럼 **내부에 다른 파일을 품은 컨테이너** �
 안쪽 문서의 텍스트는 하나도 나오지 않는다.
 
 Tika는 이것을 **재귀 추출**로 해결한다. 컨테이너를 파싱하다 임베디드 리소스를 만나면
-`EmbeddedDocumentExtractor`가 그것을 꺼내 **다시 파서에게 넘긴다.** 여기서 자주 넘어지는
-지점이 있다. 재귀에 쓸 파서를 `ParseContext`에 등록하지 않으면, Tika는 안쪽 문서를
-파싱할 파서를 못 찾아 **첨부가 빈 값으로 나온다.** 감지·본문 추출은 멀쩡한데 첨부만
-사라지니 원인을 찾기가 은근히 까다롭다.
+`EmbeddedDocumentExtractor`가 그것을 꺼내 **다시 파서에게 넘긴다.**
+
+순정 `AutoDetectParser`만 쓰는 동안에는 이 배선을 신경 쓸 일이 없다. `parse()` 안에서
+`ParseContext`에 `EmbeddedDocumentExtractor`가 아직 없으면, Tika가 스스로를
+`Parser.class`로 심고 기본 추출기까지 만들어 넣어 주기 때문이다.
+
+넘어지는 지점은 **커스텀 `EmbeddedDocumentExtractor`를 직접 등록할 때**다. context에
+추출기가 이미 들어 있으면 Tika는 위의 자동 배선을 통째로 건너뛴다. 그래서
+`Parser.class`를 함께 넣어 주지 않으면 재귀 추출기는 안쪽 문서를 무엇으로 파싱할지 몰라
+**첨부가 빈 값으로 나온다.** 감지·본문 추출은 멀쩡한데 첨부만 사라지니 원인을 찾기가
+은근히 까다롭다.
 
 ```java
+AutoDetectParser parser = new AutoDetectParser();
 ParseContext context = new ParseContext();
-context.set(Parser.class, new AutoDetectParser()); // 재귀에 쓸 파서를 명시적으로 등록
+
+// 커스텀 추출기를 등록하는 순간 Tika의 자동 배선이 꺼진다.
+// → 재귀에 쓸 파서를 직접 넣어 줘야 한다.
+context.set(Parser.class, parser);
+context.set(EmbeddedDocumentExtractor.class, new MyEmbeddedDocumentExtractor(context));
 ```
 
 전체 구조를 보존하며 임베디드 문서까지 훑고 싶다면 `RecursiveParserWrapper`를 쓰는
@@ -228,8 +257,8 @@ context.set(Parser.class, new AutoDetectParser()); // 재귀에 쓸 파서를 �
 ContentHandler로 수집 → Metadata에 부가정보 채우기**로 동작하고, 모든 문서를 내부적으로
 XHTML 이벤트 스트림으로 정규화해 소비자가 포맷과 무관하게 동일한 SAX 인터페이스만
 다루게 한다. 실무에서는 `parseToString()` facade 대신 `AutoDetectParser` + 명시적 핸들러
-조합으로 침묵 절단을 막고, 컨테이너 문서는 `ParseContext`에 재귀 파서를 등록해 첨부를
-살리며, 대용량은 SAX 스트리밍으로, 스캔본은 OCR로 대비한다.
+조합으로 침묵 절단을 막고, 커스텀 임베디드 추출기를 붙일 때는 `ParseContext`에 재귀
+파서까지 함께 등록해 첨부를 살리며, 대용량은 SAX 스트리밍으로, 스캔본은 OCR로 대비한다.
 
-<br><br>
+<br><br><br><br><br><br><br><br><br><br>
 참고 : https://tika.apache.org/

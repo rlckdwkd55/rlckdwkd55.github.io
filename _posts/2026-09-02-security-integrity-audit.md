@@ -143,7 +143,7 @@ API인데, 기존 RBAC은 CRUD 4단계밖에 없어서 이들을 어디에 끼�
 - **중복 로직 통합.** `point_id`(UUID/int) 파싱이 두 곳에 각각 구현돼 있어, 공용
   유틸(`app/utils/point_id.py`)로 합치고 예외 처리도 일관되게 맞췄다.
 
-<!-- 이미지: 구글 검색 "security code audit checklist" · 저장 /assets/img/posts/security/audit/lenses.png -->
+<!-- 이미지: 구글 검색 "보안 코드 점검 체크리스트" · 저장 /assets/img/posts/security/audit/lenses.png -->
 
 ## 혼자 전수로 훑으며 배운 것
 
