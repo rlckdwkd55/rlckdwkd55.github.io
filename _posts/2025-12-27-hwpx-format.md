@@ -69,7 +69,7 @@ sample.hwpx  (실은 ZIP 컨테이너)
 
 `section0.xml` 내부를 단순화하면 다음 뼈대다.
 
-```xml
+```text
 <hs:sec ...>
   <hp:p>                        <!-- 문단(paragraph) -->
     <hp:run>                    <!-- 같은 서식이 이어지는 구간(run) -->
