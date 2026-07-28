@@ -4,9 +4,6 @@ date: 2025-12-04
 categories: [Search]
 tags: [apache-tika, parsing, embedded]
 description: "커스텀 EmbeddedDocumentExtractor를 등록해 ZIP 내부 문서까지 추출하려 했는데 컨테이너 내부만 빈 텍스트로 나왔다. 원인은 ParseContext에 재귀 파싱용 Parser를 등록하지 않은 것. Parser.class 한 줄을 넣어 되살린 실전 회고."
-image:
-  path: /assets/img/thumbnails/tika-embedded.png
-published: false
 ---
 
 > Tika가 못 읽는 HWPX를 컨테이너 내부까지 붙인 이야기는 [HWPX 연동 글](https://rlckdwkd55.github.io/posts/hwpx-integration/)에
@@ -15,7 +12,7 @@ published: false
 첨부문서 색인 파이프라인에 커스텀 `EmbeddedDocumentExtractor`를 붙이던 중이었다. ZIP 같은
 컨테이너 안에 HWPX 엔트리가 있으면 hwpxlib로 직접 뽑고, 나머지는 Tika 기본 재귀에 맡기려는
 `HwpxAwareEmbeddedDocumentExtractor`를 만들어 `ParseContext`에 등록했다. 단위 테스트에서 단독 파일은 잘 됐다. 그런데 **컨테이너 파일을 넣는 순간 내부가
-전부 빈 값**으로 나왔다. 에러 한 줄 없었다. 이번에도 "조용한 실패"였다.
+전부 빈 값**으로 나왔다. 에러 한 줄 없었다.
 
 ## 증상: 컨테이너는 인식되는데, 그 안이 전부 빔
 
@@ -62,6 +59,12 @@ public HwpxAwareEmbeddedDocumentExtractor(ParseContext context) {
 [write limit 문제 때문에 파서를 직접 조립](https://rlckdwkd55.github.io/posts/tika-silent-truncation/)하기 시작하면서,
 Tika가 뒤에서 대신 해 주던 그 배선을 **떠안게 됐다는 사실을 몰랐던** 것이다.
 
+정확히 말하면 Tika에는 안전망이 한 겹 더 있었다. 임베디드 추출기를 꺼내는
+`EmbeddedDocumentUtil`은 context에 추출기가 없으면 `Parser.class`까지 **자기가 채워 넣고**
+기본 추출기를 만들어 준다. 그런데 커스텀 추출기가 등록돼 있으면 그 분기를 건너뛰고 등록된
+것을 그대로 돌려준다. 파서를 직접 조립한 것만으로는 재귀가 멀쩡했고, **커스텀 추출기를
+끼우면서 그 자동 배선까지 함께 껐던 것**이 결정타였다.
+
 ## before / after: `Parser.class` 한 줄
 
 버그가 살아 있던 상태(before)는 이랬다. 커스텀 추출기와 SAX 설정은 다 넣었는데, 정작
@@ -87,6 +90,8 @@ private String extractWithTika(String filePath) throws Exception {
     BodyContentHandler handler = new BodyContentHandler(maxContentChars);
     try (InputStream stream = new FileInputStream(filePath)) {
         parser.parse(stream, handler, new Metadata(), context);
+    } catch (WriteLimitReachedException e) {
+        log.warn("텍스트 추출이 max-content-chars({})에서 잘림: {}", maxContentChars, filePath);
     }
     return handler.toString();
 }
@@ -128,10 +133,10 @@ private String extractWithTika(String filePath) throws Exception {
 docx대로, hwpx는 커스텀 분기로 각자 제 파서를 타게 됐다.
 
 한 가지 짚어 둘 점은, `HwpxAwareEmbeddedDocumentExtractor` 생성자에 넘기는 `context`가
-**이 시점의 context**라는 것이다. 등록 순서상 `Parser.class`를 먼저 넣어 뒀기 때문에, 그
-context를 받은 내부 delegate가 나중에 `Parser`를 꺼내 쓸 수 있다. 등록 자체가 빠지면
-순서와 무관하게 소용없지만, "context에 무엇이 언제 들어 있느냐"가 재귀 동작을 좌우한다는
-감각은 이 함정을 이해하는 데 도움이 됐다.
+**같은 객체의 참조**라는 것이다. `ParsingEmbeddedDocumentExtractor`는 생성 시점에 파서를
+꺼내 두지 않고, 실제 파싱이 시작될 때 그 context에서 `Parser`를 조회한다. 그래서 두 `set`
+호출의 **순서는 상관이 없다.** 파싱 시점에 들어 있기만 하면 되고, 정작 중요한 건 순서가
+아니라 등록 자체가 빠지지 않는 것이었다.
 
 ## 왜 이런 함정이 생기나
 
@@ -141,7 +146,8 @@ context를 받은 내부 delegate가 나중에 `Parser`를 꺼내 쓸 수 있다
 facade는 파서·핸들러·context를 알아서 조립해 준다. 재귀 파서를 context에 심는 것도 그
 "알아서" 안에 포함돼 있었다. 나는 write limit 하나 통제하려고 facade를 걷어냈을 뿐인데,
 그 순간 facade가 처리하던 **모든 배선의 책임이 통째로 내 코드로 넘어왔다.** 걷어낸 편의
-계층이 무엇을 대신하고 있었는지를 다 헤아리지 못한 게 근본 원인이다.
+계층이 무엇을 대신하고 있었는지를 다 헤아리지 못한 게 근본 원인이다. 게다가 확장 지점을
+끼우는 순간 Tika가 남겨 둔 마지막 자동 배선까지 꺼졌으니, 안전망이 두 겹 사라진 셈이었다.
 
 둘째, **delegate가 요구하는 전제가 코드에 드러나지 않았다.**
 `ParsingEmbeddedDocumentExtractor`는 "context에 `Parser.class`가 있을 것"을 암묵적으로
@@ -170,9 +176,3 @@ facade는 파서·핸들러·context를 알아서 조립해 준다. 재귀 파�
 - **함정의 뿌리는 편의 API가 대신하던 배선을 떠안았다는 인지 부족.** facade를 걷어내면
   그 안의 책임이 전부 넘어온다. 확장 포인트의 암묵적 전제는 구현 코드에서 확인하자.
 - **또 하나의 "조용한 실패".** 예외가 없어도 결과를 직접 값으로 검증해야 한다.
-
-> 이 수정은 Tika 파이프라인을 손본 한 커밋의 일부다. 같은 작업의
-> [10만 자 침묵 절단](https://rlckdwkd55.github.io/posts/tika-silent-truncation/),
-> [HWPX 포맷 연동](https://rlckdwkd55.github.io/posts/hwpx-integration/),
-> [Tika 소개](https://rlckdwkd55.github.io/posts/apache-tika/)는 각각 따로 정리해 뒀다.
-{: .prompt-info }
