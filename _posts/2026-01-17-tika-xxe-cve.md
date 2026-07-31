@@ -1,8 +1,8 @@
 ---
 title: "색인 파이프라인의 XXE(CVE-2025-66516)를 Tika 업그레이드로 막다"
 date: 2026-01-17
-categories: [Problem]
-tags: [xxe, apache-tika, cve]
+categories: [Security, Vulnerability]
+tags: [xxe, apache-tika, cve, troubleshooting]
 description: "첨부문서 파싱에 쓰던 Apache Tika 2.9.2의 XXE(CVE-2025-66516, CVSS 10.0)를 3.2.2로 올려 막은 과정과, 이 경우 왜 입력 검증이 아니라 버전 업그레이드가 정답이었는지 정리한다."
 image:
   path: /assets/img/thumbnails/tika-xxe.png

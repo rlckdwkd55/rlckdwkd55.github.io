@@ -1,7 +1,7 @@
 ---
 title: "Dockerfile과 docker-compose.yml"
 date: 2025-05-07
-categories: [DevOps]
+categories: [DevOps, Container]
 tags: [docker, dockerfile, docker-compose]
 description: "Dockerfile과 docker-compose.yml의 역할, 주요 설정 항목"
 image:

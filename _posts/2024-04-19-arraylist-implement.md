@@ -1,8 +1,8 @@
 ---
 title: "ArrayList 직접 구현하기"
-date: 2024-04-19 21:30:00 +0900
-categories: [Java]
-tags: [java, collection, arraylist]
+date: 2024-04-19
+categories: [Language, Java]
+tags: [collection, arraylist]
 description: "ArrayList의 내부 구조를 이해하기 위해 핵심 메서드만 직접 구현해보자."
 image:
   path: /assets/img/thumbnails/arraylist-implement.jpg

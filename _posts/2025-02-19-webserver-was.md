@@ -1,8 +1,8 @@
 ---
 title: "Web Server와 WAS"
-date: 2025-02-19 10:30:00 +0900
-categories: [Web]
-tags: [webserver, was]
+date: 2025-02-19
+categories: [Web, Network]
+tags: [webserver, network]
 description: "Web Server와 WAS의 개념, 역할 차이와 분리 이유"
 image:
   path: /assets/img/thumbnails/webserver-was.webp

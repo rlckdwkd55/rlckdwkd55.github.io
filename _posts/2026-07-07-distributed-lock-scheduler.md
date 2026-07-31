@@ -1,8 +1,8 @@
 ---
 title: "여러 인스턴스에서 스케줄 작업 중복 실행 막기"
 date: 2026-07-07
-categories: [Problem]
-tags: [scheduler, distributed-lock, concurrency]
+categories: [Backend, Concurrency]
+tags: [scheduler, distributed-lock, concurrency, troubleshooting]
 description: "멀티 인스턴스 환경에서 재동기화 Cron이 중복 실행되던 문제를, 별도 인프라 없이 DB 조건부 UPDATE 하나로 만든 분산 락으로 막은 기록."
 image:
   path: /assets/img/thumbnails/lock-scheduler.png

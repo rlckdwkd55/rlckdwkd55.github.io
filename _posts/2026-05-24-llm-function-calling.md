@@ -1,8 +1,8 @@
 ---
 title: "Function Calling이란?"
 date: 2026-05-24
-categories: [AI]
-tags: [llm, function-calling, agent]
+categories: [AI, LLM]
+tags: [function-calling, llm, agent]
 description: "LLM이 스스로 함수를 호출하도록 만드는 Function Calling(Tool Calling)의 동작 원리를 도구 스키마·호출 왕복·에이전트 루프·인자 환각 방어까지 정리한다."
 image:
   path: /assets/img/thumbnails/function-calling.png

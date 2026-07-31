@@ -1,8 +1,8 @@
 ---
 title: "고객이 등록한 외부 DB를 챗봇 지식으로: 다종 DB 커넥터 만들기"
 date: 2026-08-12
-categories: [Backend]
-tags: [database, sqlalchemy, connector]
+categories: [Backend, Database]
+tags: [sqlalchemy, orm, mysql]
 description: "MySQL·MariaDB·PostgreSQL·MSSQL·Oracle·CUBRID까지, 고객이 등록한 제각각의 외부 DB를 하나의 추상 커넥터로 흡수하고, introspection으로 스키마를 읽어 조회 결과를 그대로 벡터 색인에 흘려보낸 실전 회고."
 image:
   path: /assets/img/thumbnails/external-db.png

@@ -1,8 +1,8 @@
 ---
 title: "사고다발지 시각화 프로젝트 (1) - 개요 및 DB 설계"
-date: 2024-12-19 11:30:00 +0900
-categories: [Project]
-tags: [java, project]
+date: 2024-12-19
+categories: [Project, Accident Hotspot]
+tags: [mysql, openapi, schema-design]
 description: "OpenAPI활용 경기도 사고다발지 시각화 프로젝트"
 image:
   path: /assets/img/thumbnails/accident-hotspot.jpg

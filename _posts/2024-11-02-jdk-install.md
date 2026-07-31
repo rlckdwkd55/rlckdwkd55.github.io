@@ -1,8 +1,8 @@
 ---
 title: "JDK 설치 및 환경변수 설정"
-date: 2024-11-02 15:40:00 +0900
-categories: [Java]
-tags: [java, jdk, environment]
+date: 2024-11-02
+categories: [Language, Java]
+tags: [jdk, environment]
 description: "JDK 설치 과정 및 환경변수 설정"
 image:
   path: /assets/img/thumbnails/java.png

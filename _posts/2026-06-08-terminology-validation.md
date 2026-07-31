@@ -1,7 +1,7 @@
 ---
 title: "RAG 답변에 용어 일치 검증·교정 루프 붙이기"
 date: 2026-06-08
-categories: [AI]
+categories: [AI, RAG]
 tags: [rag, llm, validation]
 description: "RAG 답변이 표준 용어를 벗어나는 문제를, 생성 뒤 용어 검증과 교정 재생성 루프로 잡은 과정을 실제 구현 기준으로 정리한다."
 image:

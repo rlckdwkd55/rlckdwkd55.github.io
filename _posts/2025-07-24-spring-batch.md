@@ -1,7 +1,7 @@
 ---
 title: "Spring Batch란?"
 date: 2025-07-24
-categories: [Spring]
+categories: [Language, Spring]
 tags: [spring-batch, batch]
 description: "대용량 데이터 처리를 위한 Spring Batch의 개념과 구조 정리"
 image:

@@ -1,8 +1,8 @@
 ---
 title: "시나리오 답변을 벡터로 색인하고 DB·Qdrant 동기화하기"
 date: 2026-05-11
-categories: [AI]
-tags: [qdrant, vector-db, rag]
+categories: [AI, RAG]
+tags: [qdrant, rag, embedding]
 description: "자주 묻는 정형 질문에 고정 답을 즉시 주는 '시나리오'를, 질문 패턴을 벡터로 색인해 관리하고 관계형 DB와 Qdrant를 CRUD마다 동기화해 유령 데이터를 막은 실전 회고."
 image:
   path: /assets/img/thumbnails/scenario.png

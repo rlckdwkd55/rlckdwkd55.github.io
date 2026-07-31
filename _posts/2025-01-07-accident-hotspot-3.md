@@ -1,8 +1,8 @@
 ---
 title: "사고다발지 시각화 프로젝트 (3) - OpenAPI 연동 및 DB INSERT/DELETE"
-date: 2025-01-07 11:10:00 +0900
-categories: [Project]
-tags: [java, project]
+date: 2025-01-07
+categories: [Project, Accident Hotspot]
+tags: [openapi, jdbc]
 description: "OpenAPI활용 경기도 사고다발지 시각화 프로젝트"
 image:
   path: /assets/img/thumbnails/accident-hotspot.jpg

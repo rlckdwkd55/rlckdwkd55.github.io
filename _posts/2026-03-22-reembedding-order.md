@@ -1,8 +1,8 @@
 ---
 title: "재임베딩 순서를 뒤집어 데이터 유실을 막은 과정 (build-then-swap)"
 date: 2026-03-22
-categories: [Problem]
-tags: [qdrant, embedding, data-integrity]
+categories: [AI, RAG]
+tags: [qdrant, embedding, data-integrity, troubleshooting]
 description: "문서 재임베딩 시 '삭제 후 생성' 순서가 부른 데이터 유실 위험을, 벡터 DB의 비트랜잭션성·멱등성 관점에서 분석하고 build-then-swap으로 바꾼 과정을 실제 코드로 정리한다."
 image:
   path: /assets/img/thumbnails/reembedding-order.png

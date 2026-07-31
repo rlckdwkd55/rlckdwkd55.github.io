@@ -1,8 +1,8 @@
 ---
 title: "JSONArray란?"
-date: 2024-09-26 15:10:00 +0900
-categories: [Web]
-tags: [json, api, data]
+date: 2024-09-26
+categories: [Backend, Data Format]
+tags: [json, api]
 description: "JSONArray의 개념과 특징"
 image:
   path: /assets/img/thumbnails/json.jpg

@@ -1,8 +1,8 @@
 ---
 title: "Spring Scheduler"
 date: 2025-08-22
-categories: [Spring]
-tags: [spring, scheduler]
+categories: [Language, Spring]
+tags: [scheduler, annotation]
 description: "Spring Scheduler의 개념과 설정 방식, Quartz 및 Java 스케줄러와의 비교"
 image:
   path: /assets/img/thumbnails/scheduler.png

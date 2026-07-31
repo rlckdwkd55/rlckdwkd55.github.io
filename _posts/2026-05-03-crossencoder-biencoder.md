@@ -1,8 +1,8 @@
 ---
 title: "Bi-Encoder vs Cross-Encoder 정리"
 date: 2026-05-03
-categories: [AI]
-tags: [reranking, cross-encoder, bi-encoder]
+categories: [AI, RAG]
+tags: [reranking, embedding]
 description: "질문과 문서를 각각 임베딩하는 Bi-Encoder와 함께 넣어 채점하는 Cross-Encoder의 구조 차이를 attention 관점에서 짚고, 실무가 둘을 2단계로 겹쳐 쓰는 이유를 정리한다."
 image:
   path: /assets/img/thumbnails/crossencoder.png

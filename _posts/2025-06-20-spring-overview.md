@@ -1,8 +1,8 @@
 ---
 title: "Spring Framework 개요와 핵심 개념"
 date: 2025-06-20
-categories: [Spring]
-tags: [spring, framework]
+categories: [Language, Spring]
+tags: [di, framework]
 description: "Spring Framework의 개념, 생태계, IoC/DI/AOP와 주요 모듈 구조"
 image:
   path: /assets/img/thumbnails/spring.jpg

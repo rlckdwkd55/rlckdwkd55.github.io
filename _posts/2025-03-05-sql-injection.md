@@ -1,8 +1,8 @@
 ---
 title: "SQL Injection"
-date: 2025-03-05 10:35:00 +0900
-categories: [Security]
-tags: [sql-injection, web-security]
+date: 2025-03-05
+categories: [Security, Vulnerability]
+tags: [sql-injection, sql]
 description: "SQL Injection의 개념과 주요 공격 유형, 대응 방안"
 image:
   path: /assets/img/thumbnails/sql-injection.png

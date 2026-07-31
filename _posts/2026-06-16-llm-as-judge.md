@@ -1,8 +1,8 @@
 ---
 title: "챗봇 응답 품질을 LLM으로 자동 채점하기"
 date: 2026-06-16
-categories: [AI]
-tags: [llm-as-judge, evaluation, rubric]
+categories: [AI, LLM]
+tags: [llm-as-judge, llm]
 description: "사람이 눈으로 확인하던 챗봇 응답 검증을, 정답 대비 rubric 채점(LLM judge)과 다중 샘플·회피 규칙·임베딩 유사도로 자동화한 평가 파이프라인을 실제 구현 코드와 함께 회고한다."
 image:
   path: /assets/img/thumbnails/llm-judge.png

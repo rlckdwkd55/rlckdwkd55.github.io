@@ -1,8 +1,8 @@
 ---
 title: "임베딩 provider를 설정만으로 바꾸는 팩토리"
 date: 2026-03-28
-categories: [AI]
-tags: [embedding, factory, rag]
+categories: [AI, RAG]
+tags: [embedding, rag]
 description: "로컬 bge-m3에 고정돼 있던 임베딩 계층을, DB 설정만으로 로컬과 외부 API를 오가는 팩토리로 재설계한 기록. provider enum 없는 설계, OpenAI 호환의 함정, 모델 전환 가드를 정리한다."
 image:
   path: /assets/img/thumbnails/embedding-factory.png

@@ -1,8 +1,8 @@
 ---
 title: "Fernet 대칭 암호화 정리"
 date: 2026-08-04
-categories: [Security]
-tags: [fernet, encryption, cryptography]
+categories: [Security, Crypto]
+tags: [fernet, encryption]
 description: "복원해서 써야 하는 비밀값을 저장하는 대칭 암호화 Fernet을 토큰 구조·인증 암호화·TTL·키 로테이션·키 관리까지 정리한다."
 image:
   path: /assets/img/thumbnails/fernet.png

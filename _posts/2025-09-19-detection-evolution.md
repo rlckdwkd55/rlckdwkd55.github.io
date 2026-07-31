@@ -1,8 +1,8 @@
 ---
 title: "Detection 모델의 발전 흐름"
 date: 2025-09-19
-categories: [AI]
-tags: [detection, ocr, computer-vision]
+categories: [AI, LLM]
+tags: [ocr, computer-vision]
 description: "Detection 모델의 발전 흐름을 통해 Object Detection과 Text Detection의 분화를 정리한다."
 image:
   path: /assets/img/thumbnails/detection-evolution.jpg

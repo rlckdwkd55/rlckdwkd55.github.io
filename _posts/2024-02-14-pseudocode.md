@@ -1,6 +1,6 @@
 ---
 title: "슈도코드(Pseudo Code)"
-date: 2024-02-14 22:10:00 +0900
+date: 2024-02-14
 categories: [Etc]
 tags: [pseudocode, problem-solving]
 description: "슈도코드의 개념과 필요성"

@@ -1,8 +1,8 @@
 ---
 title: "대량 평가를 안전하게 돌리기"
 date: 2026-06-22
-categories: [Backend]
-tags: [concurrency, async, orchestration, semaphore]
+categories: [Backend, Concurrency]
+tags: [concurrency, async, semaphore]
 description: "수십 문항짜리 평가 데이터셋을 병렬로 실행하되, 한 항목의 실패가 전체를 무너뜨리지 않고 과부하 없이 중간에 안전하게 멈출 수 있도록 만든 평가 실행 오케스트레이션 회고."
 image:
   path: /assets/img/thumbnails/assessment-orchestration.png

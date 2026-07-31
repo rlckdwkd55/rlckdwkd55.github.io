@@ -1,8 +1,8 @@
 ---
 title: "사고다발지 시각화 프로젝트 (2) - Java와 MySQL DB 연동"
-date: 2024-12-29 10:40:00 +0900
-categories: [Project]
-tags: [java, project]
+date: 2024-12-29
+categories: [Project, Accident Hotspot]
+tags: [jdbc, mysql]
 description: "OpenAPI활용 경기도 사고다발지 시각화 프로젝트"
 image:
   path: /assets/img/thumbnails/accident-hotspot.jpg

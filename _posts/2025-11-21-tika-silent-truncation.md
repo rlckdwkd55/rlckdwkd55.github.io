@@ -1,8 +1,8 @@
 ---
 title: "Tika parseToString의 10만 자 침묵 절단, 캡처율 되살리기"
 date: 2025-11-21
-categories: [Problem]
-tags: [apache-tika, parsing, text-extraction]
+categories: [Search, Parsing]
+tags: [apache-tika, text-extraction, troubleshooting]
 description: "장문 문서가 색인에서 뒷부분만 통째로 누락되던 원인이 Tika facade의 기본 write limit(10만 자) 침묵 절단임을 밝히고, AutoDetectParser와 BodyContentHandler로 write limit을 명시적으로 다뤄 텍스트 캡처율을 되살린 실전 회고."
 ---
 

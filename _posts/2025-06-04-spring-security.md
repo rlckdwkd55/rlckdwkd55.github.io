@@ -1,7 +1,7 @@
 ---
 title: "Spring Security 기본 구조"
 date: 2025-06-04
-categories: [Spring]
+categories: [Language, Spring]
 tags: [spring-security, authentication, authorization]
 description: "Spring Security의 인증·인가 개념과 Filter Chain"
 image:

@@ -1,8 +1,8 @@
 ---
 title: "Nori 형태소 분석기로 한국어 색인하기"
 date: 2025-10-02
-categories: [Search]
-tags: [elasticsearch, nori, korean, tokenizer]
+categories: [Search, Elasticsearch]
+tags: [elasticsearch, nori, korean]
 description: "교착어인 한국어가 표준 토크나이저로 깨지는 이유부터 Nori의 decompound_mode·품사 필터·사용자 사전까지, _analyze 예시와 재현율·정밀도 트레이드오프 중심으로 정리한다."
 ---
 

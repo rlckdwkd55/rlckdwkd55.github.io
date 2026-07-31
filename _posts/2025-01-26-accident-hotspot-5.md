@@ -1,8 +1,8 @@
 ---
 title: "사고다발지 시각화 프로젝트 (5) - 네이버 지도 API로 사고다발지 현황 시각화"
-date: 2025-01-26 10:30:00 +0900
-categories: [Project]
-tags: [java, project]
+date: 2025-01-26
+categories: [Project, Accident Hotspot]
+tags: [openapi, visualization]
 description: "OpenAPI활용 경기도 사고다발지 시각화 프로젝트"
 image:
   path: /assets/img/thumbnails/accident-hotspot.jpg

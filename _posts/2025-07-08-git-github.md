@@ -1,7 +1,7 @@
 ---
 title: "Git과 GitHub"
 date: 2025-07-08
-categories: [DevOps]
+categories: [DevOps, Git]
 tags: [git, github]
 description: "Git과 GitHub의 개념과 차이"
 image:

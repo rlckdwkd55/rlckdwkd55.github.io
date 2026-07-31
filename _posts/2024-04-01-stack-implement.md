@@ -1,8 +1,8 @@
 ---
 title: "Stack 직접 구현하기"
-date: 2024-04-01 21:50:00 +0900
-categories: [Java]
-tags: [java, collection, stack]
+date: 2024-04-01
+categories: [Language, Java]
+tags: [collection, stack]
 description: "Stack 구조를 더 깊이 이해하기 위해 ArrayList를 기반으로 Stack을 직접 구현해보자."
 image:
   path: /assets/img/thumbnails/stack-implement.jpg

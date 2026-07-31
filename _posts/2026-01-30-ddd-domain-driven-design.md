@@ -1,8 +1,8 @@
 ---
 title: "DDD(도메인 주도 설계) 정리"
 date: 2026-01-30
-categories: [Backend]
-tags: [ddd, architecture, domain-driven-design]
+categories: [Backend, Architecture]
+tags: [ddd, architecture]
 description: "전략적 설계(유비쿼터스 언어·바운디드 컨텍스트)와 전술적 설계(엔티티·값 객체·애그리거트·리포지토리)를 FastAPI 도메인 레이어 코드와 함께 정리한다."
 image:
   path: /assets/img/thumbnails/ddd.png

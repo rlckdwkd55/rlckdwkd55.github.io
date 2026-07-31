@@ -1,8 +1,8 @@
 ---
 title: "정규화와 비정규화"
 date: 2025-04-01
-categories: [Backend]
-tags: [database, normalization]
+categories: [Backend, Database]
+tags: [normalization, schema-design]
 description: "데이터베이스 정규화와 비정규화 개념"
 image:
   path: /assets/img/thumbnails/database.jpeg

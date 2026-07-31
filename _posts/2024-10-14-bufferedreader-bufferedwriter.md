@@ -1,8 +1,8 @@
 ---
 title: "BufferedReader와 BufferedWriter란?"
-date: 2024-10-14 15:40:00 +0900
-categories: [Java]
-tags: [java, io]
+date: 2024-10-14
+categories: [Language, Java]
+tags: [io, input]
 description: "BufferedReader와 BufferedWriter의 개념, 사용법, 공통점과 주의사항"
 image:
   path: /assets/img/thumbnails/java.png

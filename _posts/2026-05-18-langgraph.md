@@ -1,8 +1,8 @@
 ---
 title: "LangGraph란?"
 date: 2026-05-18
-categories: [AI]
-tags: [langgraph, llm, agent, orchestration]
+categories: [AI, LLM]
+tags: [langgraph, llm, agent]
 description: "선형 체인(LCEL)으로는 담기 힘든 분기·순환·상태 공유를, 상태 그래프로 다루는 LangGraph를 State·Node·Edge와 조건부 엣지, 체크포인트까지 정리한다."
 image:
   path: /assets/img/thumbnails/langgraph.png

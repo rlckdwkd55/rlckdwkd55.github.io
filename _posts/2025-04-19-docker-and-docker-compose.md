@@ -1,8 +1,8 @@
 ---
 title: "Docker와 Docker Compose"
 date: 2025-04-19
-categories: [DevOps]
-tags: [docker, docker-compose, container]
+categories: [DevOps, Container]
+tags: [docker, docker-compose]
 description: "Docker와 Docker Compose의 개념, 작동 원리"
 image:
   path: /assets/img/thumbnails/docker.png
