@@ -6,7 +6,6 @@ tags: [embedding, bge-m3]
 description: "텍스트가 대조학습·풀링·정규화를 거쳐 의미 벡터가 되는 과정과, 하나의 모델로 dense·sparse·multi-vector를 동시에 뽑는 bge-m3의 M3 특징을 정리한다."
 image:
   path: /assets/img/thumbnails/embeddings.png
-published: false
 ---
 
 시맨틱 검색과 [RAG](https://rlckdwkd55.github.io/posts/rag/)는 "문서를 임베딩해서 벡터 DB에
@@ -38,7 +37,7 @@ RAG에서 사실상 기본값으로 쓰이는 **bge-m3**를 뜯어본다.
 왜 강한지, 유클리드 거리와 뭐가 다른지는
 [벡터 유사도 계산](https://rlckdwkd55.github.io/posts/vector-similarity/)에서 따로 다뤘다.
 
-<!-- 이미지: 구글 검색 "텍스트 임베딩 벡터 공간" · 저장 /assets/img/posts/ai/embeddings/vector-space.png -->
+![](/assets/img/posts/ai/embeddings/vector-space.png)
 
 ---
 
@@ -186,6 +185,6 @@ sparse는 별도의 sparse 벡터로 나눠 저장하고 서버 단에서 융합
 임베딩은 "숫자 배열"이 아니라 "모델이 정한 좌표계 위의 의미 위치"다. 이 전제를 받아들이면
 같은 모델을 써야 하는 이유도, dense·sparse·multi-vector를 굳이 합치는 이유도 한 줄기로 이어진다.
 
-<br><br>
+<br><br><br><br><br><br><br><br><br><br>
 참고 : https://huggingface.co/BAAI/bge-m3 <br>
 참고 : https://arxiv.org/abs/2402.03216

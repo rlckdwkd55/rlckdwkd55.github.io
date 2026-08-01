@@ -4,9 +4,6 @@ date: 2026-03-28
 categories: [AI, RAG]
 tags: [embedding, rag]
 description: "로컬 bge-m3에 고정돼 있던 임베딩 계층을, DB 설정만으로 로컬과 외부 API를 오가는 팩토리로 재설계한 기록. provider enum 없는 설계, OpenAI 호환의 함정, 모델 전환 가드를 정리한다."
-image:
-  path: /assets/img/thumbnails/embedding-factory.png
-published: false
 ---
 
 임베딩과 bge-m3가 무엇인지는 [벡터 임베딩과 bge-m3](https://rlckdwkd55.github.io/posts/embeddings-bge-m3/)에서
@@ -41,7 +38,7 @@ class AiEmbeddingModelEntity(Base):
 
 이게 가능한 이유는 대부분의 임베딩 제공자가 **OpenAI 호환 엔드포인트**를 노출하기 때문이다. 그래서 로컬이든 클라우드든 팩토리는 두 갈래로만 갈린다.
 
-<!-- 이미지: 구글 검색 "팩토리 패턴 구조" · 저장 /assets/img/posts/ai/embedding-provider/factory-branches.png -->
+![](/assets/img/posts/ai/embeddings/factory-branches.png)
 
 ```python
 def create_dense_embeddings(ai_embedding_model: Optional[AiEmbeddingModelEntity]):
@@ -173,6 +170,3 @@ async def _validate_api_embedding_model(self, entity):
 - **차원 런타임 발견**: 설정이 줄어드는 대신, 컬렉션 생성 직전 임베딩 호출 한 번이 추가된다. 빈도가 낮은 경로라 비용은 무시할 만했다.
 
 돌아보면 이번 작업의 핵심은 provider를 코드가 모르게 만든 것 하나다. `hosting_type`으로 LOCAL/API 두 갈래만 남기고 나머지는 DB 행으로 밀어내니, 새 provider는 코드 커밋이 아니라 행 등록으로 끝났다. 대신 provider별 특수 최적화를 포기하고, OpenAI 호환의 기본값 함정(`check_embedding_ctx_length`·`base_url` 폴백)과 모델 교체 시의 좌표계 불일치를 각각 검증과 가드로 막아야 했다. 확장성을 얻는 대가로 이 두 가지를 코드 레벨에서 책임지기로 한 셈이다.
-
-<br><br>
-참고 : https://python.langchain.com/api_reference/openai/embeddings/langchain_openai.embeddings.base.OpenAIEmbeddings.html

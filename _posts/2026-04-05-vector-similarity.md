@@ -6,7 +6,6 @@ tags: [embedding, similarity]
 description: "코사인·내적·유클리드가 각각 무엇을 재는지 손계산으로 확인하고, L2 정규화가 세 지표를 왜 같은 순위로 묶는지, 벡터 DB의 거리 함수는 어떻게 고르는지 정리한다."
 image:
   path: /assets/img/thumbnails/vector-similarity.png
-published: false
 ---
 
 벡터 검색은 결국 "질의 벡터와 가장 가까운 문서 벡터"를 찾는 일이다. 그런데 **가까움의
@@ -52,7 +51,7 @@ d(A, B) = √( Σ (aᵢ - bᵢ)² )        (작을수록 가까움)
 좌표 공간에서 두 점을 잇는 **직선의 길이**다. 유사도가 아니라 거리라서, 값이
 **작을수록** 가깝다는 점이 앞의 둘과 반대다.
 
-<!-- 이미지: 구글 검색 "코사인 유사도 유클리드 거리 비교" · 저장 /assets/img/posts/ai/vector-similarity/metrics.png -->
+![](/assets/img/posts/ai/vector-similarity/metrics.png)
 
 ## 정규화하면 셋이 한 순위로 묶인다
 
@@ -194,5 +193,5 @@ Qdrant는 컬렉션을 만들 때 거리 척도를 `Cosine / Dot / Euclid` 중�
 강건하기 때문이며, 벡터 DB에서는 정규화를 색인·질의에 일관되게 맞추는 일이 먼저다. 그 뒤
 Cosine이냐 Dot이냐는 순위가 아니라 연산 비용의 선택으로 좁혀진다.
 
-<br><br>
-참고 : https://en.wikipedia.org/wiki/Cosine_similarity
+<br><br><br><br><br><br><br><br><br><br>
+참고 : https://ko.wikipedia.org/wiki/%EC%BD%94%EC%82%AC%EC%9D%B8_%EC%9C%A0%EC%82%AC%EB%8F%84

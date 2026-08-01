@@ -4,9 +4,6 @@ date: 2026-03-22
 categories: [AI, RAG]
 tags: [qdrant, embedding, data-integrity, troubleshooting]
 description: "문서 재임베딩 시 '삭제 후 생성' 순서가 부른 데이터 유실 위험을, 벡터 DB의 비트랜잭션성·멱등성 관점에서 분석하고 build-then-swap으로 바꾼 과정을 실제 코드로 정리한다."
-image:
-  path: /assets/img/thumbnails/reembedding-order.png
-published: false
 ---
 
 ## 배경: 벡터 DB의 "포인트"와 재임베딩
@@ -58,8 +55,6 @@ async def update_chunk(self, collection_name, point_id, new_content, metadata):
 이 중 하나라도 걸리면, **1번에서 이미 지운 기존 포인트는 복구할 수 없다.** 사용자는
 "수정"을 눌렀을 뿐인데 원본이 통째로 사라진다. 정상 흐름 테스트로는 절대 안 잡히고,
 오직 실패 경로(fail path)에만 숨어 있던 결함이었다.
-
-<!-- 이미지: 구글 검색 "블루그린 무중단 전환 방식" · 저장 /assets/img/posts/ai/reembedding/build-then-swap.png -->
 
 ---
 
@@ -172,8 +167,3 @@ build-then-swap은 새로운 발명이 아니라, 안전한 교체가 필요한 
 
 혼자 보면 지나치기 쉬운 결함이었는데, 코드 리뷰에서 "재생성이 중간에 실패하면 이미 지운
 데이터는?"이라는 질문을 함께 짚은 덕분에 배포 전에 잡을 수 있었다.
-
-<br><br>
-참고 : https://qdrant.tech/documentation/concepts/points/
-<br>
-참고 : https://en.wikipedia.org/wiki/Atomicity_(database_systems)
