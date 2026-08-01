@@ -6,7 +6,6 @@ tags: [sse, http, fastapi]
 description: "챗봇 토큰 스트리밍에 쓰이는 SSE를 text/event-stream 포맷, WebSocket과의 비교, FastAPI 구현, 프록시 버퍼링 함정까지 정리한다."
 image:
   path: /assets/img/thumbnails/sse.png
-published: false
 ---
 
 SSE(Server-Sent Events)는 서버가 클라이언트로 데이터를 밀어 주는 단방향 스트림 방식이다.
@@ -14,7 +13,7 @@ SSE(Server-Sent Events)는 서버가 클라이언트로 데이터를 밀어 주�
 받는 `EventSource`라는 표준 API가 들어 있다. LLM 토큰 스트리밍, 진행률 표시, 서버 알림처럼
 클라이언트가 서버로 말을 걸 필요 없이 서버가 한 방향으로 데이터를 흘려보내면 되는 자리에 쓰인다.
 
-<!-- 이미지: 구글 검색 "SSE 와 WebSocket 차이" · 저장 /assets/img/posts/backend/sse/sse-vs-ws.png -->
+![](/assets/img/posts/backend/sse/sse-vs-ws.png)
 
 ## HTTP 위의 단방향 스트림
 
@@ -223,5 +222,6 @@ HTTP 그대로라 기존 인프라를 재사용해 가볍다. FastAPI에선 `Str
 구현하되 이벤트 끝 빈 줄을 반드시 붙이고, 운영에서 가장 자주 데이는 프록시 버퍼링은
 `proxy_buffering off`·`X-Accel-Buffering: no`·gzip 제외·keep-alive 핑으로 막는다.
 
-<br><br>
-참고 : https://html.spec.whatwg.org/multipage/server-sent-events.html
+<br><br><br><br><br><br><br><br><br><br>
+참고 : https://html.spec.whatwg.org/multipage/server-sent-events.html <br>
+참고 : https://velog.io/@yuna706/SSE-%ED%86%B5%EC%8B%A0webSocket%EA%B3%BC-%EB%B9%84%EA%B5%90

@@ -6,7 +6,6 @@ tags: [sqlalchemy, async, orm]
 description: "AsyncSession으로 DB I/O를 await 가능하게 만들고, async에서 lazy loading이 터지는 이유와 eager 전략, 그 밑을 받치는 greenlet 구조까지 정리한다."
 image:
   path: /assets/img/thumbnails/sqlalchemy-async.png
-published: false
 ---
 
 ASGI 서버는 `async def` 라우터를 쓰면서도 그 안의 DB 접근이 `session.query(...)`
@@ -15,8 +14,6 @@ ASGI 서버는 `async def` 라우터를 쓰면서도 그 안의 DB 접근이 `se
 SQLAlchemy 2.0의 `AsyncSession`은 이 DB 왕복을 `await` 가능한 지점으로 바꾸는데,
 async 엔진 구성, 2.0 select() 스타일, lazy loading 함정과 그 밑의 greenlet 순으로
 짚는다.
-
-<!-- 이미지: 구글 검색 "SQLAlchemy 비동기 세션 구조" · 저장 /assets/img/posts/backend/sqlalchemy/async-arch.png -->
 
 ## 왜 비동기 ORM인가
 
@@ -228,5 +225,5 @@ FastAPI + async 스택의 데이터 계층 뼈대가 대략 갖춰진다.
 실수 경로를 드러낸다. 그 밑은 greenlet이 동기 ORM 코어와 async I/O를 잇고, 세션은
 요청당 하나로 공유·장수명을 피한다.
 
-<br><br>
+<br><br><br><br><br><br><br><br><br><br>
 참고 : https://docs.sqlalchemy.org/en/20/orm/extensions/asyncio.html
