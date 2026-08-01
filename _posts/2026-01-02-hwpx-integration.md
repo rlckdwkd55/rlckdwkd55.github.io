@@ -6,7 +6,6 @@ tags: [hwpx, apache-tika, indexing]
 description: "Tika가 기본 지원하지 않는 HWPX를 hwpxlib로 분기하고, ZIP 컨테이너 내부의 HWPX 엔트리는 커스텀 EmbeddedDocumentExtractor로 위임해 색인 사각지대를 메운 기록."
 image:
   path: /assets/img/thumbnails/hwpx-integration.png
-published: false
 ---
 
 HWPX 포맷 자체(OWPML · ZIP+XML 구조)는 [HWPX 포맷 글](https://rlckdwkd55.github.io/posts/hwpx-format/)에서 정리했다. 이 글은 그 포맷을 실제 색인 파이프라인에 붙인 기록이다.
@@ -191,5 +190,5 @@ private String extractWithTika(String filePath) throws Exception {
 - 라이브러리 간 인터페이스 불일치(스트림 ↔ 파일)는 임시 파일 같은 현실적 접착제로 메우되, 정리(`finally`)까지 챙긴다.
 - 색인 파이프라인에서 개별 문서 실패는 예외가 아니라 빈 값 + 로그로 흡수해야 전체가 멈추지 않는다.
 
-<br><br>
+<br><br><br><br><br><br><br><br><br><br>
 참고 : https://github.com/neolord0/hwpxlib

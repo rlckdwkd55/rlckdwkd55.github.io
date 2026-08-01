@@ -6,7 +6,6 @@ tags: [xxe, apache-tika, cve, troubleshooting]
 description: "첨부문서 파싱에 쓰던 Apache Tika 2.9.2의 XXE(CVE-2025-66516, CVSS 10.0)를 3.2.2로 올려 막은 과정과, 이 경우 왜 입력 검증이 아니라 버전 업그레이드가 정답이었는지 정리한다."
 image:
   path: /assets/img/thumbnails/tika-xxe.png
-published: false
 ---
 
 XXE가 왜 취약점이 되는지, 그 원리 자체는 [XXE — XML의 편의 기능이 어쩌다 공격 표면이 되는가](https://rlckdwkd55.github.io/posts/xxe-vulnerability/)에 따로 정리해 뒀다. 이 글은 그 개념을 실제 색인 파이프라인에서 마주치고 코드로 막은 회고다. 개념부터 보고 싶다면 위 글을 먼저 읽는 편이 낫다.
@@ -27,7 +26,7 @@ XXE가 왜 취약점이 되는지, 그 원리 자체는 [XXE — XML의 편의 �
 
 색인 파이프라인처럼 외부 문서를 종일 받아 파싱하는 서비스에서, 인증 없이 문서 한 장으로 터지는 CVSS 10.0은 우선순위를 따질 것도 없이 지금 막아야 하는 등급이었다.
 
-<!-- 이미지: 구글 검색 "XXE 공격 파일 유출 흐름" · 저장 /assets/img/posts/security/tika-xxe/attack-path.png -->
+![](/assets/img/posts/security/xxe/attack-path.png)
 
 ## 어떻게 막았나
 
@@ -99,5 +98,5 @@ XXE를 처음 마주하면 대개 "위험한 문자열을 걸러내면 되지 �
 - XXE의 정답은 입력 검증이 아니라 기능 차단이고, 라이브러리가 파싱을 대신할 때 그 기능 차단은 버전 업그레이드의 형태로 실현된다. 내가 직접 잠글 수 없는 파서라면 그게 가장 확실한 레버다.
 - 파서 호출을 facade에서 명시적 구성 형태로 내려 두면, 이후의 안정성·보안 방어를 얹을 자리가 생긴다. 통제할 수 없는 편의 API보다, 통제할 수 있는 명시적 구성이 낫다.
 
-<br>
-참고 : https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html
+<br><br><br><br><br><br><br><br><br><br>
+참고 : https://blog.intelligencex.org/cve-2025-66516-apache-tika-xxe-vulnerability-pdf-rce

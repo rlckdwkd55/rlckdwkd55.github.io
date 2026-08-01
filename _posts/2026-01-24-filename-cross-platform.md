@@ -6,7 +6,6 @@ tags: [apache-tika, linux, indexing, troubleshooting]
 description: "백슬래시만 구분자로 가정한 파일명 추출이 Linux 서버에서 절대경로를 그대로 색인하던 버그의 원인과 수정."
 image:
   path: /assets/img/thumbnails/filename-path.png
-published: false
 ---
 
 ## 증상: 첨부파일명 자리에 서버 경로가 통째로
