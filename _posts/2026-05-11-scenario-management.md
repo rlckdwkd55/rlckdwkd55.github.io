@@ -6,7 +6,6 @@ tags: [qdrant, rag, embedding]
 description: "자주 묻는 정형 질문에 고정 답을 즉시 주는 '시나리오'를, 질문 패턴을 벡터로 색인해 관리하고 관계형 DB와 Qdrant를 CRUD마다 동기화해 유령 데이터를 막은 실전 회고."
 image:
   path: /assets/img/thumbnails/scenario.png
-published: false
 ---
 
 ## 배경: 모든 질문을 LLM에 보낼 필요는 없다
@@ -24,8 +23,6 @@ published: false
 DB와 벡터 DB([Qdrant](https://rlckdwkd55.github.io/posts/qdrant/))를 동기화하는 부분**이다.
 실제로 들어온 질문을 시나리오로 라우팅하고 즉시 응답하는 흐름은 팀에서 함께 만들었기 때문에,
 여기서는 내가 맡은 관리·색인·동기화 로직만 코드 기준으로 정리한다.
-
-<!-- 이미지: 구글 검색 "관계형 DB 벡터 DB 동기화" · 저장 /assets/img/posts/ai/scenario/db-sync.png -->
 
 ## 질문 패턴을 벡터로 색인
 

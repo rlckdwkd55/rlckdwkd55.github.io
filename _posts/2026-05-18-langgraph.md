@@ -6,7 +6,6 @@ tags: [langgraph, llm, agent]
 description: "선형 체인(LCEL)으로는 담기 힘든 분기·순환·상태 공유를, 상태 그래프로 다루는 LangGraph를 State·Node·Edge와 조건부 엣지, 체크포인트까지 정리한다."
 image:
   path: /assets/img/thumbnails/langgraph.png
-published: false
 ---
 
 체인(LCEL)은 `프롬프트 | 모델 | 파서`처럼 파이프(`|`)로 이어 붙여 "입력 → 프롬프트 → 모델 → 출력"을 한 방향으로 흘린다. 읽기 쉽고 디버깅도 단순하지만, 데이터가 한 방향으로만 흐른다는 전제가 곧 한계가 된다.
@@ -84,14 +83,14 @@ def route_after_validate(state: State) -> str:
 네 요소를 엮어 실무에서 자주 쓰는 흐름을 만든다. RAG에서 답변이 근거를 벗어나면 다시 생성하는, [용어 일치 검증 루프](https://rlckdwkd55.github.io/posts/terminology-validation/)와 같은 구조다.
 
 ```text
-        ┌──────────────── (불충분 & 재시도 남음) ────────────────┐
-        ▼                                                         │
-START → retrieve → generate → [validate] ──(충실 or 상한)──► END  │
-                       ▲                                          │
-                       └──────────── regenerate ─────────────────┘
+        ┌──────────────── (불충분 & 재시도 남음) ─────────────────┐
+        ▼                                                    │
+START → retrieve → generate → [validate] ──(충실 or 상한)──► END  
+                       ▲                                     │
+                       └──────────── regenerate ─────────────┘
 ```
 
-<!-- 이미지: 구글 검색 "LangGraph 노드 엣지 그래프 구조" · 저장 /assets/img/posts/ai/langgraph/graph-flow.png -->
+![](/assets/img/posts/ai/langgraph/graph-flow.png)
 
 ```python
 from langgraph.graph import StateGraph, START, END
@@ -175,5 +174,5 @@ graph.invoke(None, config)           # None으로 호출 → 멈춘 지점부터
 
 단순 파이프라인은 체인으로 충분하고, **흐름이 실제로 휘어질 때** 상태 그래프가 강력하다. State·Node·Edge와 조건부 엣지, 그리고 체크포인터. 이 어휘만 잡으면 에이전트도 결국 조건부 엣지가 달린 순환 그래프로 읽힌다.
 
-<br><br>
+<br><br><br><br><br><br><br><br><br><br>
 참고 : https://langchain-ai.github.io/langgraph/concepts/low_level/

@@ -4,9 +4,6 @@ date: 2026-04-20
 categories: [Backend, Architecture]
 tags: [refactoring, qdrant]
 description: "두 파일에 똑같이 복제돼 있던 Qdrant 포인트 ID 파싱 로직을, 예외 처리를 보강해 공용 유틸 한 곳으로 합친 기록."
-image:
-  path: /assets/img/thumbnails/point-id-util.png
-published: false
 ---
 
 ## 문제: 같은 파싱 코드가 두 곳에 복제돼 있었다

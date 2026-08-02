@@ -6,7 +6,6 @@ tags: [reranking, embedding]
 description: "질문과 문서를 각각 임베딩하는 Bi-Encoder와 함께 넣어 채점하는 Cross-Encoder의 구조 차이를 attention 관점에서 짚고, 실무가 둘을 2단계로 겹쳐 쓰는 이유를 정리한다."
 image:
   path: /assets/img/thumbnails/crossencoder.png
-published: false
 ---
 
 [bge-m3 임베딩](https://rlckdwkd55.github.io/posts/embeddings-bge-m3/)으로 벡터 검색을 붙이면,
@@ -101,7 +100,7 @@ scores = model.predict(pairs)                   # 쌍마다 관련도를 직접 
 ranked = sorted(zip(candidates, scores), key=lambda x: x[1], reverse=True)
 ```
 
-<!-- 이미지: 구글 검색 "바이인코더 크로스인코더 차이" · 저장 /assets/img/posts/ai/reranking/architecture.png -->
+![](/assets/img/posts/ai/reranking/architecture.png)
 
 ---
 
@@ -175,6 +174,6 @@ Cross-Encoder 리랭커(`bge-reranker` 계열)를 얹는 구성이 실무의 표
 글](https://rlckdwkd55.github.io/posts/vector-similarity/)에서 따로 다룬다. 요약하면, Bi로 넓게
 회수하고 Cross로 좁게 재정렬하는 2단계 구성에서 상한은 1단계 회수율이, 비용은 k가 쥔다.
 
-<br><br>
+<br><br><br><br><br><br><br><br><br><br>
 참고 : https://arxiv.org/abs/1908.10084 <br>
 참고 : https://www.sbert.net/examples/applications/retrieve_rerank/README.html
