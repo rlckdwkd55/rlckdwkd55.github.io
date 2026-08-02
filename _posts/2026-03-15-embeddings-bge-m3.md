@@ -37,7 +37,7 @@ RAG에서 사실상 기본값으로 쓰이는 **bge-m3**를 뜯어본다.
 왜 강한지, 유클리드 거리와 뭐가 다른지는
 [벡터 유사도 계산](https://rlckdwkd55.github.io/posts/vector-similarity/)에서 따로 다뤘다.
 
-![](/assets/img/posts/ai/embeddings/vector-space.png)
+![](/assets/img/posts/ai/rag/embeddings/vector-space.png)
 
 ---
 
@@ -152,7 +152,7 @@ out["colbert_vecs"]           # [ (토큰수, 차원) 배열, ... ]   ← 토큰
 | Multi-Vector | 세밀한 문맥 대응 | 대규모 후보에 그대로 쓰기엔 무거움 | 높음 |
 
 전형적인 조합은 이렇다. **dense + sparse로 폭넓게 후보를 그러모으고**, 두 결과를
-[RRF](https://rlckdwkd55.github.io/posts/rrf/)로 순위 융합한 뒤, 상위 후보만
+RRF로 순위 융합한 뒤, 상위 후보만
 **multi-vector(또는 [크로스 인코더](https://rlckdwkd55.github.io/posts/crossencoder-biencoder/))로
 재정렬**한다. 비싼 정밀 채점을 후보 전체가 아니라 상위 몇십 개에만 적용해 비용과 품질을
 동시에 잡는 구조다. bge-m3는 이 파이프라인의 앞 두 단계(dense·sparse)를 한 모델로 공급한다는

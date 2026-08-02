@@ -1,7 +1,7 @@
 ---
 title: "Spring Security 기본 구조"
 date: 2025-06-04
-categories: [Language, Spring]
+categories: [Framework, Spring]
 tags: [spring-security, authentication, authorization]
 description: "Spring Security의 인증·인가 개념과 Filter Chain"
 image:
@@ -31,7 +31,7 @@ image:
 
 **※Dispatcher Servlet: HTTP 프로토콜로 들어오는 모든 요청을 가장 먼저 받아 적합한 컨트롤러에 위임해주는 프론트 컨트롤러(Front Controller)**
 
-![](/assets/img/posts/java/spring/spring-security/filter-vs-interceptor.png)
+![](/assets/img/posts/framework/spring/spring-security/filter-vs-interceptor.png)
 
 **Spring-Security 3.2**부터는 XML로 설정하지 않고 **Java config 설정**으로 간단하게 설정할 수 있다.
 
@@ -39,7 +39,7 @@ image:
 
 ## Spring Security Filter
 
-![](/assets/img/posts/java/spring/spring-security/spring-security-filter.png)
+![](/assets/img/posts/framework/spring/spring-security/spring-security-filter.png)
 
 - 위에서 대략 말 했듯 스프링 시큐리티의 핵심 컴포넌트 중 하나는 필터(Filter)이다.
 - 필터는 일련의 서블릿 필터로 구성되며, 인증 및 권한 부여와 같은 보안 관련 작업을 수행하는 데 사용된다.
@@ -49,7 +49,7 @@ image:
 
 ### Spring Security Filter Chain
 
-![](/assets/img/posts/java/spring/spring-security/spring-security-filter-chain.jpg)
+![](/assets/img/posts/framework/spring/spring-security/spring-security-filter-chain.jpg)
 
 - Spring Security Filter Chain은 여러 개의 필터로 구성되어 있으며, 각 필터는 특정한 보안 작업을 담당한다.
 - Filter Chain은 **보통 HTTP 요청이 들어올 때 동작**하며, 각각의 필터는 순차적으로 실행된다.
@@ -91,7 +91,7 @@ image:
 
 다음으로 Spring Security의 인증 처리 과정이다.
 
-![](/assets/img/posts/java/spring/spring-security/spring-security-architecture.png)
+![](/assets/img/posts/framework/spring/spring-security/spring-security-architecture.png)
 
 1. **HTTP 요청**:
   - 사용자가 자신의 자격 증명 (일반적으로 사용자 이름과 비밀번호)을 사용하여 로그인을 시도하면 HTTP 요청이 생성된다.

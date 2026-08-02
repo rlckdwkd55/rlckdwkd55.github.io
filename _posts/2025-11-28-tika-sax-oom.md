@@ -1,8 +1,8 @@
 ---
 title: "대용량 오피스 문서에서 나던 OOM, Tika SAX 스트리밍으로 잡은 이야기"
 date: 2025-11-28
-categories: [Search, Parsing]
-tags: [apache-tika, sax, memory, troubleshooting]
+categories: [Search, Text Extraction]
+tags: [apache-tika, sax, memory, troubleshooting, experience]
 description: "대용량 DOCX/PPTX를 색인하다 터지던 OOM을, Tika의 SAX 스트리밍 추출 옵션으로 전환해 메모리 곡선을 평탄하게 만든 실전 회고."
 ---
 
@@ -92,7 +92,7 @@ return handler.toString();
 
 > 이 커밋에서는 SAX 전환 외에도 write limit 처리, 파싱 타임아웃 같은 방어 장치를 함께
 > 넣었다. 그 부분은 [Tika의 조용한 10만자 절단](https://rlckdwkd55.github.io/posts/tika-silent-truncation/)과
-> [파싱 타임아웃·OOM 방어](https://rlckdwkd55.github.io/posts/parse-timeout-oom-defense/)에서 따로 다룬다. 이 글은
+> 파싱 타임아웃·OOM 방어에서 따로 다룬다. 이 글은
 > 순수하게 "추출 방식 전환"에만 초점을 맞춘다.
 
 ## 메모리 개선을 어떻게 확인했나

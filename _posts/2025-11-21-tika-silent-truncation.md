@@ -1,8 +1,8 @@
 ---
 title: "Tika parseToString의 10만 자 침묵 절단, 캡처율 되살리기"
 date: 2025-11-21
-categories: [Search, Parsing]
-tags: [apache-tika, text-extraction, troubleshooting]
+categories: [Search, Text Extraction]
+tags: [apache-tika, text-extraction, troubleshooting, experience]
 description: "장문 문서가 색인에서 뒷부분만 통째로 누락되던 원인이 Tika facade의 기본 write limit(10만 자) 침묵 절단임을 밝히고, AutoDetectParser와 BodyContentHandler로 write limit을 명시적으로 다뤄 텍스트 캡처율을 되살린 실전 회고."
 ---
 
@@ -137,8 +137,7 @@ private String extractWithTika(String filePath) throws Exception {
 경계에 닿는 문서가 실제로 나타나면 경고 로그가 남으니, 그때 값을 올릴지 그
 문서를 따로 볼지 판단하면 된다. 무제한과 달리 이 방식은 **최악의 경우 메모리
 사용량에 상한이 있다**는 게 핵심이다. (파싱이 끝나지 않고 매달리는 대용량·손상
-파일에 대한 타임아웃 방어는 [별도의 최후 방어선](https://rlckdwkd55.github.io/posts/parse-timeout-oom-defense/)으로
-따로 뒀다.)
+파일에 대한 타임아웃 방어는 별도의 최후 방어선으로 따로 뒀다.)
 
 ## 검증: 캡처율이 실제로 회복됐는가
 

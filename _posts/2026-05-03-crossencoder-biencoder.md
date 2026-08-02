@@ -100,7 +100,7 @@ scores = model.predict(pairs)                   # 쌍마다 관련도를 직접 
 ranked = sorted(zip(candidates, scores), key=lambda x: x[1], reverse=True)
 ```
 
-![](/assets/img/posts/ai/reranking/architecture.png)
+![](/assets/img/posts/ai/rag/reranking/architecture.png)
 
 ---
 
@@ -137,8 +137,8 @@ N과 무관하게 비용이 k에 묶인다. 문서가 100만 개든 1000만 개�
 1단계 실수를 되돌릴 기회가 준다. 보통 k=50~100 근처에서 타협한다.
 
 이 조합의 정확도 상한은 결국 **1단계 회수율**이 정한다. 정답 문서가 애초에 top-k에 못 들면
-Cross-Encoder가 아무리 정밀해도 살려낼 수 없다. 그래서 1단계를 [BM25 키워드 검색과 벡터 검색을
-섞고 RRF로 합치는](https://rlckdwkd55.github.io/posts/rrf/) 하이브리드로 두껍게 깔고, 그 위에
+Cross-Encoder가 아무리 정밀해도 살려낼 수 없다. 그래서 1단계를 BM25 키워드 검색과 벡터 검색을
+섞고 RRF로 합치는 하이브리드로 두껍게 깔고, 그 위에
 Cross-Encoder 리랭커(`bge-reranker` 계열)를 얹는 구성이 실무의 표준 형태다.
 
 ---

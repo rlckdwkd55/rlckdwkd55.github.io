@@ -10,7 +10,7 @@ image:
 
 ## 네트워킹(Networking)이란?
 
-![](/assets/img/posts/network/server-client/networking-overview.jpg)
+![](/assets/img/posts/web/network/server-client/networking-overview.jpg)
 
 IT계열에서 네트워킹의 개념은 '두 대 이상의 컴퓨터를 케이블로 연결하여 네트워크를 구성하는 것'을 네트워킹이라고 한다.
 
@@ -22,7 +22,7 @@ IT계열에서 네트워킹의 개념은 '두 대 이상의 컴퓨터를 케이�
 
 ## Server와 Client란?
 
-![](/assets/img/posts/network/server-client/server-client-model.png)
+![](/assets/img/posts/web/network/server-client/server-client-model.png)
 
 서버(Server)와 클라이언트(Client)는 네트워킹에서 중요한 개념이며, 서로 간의 관계를 표현하는 데 사용된다.
 
@@ -30,7 +30,7 @@ IT계열에서 네트워킹의 개념은 '두 대 이상의 컴퓨터를 케이�
 
 이 둘의 상호작용은 인터넷이라는 거대한 네트워크 시스템의 핵심적인 구성 요소이다.
 
-![](/assets/img/posts/network/server-client/server-client-flow.png)
+![](/assets/img/posts/web/network/server-client/server-client-flow.png)
 
 ### Server
 
@@ -113,11 +113,11 @@ IT계열에서 네트워킹의 개념은 '두 대 이상의 컴퓨터를 케이�
 - 클라이언트는 사용자 인터페이스와 비즈니스 로직을 담당하며, 서버는 데이터를 저장하고 관리하는 역할을 수행한다.
 - 이 구조는 간단하고 직관적이지만, 클라이언트가 비즈니스 로직을 처리하기 때문에 클라이언트의 부하가 커질 수 있다.
 
-![](/assets/img/posts/network/server-client/2-tier-architecture.png)
+![](/assets/img/posts/web/network/server-client/2-tier-architecture.png)
 
 ### 3-Tier Architecture
 
-![](/assets/img/posts/network/server-client/3-tier-architecture.png)
+![](/assets/img/posts/web/network/server-client/3-tier-architecture.png)
 
 <br><br><br><br><br><br><br><br><br><br>
 참고 : https://velog.io/@jennyfromdeblock/%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8%EC%99%80-%EC%84%9C%EB%B2%84-%EB%B9%A0%EB%A5%B4%EA%B2%8C-%EA%B0%9C%EB%85%90%EC%9E%A1%EA%B8%B0#%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%82%B9networking%EC%9D%B4%EB%9E%80<br>

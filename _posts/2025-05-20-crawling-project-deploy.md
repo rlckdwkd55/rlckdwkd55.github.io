@@ -1,8 +1,8 @@
 ---
 title: "Docker Compose로 웹 크롤링 프로젝트 배포 + SSL 적용"
 date: 2025-05-20
-categories: [Project, Steam Crawling]
-tags: [docker, docker-compose, dockerfile, ssl]
+categories: [DevOps, Container]
+tags: [docker, docker-compose, dockerfile, ssl, steam-crawling, experience]
 description: "웹 크롤링 프로젝트를 Docker Compose로 배포하고 OpenSSL 인증서 적용"
 image:
   path: /assets/img/thumbnails/crawling-project-deploy.jpg
@@ -252,7 +252,7 @@ COPY ./target/CrawlingPractice-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.w
 
 ### 3.1 docker-compose.yml 경로 진입
 
-![](/assets/img/posts/project/crawling-deploy/compose-path.png)
+![](/assets/img/posts/devops/container/crawling-project-deploy/compose-path.png)
 
 위 사진과 같이 `docker-compose.yml` 파일을 작성 한 경로로 이동한다.
 
@@ -265,16 +265,16 @@ COPY ./target/CrawlingPractice-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.w
 
 ### 3.2 명령어 실행
 
-![](/assets/img/posts/project/crawling-deploy/compose-up.png)
+![](/assets/img/posts/devops/container/crawling-project-deploy/compose-up.png)
 
 `docker-compose up -d --build`:
 - 이 명령은 Docker Compose를 통해 여러 Docker 컨테이너를 생성하고 실행한다.
 - `-d` 옵션은 컨테이너를 백그라운드에서 실행하도록 하며, `--build` 옵션은 필요한 경우 Docker 이미지를 빌드하도록 한다.
 
 
-![](/assets/img/posts/project/crawling-deploy/docker-images.png)
+![](/assets/img/posts/devops/container/crawling-project-deploy/docker-images.png)
 
-![](/assets/img/posts/project/crawling-deploy/docker-containers.png)
+![](/assets/img/posts/devops/container/crawling-project-deploy/docker-containers.png)
 
 작성한 `Dockerfile`과 `docker-compose.yml` 기반으로 `Images`와 `Containers`가 정상적으로 등록되었고 동작하는 것을 확인할 수 있다.
 
@@ -282,12 +282,12 @@ COPY ./target/CrawlingPractice-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.w
 
 ### 3.3 DB 작성
 
-![](/assets/img/posts/project/crawling-deploy/mysql-db.png)
+![](/assets/img/posts/devops/container/crawling-project-deploy/mysql-db.png)
 
 기존 프로젝트에 사용하던 DB와는 별도로 `CRAWLINGDB`라는 이름으로 생성 해 주었다.
 
 
-![](/assets/img/posts/project/crawling-deploy/mysql-table.png)
+![](/assets/img/posts/devops/container/crawling-project-deploy/mysql-table.png)
 
 또한 필요한 테이블도 만들어주었고 쿼리는 아래와 같이 작성했다
 
@@ -343,7 +343,7 @@ FOREIGN KEY (TITLE) REFERENCES GAMES(TITLE)
 
 ### 3.4 결과 확인
 
-![](/assets/img/posts/project/crawling-deploy/deploy-result.png)
+![](/assets/img/posts/devops/container/crawling-project-deploy/deploy-result.png)
 
 `docker-compose.yml`과 `Dockerfile`을 활용해 이미지와 컨테이너를 생성하고 정상적으로 실행 된 모습을 볼 수 있다.
 <br>

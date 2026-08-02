@@ -51,7 +51,7 @@ d(A, B) = √( Σ (aᵢ - bᵢ)² )        (작을수록 가까움)
 좌표 공간에서 두 점을 잇는 **직선의 길이**다. 유사도가 아니라 거리라서, 값이
 **작을수록** 가깝다는 점이 앞의 둘과 반대다.
 
-![](/assets/img/posts/ai/vector-similarity/metrics.png)
+![](/assets/img/posts/ai/rag/vector-similarity/metrics.png)
 
 ## 정규화하면 셋이 한 순위로 묶인다
 

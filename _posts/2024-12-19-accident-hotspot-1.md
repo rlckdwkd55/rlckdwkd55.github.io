@@ -1,8 +1,8 @@
 ---
 title: "사고다발지 시각화 프로젝트 (1) - 개요 및 DB 설계"
 date: 2024-12-19
-categories: [Project, Accident Hotspot]
-tags: [mysql, openapi, schema-design]
+categories: [Backend, Database]
+tags: [mysql, public-data-api, schema-design, accident-hotspot, experience]
 description: "OpenAPI활용 경기도 사고다발지 시각화 프로젝트"
 image:
   path: /assets/img/thumbnails/accident-hotspot.jpg
@@ -51,7 +51,7 @@ CREATE TABLE ACCIDENT (
 ```
 <br>
 
-![](/assets/img/posts/project/accident-hotspot/table-design.png)
+![](/assets/img/posts/backend/database/accident-hotspot/table-design.png)
 
 OpenAPI 사이트를 참고해서 Table을 만들어주었다.
 중복데이터 조회를 위해 다발지식별자를 기본키로 설정 해 주었다.

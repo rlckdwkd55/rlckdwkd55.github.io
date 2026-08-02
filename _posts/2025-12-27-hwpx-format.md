@@ -1,7 +1,7 @@
 ---
 title: "HWPX 포맷이란?"
 date: 2025-12-27
-categories: [Search, Parsing]
+categories: [Search, Text Extraction]
 tags: [hwpx, owpml, korean]
 description: "개방형 표준 HWPX(OWPML)의 ZIP 컨테이너 구조와 본문 XML을 뜯어보며, 바이너리 HWP와의 차이 및 텍스트 추출 지점을 정리한다."
 image:
@@ -37,7 +37,7 @@ Language)** 이라는 XML 기반 표준을 따른다. 이 표준은 국가표준
 핵심은 **`.hwpx` 파일의 확장자를 `.zip`으로 바꾸면 그대로 압축이 풀린다**는 점이다.
 바이너리 벽처럼 보이던 것이, 실은 XML 파일 여러 개를 묶은 압축 파일이다.
 
-![](/assets/img/posts/search/hwpx/zip-structure.png)
+![](/assets/img/posts/search/text-extraction/hwpx/zip-structure.png)
 
 ```text
 sample.hwpx  (실은 ZIP 컨테이너)

@@ -58,7 +58,7 @@ Function Calling은 이 세 가지를 "도구(tool)"라는 인터페이스로 �
 [LangGraph](https://rlckdwkd55.github.io/posts/langgraph/)로 그래프를 그려 관리하는
 편이 낫다.
 
-<!-- 이미지: 구글 검색 "LLM Function Calling 동작 흐름" · 저장 /assets/img/posts/ai/function-calling/round-trip.png -->
+<!-- 이미지: 구글 검색 "LLM Function Calling 동작 흐름" · 저장 /assets/img/posts/ai/llm/function-calling/round-trip.png -->
 
 ## 도구 스키마 — 모델이 읽는 유일한 설명서
 

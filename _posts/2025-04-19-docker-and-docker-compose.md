@@ -73,7 +73,7 @@ image:
 
 #### 이미지
 
-![](/assets/img/posts/docker/docker-image.png)
+![](/assets/img/posts/devops/container/docker-and-docker-compose/docker-image.png)
 
 Docker에서 '이미지'는 애플리케이션을 실행하는 데 필요한 모든 파일과 설정값을 포함한 패키지라고 생각하시면 된다.
 이 이미지는 변경이 불가능(Immutable)하며, 자체적으로 상태를 가지지 않는다(Stateless).
@@ -85,7 +85,7 @@ Docker에서 '이미지'는 애플리케이션을 실행하는 데 필요한 모
 
 <br>
 
-![](/assets/img/posts/docker/docker-layer.png)
+![](/assets/img/posts/devops/container/docker-and-docker-compose/docker-layer.png)
 
 Docker 이미지의 중요한 특징 중 하나는 '레이어'라는 개념을 사용한다는 것이다.
 이 레이어는 유니온 파일 시스템을 이용하여 여러 개의 레이어를 하나의 파일 시스템처럼 사용할 수 있게 해 준다.
@@ -100,7 +100,7 @@ Docker 이미지는 여러 개의 읽기 전용 레이어로 구성되며, 파�
 
 #### 컨테이너
 
-![](/assets/img/posts/docker/docker-container.png)
+![](/assets/img/posts/devops/container/docker-and-docker-compose/docker-container.png)
 
 가상화 기술에는 크게 두 가지 방식이 있다.
 하나는 전통적인 방식으로, 하이퍼바이저라는 소프트웨어를 사용하여 물리적인 하드웨어 위에 여러 개의 운영체제(Guest OS)를 설치하고, 각 운영체제 위에 애플리케이션을 실행하는 방식이다.

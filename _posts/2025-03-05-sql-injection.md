@@ -10,7 +10,7 @@ image:
 
 ## SQL Injection이란?
 
-![](/assets/img/posts/web/sql-injection/sql-injection.png)
+![](/assets/img/posts/security/vulnerability/sql-injection/sql-injection.png)
 
 - SQL 인젝션은 웹 사이트 보안 취약점 중 하나로, 악의적인 SQL문을 삽입하는 공격 방법을 말한다.
 - 공격자는 이 방법을 통해 데이터베이스를 조작하거나 민감한 정보를 탈취한다.

@@ -1,7 +1,7 @@
 ---
 title: "Spring Framework 개요와 핵심 개념"
 date: 2025-06-20
-categories: [Language, Spring]
+categories: [Framework, Spring]
 tags: [di, framework]
 description: "Spring Framework의 개념, 생태계, IoC/DI/AOP와 주요 모듈 구조"
 image:
@@ -80,7 +80,7 @@ AOP(Aspect-Oriented Programming, 관점 지향 프로그래밍)는 공통적인 
 
 스프링 프레임워크는 총 20여 개의 모듈들로 구성이 되어 있는데 이를 꼭 전부 사용해야 하는 것이 아니라 필요할 때 해당 모듈만 사용하면 되는 경량 컨테이너로 설계가 되어있다.
 
-![](/assets/img/posts/java/spring/spring-framework/spring-framework-modules.png)
+![](/assets/img/posts/framework/spring/spring-overview/spring-framework-modules.png)
 
 ### Core Container
 

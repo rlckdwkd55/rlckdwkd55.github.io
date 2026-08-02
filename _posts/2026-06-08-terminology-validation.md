@@ -2,7 +2,7 @@
 title: "RAG 답변에 용어 일치 검증·교정 루프 붙이기"
 date: 2026-06-08
 categories: [AI, RAG]
-tags: [rag, llm, validation]
+tags: [rag, llm, validation, experience]
 description: "RAG 답변이 표준 용어를 벗어나는 문제를, 생성 뒤 용어 검증과 교정 재생성 루프로 잡은 과정을 실제 구현 기준으로 정리한다."
 image:
   path: /assets/img/thumbnails/terminology-validation.png
@@ -37,7 +37,7 @@ Step2 생성 → [용어 검증] ──(yes)──► 응답
           (N회 모두 실패) → 답변 내보내지 않고 supervisor로 에스컬레이션
 ```
 
-<!-- 이미지: 구글 검색 "RAG 검증 재생성 루프" · 저장 /assets/img/posts/ai/terminology/validation-loop.png -->
+<!-- 이미지: 구글 검색 "RAG 검증 재생성 루프" · 저장 /assets/img/posts/ai/rag/terminology/validation-loop.png -->
 
 핵심은 "검증을 사람이 읽는 문장이 아니라 **기계가 분기할 수 있는 판정**으로 받는다"는 점이다.
 자유 텍스트 판정은 파싱이 흔들려서, 검증 결과를 신뢰하고 분기할 수가 없다.

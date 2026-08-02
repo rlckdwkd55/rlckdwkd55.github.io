@@ -2,7 +2,7 @@
 title: "시나리오 답변을 벡터로 색인하고 DB·Qdrant 동기화하기"
 date: 2026-05-11
 categories: [AI, RAG]
-tags: [qdrant, rag, embedding]
+tags: [qdrant, rag, embedding, experience]
 description: "자주 묻는 정형 질문에 고정 답을 즉시 주는 '시나리오'를, 질문 패턴을 벡터로 색인해 관리하고 관계형 DB와 Qdrant를 CRUD마다 동기화해 유령 데이터를 막은 실전 회고."
 image:
   path: /assets/img/thumbnails/scenario.png
@@ -209,7 +209,7 @@ build-then-swap(새 색인을 다 만든 뒤 마지막에 전환)으로 갔겠�
 
 시나리오 매칭에는 검색 랭킹과 근본적으로 다른 요구가 있었다. 문서 검색이라면 "가장 관련 있는
 상위 몇 개"를 뽑으면 된다. 후보가 조금 덜 관련 있어도 목록에 섞여 들어가는 게 큰 문제가 아니다.
-그래서 dense와 sparse 점수를 순위 기반으로 합치는 [RRF](https://rlckdwkd55.github.io/posts/rrf/) 같은 방식이 잘 맞는다.
+그래서 dense와 sparse 점수를 순위 기반으로 합치는 RRF 같은 방식이 잘 맞는다.
 
 그런데 시나리오는 **"충분히 유사할 때만" 발동해야** 한다. 애매하게 비슷한 질문에 고정 답을
 잘못 쏘면 사용자에게 엉뚱한 안내가 나간다. 여기서 필요한 건 상대적 순위가 아니라 **"이

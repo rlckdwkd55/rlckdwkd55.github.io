@@ -252,7 +252,7 @@ class SqlAlchemyOrderRepository(OrderRepository):
 인터페이스를 "포트"라 부르고, 인프라가 그걸 실제로 구현한 것을 "어댑터"라 부른다. 앞서
 나온 부패 방지 계층도 결국 어댑터의 한 종류다.
 
-![](/assets/img/posts/backend/ddd/layers.png)
+![](/assets/img/posts/backend/architecture/ddd/layers.png)
 
 이름이 같아 헷갈리는 두 서비스는 역할이 다르다.
 

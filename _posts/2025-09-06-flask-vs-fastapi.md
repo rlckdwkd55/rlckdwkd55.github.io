@@ -1,7 +1,7 @@
 ---
 title: "Flask vs FastAPI"
 date: 2025-09-06
-categories: [Language, Python]
+categories: [Framework, FastAPI]
 tags: [flask, fastapi, web-framework]
 description: "Flask와 FastAPI의 역할 차이와 선택 기준"
 image:

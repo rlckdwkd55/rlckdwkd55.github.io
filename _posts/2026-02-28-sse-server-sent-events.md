@@ -1,7 +1,7 @@
 ---
 title: "SSE(Server-Sent Events)란?"
 date: 2026-02-28
-categories: [Backend, Architecture]
+categories: [Web, Network]
 tags: [sse, http, fastapi]
 description: "챗봇 토큰 스트리밍에 쓰이는 SSE를 text/event-stream 포맷, WebSocket과의 비교, FastAPI 구현, 프록시 버퍼링 함정까지 정리한다."
 image:
@@ -13,7 +13,7 @@ SSE(Server-Sent Events)는 서버가 클라이언트로 데이터를 밀어 주�
 받는 `EventSource`라는 표준 API가 들어 있다. LLM 토큰 스트리밍, 진행률 표시, 서버 알림처럼
 클라이언트가 서버로 말을 걸 필요 없이 서버가 한 방향으로 데이터를 흘려보내면 되는 자리에 쓰인다.
 
-![](/assets/img/posts/backend/sse/sse-vs-ws.png)
+![](/assets/img/posts/web/network/sse/sse-vs-ws.png)
 
 ## HTTP 위의 단방향 스트림
 

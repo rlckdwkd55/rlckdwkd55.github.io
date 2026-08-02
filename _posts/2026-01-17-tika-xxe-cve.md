@@ -2,7 +2,7 @@
 title: "색인 파이프라인의 XXE(CVE-2025-66516)를 Tika 업그레이드로 막다"
 date: 2026-01-17
 categories: [Security, Vulnerability]
-tags: [xxe, apache-tika, cve, troubleshooting]
+tags: [xxe, apache-tika, cve, troubleshooting, experience]
 description: "첨부문서 파싱에 쓰던 Apache Tika 2.9.2의 XXE(CVE-2025-66516, CVSS 10.0)를 3.2.2로 올려 막은 과정과, 이 경우 왜 입력 검증이 아니라 버전 업그레이드가 정답이었는지 정리한다."
 image:
   path: /assets/img/thumbnails/tika-xxe.png
@@ -26,7 +26,7 @@ XXE가 왜 취약점이 되는지, 그 원리 자체는 [XXE — XML의 편의 �
 
 색인 파이프라인처럼 외부 문서를 종일 받아 파싱하는 서비스에서, 인증 없이 문서 한 장으로 터지는 CVSS 10.0은 우선순위를 따질 것도 없이 지금 막아야 하는 등급이었다.
 
-![](/assets/img/posts/security/xxe/attack-path.png)
+![](/assets/img/posts/security/vulnerability/xxe/attack-path.png)
 
 ## 어떻게 막았나
 

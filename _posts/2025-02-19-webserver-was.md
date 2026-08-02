@@ -16,7 +16,7 @@ image:
 
 ### WebServer란?
 
-![](/assets/img/posts/web/webserver-was/webserver-structure.png)
+![](/assets/img/posts/web/network/webserver-was/webserver-structure.png)
 
 - WebServer는 클라이언트의 HTTP 요청을 받아 HTML, CSS, JavaScript, 이미지 등 정적 컨텐츠를 제공하는 서버이다.
 - 클라이언트가 요청한 정보를 찾아서 반환하는 역할을 수행한다.
@@ -28,7 +28,7 @@ image:
 
 ### WAS(Web Application Server)란?
 
-![](/assets/img/posts/web/webserver-was/was-structure.png)
+![](/assets/img/posts/web/network/webserver-was/was-structure.png)
 
 - WAS는 DB 조회, 비즈니스 로직 처리 등 동적인 데이터를 처리하는 역할을 수행한다.
 - WAS의 주요 임무는 동적인 요청을 받아 처리해 주는 서버이다.
@@ -50,7 +50,7 @@ Django와 Laravel은 WAS의 한 종류인 프레임워크로 분류되는데, �
 
 - WAS는 동적인 데이터를 위주로 처리하는 서버이며, DB와 연결되어 사용자와 데이터를 주고받고 조작이 필요할 경우 WAS를 활용한다.
 
-![](/assets/img/posts/web/webserver-was/was-architecture.webp)
+![](/assets/img/posts/web/network/webserver-was/was-architecture.webp)
 
 WAS는 WebServer와 WebContainer의 역할을 모두 할 수 있지만 분리해야 한다.
 
@@ -73,7 +73,7 @@ SSL에 대한 암호화, 복호화 처리에 웹 서버를 사용 가능
 
 ## Web Service Architecture
 
-![](/assets/img/posts/web/webserver-was/webserver-architecture.webp)
+![](/assets/img/posts/web/network/webserver-was/webserver-architecture.webp)
 
 웹 서비스는 아래와 같이 다양한 구조를 가질 수 있다.
 

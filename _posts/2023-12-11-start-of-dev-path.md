@@ -1,7 +1,7 @@
 ---
 title: "개발자로서의 시작"
 date: 2023-12-11
-categories: [Etc]
+categories: [Etc, Retrospective]
 tags: [retrospective]
 description: "개발자로 첫걸음을 내딛기까지의 이야기와 블로그를 시작한 이유"
 ---

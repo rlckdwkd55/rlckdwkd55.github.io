@@ -2,7 +2,7 @@
 title: "Qdrant 포인트 ID 파싱을 공용 유틸로 통합하기"
 date: 2026-04-20
 categories: [Backend, Architecture]
-tags: [refactoring, qdrant]
+tags: [refactoring, qdrant, experience]
 description: "두 파일에 똑같이 복제돼 있던 Qdrant 포인트 ID 파싱 로직을, 예외 처리를 보강해 공용 유틸 한 곳으로 합친 기록."
 ---
 

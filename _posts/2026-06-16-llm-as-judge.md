@@ -104,7 +104,7 @@ judge는 온갖 방식으로 어긋났다. 이걸 잡으려고 넣은 장치들�
 구간(40~89)이 12%에서 49%로 늘어, 미묘하게 부족한 답변을 점수로 구분할 수 있게 됐다. rubric은
 judge의 자유도를 좁혀 판정을 재현 가능하게 만든다.
 
-<!-- 이미지: 구글 검색 "LLM 평가 루브릭 점수 분포" · 저장 /assets/img/posts/ai/llm-judge/rubric-distribution.png -->
+<!-- 이미지: 구글 검색 "LLM 평가 루브릭 점수 분포" · 저장 /assets/img/posts/ai/llm/llm-as-judge/rubric-distribution.png -->
 
 ### 2. 회피 답변 규칙 — 후하게 봐주는 걸 막는다
 

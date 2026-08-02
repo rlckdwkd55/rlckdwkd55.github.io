@@ -1,8 +1,8 @@
 ---
 title: "Tika 업그레이드와 commons-lang3 의존성 충돌 해결"
 date: 2025-12-12
-categories: [Search, Parsing]
-tags: [apache-tika, gradle, build, troubleshooting]
+categories: [Search, Text Extraction]
+tags: [apache-tika, gradle, build, troubleshooting, experience]
 description: "XXE(CVE-2025-66516) 패치를 위한 Tika 메이저 업그레이드 후, zip 처리에서 터진 commons-lang3 전이 의존성 충돌(NoSuchMethodError)을 dependencyManagement로 버전을 강제해 해결한 실전 회고."
 ---
 

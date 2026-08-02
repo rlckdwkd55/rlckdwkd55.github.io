@@ -1,8 +1,8 @@
 ---
 title: "Steam 게임 데이터 크롤링 프로젝트 (3)"
 date: 2025-03-29
-categories: [Project, Steam Crawling]
-tags: [crawling, selenium]
+categories: [Backend, Data Collection]
+tags: [crawling, selenium, steam-crawling, experience]
 description: "Steam 사이트의 게임 데이터를 수집하기 위한 크롤링 프로젝트"
 image:
   path: /assets/img/thumbnails/steam-crawling-project.jpg
@@ -860,14 +860,14 @@ css파일은 별도로 경로 지정해 주었다.
 #### DB INSERT
 
 `localhost:8080/crawl` 로 접속하면 스팀 사이트에 있는 게임정보들이 잘 들어가는 것을 볼 수 있다.
-![](/assets/img/posts/project/steam-crawling-project/steam-crawling-insert.png)
+![](/assets/img/posts/backend/data-collection/steam-crawling/steam-crawling-insert.png)
 
 <br>
 
 #### DB SELECT
 
 그리고 DB INSERT 한 데이터들이 local화면에 다시 출력되는 것 까지 확인 해 보았다.
-![](/assets/img/posts/project/steam-crawling-project/steam-crawling-view.png)
+![](/assets/img/posts/backend/data-collection/steam-crawling/steam-crawling-view.png)
 
 <br>
 

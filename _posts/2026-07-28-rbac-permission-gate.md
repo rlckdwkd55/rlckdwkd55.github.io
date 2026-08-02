@@ -2,7 +2,7 @@
 title: "RBAC 권한 게이트 구현 회고"
 date: 2026-07-28
 categories: [Security, Auth]
-tags: [rbac, authorization, fastapi]
+tags: [rbac, authorization, fastapi, experience]
 description: "메뉴×동작 권한을 DB에서 조회해 엔드포인트마다 강제하는 RBAC 게이트를 FastAPI 의존성 require_can으로 구현하고, CRUD 4단계에 실행(Execute) 권한을 더해 5단계로 확장하기까지의 실전 회고."
 image:
   path: /assets/img/thumbnails/rbac-gate.png

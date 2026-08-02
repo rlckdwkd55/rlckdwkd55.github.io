@@ -1,7 +1,7 @@
 ---
 title: "Apache Tika란?"
 date: 2025-11-06
-categories: [Search, Parsing]
+categories: [Search, Text Extraction]
 tags: [apache-tika, text-extraction]
 description: "PDF·DOCX·HWPX 등 수백 종 포맷에서 텍스트와 메타데이터를 추출하는 Apache Tika의 내부 구조를 검색 색인 관점에서 정리한다."
 image:
@@ -56,7 +56,7 @@ String title = metadata.get(TikaCoreProperties.TITLE);
 `parse()` 하나에 스트림·핸들러·메타데이터·컨텍스트가 전부 인자로 들어간다. 이
 시그니처만 이해하면 Tika의 절반은 이해한 셈이다.
 
-![](/assets/img/posts/search/tika/architecture.png)
+![](/assets/img/posts/search/text-extraction/tika/architecture.png)
 
 ---
 

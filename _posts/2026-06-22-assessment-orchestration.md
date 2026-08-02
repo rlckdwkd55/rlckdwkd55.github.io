@@ -2,7 +2,7 @@
 title: "대량 평가를 안전하게 돌리기"
 date: 2026-06-22
 categories: [Backend, Concurrency]
-tags: [concurrency, async, semaphore]
+tags: [concurrency, async, semaphore, experience]
 description: "수십 문항짜리 평가 데이터셋을 병렬로 실행하되, 한 항목의 실패가 전체를 무너뜨리지 않고 과부하 없이 중간에 안전하게 멈출 수 있도록 만든 평가 실행 오케스트레이션 회고."
 image:
   path: /assets/img/thumbnails/assessment-orchestration.png
@@ -114,7 +114,7 @@ await asyncio.gather(*[
 느리다. 실패율이 튀지 않는 선을 기준으로 값을 잡았다. 최대한 병렬로 돌리는 것 자체가
 목적이 아니라, 과부하 없이 얻을 수 있는 만큼만 병렬로 얻는 것이 목적이었기 때문이다.
 
-<!-- 이미지: 구글 검색 "세마포어 동시 실행 제한" · 저장 /assets/img/posts/backend/assessment/semaphore.png -->
+<!-- 이미지: 구글 검색 "세마포어 동시 실행 제한" · 저장 /assets/img/posts/backend/concurrency/assessment-orchestration/semaphore.png -->
 
 다만 세마포어는 프로세스 하나 안에서만 유효하다. 인스턴스가 여러 대라면 각자 자기
 세마포어를 들고 있어 전체 동시성은 그만큼 곱해진다. 그건 세마포어가 아니라

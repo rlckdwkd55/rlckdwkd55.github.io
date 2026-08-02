@@ -1,8 +1,8 @@
 ---
 title: "Linux 서버에서 첨부파일명 자리에 서버 절대경로가 색인된 버그"
 date: 2026-01-24
-categories: [Search, Parsing]
-tags: [apache-tika, linux, indexing, troubleshooting]
+categories: [Search, Text Extraction]
+tags: [apache-tika, linux, indexing, troubleshooting, experience]
 description: "백슬래시만 구분자로 가정한 파일명 추출이 Linux 서버에서 절대경로를 그대로 색인하던 버그의 원인과 수정."
 image:
   path: /assets/img/thumbnails/filename-path.png

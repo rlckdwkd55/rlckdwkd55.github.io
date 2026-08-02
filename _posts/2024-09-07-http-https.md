@@ -28,7 +28,7 @@ image:
 - HTTP와는 다르게 443번 포트를 사용한다.
 - 중간에 제 3자가 정보를 볼 수 없도록 암호화를 지원한다.
 
-![](/assets/img/posts/web/http-https/https-middle-man.png)
+![](/assets/img/posts/web/network/http-https/https-middle-man.png)
 
 위 사진과 같이 중간에서 누군가 데이터를 훔쳐가도 암호화되어 있기 때문에 해독할 수 없다.
 
@@ -48,7 +48,7 @@ image:
 - 공개키 암호화: 공개키로 암호화를 하면 개인키로만 복호화할 수 있다. -> 개인키는 나만 가지고 있으므로, 나만 볼 수 있다.
 - 개인키 암호화: 개인키로 암호화하면 공개키로만 복호화할 수 있다. -> 공개키는 모두에게 공개되어 있으므로, 내가 인증한 정보임을 알려 신뢰성을 보장할 수 있다.
 
-![](/assets/img/posts/web/http-https/public-private-key.png)
+![](/assets/img/posts/web/network/http-https/public-private-key.png)
 
 <br>
 
@@ -139,7 +139,7 @@ HTTPS는 단순한 '추가 옵션'이 아닌, 현대 웹에서 기본적으로 �
 
 ### HandShake
 
-![](/assets/img/posts/web/http-https/ssl-handshake.png)
+![](/assets/img/posts/web/network/http-https/ssl-handshake.png)
 
 1. 클라이언트 → 서버로 랜덤 데이터와 사용 가능한 암호화 방식을 보낸다.
 2. 서버 → 클라이언트로 랜덤 데이터, 사용할 암호화 방식과 SSL 인증서를 보낸다.

@@ -38,7 +38,7 @@ Windows 10/11 Professional / Education / Enterprise 에디션
 
 #### 1. 관리자 권한으로 Windows PowerShell을 실행한다.
 
-![](/assets/img/posts/docker/wsl-powershell-admin.png)
+![](/assets/img/posts/devops/container/docker-install/wsl-powershell-admin.png)
 
 
 #### 2. PowerShell에 다음 명령어를 입력하여 WSL2를 설치한다.
@@ -47,14 +47,14 @@ Windows 10/11 Professional / Education / Enterprise 에디션
 $ wsl --install
 ```
 
-![](/assets/img/posts/docker/wsl-install-command.png)
+![](/assets/img/posts/devops/container/docker-install/wsl-install-command.png)
 
 - 설치 후 Windows 재부팅
 
 
 #### 3. 재부팅 후 username, password설정을 해준다.
 
-![](/assets/img/posts/docker/wsl-user-setup.png)
+![](/assets/img/posts/devops/container/docker-install/wsl-user-setup.png)
 
 <br>
 
@@ -73,7 +73,7 @@ $ wsl -l -v
 ```
 
 
-![](/assets/img/posts/docker/wsl-version-check.png)
+![](/assets/img/posts/devops/container/docker-install/wsl-version-check.png)
 
 <br>
 
@@ -86,29 +86,29 @@ $ wsl -l -v
 
 #### 1. 홈페이지 접속
 
-![](/assets/img/posts/docker/docker-desktop-download.png)
+![](/assets/img/posts/devops/container/docker-install/docker-desktop-download.png)
 
 - 홈페이지 접속 후 해당 버튼을 클릭해 다운로드 한다.
 
 
 #### 2. 설치
 
-![](/assets/img/posts/docker/docker-desktop-install.png)
+![](/assets/img/posts/devops/container/docker-install/docker-desktop-install.png)
 
-![](/assets/img/posts/docker/docker-desktop-restart.png)
+![](/assets/img/posts/devops/container/docker-install/docker-desktop-restart.png)
 
 - 설치가 완료되면 Close and restart를 눌러 재부팅을 해준다.
 
 
-![](/assets/img/posts/docker/docker-desktop-license.png)
+![](/assets/img/posts/devops/container/docker-install/docker-desktop-license.png)
 
 - 재 부팅 후 첫 실행을 하면 해당 화면이 나오는데 Accept를 눌러준다.
 
-![](/assets/img/posts/docker/docker-desktop-setup-skip.png)
+![](/assets/img/posts/devops/container/docker-install/docker-desktop-setup-skip.png)
 
 - 사용 목적에 맞게 체크해도 되지만 Skip을 클릭해도 무방하다.
 
-![](/assets/img/posts/docker/docker-desktop-done.png)
+![](/assets/img/posts/devops/container/docker-install/docker-desktop-done.png)
 
 위 과정을 지나면 Docker Desktop 설치가 완료된다.
 <br><br><br><br><br><br><br><br><br><br>

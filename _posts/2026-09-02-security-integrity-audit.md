@@ -2,7 +2,7 @@
 title: "보안·정합성 결함 전수 점검 회고"
 date: 2026-09-02
 categories: [Security, Vulnerability]
-tags: [data-integrity, refactoring, troubleshooting]
+tags: [data-integrity, refactoring, troubleshooting, experience]
 description: "파일 업로드·재임베딩 순서·권한 게이트·예외 처리에 숨어 있던 결함들을 한 커밋으로 전수 점검하며 배운 것들을 정리한다."
 image:
   path: /assets/img/thumbnails/security-audit.png
@@ -143,7 +143,7 @@ API인데, 기존 RBAC은 CRUD 4단계밖에 없어서 이들을 어디에 끼�
 - **중복 로직 통합.** `point_id`(UUID/int) 파싱이 두 곳에 각각 구현돼 있어, 공용
   유틸(`app/utils/point_id.py`)로 합치고 예외 처리도 일관되게 맞췄다.
 
-<!-- 이미지: 구글 검색 "보안 코드 점검 체크리스트" · 저장 /assets/img/posts/security/audit/lenses.png -->
+<!-- 이미지: 구글 검색 "보안 코드 점검 체크리스트" · 저장 /assets/img/posts/security/vulnerability/audit/lenses.png -->
 
 ## 혼자 전수로 훑으며 배운 것
 

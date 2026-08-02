@@ -1,7 +1,7 @@
 ---
 title: "Detection 모델의 발전 흐름"
 date: 2025-09-19
-categories: [AI, LLM]
+categories: [AI, Vision]
 tags: [ocr, computer-vision]
 description: "Detection 모델의 발전 흐름을 통해 Object Detection과 Text Detection의 분화를 정리한다."
 image:
@@ -24,7 +24,7 @@ Detection(디텍팅)은 컴퓨터 비전에서 가장 기본적인 문제 중 �
 - Text Detection에서 자주 언급되는 EAST / CRAFT / DBNet이
   각각 어떤 문제를 해결했는지
 
-![](/assets/img/posts/vision/detection/overview.png)
+![](/assets/img/posts/ai/vision/detection/overview.png)
 
 ---
 
@@ -58,7 +58,7 @@ Object Detection의 목표는 명확하다.
 
 초기에는 텍스트 역시 "하나의 객체"로 보고 이 모델들을 그대로 적용하려는 시도도 많았다.
 
-![](/assets/img/posts/vision/detection/object-detection-history.png)
+![](/assets/img/posts/ai/vision/detection/object-detection-history.png)
 
 ---
 
@@ -94,7 +94,7 @@ Anchor란 미리 정의된 박스를 기준으로 실제 객체와의 차이를 
 결과적으로 텍스트에 적절한 anchor를 설계하는 것 자체가 어렵고<br>
 작은 텍스트 누락, 긴 텍스트 분할 실패, Recall 손실이 발생한다.
 
-![](/assets/img/posts/vision/detection/bounding-box.png)
+![](/assets/img/posts/ai/vision/detection/bounding-box.png)
 
 ---
 

@@ -35,7 +35,7 @@ image:
 
 ## 정규화 과정
 
-![](/assets/img/posts/database/normalization.png)
+![](/assets/img/posts/backend/database/normalization/normalization.png)
 
 정규화는 여러 단계로 진행되는데, 이를 '정규형'이라고 부르고 1-5 정규화가 있다.
 

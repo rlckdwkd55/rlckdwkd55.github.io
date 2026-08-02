@@ -1,8 +1,8 @@
 ---
 title: "사고다발지 시각화 프로젝트 (5) - 네이버 지도 API로 사고다발지 현황 시각화"
 date: 2025-01-26
-categories: [Project, Accident Hotspot]
-tags: [openapi, visualization]
+categories: [Web, API]
+tags: [public-data-api, visualization, accident-hotspot, experience]
 description: "OpenAPI활용 경기도 사고다발지 시각화 프로젝트"
 image:
   path: /assets/img/thumbnails/accident-hotspot.jpg
@@ -245,7 +245,7 @@ public class OpenApiDaoImpl implements OpenApiDao {
 
 ### 결과
 
-![](/assets/img/posts/project/accident-hotspot/result-map.png)
+![](/assets/img/posts/backend/database/accident-hotspot/result-map.png)
 
 ### 마무리
 

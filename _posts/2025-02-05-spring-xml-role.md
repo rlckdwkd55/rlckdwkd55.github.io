@@ -1,7 +1,7 @@
 ---
 title: "Spring 각 xml별 역할"
 date: 2025-02-05
-categories: [Language, Spring]
+categories: [Framework, Spring]
 tags: [configuration, xml]
 description: "Spring Legacy Project에서 xml의 역할"
 image:

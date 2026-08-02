@@ -82,7 +82,7 @@ Git에서는 변경사항의 이력을 추적하며 협업을 위한 기반을 �
 이 새로운 저장소에 새로운 파일을 추가 한다거나 추가한 파일의 내용을 변경하여 그 내용을 저장(커밋, Commit)하는 것은 모두 ‘master’ 라는 이름의 브랜치를 통해 처리할 수 있는 일이 된다.
 
 ‘master’가 아닌 또 다른 새로운 브랜치를 만들어서 ‘이제부터 이 브랜치를 사용할거야!’라고 선언(체크아웃, checkout)하지 않는 이상, 이 때의 모든 작업은 ‘master’ 브랜치에서 이루어 진다.
-![](/assets/img/posts/tool/git/master-branch.webp)
+![](/assets/img/posts/devops/git/git-github/master-branch.webp)
 
 #### branch
 
@@ -91,7 +91,7 @@ Git에서는 변경사항의 이력을 추적하며 협업을 위한 기반을 �
 이럴 때, **_여러 개발자들이 동시에 다양한 작업을 할 수 있게 만들어 주는 기능이 바로 ‘브랜치(Branch)’ 이다._**
 이렇게 분리된 작업 영역에서 변경된 내용은 나중에 원래의 버전과 비교해서 하나의 새로운 버전으로 만들어 낼 수 있다.
 
-![](/assets/img/posts/tool/git/branch-flow.webp)
+![](/assets/img/posts/devops/git/git-github/branch-flow.webp)
 
 또한 이렇게 만들어진 브랜치는 다른 브랜치와 병합(Merge)함으로써, 작업한 내용을 다시 새로운 하나의 브랜치로 모을 수 있다.
 
@@ -102,7 +102,7 @@ Git에서는 변경사항의 이력을 추적하며 협업을 위한 기반을 �
 이렇게 함으로써 다른 사람의 작업에 영향을 받지 않고 독립적으로 특정 작업을 수행하고 그 결과를 하나로 모아 나가게 된다.
 이러한 방식으로 작업할 경우 ‘작업 단위’, 즉 브랜치로 그 작업의 기록을 중간 중간에 남기게 되므로 문제가 발생했을 경우 원인이 되는 작업을 찾아내거나 그에 따른 대책을 세우기 쉬워진다.
 
-![](/assets/img/posts/tool/git/merge-flow.webp)
+![](/assets/img/posts/devops/git/git-github/merge-flow.webp)
 
 #### issue
 

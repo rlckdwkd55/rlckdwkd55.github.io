@@ -2,7 +2,7 @@
 title: "외부 DB 접속 비밀번호를 Fernet으로 암호화하기"
 date: 2026-08-18
 categories: [Security, Crypto]
-tags: [encryption, fernet]
+tags: [encryption, fernet, experience]
 description: "사용자가 등록한 외부 DB의 접속 비밀번호를 평문으로 두지 않으려고, JWT 시크릿에서 파생한 키로 Fernet 대칭 암호화해 저장하고 접속 시 복호화한 실전 구현 회고."
 image:
   path: /assets/img/thumbnails/db-credentials.png

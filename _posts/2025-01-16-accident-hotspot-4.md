@@ -1,8 +1,8 @@
 ---
 title: "사고다발지 시각화 프로젝트 (4) - Spring과 MySQL 연동"
 date: 2025-01-16
-categories: [Project, Accident Hotspot]
-tags: [mybatis, mysql]
+categories: [Backend, Database]
+tags: [mybatis, mysql, accident-hotspot, experience]
 description: "OpenAPI활용 경기도 사고다발지 시각화 프로젝트"
 image:
   path: /assets/img/thumbnails/accident-hotspot.jpg

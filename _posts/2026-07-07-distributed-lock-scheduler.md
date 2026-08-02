@@ -2,7 +2,7 @@
 title: "여러 인스턴스에서 스케줄 작업 중복 실행 막기"
 date: 2026-07-07
 categories: [Backend, Concurrency]
-tags: [scheduler, distributed-lock, concurrency, troubleshooting]
+tags: [scheduler, distributed-lock, concurrency, troubleshooting, experience]
 description: "멀티 인스턴스 환경에서 재동기화 Cron이 중복 실행되던 문제를, 별도 인프라 없이 DB 조건부 UPDATE 하나로 만든 분산 락으로 막은 기록."
 image:
   path: /assets/img/thumbnails/lock-scheduler.png
@@ -11,7 +11,7 @@ published: false
 
 분산 락의 개념·TTL·펜싱 토큰 같은 원리는 [분산 락 글](https://rlckdwkd55.github.io/posts/distributed-lock/)에 따로 정리했다. 이 글은 그 원리를 실제 스케줄러에 적용한 구현 기록이다. 코드는 사내 서비스에서 발췌하되 식별 정보는 지웠다.
 
-<!-- 이미지: 구글 검색 "다중 인스턴스 스케줄러 중복 실행" · 저장 /assets/img/posts/backend/scheduler/multi-instance.png -->
+<!-- 이미지: 구글 검색 "다중 인스턴스 스케줄러 중복 실행" · 저장 /assets/img/posts/backend/concurrency/distributed-lock-scheduler/multi-instance.png -->
 
 ## 재동기화 Cron이 인스턴스 수만큼 돌았다
 

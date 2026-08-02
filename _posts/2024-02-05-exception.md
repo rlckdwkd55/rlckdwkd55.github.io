@@ -23,7 +23,7 @@ image:
 try, catch, finally라는 키워드로 예외처리를 하거나 throws 할 수 있는데,
 중요한 점은 모든 예외는 아래 사진과 같이 Exception클래스를 상속받는다라는 것이다.
 
-![](/assets/img/posts/java/exception-hierarchy.png)
+![](/assets/img/posts/language/java/exception-hierarchy.png)
 
 
 <br>

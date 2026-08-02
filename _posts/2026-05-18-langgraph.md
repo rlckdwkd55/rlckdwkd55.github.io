@@ -90,7 +90,7 @@ START → retrieve → generate → [validate] ──(충실 or 상한)──►
                        └──────────── regenerate ─────────────┘
 ```
 
-![](/assets/img/posts/ai/langgraph/graph-flow.png)
+![](/assets/img/posts/ai/llm/langgraph/graph-flow.png)
 
 ```python
 from langgraph.graph import StateGraph, START, END

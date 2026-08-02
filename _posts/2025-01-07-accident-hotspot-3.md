@@ -1,8 +1,8 @@
 ---
 title: "사고다발지 시각화 프로젝트 (3) - OpenAPI 연동 및 DB INSERT/DELETE"
 date: 2025-01-07
-categories: [Project, Accident Hotspot]
-tags: [openapi, jdbc]
+categories: [Backend, Database]
+tags: [public-data-api, jdbc, accident-hotspot, experience]
 description: "OpenAPI활용 경기도 사고다발지 시각화 프로젝트"
 image:
   path: /assets/img/thumbnails/accident-hotspot.jpg
@@ -13,14 +13,14 @@ image:
 
 ## 인증키 신청
 
-![](/assets/img/posts/project/accident-hotspot/openapi-key-request.png)
+![](/assets/img/posts/backend/database/accident-hotspot/openapi-key-request.png)
 
 사이트 접속을 하면 해당 페이지에서 인증키 신청을 클릭하여 로그인을 진행 해 준다.
 
 로그인을 하면 위와 같은 화면을 볼 수 있는데
 활용용도, 활용(사용)URL, 내용을 입력하여 발급요청을 한다.
 
-![](/assets/img/posts/project/accident-hotspot/openapi-key-issued.png)
+![](/assets/img/posts/backend/database/accident-hotspot/openapi-key-issued.png)
 
 발급요청이 완료되면 위와 같은 화면에서 인증키를 확인할 수 있다
 해당 인증키가 있어야 OpenAPI데이터를 가지고 올 수 있다.
@@ -395,5 +395,5 @@ public class Main {
 
 ### 결과
 
-![](/assets/img/posts/project/accident-hotspot/db-insert-result.png)
+![](/assets/img/posts/backend/database/accident-hotspot/db-insert-result.png)
 

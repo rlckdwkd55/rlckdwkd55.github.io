@@ -1,7 +1,7 @@
 ---
 title: "Spring Batch란?"
 date: 2025-07-24
-categories: [Language, Spring]
+categories: [Framework, Spring]
 tags: [spring-batch, batch]
 description: "대용량 데이터 처리를 위한 Spring Batch의 개념과 구조 정리"
 image:
@@ -30,7 +30,7 @@ Spring Batch는 다음과 같은 조건을 만족해야 한다.
 
 ### Spring Batch Architecture
 
-![](/assets/img/posts/java/spring/spring-batch/spring-batch-architecture.jpg)
+![](/assets/img/posts/framework/spring/spring-batch/spring-batch-architecture.jpg)
 
 Spring Batch는 크게 세 가지 주요 구성 요소(Application Layer, Batch Core Layer, Batch Infrastructure Layer)로 구성되어 각각 독립적으로 동작하면서 배치 작업을 실행한다.
 
@@ -51,7 +51,7 @@ Spring Batch는 크게 세 가지 주요 구성 요소(Application Layer, Batch 
 
 ### Spring Batch 용어
 
-![](/assets/img/posts/java/spring/spring-batch/spring-batch-terms.png)
+![](/assets/img/posts/framework/spring/spring-batch/spring-batch-terms.png)
 
 #### Job
 

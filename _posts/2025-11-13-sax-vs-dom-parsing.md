@@ -1,7 +1,7 @@
 ---
 title: "SAX와 DOM, 문서 파싱의 두 모델"
 date: 2025-11-13
-categories: [Search, Parsing]
+categories: [Search, Text Extraction]
 tags: [sax, dom, xml]
 description: "문서를 트리로 통째로 올리는 DOM과 이벤트로 흘려보내는 SAX가 메모리·속도·구현 난이도에서 갈리는 지점을, 대용량에서 OOM이 나는 원인과 함께 코드로 정리한다."
 image:
@@ -112,7 +112,7 @@ parser.parse(new File("big.xml"), new TextExtractHandler()); // 스트리밍하�
 잡은 과정은 [대용량 오피스 문서 OOM을 SAX로 잡기](https://rlckdwkd55.github.io/posts/tika-sax-oom/)에
 따로 정리했다.
 
-![](/assets/img/posts/search/parsing/sax-vs-dom.png)
+![](/assets/img/posts/search/text-extraction/parsing/sax-vs-dom.png)
 
 ## 중간 지대 — StAX (pull 방식)
 

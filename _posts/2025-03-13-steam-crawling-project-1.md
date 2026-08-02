@@ -1,8 +1,8 @@
 ---
 title: "Steam 게임 데이터 크롤링 프로젝트 (1)"
 date: 2025-03-13
-categories: [Project, Steam Crawling]
-tags: [crawling, mysql]
+categories: [Backend, Data Collection]
+tags: [crawling, mysql, steam-crawling, experience]
 description: "Steam 사이트의 게임 데이터를 수집하기 위한 크롤링 프로젝트"
 image:
   path: /assets/img/thumbnails/steam-crawling-project.jpg
@@ -21,7 +21,7 @@ Steam은 전세계 게이머들에게 잘 알려진 디지털 배급 플랫폼�
 내가 크롤링 할 사이트는 아래 링크에서 해당 부분이다.
 링크 : [스팀](https://store.steampowered.com/category/action_fps/?flavor=contenthub_all)
 
-![](/assets/img/posts/project/steam-crawling-project/steam-crawling-target.png)
+![](/assets/img/posts/backend/data-collection/steam-crawling/steam-crawling-target.png)
 
 <br>
 
@@ -109,7 +109,7 @@ FOREIGN KEY (TITLE) REFERENCES GAMES(TITLE)
 ```
 
 총 6개의 테이블을 구성했으며 ERD다이어그램은 아래 사진과 같다.
-![](/assets/img/posts/project/steam-crawling-project/steam-crawling-erd.png)
+![](/assets/img/posts/backend/data-collection/steam-crawling/steam-crawling-erd.png)
 
 <br>
 

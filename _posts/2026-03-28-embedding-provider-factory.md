@@ -2,7 +2,7 @@
 title: "임베딩 provider를 설정만으로 바꾸는 팩토리"
 date: 2026-03-28
 categories: [AI, RAG]
-tags: [embedding, rag]
+tags: [embedding, rag, experience]
 description: "로컬 bge-m3에 고정돼 있던 임베딩 계층을, DB 설정만으로 로컬과 외부 API를 오가는 팩토리로 재설계한 기록. provider enum 없는 설계, OpenAI 호환의 함정, 모델 전환 가드를 정리한다."
 ---
 
@@ -38,7 +38,7 @@ class AiEmbeddingModelEntity(Base):
 
 이게 가능한 이유는 대부분의 임베딩 제공자가 **OpenAI 호환 엔드포인트**를 노출하기 때문이다. 그래서 로컬이든 클라우드든 팩토리는 두 갈래로만 갈린다.
 
-![](/assets/img/posts/ai/embeddings/factory-branches.png)
+![](/assets/img/posts/ai/rag/embeddings/factory-branches.png)
 
 ```python
 def create_dense_embeddings(ai_embedding_model: Optional[AiEmbeddingModelEntity]):

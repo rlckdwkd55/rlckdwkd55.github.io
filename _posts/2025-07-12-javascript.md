@@ -1,7 +1,7 @@
 ---
 title: "JavaScript란?"
 date: 2025-07-12
-categories: [Web, JavaScript]
+categories: [Language, JavaScript]
 tags: [javascript]
 description: "JavaScript의 개념과 특징, 주요 문법"
 image:

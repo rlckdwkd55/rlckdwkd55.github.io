@@ -68,7 +68,7 @@ print(plain)                             # b"db-password-1234"
 Fernet 토큰은 겉보기엔 URL-safe base64 문자열 하나지만, 디코딩하면 정해진 순서로 붙은
 바이트 묶음이다.
 
-<!-- 이미지: 구글 검색 "대칭키 암호화 토큰 구조" · 저장 /assets/img/posts/security/fernet/token-structure.png -->
+<!-- 이미지: 구글 검색 "대칭키 암호화 토큰 구조" · 저장 /assets/img/posts/security/crypto/fernet/token-structure.png -->
 
 | 필드 | 크기 | 내용 |
 |---|---|---|

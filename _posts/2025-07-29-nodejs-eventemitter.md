@@ -1,7 +1,7 @@
 ---
 title: "Node.js EventEmitter란?"
 date: 2025-07-29
-categories: [Web, JavaScript]
+categories: [Language, JavaScript]
 tags: [nodejs, javascript, async, eventemitter]
 description: "Node.js의 이벤트 기반 비동기 모델을 구성하는 EventEmitter"
 image:
