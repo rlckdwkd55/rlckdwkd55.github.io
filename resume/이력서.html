@@ -241,7 +241,7 @@ const DATA = {
           desc: "멀티에이전트 RAG 챗봇 플랫폼",
           bullets: [
             "시나리오 에이전트로 임계값 초과 질의를 LLM 호출 없이 즉시 응답(1.5초 → 0.3초, 호출 비용 약 30% 절감), 장기 대화는 롤링 요약으로 압축해 토큰 사용량 약 40% 절감",
-            "Qdrant 하이브리드 검색 + CrossEncoder 리랭킹으로 검색 정확도 약 30%p 향상",
+            "dense·sparse 검색을 RRF로 융합하고 CrossEncoder로 재정렬 — 직접 만든 LLM judge 평가로 도입 전후 약 30%p 개선 확인",
             "2단계 관련성 검증(Document Grading·Terminology Validation)과 LLM judge 기반 품질 관측 체계 구축으로 할루시네이션 대응",
             "vLLM·OpenAI·Naver Clova 멀티 LLM Factory 확장 구조와 FastAPI 비동기 도메인 API(회원·문서·스케줄러, SSE)·Next.js 관리자 대시보드 개발",
           ],
