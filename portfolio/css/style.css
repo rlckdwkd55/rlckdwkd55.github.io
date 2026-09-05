@@ -503,56 +503,62 @@ nav.scrolled {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   핵심 성과 — 첫 화면 승부처
+   히어로 — 이름 + 성과 스트립
    ═══════════════════════════════════════════════════════════════ */
 
-.highlight-grid {
+.intro-head { margin-bottom: 2.25rem; }
+
+.intro-name {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1;
+    color: var(--text-primary);
+}
+
+.intro-role {
+    margin-top: 0.625rem;
+    font-size: 1.0625rem;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* 카드가 아니라 표에 가깝게. 박스·그림자 없이 선만으로 구획한다.
+   오른쪽 학력·경력 카드와 카드가 두 겹으로 쌓이는 걸 피하려는 선택. */
+.metric-strip {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
     margin-bottom: 3rem;
 }
 
-.highlight-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--accent);
-    border-radius: 1.25rem;
-    box-shadow: var(--card-shadow);
-    padding: 1.375rem 1.5rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-}
+.metric-strip > div { padding: 1.375rem 1.5rem; }
+.metric-strip > div:first-child { padding-left: 0; }
+.metric-strip > div + div { border-left: 1px solid var(--border); }
 
-.highlight-card:hover {
-    border-color: var(--border-hover);
-    border-left-color: var(--accent);
-    box-shadow: var(--glow), var(--card-shadow);
-    transform: translateY(-3px);
-}
-
-.highlight-metric {
-    font-size: 1.0625rem;
+.metric-n {
+    font-size: 1.125rem;
     font-weight: 700;
-    color: var(--text-primary);
-    letter-spacing: -0.01em;
-    margin-bottom: 0.5rem;
-    font-variant-numeric: tabular-nums;
-}
-
-.highlight-metric em {
-    font-style: normal;
-    font-weight: 800;
     color: var(--accent);
+    letter-spacing: -0.01em;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.35;
 }
 
-.highlight-desc {
+.metric-d {
+    margin-top: 0.4375rem;
     font-size: 0.8125rem;
     line-height: 1.6;
     color: var(--text-secondary);
 }
 
 @media (max-width: 767px) {
-    .highlight-grid { grid-template-columns: 1fr; margin-bottom: 2rem; }
+    .intro-name { font-size: 2.125rem; }
+    .metric-strip { grid-template-columns: 1fr; margin-bottom: 2rem; }
+    .metric-strip > div { padding: 1rem 0; }
+    .metric-strip > div:first-child { padding-top: 1.125rem; }
+    .metric-strip > div + div { border-left: 0; border-top: 1px solid var(--border); }
 }
 
 /* ═══════════════════════════════════════════════════════════════

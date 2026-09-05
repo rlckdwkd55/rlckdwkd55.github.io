@@ -120,22 +120,27 @@
         <!-- ======== ABOUT ======== -->
         <section id="home" class="py-16 md:py-28 px-5 md:px-8 relative z-[1]">
             <div class="max-w-5xl mx-auto">
-                <span class="section-label fade-in">WHO I AM</span>
-                <h2 class="section-title fade-in">소개</h2>
+                <!-- 첫 섹션은 다른 섹션과 달리 '소개' 제목을 두지 않는다.
+                     지원용 페이지에서 이 자리는 이름이 차지해야 하고,
+                     아래 성과 스트립도 '소개' 아래 숫자가 먼저 나오는 어색함을 피한다. -->
+                <div class="intro-head fade-in">
+                    <h1 class="intro-name">임기창</h1>
+                    <p class="intro-role">Backend Developer · 3년차</p>
+                </div>
 
-                <!-- 첫 화면에서 바로 보이는 성과 숫자. 이력서의 '핵심 성과'와 같은 내용을 씀 -->
-                <div class="highlight-grid fade-in">
-                    <div class="highlight-card">
-                        <div class="highlight-metric">메모리 <em>74%</em>↓ · 처리 속도 <em>3.2배</em></div>
-                        <p class="highlight-desc">대용량 오피스 문서 파싱을 DOM → SAX 스트리밍으로 전환</p>
+                <!-- 성과 스트립: 카드가 아니라 표에 가깝게. 위아래 선과 세로 구분선만 쓴다. -->
+                <div class="metric-strip fade-in">
+                    <div>
+                        <div class="metric-n">메모리 74%↓ · 처리 속도 3.2배</div>
+                        <p class="metric-d">대용량 오피스 문서 파싱을 DOM → SAX 스트리밍으로 전환</p>
                     </div>
-                    <div class="highlight-card">
-                        <div class="highlight-metric"><em>1.5초</em> → <em>0.3초</em></div>
-                        <p class="highlight-desc">RAG 챗봇에 시나리오 에이전트 도입, 대화 압축으로 토큰 40% 절감</p>
+                    <div>
+                        <div class="metric-n">1.5초 → 0.3초</div>
+                        <p class="metric-d">RAG 챗봇에 시나리오 에이전트 도입, 대화 압축으로 토큰 40% 절감</p>
                     </div>
-                    <div class="highlight-card">
-                        <div class="highlight-metric"><em>30초</em> → <em>3초</em></div>
-                        <p class="highlight-desc">공공 시스템 엑셀 다운로드를 SXSSF 스트리밍으로 교체 (90% 단축)</p>
+                    <div>
+                        <div class="metric-n">30초 → 3초</div>
+                        <p class="metric-d">공공 시스템 엑셀 다운로드를 SXSSF 스트리밍으로 교체 (90% 단축)</p>
                     </div>
                 </div>
 
@@ -145,7 +150,6 @@
                             <img src="./assets/profile.jpg" alt="임기창 프로필 사진" class="about-photo"
                                  onerror="this.parentElement.style.display='none'">
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 text-gradient">Backend Developer</h3>
                         <p class="text-base leading-relaxed mb-4" style="color:var(--text-secondary)">
                             공공 SI 백엔드에서 출발해 엔터프라이즈 검색 엔진 운영을 거쳐 멀티에이전트 AI 챗봇 개발까지 영역을 넓혀왔습니다.
                         </p>
