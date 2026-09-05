@@ -177,7 +177,50 @@
             <div class="max-w-5xl mx-auto">
                 <span class="section-label fade-in">WHAT I USE</span>
                 <h2 class="section-title fade-in">기술 스택</h2>
-                <div class="skills-grid" id="skills-grid"></div>
+                <div class="skills-grid">
+                    <div class="skill-card fade-in">
+                        <div class="skill-card-header">
+                            <div class="skill-icon-wrap"><i class="fas fa-code text-sm" style="color:#a855f7"></i></div>
+                            <h3 class="font-semibold" style="color:var(--text-primary)">Language</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2"><span class="skill-tag">Java</span><span class="skill-tag">Python</span><span class="skill-tag">JavaScript</span><span class="skill-tag">TypeScript</span></div>
+                    </div>
+                    <div class="skill-card fade-in">
+                        <div class="skill-card-header">
+                            <div class="skill-icon-wrap"><i class="fas fa-server text-sm" style="color:#22d3ee"></i></div>
+                            <h3 class="font-semibold" style="color:var(--text-primary)">Backend</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2"><span class="skill-tag">Spring Boot</span><span class="skill-tag">Spring Security</span><span class="skill-tag">JPA</span><span class="skill-tag">MyBatis</span><span class="skill-tag">FastAPI</span></div>
+                    </div>
+                    <div class="skill-card fade-in">
+                        <div class="skill-card-header">
+                            <div class="skill-icon-wrap"><i class="fas fa-robot text-sm" style="color:#f472b6"></i></div>
+                            <h3 class="font-semibold" style="color:var(--text-primary)">AI & Search</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2"><span class="skill-tag">RAG</span><span class="skill-tag">LangGraph</span><span class="skill-tag">vLLM</span><span class="skill-tag">Qdrant</span><span class="skill-tag">Elasticsearch</span></div>
+                    </div>
+                    <div class="skill-card fade-in">
+                        <div class="skill-card-header">
+                            <div class="skill-icon-wrap"><i class="fas fa-palette text-sm" style="color:#e879f9"></i></div>
+                            <h3 class="font-semibold" style="color:var(--text-primary)">Frontend</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2"><span class="skill-tag">Next.js</span><span class="skill-tag">React</span></div>
+                    </div>
+                    <div class="skill-card fade-in">
+                        <div class="skill-card-header">
+                            <div class="skill-icon-wrap"><i class="fas fa-database text-sm" style="color:#34d399"></i></div>
+                            <h3 class="font-semibold" style="color:var(--text-primary)">Database</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2"><span class="skill-tag">PostgreSQL</span><span class="skill-tag">Oracle</span><span class="skill-tag">Redis</span></div>
+                    </div>
+                    <div class="skill-card fade-in">
+                        <div class="skill-card-header">
+                            <div class="skill-icon-wrap"><i class="fas fa-wrench text-sm" style="color:#f59e0b"></i></div>
+                            <h3 class="font-semibold" style="color:var(--text-primary)">Infra & Tools</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2"><span class="skill-tag">Docker</span><span class="skill-tag">GitHub Actions</span><span class="skill-tag">Git</span></div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -186,7 +229,146 @@
             <div class="max-w-5xl mx-auto">
                 <span class="section-label fade-in">WHAT I BUILT</span>
                 <h2 class="section-title fade-in">프로젝트</h2>
-                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <div class="project-card fade-in">
+                        <div class="project-card-header">
+                            <div class="project-card-header-icon"><i class="fas fa-cube"></i></div>
+                            <h3 class="project-card-title">Argos AI Chat Search</h3>
+                        </div>
+                        <div class="project-card-body">
+                            <div class="flex justify-between items-center mb-1">
+                                <p class="text-xs font-semibold flex-1" style="color:var(--text-primary)">AI 챗봇 플랫폼</p>
+                                <span class="period-badge ml-2">2026.01 ~</span>
+                            </div>
+                            <p class="text-sm leading-relaxed mb-4 mt-3 flex-grow" style="color:var(--text-secondary)">· 백엔드 도메인 API·AI 파이프라인·관리자 대시보드·인프라 배포 담당<br>· Qdrant 하이브리드 검색 + CrossEncoder 리랭킹으로 검색 정확도 약 30%p 향상<br>· 시나리오 에이전트로 임계값 초과 질의를 LLM 호출 없이 즉시 응답 — 응답 지연·비용 절감<br>· vLLM·OpenAI·Naver Clova 멀티 LLM Factory 및 외부 임베딩 API 확장 구조 구현<br>· FastAPI 비동기 도메인 API(회원·문서·스케줄러, SSE)와 Next.js 관리자 대시보드 개발</p>
+                            <div class="flex flex-wrap gap-1.5 mb-4"><span class="tech-badge">Python</span><span class="tech-badge">FastAPI</span><span class="tech-badge">LangGraph</span><span class="tech-badge">Qdrant</span><span class="tech-badge">Next.js</span><span class="tech-badge">Docker</span></div>
+                            <div class="result-box mb-4">
+                                <i class="fas fa-check-circle mr-1.5" style="color:var(--violet-mid)"></i>
+                                <strong style="color:var(--text-primary)">결과:</strong>
+                                <span> GS SW 1등급 인증 취득(TTA, 2026.06). 저작권 등록(2026.03). 공공기관 납품.</span>
+                            </div>
+                            <div class="flex items-center justify-between mt-auto">
+                                <div class="flex items-center gap-3"><span class="project-link-disabled"><i class="fas fa-lock"></i> 코드 비공개</span></div>
+                                <div class="flex items-center gap-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card fade-in">
+                        <div class="project-card-header">
+                            <div class="project-card-header-icon"><i class="fas fa-layer-group"></i></div>
+                            <h3 class="project-card-title">ArgosSearch</h3>
+                        </div>
+                        <div class="project-card-body">
+                            <div class="flex justify-between items-center mb-1">
+                                <p class="text-xs font-semibold flex-1" style="color:var(--text-primary)">엔터프라이즈 검색 엔진</p>
+                                <span class="period-badge ml-2">2025.09 ~</span>
+                            </div>
+                            <p class="text-sm leading-relaxed mb-4 mt-3 flex-grow" style="color:var(--text-secondary)">· 안전보건공단·CJ 온리원푸드넷·고령군청 등 공공기관·기업 대상 검색 엔진 운영·유지보수<br>· Apache Tika 문서 색인 파이프라인 CVSS 10.0 취약점(CVE-2025-66516) 발견·패치<br>· 대용량 오피스 문서 SAX 스트리밍 전환으로 메모리 74% 절감·처리 속도 3.2배 개선<br>· 한글 HWPX 포맷 지원 추가, Elasticsearch 색인 스케줄러·외부 DB 연동 유지보수 및 실운영 장애 대응</p>
+                            <div class="flex flex-wrap gap-1.5 mb-4"><span class="tech-badge">Java</span><span class="tech-badge">Spring Boot</span><span class="tech-badge">Elasticsearch</span><span class="tech-badge">Apache Tika</span><span class="tech-badge">Quartz</span></div>
+                            <div class="result-box mb-4">
+                                <i class="fas fa-chart-line mr-1.5" style="color:var(--violet-mid)"></i>
+                                <strong style="color:var(--text-primary)">결과:</strong>
+                                <span> Apache Tika 색인 파이프라인 CVSS 10.0 취약점 패치 및 성능 개선(메모리 74%↓·처리 속도 3.2배)으로 검색 엔진 보안·안정성 강화.</span>
+                            </div>
+                            <div class="flex items-center justify-between mt-auto">
+                                <div class="flex items-center gap-3"><span class="project-link-disabled"><i class="fas fa-lock"></i> 코드 비공개</span></div>
+                                <div class="flex items-center gap-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card fade-in">
+                        <div class="project-card-header">
+                            <div class="project-card-header-icon"><i class="fas fa-bolt"></i></div>
+                            <h3 class="project-card-title">캐치캣</h3>
+                        </div>
+                        <div class="project-card-body">
+                            <div class="flex justify-between items-center mb-1">
+                                <p class="text-xs font-semibold flex-1" style="color:var(--text-primary)">크롤링 & 알림 서비스</p>
+                                <span class="period-badge ml-2">2024.11 ~ 2025.04</span>
+                            </div>
+                            <p class="text-sm leading-relaxed mb-4 mt-3 flex-grow" style="color:var(--text-secondary)">· 700개 이상 사이트 대상 일 3,000건 규모 크롤링 시스템 구축<br>· Node.js 크론 스케줄러 + FCM 연동 실시간 알림 시스템 구현<br>· Proxy 구조로 CORS 차단 우회 — 안정적 수집 환경 확보<br>· Spring Boot 기반 관리자 페이지 개발 및 Node.js 백엔드 연동</p>
+                            <div class="flex flex-wrap gap-1.5 mb-4"><span class="tech-badge">Java</span><span class="tech-badge">Spring Boot</span><span class="tech-badge">Node.js</span><span class="tech-badge">MyBatis</span><span class="tech-badge">PostgreSQL</span><span class="tech-badge">FCM</span></div>
+                            <div class="result-box mb-4">
+                                <i class="fas fa-check-circle mr-1.5" style="color:var(--violet-mid)"></i>
+                                <strong style="color:var(--text-primary)">결과:</strong>
+                                <span> 700개 이상 사이트 대상 일 3,000건 규모 크롤링·FCM 알림 서비스 개발 완료. (회사 경영 사정으로 실서비스 운영 전 종료)</span>
+                            </div>
+                            <div class="flex items-center justify-between mt-auto">
+                                <div class="flex items-center gap-3"><span class="project-link-disabled"><i class="fas fa-lock"></i> 코드 비공개</span></div>
+                                <div class="flex items-center gap-3"><a href="https://drive.google.com/file/d/1SojMqE4ybqAMY4CPfOlmJI8Bv20y2Xst/view" class="project-link"><i class="fas fa-file-image"></i> 시각자료</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card fade-in">
+                        <div class="project-card-header">
+                            <div class="project-card-header-icon"><i class="fas fa-bus"></i></div>
+                            <h3 class="project-card-title">GBMS</h3>
+                        </div>
+                        <div class="project-card-body">
+                            <div class="flex justify-between items-center mb-1">
+                                <p class="text-xs font-semibold flex-1" style="color:var(--text-primary)">경기도 버스 매니지먼트 시스템</p>
+                                <span class="period-badge ml-2">2024.02 ~ 2024.10</span>
+                            </div>
+                            <p class="text-sm leading-relaxed mb-4 mt-3 flex-grow" style="color:var(--text-secondary)">· 전자정부프레임워크 기반 경기도 광역 버스 운영 관리 시스템 유지보수<br>· SXSSFWorkbook 스트리밍 방식으로 대용량 엑셀 다운로드 신규 개발 — 응답 속도 대폭 개선<br>· 초기 화면 배너 UI 개선 및 이미지 관리 기능(업로드·삭제·미리보기) 신규 개발<br>· API 응답 최적화, JSP 레거시 코드 유지보수</p>
+                            <div class="flex flex-wrap gap-1.5 mb-4"><span class="tech-badge">Java</span><span class="tech-badge">Spring Boot</span><span class="tech-badge">MyBatis</span><span class="tech-badge">Oracle</span><span class="tech-badge">JSP</span><span class="tech-badge">Apache POI</span></div>
+                            <div class="result-box mb-4">
+                                <i class="fas fa-check-circle mr-1.5" style="color:var(--violet-mid)"></i>
+                                <strong style="color:var(--text-primary)">결과:</strong>
+                                <span> 경기도 광역 버스 운영 현장 납품 운영 중.</span>
+                            </div>
+                            <div class="flex items-center justify-between mt-auto">
+                                <div class="flex items-center gap-3"><span class="project-link-disabled"><i class="fas fa-lock"></i> 코드 비공개</span></div>
+                                <div class="flex items-center gap-3"><a href="https://gbms.gg.go.kr/" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> 사이트 보기</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card fade-in">
+                        <div class="project-card-header">
+                            <div class="project-card-header-icon"><i class="fas fa-bus"></i></div>
+                            <h3 class="project-card-title">버스파인</h3>
+                        </div>
+                        <div class="project-card-body">
+                            <div class="flex justify-between items-center mb-1">
+                                <p class="text-xs font-semibold flex-1" style="color:var(--text-primary)">공공 버스 행정 시스템</p>
+                                <span class="period-badge ml-2">2024.02 ~ 2024.10</span>
+                            </div>
+                            <p class="text-sm leading-relaxed mb-4 mt-3 flex-grow" style="color:var(--text-secondary)">· 전자정부프레임워크 기반 경기도 시내버스 행정 시스템(용인·파주·하남 등) 유지보수<br>· SXSSFWorkbook 스트리밍 방식으로 대용량 엑셀 다운로드 신규 개발 — 응답 속도 대폭 개선<br>· 공공기관 요청 기능 변경·예외 처리 로직 보강 및 QC 피드백 대응<br>· UI 편의성 개선 및 협업 중심 문서화 수행</p>
+                            <div class="flex flex-wrap gap-1.5 mb-4"><span class="tech-badge">Java</span><span class="tech-badge">Spring Boot</span><span class="tech-badge">MyBatis</span><span class="tech-badge">PostgreSQL</span><span class="tech-badge">JSP</span><span class="tech-badge">Apache POI</span></div>
+                            <div class="result-box mb-4">
+                                <i class="fas fa-check-circle mr-1.5" style="color:var(--violet-mid)"></i>
+                                <strong style="color:var(--text-primary)">결과:</strong>
+                                <span> 경기도 시내버스 행정 기관(용인·파주·하남 등) 납품 완료. 현재 운영 중.</span>
+                            </div>
+                            <div class="flex items-center justify-between mt-auto">
+                                <div class="flex items-center gap-3"><span class="project-link-disabled"><i class="fas fa-lock"></i> 코드 비공개</span></div>
+                                <div class="flex items-center gap-3"><a href="https://busfine.gtrans.or.kr/home" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> 사이트 보기</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card fade-in">
+                        <div class="project-card-header">
+                            <div class="project-card-header-icon"><i class="fas fa-shopping-cart"></i></div>
+                            <h3 class="project-card-title">술술 — 온라인 전통주 쇼핑몰</h3>
+                        </div>
+                        <div class="project-card-body">
+                            <div class="flex justify-between items-center mb-1">
+                                <p class="text-xs font-semibold flex-1" style="color:var(--text-primary)">이커머스 (개인 프로젝트)</p>
+                                <span class="period-badge ml-2">2023.05 ~ 2023.09</span>
+                            </div>
+                            <p class="text-sm leading-relaxed mb-4 mt-3 flex-grow" style="color:var(--text-secondary)">· Spring Boot 기반 회원·장바구니·주문 백엔드 설계 및 구현<br>· 카카오·네이버 소셜 로그인(OAuth 2.0) 및 결제 API 연동<br>· HikariCP 커넥션 풀 설정 및 N+1 문제 해결을 포함한 쿼리 최적화<br>· AWS EC2 배포 및 운영 환경 구성</p>
+                            <div class="flex flex-wrap gap-1.5 mb-4"><span class="tech-badge">Java</span><span class="tech-badge">Spring Boot</span><span class="tech-badge">MyBatis</span><span class="tech-badge">PostgreSQL</span><span class="tech-badge">AWS EC2</span><span class="tech-badge">OAuth 2.0</span></div>
+                            <div class="result-box mb-4">
+                                <i class="fas fa-check-circle mr-1.5" style="color:var(--violet-mid)"></i>
+                                <strong style="color:var(--text-primary)">결과:</strong>
+                                <span> 소셜 로그인·결제 연동까지 구현한 쇼핑몰 백엔드, 지인들과 함께 개발. GitHub 공개.</span>
+                            </div>
+                            <div class="flex items-center justify-between mt-auto">
+                                <div class="flex items-center gap-3"><a href="https://github.com/rlckdwkd55/SulSul" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> 코드 보기</a></div>
+                                <div class="flex items-center gap-3"><a href="https://drive.google.com/file/d/1gzjefGhRO_p6A22L3OOAgt7gsozHCn6Y/view" class="project-link"><i class="fas fa-file-image"></i> 시각자료</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
