@@ -506,7 +506,7 @@ nav.scrolled {
    히어로 — 이름 + 성과 스트립
    ═══════════════════════════════════════════════════════════════ */
 
-.intro-head { margin-bottom: 3rem; }
+.intro-head { margin-bottom: 2.25rem; }
 
 .intro-name {
     font-size: 2.75rem;
@@ -516,8 +516,42 @@ nav.scrolled {
     color: var(--text-primary);
 }
 
+/* 카드가 아니라 표에 가깝게. 박스·그림자 없이 선만으로 구획한다.
+   오른쪽 학력·경력 카드와 카드가 두 겹으로 쌓이는 걸 피하려는 선택. */
+.metric-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 3rem;
+}
+
+.metric-strip > div { padding: 1.375rem 1.5rem; }
+.metric-strip > div:first-child { padding-left: 0; }
+.metric-strip > div + div { border-left: 1px solid var(--border); }
+
+.metric-n {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.01em;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.35;
+}
+
+.metric-d {
+    margin-top: 0.4375rem;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
 @media (max-width: 767px) {
     .intro-name { font-size: 2.125rem; }
+    .metric-strip { grid-template-columns: 1fr; margin-bottom: 2rem; }
+    .metric-strip > div { padding: 1rem 0; }
+    .metric-strip > div:first-child { padding-top: 1.125rem; }
+    .metric-strip > div + div { border-left: 0; border-top: 1px solid var(--border); }
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -765,21 +799,7 @@ nav.scrolled {
     border-color: rgba(96,165,250,0.16);
 }
 
-.result-box {
-    background: var(--accent-tint);
-    border: 1px solid var(--accent-tint-2);
-    border-radius: 0.625rem;
-    padding: 0.7rem 0.875rem;
-    font-size: 0.82rem;
-    color: var(--text-secondary);
-}
-
-.dark .result-box {
-    background: rgba(96,165,250,0.06);
-    border-color: rgba(96,165,250,0.13);
-}
-
-.project-link {
+.dark .project-link {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
@@ -1016,9 +1036,7 @@ nav.scrolled {
     .project-card-title { font-size: 0.9375rem; }
     .project-card-body { padding: 0.875rem 1.125rem 1.125rem; }
     .project-card-body .text-sm { font-size: 0.8125rem; line-height: 1.65; }
-    .result-box { padding: 0.625rem 0.75rem; font-size: 0.78rem; }
-
-    /* 연락처 — 아이콘을 위에 쌓아 카드당 166px를 쓰던 것을 가로 배치로. */
+        /* 연락처 — 아이콘을 위에 쌓아 카드당 166px를 쓰던 것을 가로 배치로. */
     .contact-card {
         display: flex;
         align-items: center;
