@@ -516,13 +516,6 @@ nav.scrolled {
     color: var(--text-primary);
 }
 
-.intro-role {
-    margin-top: 0.625rem;
-    font-size: 1.0625rem;
-    color: var(--accent);
-    font-weight: 600;
-}
-
 /* 카드가 아니라 표에 가깝게. 박스·그림자 없이 선만으로 구획한다.
    오른쪽 학력·경력 카드와 카드가 두 겹으로 쌓이는 걸 피하려는 선택. */
 .metric-strip {
