@@ -28,7 +28,11 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 본문이 전부 한국어인데 Space Grotesk엔 한글 글리프가 없어 OS 기본 폰트로
+         폴백되고 있었다. Pretendard 동적 서브셋으로 실제 쓰는 글자만 받는다. -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -67,7 +71,7 @@
 
     <div id="scrollProgress" aria-hidden="true"></div>
 
-    <a href="#home" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-violet-600 focus:text-white focus:px-4 focus:py-2 focus:rounded">
+    <a href="#home" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-accent focus:text-white focus:px-4 focus:py-2 focus:rounded">
         Skip to main content
     </a>
 
@@ -100,7 +104,7 @@
             <button id="themeToggle" aria-label="Toggle dark mode"
                 class="relative w-8 h-8 flex items-center justify-center bg-transparent border-none cursor-pointer rounded-lg text-base transition-all">
                 <svg class="icon text-amber-400 absolute transition-all duration-300 dark:rotate-90 dark:opacity-0"><use href="#i-sun"/></svg>
-                <svg class="icon absolute transition-all duration-300 rotate-90 opacity-0 dark:rotate-0 dark:opacity-100" style="color:var(--violet-light)"><use href="#i-moon"/></svg>
+                <svg class="icon absolute transition-all duration-300 rotate-90 opacity-0 dark:rotate-0 dark:opacity-100" style="color:var(--accent-muted)"><use href="#i-moon"/></svg>
             </button>
         </div>
     </nav>
@@ -109,7 +113,7 @@
         <button id="scrollToTop"
             class="fixed bottom-8 right-8 w-11 h-11 text-white rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:-translate-y-1 z-[999]"
             aria-label="Scroll to top"
-            style="background:linear-gradient(135deg,var(--violet),var(--violet-mid))">
+            style="background:linear-gradient(135deg,var(--accent),var(--accent-muted))">
             <svg class="icon text-sm"><use href="#i-arrow-up"/></svg>
         </button>
 
@@ -154,11 +158,11 @@
                                 <svg class="icon text-sm"><use href="#i-file-alt"/></svg>
                                 이력서
                             </a>
-                            <a href="https://drive.google.com/file/d/1CQe5ecAofloJiNLoWB3hSkbjHTw82pF7/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-outline-violet w-full sm:w-auto">
+                            <a href="https://drive.google.com/file/d/1CQe5ecAofloJiNLoWB3hSkbjHTw82pF7/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-outline w-full sm:w-auto">
                                 <svg class="icon text-sm"><use href="#i-file-alt"/></svg>
                                 경력기술서
                             </a>
-                            <a href="https://drive.google.com/file/d/1fH33wLhNonOG7nslokQGr6HYCGxNi4ES/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-outline-violet w-full sm:w-auto">
+                            <a href="https://drive.google.com/file/d/1fH33wLhNonOG7nslokQGr6HYCGxNi4ES/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-outline w-full sm:w-auto">
                                 <svg class="icon text-sm"><use href="#i-file-alt"/></svg>
                                 자기소개서
                             </a>
@@ -168,7 +172,7 @@
                     <!-- Right: Info cards -->
                     <div class="about-info-col flex flex-col gap-4" style="position:relative; margin: 1.25rem 2.5rem 1.25rem 1rem;">
                         <div class="float-badge float-badge--tl">
-                            <svg class="icon text-xs" style="color:var(--violet-mid)"><use href="#i-code"/></svg>
+                            <svg class="icon text-xs" style="color:var(--accent-muted)"><use href="#i-code"/></svg>
                             백엔드
                         </div>
                         <div class="float-badge float-badge--tr">
@@ -176,12 +180,12 @@
                             서울
                         </div>
                         <div class="float-badge float-badge--br">
-                            <svg class="icon text-xs" style="color:#f59e0b"><use href="#i-star"/></svg>
+                            <svg class="icon text-xs" style="color:var(--signal)"><use href="#i-star"/></svg>
                             구직 중
                         </div>
                         <div class="glass flex items-center gap-4 p-5">
                             <div class="skill-icon-wrap flex-shrink-0">
-                                <svg class="icon text-sm" style="color:var(--violet-mid)"><use href="#i-graduation-cap"/></svg>
+                                <svg class="icon text-sm" style="color:var(--accent-muted)"><use href="#i-graduation-cap"/></svg>
                             </div>
                             <div>
                                 <h4 class="font-semibold text-sm mb-0.5" style="color:var(--text-primary)">학력</h4>
@@ -191,7 +195,7 @@
                         <h4 class="font-semibold text-sm mb-3" style="color:var(--text-primary)">경력</h4>
                         <div class="glass flex items-center gap-4 p-5 mb-3">
                             <div class="skill-icon-wrap flex-shrink-0">
-                                <svg class="icon text-sm" style="color:var(--violet-mid)"><use href="#i-briefcase"/></svg>
+                                <svg class="icon text-sm" style="color:var(--accent-muted)"><use href="#i-briefcase"/></svg>
                             </div>
                             <div class="flex-1">
                                 <div class="flex justify-between items-start flex-wrap gap-1">
@@ -226,42 +230,42 @@
                 <div class="skills-grid">
                     <div class="skill-card fade-in">
                         <div class="skill-card-header">
-                            <div class="skill-icon-wrap"><svg class="icon text-sm" style="color:#a855f7"><use href="#i-code"/></svg></div>
+                            <div class="skill-icon-wrap"><svg class="icon text-sm" style="color:var(--accent-muted)"><use href="#i-code"/></svg></div>
                             <h3 class="font-semibold" style="color:var(--text-primary)">Language</h3>
                         </div>
                         <div class="flex flex-wrap gap-2"><span class="skill-tag">Java</span><span class="skill-tag">Python</span><span class="skill-tag">JavaScript</span><span class="skill-tag">TypeScript</span></div>
                     </div>
                     <div class="skill-card fade-in">
                         <div class="skill-card-header">
-                            <div class="skill-icon-wrap"><svg class="icon text-sm" style="color:#22d3ee"><use href="#i-server"/></svg></div>
+                            <div class="skill-icon-wrap"><svg class="icon text-sm" style="color:var(--accent-muted)"><use href="#i-server"/></svg></div>
                             <h3 class="font-semibold" style="color:var(--text-primary)">Backend</h3>
                         </div>
                         <div class="flex flex-wrap gap-2"><span class="skill-tag">Spring Boot</span><span class="skill-tag">Spring Security</span><span class="skill-tag">JPA</span><span class="skill-tag">MyBatis</span><span class="skill-tag">FastAPI</span></div>
                     </div>
                     <div class="skill-card fade-in">
                         <div class="skill-card-header">
-                            <div class="skill-icon-wrap"><svg class="icon text-sm" style="color:#f472b6"><use href="#i-robot"/></svg></div>
+                            <div class="skill-icon-wrap"><svg class="icon text-sm" style="color:var(--accent-muted)"><use href="#i-robot"/></svg></div>
                             <h3 class="font-semibold" style="color:var(--text-primary)">AI & Search</h3>
                         </div>
                         <div class="flex flex-wrap gap-2"><span class="skill-tag">RAG</span><span class="skill-tag">LangGraph</span><span class="skill-tag">vLLM</span><span class="skill-tag">Qdrant</span><span class="skill-tag">Elasticsearch</span><span class="skill-tag">Apache Tika</span></div>
                     </div>
                     <div class="skill-card fade-in">
                         <div class="skill-card-header">
-                            <div class="skill-icon-wrap"><svg class="icon text-sm" style="color:#e879f9"><use href="#i-palette"/></svg></div>
+                            <div class="skill-icon-wrap"><svg class="icon text-sm" style="color:var(--accent-muted)"><use href="#i-palette"/></svg></div>
                             <h3 class="font-semibold" style="color:var(--text-primary)">Frontend</h3>
                         </div>
                         <div class="flex flex-wrap gap-2"><span class="skill-tag">Next.js</span><span class="skill-tag">React</span></div>
                     </div>
                     <div class="skill-card fade-in">
                         <div class="skill-card-header">
-                            <div class="skill-icon-wrap"><svg class="icon text-sm" style="color:#34d399"><use href="#i-database"/></svg></div>
+                            <div class="skill-icon-wrap"><svg class="icon text-sm" style="color:var(--accent-muted)"><use href="#i-database"/></svg></div>
                             <h3 class="font-semibold" style="color:var(--text-primary)">Database</h3>
                         </div>
                         <div class="flex flex-wrap gap-2"><span class="skill-tag">PostgreSQL</span><span class="skill-tag">Oracle</span></div>
                     </div>
                     <div class="skill-card fade-in">
                         <div class="skill-card-header">
-                            <div class="skill-icon-wrap"><svg class="icon text-sm" style="color:#f59e0b"><use href="#i-wrench"/></svg></div>
+                            <div class="skill-icon-wrap"><svg class="icon text-sm" style="color:var(--accent-muted)"><use href="#i-wrench"/></svg></div>
                             <h3 class="font-semibold" style="color:var(--text-primary)">Infra & Tools</h3>
                         </div>
                         <div class="flex flex-wrap gap-2"><span class="skill-tag">Docker</span><span class="skill-tag">GitHub Actions</span><span class="skill-tag">Git</span><span class="skill-tag">Node.js</span><span class="skill-tag">Quartz</span></div>
@@ -289,7 +293,7 @@
                             <p class="text-sm leading-relaxed mb-4 mt-3 flex-grow" style="color:var(--text-secondary)">· 백엔드 도메인 API·AI 파이프라인·관리자 대시보드·인프라 배포 담당<br>· Qdrant 하이브리드 검색 + CrossEncoder 리랭킹으로 검색 정확도 약 30%p 향상<br>· 시나리오 에이전트로 임계값 초과 질의를 LLM 호출 없이 즉시 응답 — 1.5초 → 0.3초, 호출 비용 약 30% 절감<br>· 장기 대화를 롤링 요약으로 압축 — 토큰 사용량 약 40% 절감<br>· vLLM·OpenAI·Naver Clova 멀티 LLM Factory 및 외부 임베딩 API 확장 구조 구현<br>· FastAPI 비동기 도메인 API(회원·문서·스케줄러, SSE)와 Next.js 관리자 대시보드 개발</p>
                             <div class="flex flex-wrap gap-1.5 mb-4"><span class="tech-badge">Python</span><span class="tech-badge">FastAPI</span><span class="tech-badge">LangGraph</span><span class="tech-badge">Qdrant</span><span class="tech-badge">Next.js</span><span class="tech-badge">Docker</span></div>
                             <div class="result-box mb-4">
-                                <svg class="icon mr-1.5" style="color:var(--violet-mid)"><use href="#i-check-circle"/></svg>
+                                <svg class="icon mr-1.5" style="color:var(--accent-muted)"><use href="#i-check-circle"/></svg>
                                 <strong style="color:var(--text-primary)">결과:</strong>
                                 <span> GS SW 1등급 인증 취득(TTA, 2026.06). 저작권 등록(2026.03). 공공기관 납품.</span>
                             </div>
@@ -312,7 +316,7 @@
                             <p class="text-sm leading-relaxed mb-4 mt-3 flex-grow" style="color:var(--text-secondary)">· 안전보건공단·CJ 온리원푸드넷·고령군청 등 공공기관·기업 대상 검색 엔진 운영·유지보수<br>· 외부 경로의 문서를 읽어 색인하는 파이프라인에서, 운영 중이던 Apache Tika 버전이 XXE 취약점(CVE-2025-66516, CVSS 10.0)에 노출된 것을 확인하고 패치<br>· 대용량 오피스 문서 SAX 스트리밍 전환으로 메모리 74% 절감·처리 속도 3.2배 개선<br>· 한글 HWPX 포맷 지원 추가, Elasticsearch 색인 스케줄러·외부 DB 연동 유지보수 및 실운영 장애 대응</p>
                             <div class="flex flex-wrap gap-1.5 mb-4"><span class="tech-badge">Java</span><span class="tech-badge">Spring Boot</span><span class="tech-badge">Elasticsearch</span><span class="tech-badge">Apache Tika</span><span class="tech-badge">Quartz</span></div>
                             <div class="result-box mb-4">
-                                <svg class="icon mr-1.5" style="color:var(--violet-mid)"><use href="#i-chart-line"/></svg>
+                                <svg class="icon mr-1.5" style="color:var(--accent-muted)"><use href="#i-chart-line"/></svg>
                                 <strong style="color:var(--text-primary)">결과:</strong>
                                 <span> 문서 파싱 메모리 74%↓·처리 속도 3.2배 개선, CVSS 10.0 취약점 노출 해소로 검색 엔진 보안·안정성 강화.</span>
                             </div>
@@ -335,7 +339,7 @@
                             <p class="text-sm leading-relaxed mb-4 mt-3 flex-grow" style="color:var(--text-secondary)">· 700개 이상 사이트 대상 일 3,000건 규모 크롤링 시스템 구축<br>· Node.js 크론 스케줄러 + FCM 연동 실시간 알림 시스템 구현<br>· Proxy 구조로 CORS 차단 우회 — 안정적 수집 환경 확보<br>· Spring Boot 기반 관리자 페이지 개발 및 Node.js 백엔드 연동</p>
                             <div class="flex flex-wrap gap-1.5 mb-4"><span class="tech-badge">Java</span><span class="tech-badge">Spring Boot</span><span class="tech-badge">Node.js</span><span class="tech-badge">MyBatis</span><span class="tech-badge">PostgreSQL</span><span class="tech-badge">FCM</span></div>
                             <div class="result-box mb-4">
-                                <svg class="icon mr-1.5" style="color:var(--violet-mid)"><use href="#i-check-circle"/></svg>
+                                <svg class="icon mr-1.5" style="color:var(--accent-muted)"><use href="#i-check-circle"/></svg>
                                 <strong style="color:var(--text-primary)">결과:</strong>
                                 <span> 700개 이상 사이트 대상 일 3,000건 규모 크롤링·FCM 알림 서비스 개발 완료. (회사 경영 사정으로 실서비스 운영 전 종료)</span>
                             </div>
@@ -358,7 +362,7 @@
                             <p class="text-sm leading-relaxed mb-4 mt-3 flex-grow" style="color:var(--text-secondary)">· 전자정부프레임워크 기반 경기도 광역 버스 운영 관리 시스템 유지보수<br>· SXSSFWorkbook 스트리밍 방식으로 대용량 엑셀 다운로드 신규 개발 — 30초 이상 → 3초 이내(90% 단축)<br>· 초기 화면 배너 UI 개선 및 이미지 관리 기능(업로드·삭제·미리보기) 신규 개발<br>· API 응답 최적화, JSP 레거시 코드 유지보수</p>
                             <div class="flex flex-wrap gap-1.5 mb-4"><span class="tech-badge">Java</span><span class="tech-badge">Spring Boot</span><span class="tech-badge">MyBatis</span><span class="tech-badge">Oracle</span><span class="tech-badge">JSP</span><span class="tech-badge">Apache POI</span></div>
                             <div class="result-box mb-4">
-                                <svg class="icon mr-1.5" style="color:var(--violet-mid)"><use href="#i-check-circle"/></svg>
+                                <svg class="icon mr-1.5" style="color:var(--accent-muted)"><use href="#i-check-circle"/></svg>
                                 <strong style="color:var(--text-primary)">결과:</strong>
                                 <span> 경기도 광역 버스 운영 현장 납품 운영 중.</span>
                             </div>
@@ -381,7 +385,7 @@
                             <p class="text-sm leading-relaxed mb-4 mt-3 flex-grow" style="color:var(--text-secondary)">· 전자정부프레임워크 기반 경기도 시내버스 행정 시스템(용인·파주·하남 등) 유지보수<br>· SXSSFWorkbook 스트리밍 방식으로 대용량 엑셀 다운로드 신규 개발 — 30초 이상 → 3초 이내(90% 단축)<br>· 공공기관 요청 기능 변경·예외 처리 로직 보강 및 QC 피드백 대응<br>· UI 편의성 개선 및 협업 중심 문서화 수행</p>
                             <div class="flex flex-wrap gap-1.5 mb-4"><span class="tech-badge">Java</span><span class="tech-badge">Spring Boot</span><span class="tech-badge">MyBatis</span><span class="tech-badge">PostgreSQL</span><span class="tech-badge">JSP</span><span class="tech-badge">Apache POI</span></div>
                             <div class="result-box mb-4">
-                                <svg class="icon mr-1.5" style="color:var(--violet-mid)"><use href="#i-check-circle"/></svg>
+                                <svg class="icon mr-1.5" style="color:var(--accent-muted)"><use href="#i-check-circle"/></svg>
                                 <strong style="color:var(--text-primary)">결과:</strong>
                                 <span> 경기도 시내버스 행정 기관(용인·파주·하남 등) 납품 완료. 현재 운영 중.</span>
                             </div>
@@ -404,7 +408,7 @@
                             <p class="text-sm leading-relaxed mb-4 mt-3 flex-grow" style="color:var(--text-secondary)">· Spring Boot 기반 회원·장바구니·주문 백엔드 설계 및 구현<br>· 카카오·네이버 소셜 로그인(OAuth 2.0) 및 결제 API 연동<br>· HikariCP 커넥션 풀 설정 및 N+1 문제 해결을 포함한 쿼리 최적화<br>· AWS EC2 배포 및 운영 환경 구성</p>
                             <div class="flex flex-wrap gap-1.5 mb-4"><span class="tech-badge">Java</span><span class="tech-badge">Spring Boot</span><span class="tech-badge">MyBatis</span><span class="tech-badge">PostgreSQL</span><span class="tech-badge">AWS EC2</span><span class="tech-badge">OAuth 2.0</span></div>
                             <div class="result-box mb-4">
-                                <svg class="icon mr-1.5" style="color:var(--violet-mid)"><use href="#i-check-circle"/></svg>
+                                <svg class="icon mr-1.5" style="color:var(--accent-muted)"><use href="#i-check-circle"/></svg>
                                 <strong style="color:var(--text-primary)">결과:</strong>
                                 <span> 소셜 로그인·결제 연동까지 구현한 쇼핑몰 백엔드, 지인들과 함께 개발. GitHub 공개.</span>
                             </div>

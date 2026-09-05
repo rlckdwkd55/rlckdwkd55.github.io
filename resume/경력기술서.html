@@ -11,8 +11,8 @@
       --t1: #0F0F0F;
       --t2: #4B5563;
       --t3: #9CA3AF;
-      --accent-soft: #EEF2FF;
-      --accent-text: #3730A3;
+      --accent-tint: #EEF2FF;
+      --accent: #3730A3;
       --tag-bg: #FAFAF9;
       --tag-border: #D9D9D4;
       --border: #E5E7EB;
@@ -105,7 +105,7 @@
     .bullets { list-style: none; display: flex; flex-direction: column; gap: 4px; margin-bottom: 16px; }
     .bullets li { font-size: 12px; color: var(--t2); padding-left: 14px; position: relative; line-height: 1.65; }
     .bullets li::before { content:'–'; position: absolute; left: 0; color: var(--t3); }
-    .bullets li strong { color: var(--accent-text); font-weight: 700; }
+    .bullets li strong { color: var(--accent); font-weight: 700; }
 
     /* ── OVERVIEW TABLE ── */
     .table-wrap { overflow-x: auto; }
@@ -119,16 +119,16 @@
     .overview-table tr:last-child td { border-bottom: none; }
     .overview-table .ov-title { font-weight: 700; color: var(--t1); white-space: nowrap; }
     .overview-table .ov-period, .overview-table .ov-contribution, .overview-table .ov-team { white-space: nowrap; font-variant-numeric: tabular-nums; }
-    .overview-table .ov-contribution { color: var(--accent-text); font-weight: 600; }
+    .overview-table .ov-contribution { color: var(--accent); font-weight: 600; }
     .overview-table .ov-outcome { color: var(--t1); font-weight: 600; }
 
     /* ── PAAR (문제 해결 = 성과) ── */
-    .paar-card { background: var(--accent-soft); border-radius: 6px; padding: 14px 16px; margin-bottom: 8px; }
+    .paar-card { background: var(--accent-tint); border-radius: 6px; padding: 14px 16px; margin-bottom: 8px; }
     .paar-title { font-size: 13px; font-weight: 700; color: var(--t1); margin-bottom: 8px; }
     .paar-row { display: flex; gap: 8px; font-size: 12px; color: var(--t2); line-height: 1.6; margin-bottom: 6px; }
     .paar-row:last-child { margin-bottom: 0; }
-    .paar-tag { font-weight: 800; color: var(--accent-text); flex-shrink: 0; width: 14px; }
-    .paar-row strong { color: var(--accent-text); }
+    .paar-tag { font-weight: 800; color: var(--accent); flex-shrink: 0; width: 14px; }
+    .paar-row strong { color: var(--accent); }
 
     /* ── EDU ── */
     .edu-list { display: flex; flex-direction: column; gap: 10px; }
