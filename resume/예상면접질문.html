@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>임기창 — 예상 면접 질문</title>
+  <style>
+    :root {
+      --bg: #F2F2F0;
+      --page: #FFFFFF;
+      --t1: #0F0F0F;
+      --t2: #4B5563;
+      --t3: #9CA3AF;
+      --accent: #3730A3;
+      --accent-tint: #EEF2FF;
+      --border: #E5E7EB;
+      --warn-bg: #FFFBEB;
+      --warn-line: #F59E0B;
+      --fill-bg: #FEF2F2;
+      --fill-line: #DC2626;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--t1);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", system-ui, sans-serif;
+      font-size: 14px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .page {
+      max-width: 880px;
+      margin: 36px auto;
+      background: var(--page);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+
+    .header { padding: 40px 52px 28px; border-bottom: 1.5px solid var(--t1); }
+    .back { font-size: 12px; color: var(--t3); text-decoration: none; }
+    .back:hover { color: var(--accent); }
+    .name { font-size: 30px; font-weight: 800; letter-spacing: -0.035em; margin-top: 14px; }
+    .doc-type { margin-top: 5px; font-size: 14px; color: var(--t2); }
+
+    /* 이 문서는 제출용이 아니라는 걸 첫 화면에서 못 박는다 */
+    .notice {
+      margin-top: 20px; padding: 12px 16px;
+      background: var(--warn-bg);
+      border-left: 3px solid var(--warn-line);
+      border-radius: 0 4px 4px 0;
+      font-size: 12.5px; color: var(--t2); line-height: 1.65;
+    }
+    .notice b { color: var(--t1); }
+
+    .toolbar { padding: 16px 52px 0; display: flex; gap: 8px; flex-wrap: wrap; }
+    .toolbar button {
+      font: inherit; font-size: 12px; font-weight: 600;
+      padding: 6px 13px; border-radius: 4px; cursor: pointer;
+      border: 1px solid var(--border); background: var(--page); color: var(--t2);
+    }
+    .toolbar button:hover { border-color: var(--accent); color: var(--accent); }
+
+    .body { padding: 8px 52px 56px; }
+    .sec { padding-top: 34px; }
+    .sec-head {
+      display: flex; align-items: baseline; gap: 10px;
+      border-bottom: 1.5px solid var(--t1); padding-bottom: 7px; margin-bottom: 6px;
+    }
+    .sec-num { font-size: 11px; font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums; }
+    .sec-title { font-size: 12px; font-weight: 800; letter-spacing: 0.02em; }
+    .sec-note { font-size: 11.5px; color: var(--t3); margin-bottom: 12px; }
+
+    details {
+      border-bottom: 1px solid var(--border);
+      padding: 11px 0;
+    }
+    details[open] { padding-bottom: 16px; }
+    summary {
+      cursor: pointer; list-style: none;
+      font-size: 13.5px; font-weight: 600; color: var(--t1);
+      display: flex; gap: 9px; align-items: baseline;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::before {
+      content: '+'; color: var(--accent); font-weight: 800;
+      flex-shrink: 0; width: 12px; font-size: 14px; line-height: 1.5;
+    }
+    details[open] > summary::before { content: '−'; }
+    summary:hover { color: var(--accent); }
+
+    .a { margin: 10px 0 0 21px; font-size: 13px; color: var(--t2); }
+    .a p + p { margin-top: 8px; }
+    .a b { color: var(--accent); font-weight: 700; }
+    .a strong { color: var(--t1); font-weight: 600; }
+    .a ul { list-style: none; margin-top: 7px; }
+    .a li { padding-left: 14px; position: relative; margin-top: 4px; }
+    .a li::before { content: '–'; position: absolute; left: 0; color: var(--t3); }
+
+    /* 내 경험과 이어붙이는 대목 — 이게 있어야 교과서 답변과 갈린다 */
+    .link {
+      margin-top: 10px; padding: 9px 13px;
+      background: var(--accent-tint);
+      border-radius: 4px;
+      font-size: 12.5px; color: var(--t2);
+    }
+    .link b { color: var(--accent); }
+
+    /* 내가 채워야 하는 값 */
+    .fill {
+      margin-top: 10px; padding: 9px 13px;
+      background: var(--fill-bg);
+      border-left: 3px solid var(--fill-line);
+      border-radius: 0 4px 4px 0;
+      font-size: 12.5px; color: #7F1D1D;
+    }
+    .fill b { color: #991B1B; }
+
+    @media (max-width: 720px) {
+      .page { margin: 0; border: none; border-radius: 0; }
+      .header { padding: 28px 22px 20px; }
+      .toolbar { padding: 14px 22px 0; }
+      .body { padding: 4px 22px 40px; }
+      .a, .link, .fill { margin-left: 0; }
+    }
+    @page { size: A4; margin: 12mm 14mm; }
+    @media print {
+      body { background: #fff; }
+      .page { margin: 0; border: none; box-shadow: none; max-width: 100%; }
+      .toolbar { display: none; }
+      details { break-inside: avoid; }
+      details > .a, details > div { display: block !important; }
+    }
+  </style>
+</head>
+<body>
+<script>
+/* ================================================================
+   ▼▼▼  질문·답변은 이 DATA 블록만 수정하세요  ▼▼▼
+   answer는 HTML 문자열. link = 내 경험과 잇는 대목, fill = 내가 채울 값
+   ================================================================ */
+const DATA = {
+  name: "임기창",
+  docType: "예상 면접 질문 · 답변 정리",
+  notice: `이 문서는 <b>본인 면접 준비용</b>입니다. 지원서에 첨부하거나 링크로 공유하지 마세요.
+           답변은 이력서·경력기술서·자기소개서와 실제 커밋 기록에서 확인된 사실로만 작성했고,
+           제가 알 수 없는 값은 <b>빨간 상자</b>로 남겨두었으니 직접 채우셔야 합니다.
+           질문만 보고 먼저 답해본 뒤 펼쳐서 대조하는 식으로 쓰면 좋습니다.`,
+
+  sections: [
+    {
+      num: "01",
+      title: "자기소개 · 인성",
+      note: "가장 먼저 나오고, 여기서 만들어진 인상이 끝까지 갑니다.",
+      items: [
+        {
+          q: "1분 자기소개를 해주세요.",
+          a: `<p>검색 엔진과 AI 챗봇 플랫폼을 운영하며 <strong>성능과 보안 문제를 직접 해결해온 3년차 백엔드 개발자</strong> 임기창입니다.</p>
+              <p>현재 웨어비즈에서 두 제품을 맡고 있습니다. 하나는 멀티에이전트 RAG 챗봇 <b>Argos AI Chat Search</b>로, 초기 멤버로 참여해 백엔드 API와 AI 파이프라인을 만들었고 GS SW 1등급 인증과 공공기관 납품까지 함께했습니다. 다른 하나는 안전보건공단·CJ 온리원푸드넷 같은 곳에 나가 있는 검색 엔진 <b>ArgosSearch</b>로, 대용량 문서 파싱을 스트리밍 방식으로 바꿔 <b>메모리를 74% 줄이고 처리 속도를 3.2배</b>로 올렸습니다.</p>
+              <p>제가 일할 때 중요하게 보는 건 <strong>정상 흐름보다 실패했을 때 어떻게 되는가</strong>입니다. 색인 중 한 건이 실패하면 그 페이지 전체가 날아가던 버그나, 재임베딩이 중간에 멈추면 원본이 사라지던 구조를 잡아낸 것도 그 관점에서 나왔습니다.</p>`,
+          link: `<b>끝맺음은 지원 회사에 맞춰</b> 한 문장 바꾸세요. 검색·AI 쪽이면 "정확성이 중요한 도메인에서", 일반 백엔드면 "안정적으로 오래 쓰이는 시스템을 만드는 데" 식으로.`
+        },
+        {
+          q: "왜 저희 회사에 지원하셨나요?",
+          a: `<p>뼈대만 잡아두고 회사마다 채우는 게 맞습니다. 공통 자기소개서식 답변은 바로 티가 납니다.</p>
+              <ul>
+                <li><strong>[회사명]</strong>의 <strong>[제품·도메인]</strong>에 관심을 갖게 된 것은 <strong>[구체적 이유]</strong>입니다.</li>
+                <li>저는 웨어비즈에서 멀티에이전트 RAG 챗봇을 초기 멤버로 개발하며 GS SW 1등급 인증까지 경험했습니다.</li>
+                <li>이 과정에서 <strong>[회사 제품과 이어지는 내 경험]</strong>을 했습니다.</li>
+                <li><strong>[회사명]</strong>에서 <strong>[기여하고 싶은 것]</strong>을 통해 <strong>[성장 방향]</strong>을 이루고 싶습니다.</li>
+              </ul>`,
+          fill: `<b>회사 유형별로 앞세울 경험</b> — AI 스타트업: LangGraph·Qdrant·RAG 파이프라인과 GS 인증 전 과정 /
+                 검색 솔루션: Elasticsearch 운영·장애 진단, Tika 파싱 성능 개선 /
+                 공공 SI·중견: 전자정부프레임워크, 공공기관 납품 대응, 문서화 /
+                 일반 백엔드: Spring Boot, JPA, API 설계, 대용량 데이터 처리`
+        },
+        {
+          q: "이전 회사는 왜 그만두셨나요?",
+          a: `<p>회사 경영이 악화되면서 <strong>권고사직</strong>을 받았습니다. 제가 맡고 있던 크롤링·알림 서비스도 실서비스 오픈 전에 중단됐습니다.</p>
+              <p>아쉬웠지만 그 프로젝트에서 700개 넘는 사이트를 도는 수집 시스템을 설계부터 운영까지 혼자 맡아본 경험이 남았고, 이후 이직 준비 기간에 그 경험을 정리하면서 지금 회사로 옮길 수 있었습니다.</p>`,
+          link: `<b>담담하게, 짧게.</b> 권고사직은 본인 귀책이 아니므로 숨길 이유가 없습니다. 회사를 탓하는 뉘앙스만 피하고 바로 다음 이야기로 넘어가세요.`
+        },
+        {
+          q: "2025년 4월부터 9월까지 5개월 공백이 있는데 무엇을 하셨나요?",
+          a: `<p>권고사직 이후 실업급여를 받으며 이직을 준비했습니다. 그 기간에 그동안 한 일을 문서로 정리하고 부족하다고 느낀 부분을 채웠습니다.</p>`,
+          fill: `<b>이 기간에 한 구체적인 것을 하나만 준비하세요.</b> 자격증(리눅스마스터·네트워크 관리사가 2026년 취득이라 시기가 안 맞습니다), 학습한 기술, 개인 프로젝트, 정리한 문서 중 실제로 있었던 것. "쉬면서 준비했다"만으로는 약합니다.`
+        },
+        {
+          q: "국비 교육을 2021년에 수료하셨는데 첫 취업이 2023년 12월입니다. 그 사이엔 무엇을 하셨나요?",
+          a: `<p>교육을 마친 뒤 바로 개발로 취업하지 못했습니다. 당시 고졸이었고, 신입 채용에서 학력이 걸리는 경우가 많았습니다.</p>
+              <p>그 시기에 <strong>세무사무소에서 약 1년 반 근무</strong>했습니다. 개발 경력이 아니라 이력서에는 넣지 않았지만, 그때 반복되는 수작업을 보면서 "이걸 자동화할 수 없을까" 하는 생각을 계속했고 그게 개발을 놓지 않은 이유였습니다. 지금 학점은행제로 컴퓨터공학 학사를 병행 중이고 2027년 상반기 취득 예정입니다.</p>`,
+          link: `<b>이력서에 안 쓴 항목이라 반드시 물어봅니다.</b> 자기소개서 첫 문단의 "세무 실무를 하다 보면 반복되는 수작업이 많았는데"가 바로 이 시기입니다. 숨기지 말고 <b>전향의 계기</b>로 연결하세요.`
+        },
+        {
+          q: "본인의 강점은 무엇인가요?",
+          a: `<p><strong>실패 경로를 먼저 본다</strong>는 점입니다. 기능이 정상 동작하는지보다 "중간에 실패하면 어떻게 되는가"를 먼저 확인합니다.</p>
+              <p>재임베딩 로직을 코드 리뷰할 때가 그랬습니다. '기존 벡터 삭제 → 새 임베딩 생성' 순서였는데 정상 흐름에는 문제가 없어 보였습니다. 다만 "외부 API 호출이 한 번이라도 실패하면 이미 지운 데이터는?"이라는 의문이 들었고, 동료와 실패 경로를 따라가 보니 원본 문서가 복구 불가능하게 사라지는 구조였습니다. 순서를 뒤집자고 제안해서 반영됐습니다.</p>`,
+        },
+        {
+          q: "본인의 약점은 무엇인가요?",
+          a: `<p>측정보다 구현이 앞서는 편이었습니다. 개선을 하고 나서 "얼마나 좋아졌는지"를 나중에 재려다 보니 비교 기준이 없어 애먹은 적이 있습니다.</p>
+              <p>그래서 챗봇 품질을 볼 때는 순서를 바꿨습니다. 질문·모범답안 데이터셋에 LLM judge 채점을 붙인 평가 파이프라인을 <strong>먼저 만들고</strong>, 그 위에서 검색 방식을 바꿔가며 점수를 비교했습니다. 지금은 손대기 전에 "이걸 뭘로 확인할 것인가"를 먼저 정합니다.</p>`,
+          link: `<b>약점을 고친 과정이 곧 강점 사례가 되는 구조.</b> 이 답변은 "평가 파이프라인을 왜 만들었나"라는 후속 질문으로 자연스럽게 이어집니다.`
+        },
+        {
+          q: "5년 뒤에 어떤 개발자가 되어 있고 싶나요?",
+          a: `<p>시스템 전체를 조망하면서 판단할 수 있는 개발자가 되고 싶습니다. 지금은 맡은 영역 안에서 문제를 풀지만, 검색 엔진을 운영하면서 하나의 선택이 색인·성능·보안에 동시에 영향을 준다는 걸 자주 겪었습니다.</p>
+              <p>당장은 데이터 처리와 백엔드 기본기를 더 단단히 하고 싶습니다. 특히 측정 가능한 형태로 개선을 증명하는 습관을 계속 가져가려 합니다.</p>`,
+        },
+      ]
+    },
+
+    {
+      num: "02",
+      title: "프로젝트 심층 — 숫자 검증",
+      note: "이력서에 적은 수치는 전부 '어떻게 쟀나'로 되돌아옵니다. 가장 먼저 준비해야 할 구간입니다.",
+      items: [
+        {
+          q: "검색 품질이 약 30%p 개선됐다고 하셨는데, 무슨 지표로 어떻게 측정하셨나요?",
+          a: `<p>직접 만든 <strong>LLM judge 평가 파이프라인</strong>으로 쟀습니다. 질문과 모범답안을 짝지은 데이터셋을 만들고, 챗봇 응답을 LLM이 <b>0~100 스케일</b>로 채점하게 한 뒤 통계를 자동으로 뽑도록 구성했습니다.</p>
+              <p>비교는 <strong>동일한 질문 셋</strong>으로 했습니다. dense·sparse를 RRF로 융합하고 CrossEncoder로 재정렬하는 구성을 넣기 전과 후의 평균 점수를 비교해 약 30%p 차이를 확인했습니다. 채점에 쓰는 모델과 에이전트 설정도 같게 두거나 바꿔가며 비교할 수 있게 만들었습니다.</p>`,
+          fill: `<b>다음 세 가지는 반드시 숫자로 준비하세요.</b> ① 질문 셋 크기(몇 개?) ② 개선 전 평균 점수 → 후 평균 점수 ③ 채점 프롬프트가 무엇을 기준으로 점수를 매기는지(정확성? 근거 포함 여부?). 이게 없으면 30%p가 무너집니다.`
+        },
+        {
+          q: "RRF와 CrossEncoder는 각각 어떤 역할인가요? 둘 다 쓴 이유는요?",
+          a: `<p>단계가 다릅니다. <b>RRF(Reciprocal Rank Fusion)</b>는 <strong>융합</strong>입니다. dense 검색과 sparse 검색이 각각 내놓은 순위 목록을 순위의 역수로 더해 하나의 목록으로 합칩니다. 점수 스케일이 다른 두 검색을 정규화 없이 합칠 수 있는 게 장점입니다.</p>
+              <p><b>CrossEncoder</b>는 <strong>재정렬</strong>입니다. 융합으로 추린 상위 후보를 질문과 문서를 함께 모델에 넣어 다시 채점합니다. 임베딩을 따로 계산해 비교하는 방식보다 정확하지만 비용이 커서 전체 문서에는 못 쓰고 후보군에만 적용합니다.</p>
+              <p>그래서 <strong>넓게 뽑고(RRF) 좁게 정확히 고르는(CrossEncoder)</strong> 2단계로 구성했습니다.</p>`,
+          link: `<b>이 구분을 헷갈리면 바로 감점입니다.</b> RRF는 리랭커가 아니라 융합 방법입니다. 실제로 문서 검토 과정에서도 이 부분이 뒤섞여 있어 바로잡았습니다.`,
+          fill: `<b>CrossEncoder 모델명과 Top-K 값</b>을 준비하세요. "몇 개를 뽑아 몇 개를 재정렬했나", "재정렬 때문에 늘어난 지연은 얼마인가"가 이어서 나옵니다.`
+        },
+        {
+          q: "토큰 40% 절감은 어떻게 측정했고, 요약 때문에 답변 품질이 떨어지진 않았나요?",
+          a: `<p>대화가 길어지면 컨텍스트 토큰이 계속 누적돼 비용과 응답 지연이 함께 올라갑니다. 그래서 <strong>일정 대화 수를 넘으면 요약 프롬프트로 이전 대화를 압축</strong>하고, 세션별 컨텍스트 관리로 압축 후에도 맥락이 이어지게 했습니다.</p>
+              <p>측정은 같은 대화 시나리오를 놓고 도입 전후 토큰 사용량을 비교했습니다.</p>`,
+          fill: `<b>품질 저하 여부를 반드시 준비하세요.</b> 압축은 정보 손실이 따르는 선택이라 면접관이 트레이드오프를 묻습니다. 요약 후 답변 품질을 LLM judge로도 확인했는지, 압축 임계값을 어떻게 정했는지 정리해두세요.`
+        },
+        {
+          q: "CVE-2025-66516이라고 구체적으로 적으셨는데, 어디서 확인하셨고 어느 버전에서 어느 버전으로 올리셨나요?",
+          a: `<p>Apache Tika의 XXE 취약점이고 <b>CVSS 10.0</b>입니다. PDF 안에 조작된 <strong>XFA</strong>를 심어 보내면 그것만으로 트리거되는 구조라 최고 등급을 받았습니다.</p>
+              <p>제가 맡은 색인 파이프라인은 DB view의 filepath를 따라가 <strong>외부 경로의 문서를 읽어 파싱</strong>합니다. 신뢰할 수 없는 문서가 그대로 파서에 들어오는 구조라 정확히 이 취약점의 공격면이었습니다.</p>
+              <p>HWPX 등 포맷 지원을 넓히면서 파서 의존성의 보안 이력을 함께 점검하다 운영 버전이 해당한다는 걸 확인했고, <b>tika-core와 tika-parsers-standard-package를 2.9.2에서 3.2.2로</b> 올렸습니다.</p>`,
+          link: `<b>이 답변은 검증됐습니다.</b> CVE·CVSS 10.0 모두 사실이고, 커밋(<code>0f6869b</code>)에 버전 변경이 남아 있습니다. 취약 범위가 tika-core 1.13–3.2.1이므로 3.2.2는 정확한 패치 버전입니다.`
+        },
+        {
+          q: "tika-pdf-module만 올리면 되지 않나요?",
+          a: `<p>안 됩니다. 근본 원인이 <strong>tika-core의 XML 파싱 로직</strong>에 있어서 PDF 모듈만 올려도 취약점이 남습니다. 그래서 코어와 파서 패키지를 함께 올렸습니다.</p>
+              <p>올리는 과정에서 <strong>commons-lang3 의존성 충돌</strong>이 생겨 버전을 고정해 해결했고, 커스텀 EmbeddedDocumentExtractor 등록에 필요한 Parser 등록이 빠져 있던 것도 같이 잡았습니다.</p>`,
+          link: `<b>가장 강한 답변 중 하나입니다.</b> "모듈만 올려선 안 된다"는 걸 알고 대응했다는 건 취약점을 실제로 이해했다는 증거고, 충돌까지 처리한 기록이 커밋에 남아 있습니다.`
+        },
+        {
+          q: "DOM 파싱을 SAX로 바꿨다고 하셨는데, SAX는 이벤트 기반이라 상태를 직접 관리해야 합니다. 어떻게 구성하셨나요?",
+          a: `<p>대용량 docx·pptx를 파싱할 때 DOM 방식은 문서 전체를 메모리에 트리로 올려서 OOM이 났습니다. Tika가 제공하는 <strong>공식 SAX 스트리밍 설정(OfficeParserConfig)</strong>으로 전환해 문서를 순차적으로 읽어 처리하도록 바꿨습니다.</p>
+              <p>직접 파서를 새로 짠 게 아니라 Tika가 지원하는 스트리밍 경로를 쓰도록 구성을 바꾼 것이고, 함께 <strong>파싱 타임아웃과 JVM 힙·OOM 옵션</strong>을 걸어 손상되거나 지나치게 큰 파일에 대한 최후 방어선을 뒀습니다.</p>`,
+          link: `<b>과장하지 마세요.</b> Tika 공식 설정을 쓴 것이므로 "직접 SAX 파서를 구현했다"고 답하면 바로 들통납니다. 대신 <b>왜 그 선택이 필요했는지</b>와 <b>함께 건 방어 장치</b>를 말하는 게 정확하고 강합니다.`
+        },
+        {
+          q: "메모리 74% 절감, 처리 속도 3.2배는 어떤 환경에서 측정한 값인가요?",
+          a: `<p>동일한 문서를 대상으로 전환 전후를 비교했습니다.</p>`,
+          fill: `<b>측정 조건을 정리해두셔야 합니다.</b> ① 테스트 문서의 크기와 개수 ② 힙 사이즈 등 JVM 설정 ③ 동시 처리 수 ④ 재현 가능한 값인지. 이 질문은 74%·3.2배를 쓴 이상 반드시 나옵니다.`
+        },
+        {
+          q: "시나리오 에이전트로 응답이 1.5초에서 0.3초가 됐다고 했는데, 어떤 기준으로 LLM 호출을 건너뛰나요?",
+          a: `<p>모든 질의에 LLM을 부르지 않고, <strong>임계값을 넘는 질의</strong>는 미리 정의한 시나리오로 즉시 응답하도록 분기했습니다. 정해진 답이 있는 질의까지 매번 LLM을 부르니 응답도 느리고 비용도 함께 올라가고 있었습니다.</p>
+              <p>결과적으로 응답 지연이 1.5초에서 0.3초로 줄었고, 호출 횟수가 감소해 비용도 약 30% 절감됐습니다.</p>`,
+          fill: `<b>"임계값"이 무엇인지 명확히 준비하세요.</b> 검색 유사도 점수인지, 의도 분류 신뢰도인지, 규칙 매칭인지. 그리고 <b>잘못 분기됐을 때</b>(시나리오로 답했는데 사실 LLM이 필요했던 경우) 어떻게 처리하는지도 물어볼 수 있습니다.`
+        },
+        {
+          q: "할루시네이션을 2단계로 검증했다고 하셨는데 구체적으로 어떤 구조인가요?",
+          a: `<p>두 단계입니다. 먼저 <b>Document Grading</b>으로 검색 결과와 질문 사이의 관련성을 1차로 걸러냅니다. 관련 없는 문서가 컨텍스트에 들어가는 것부터 막는 단계입니다.</p>
+              <p>그다음 <b>Terminology Validation</b>으로 생성된 답변 안에 핵심 용어가 실제로 존재하는지 검증합니다. 컨텍스트에 없는 내용을 지어낸 경우를 잡기 위한 2차 방어입니다.</p>
+              <p>여기에 더해 질문·모범답안 데이터셋으로 LLM judge 채점을 붙여, 할루시네이션이 실제로 줄었는지를 <strong>점수로 관측</strong>할 수 있게 했습니다. 채점 결과를 보고 시스템·에이전트 프롬프트를 개선하는 방식으로 돌렸습니다.</p>`,
+          link: `<b>"자동으로 개선되나요?"</b>라고 물으면 솔직히 답하세요. 채점은 자동이지만 프롬프트 수정은 사람이 했습니다. 관측 체계를 만든 것 자체가 성과입니다.`
+        },
+        {
+          q: "Tibero 환경에서 색인 스케줄러가 멈췄다고 했는데, 원인을 어떻게 찾으셨나요?",
+          a: `<p>특정 고객사 환경에서만 색인 스케줄러가 간헐적으로 중단되고 심하면 서버까지 내려갔습니다. 로그를 분석해 <strong>DB 커넥션 풀 고갈</strong>이 원인이라는 걸 확인했고, 커넥션 풀 최대 크기와 타임아웃 설정을 조정해 해결했습니다. 이후 재발은 없었습니다.</p>
+              <p>같은 시기에 요청 본문이 100MB를 넘으면 색인이 거부돼 데이터가 누락되는 문제도 있었는데, Elasticsearch 설정에서 제한을 특정하고 <code>http.max_content_length</code>를 상향한 뒤 재배포해 해결했습니다.</p>`,
+          fill: `<b>"왜 커넥션이 반환되지 않았나"</b>가 이어집니다. 커넥션 누수였는지, 장시간 쿼리였는지, 풀 크기가 애초에 작았는지 — 근본 원인을 말할 수 있으면 설정만 바꾼 게 아니라는 게 증명됩니다.`
+        },
+        {
+          q: "Argos 기여도가 40%인데 tasks에는 API·AI 파이프라인·대시보드·인프라를 전부 담당했다고 되어 있습니다. 이 40%는 무엇을 기준으로 한 숫자인가요?",
+          a: `<p>2인 팀에서 제가 맡은 범위를 대략적으로 표현한 값입니다. 저는 백엔드 도메인 API, AI 파이프라인, 관리자 대시보드, 인프라 배포를 맡았습니다.</p>`,
+          fill: `<b>나머지 60%가 무엇인지 반드시 준비하세요.</b> 동료가 어떤 부분을 담당했는지 말할 수 있어야 "팀 성과를 자기 것으로 포장했다"는 의심이 사라집니다. 기여도 수치보다 <b>역할 분담</b>을 말하는 쪽이 훨씬 설득력 있습니다.`
+        },
+        {
+          q: "GBMS와 버스파인이 같은 기간, 같은 팀 규모인데 성과도 비슷합니다. 두 개를 따로 하신 게 맞나요?",
+          a: `<p>전자정부프레임워크 기반의 별개 시스템입니다. GBMS는 경기도 광역버스 운영관리 시스템으로 Oracle을 쓰고, 버스파인은 용인·파주·하남 등의 시내버스 행정 시스템으로 PostgreSQL을 씁니다. 둘 다 현재 납품 운영 중이고 실서비스 주소가 공개돼 있습니다.</p>
+              <p>SXSSF 스트리밍 방식의 엑셀 다운로드는 두 시스템 모두에 적용했습니다. 같은 문제가 양쪽에 있어 같은 해법을 넣은 것입니다.</p>`,
+          link: `<b>실서비스 URL이 있는 게 강점입니다.</b> gbms.gg.go.kr / busfine.gtrans.or.kr — 검증 가능한 결과물이라는 걸 짚으세요.`
+        },
+      ]
+    },
+
+    {
+      num: "03",
+      title: "CS — 네트워크 · 웹",
+      note: "내 경험과 이어붙일 수 있는 것부터 답하면 교과서 답변과 갈립니다.",
+      items: [
+        {
+          q: "HTTP와 HTTPS의 차이는 무엇인가요?",
+          a: `<p>HTTPS는 HTTP에 <strong>TLS 계층</strong>을 얹은 것입니다. 전송 구간을 암호화해 도청과 변조를 막고, 인증서로 서버가 주장하는 신원을 검증합니다.</p>
+              <p>동작은 TLS 핸드셰이크로 시작합니다. 서버가 인증서를 보내고 클라이언트가 CA 체인을 검증한 뒤, 비대칭 암호로 대칭키를 안전하게 교환하고 이후 통신은 그 <strong>대칭키</strong>로 암호화합니다. 비대칭 암호는 느리기 때문에 키 교환에만 쓰고 본 통신은 대칭키로 하는 구조입니다.</p>`,
+        },
+        {
+          q: "TCP와 UDP의 차이는 무엇인가요?",
+          a: `<p>TCP는 <strong>연결 지향</strong>이고 신뢰성을 보장합니다. 3-way handshake로 연결을 맺고, 순서 보장·재전송·흐름 제어·혼잡 제어를 제공합니다. 대신 그만큼 오버헤드가 있습니다.</p>
+              <p>UDP는 <strong>비연결형</strong>입니다. 순서도 도착도 보장하지 않는 대신 헤더가 작고 빠릅니다. 실시간 스트리밍이나 DNS처럼 약간의 손실보다 지연이 더 문제인 곳에 씁니다.</p>`,
+        },
+        {
+          q: "CORS가 무엇이고 왜 발생하나요?",
+          a: `<p>브라우저의 <strong>동일 출처 정책</strong> 때문입니다. 스크립트가 자신과 다른 출처(프로토콜·도메인·포트 중 하나라도 다른 곳)의 리소스를 읽으려 하면 브라우저가 막습니다. 서버가 <code>Access-Control-Allow-Origin</code> 같은 헤더로 허용을 명시해야 통과됩니다.</p>
+              <p>중요한 건 <strong>브라우저가 거는 제약</strong>이라는 점입니다. 서버 대 서버 요청에는 적용되지 않습니다.</p>`,
+          link: `<b>캐치캣에서 직접 겪었습니다.</b> 크롤링 대상 중 일부가 CORS 정책으로 차단됐는데, 서버 측 Proxy를 두어 <b>요청이 클라이언트가 아니라 서버에서 나가도록</b> 경로를 바꿔 해결했습니다. CORS가 브라우저 제약이라는 성질을 그대로 이용한 셈입니다.`
+        },
+        {
+          q: "REST API를 설계할 때 무엇을 신경 쓰시나요?",
+          a: `<p>자원을 명사로 표현하고 행위는 HTTP 메서드로 나타냅니다. <code>/documents/{id}</code>에 GET·PUT·DELETE를 쓰는 식이고 <code>/getDocument</code> 같은 동사 URL은 피합니다.</p>
+              <p>상태 코드를 정확히 쓰는 것도 중요합니다. 생성은 201, 잘못된 요청은 400, 인증 실패는 401, 권한 없음은 403으로 구분해야 클라이언트가 분기할 수 있습니다.</p>
+              <p>그리고 <strong>멱등성</strong>을 신경 씁니다. PUT과 DELETE는 여러 번 호출해도 결과가 같아야 재시도가 안전합니다.</p>`,
+        },
+        {
+          q: "세션과 JWT의 차이는 무엇인가요? 어느 쪽을 선호하시나요?",
+          a: `<p>세션은 <strong>서버가 상태를 들고</strong> 클라이언트에는 식별자만 줍니다. 서버에서 즉시 무효화할 수 있는 게 장점이고, 서버가 늘어나면 세션 저장소를 공유해야 하는 게 부담입니다.</p>
+              <p>JWT는 <strong>토큰 자체에 정보와 서명이 들어</strong> 있어 서버가 상태를 안 들어도 됩니다. 확장에 유리하지만 발급된 토큰을 만료 전에 무효화하기 어렵습니다. 그래서 access token은 짧게 두고 refresh token으로 갱신하는 구조를 씁니다.</p>`,
+          link: `<b>ArgosSearch에서 JWT·Spring Security 인증을 유지보수했습니다.</b> 실제로 다뤄본 쪽을 근거로 답하세요.`
+        },
+        {
+          q: "SSE와 WebSocket은 어떻게 다른가요?",
+          a: `<p>SSE는 <strong>서버 → 클라이언트 단방향</strong>이고 일반 HTTP 위에서 동작합니다. 연결이 끊기면 브라우저가 자동으로 재연결하고, 구현이 단순합니다.</p>
+              <p>WebSocket은 <strong>양방향</strong>이고 별도 프로토콜로 업그레이드합니다. 채팅처럼 클라이언트도 계속 보내야 하면 필요합니다.</p>
+              <p>LLM 응답 스트리밍처럼 서버가 토큰을 흘려보내기만 하면 되는 경우엔 SSE로 충분합니다.</p>`,
+          link: `<b>Argos의 FastAPI 도메인 API에서 SSE를 썼습니다.</b> "왜 WebSocket이 아니라 SSE였나"는 좋은 후속 질문이니 위 논리로 답하면 됩니다.`
+        },
+      ]
+    },
+
+    {
+      num: "04",
+      title: "CS — 데이터베이스",
+      note: "PostgreSQL·Oracle 경험과 커넥션 풀 장애 사례가 있어 연결할 지점이 많습니다.",
+      items: [
+        {
+          q: "인덱스는 어떻게 동작하고, 무조건 걸면 좋은가요?",
+          a: `<p>대부분 <strong>B-Tree</strong> 구조로, 정렬된 형태를 유지해 탐색을 로그 시간으로 만듭니다. 풀 스캔 대신 필요한 지점으로 바로 접근하게 해줍니다.</p>
+              <p>무조건 좋진 않습니다. 인덱스는 별도 저장 공간을 쓰고, <strong>INSERT·UPDATE·DELETE마다 인덱스도 갱신</strong>해야 해서 쓰기 성능이 떨어집니다. 카디널리티가 낮은 컬럼(성별 같은)에 걸면 효과도 거의 없습니다.</p>
+              <p>복합 인덱스는 <strong>선행 컬럼 순서</strong>가 중요합니다. (A, B) 인덱스는 A 단독 조회엔 쓰이지만 B 단독 조회엔 안 쓰입니다.</p>`,
+        },
+        {
+          q: "트랜잭션의 ACID를 설명해주세요.",
+          a: `<ul>
+                <li><strong>원자성(Atomicity)</strong> — 전부 반영되거나 전부 취소되거나. 중간 상태가 남지 않습니다.</li>
+                <li><strong>일관성(Consistency)</strong> — 트랜잭션 전후로 제약 조건이 깨지지 않습니다.</li>
+                <li><strong>격리성(Isolation)</strong> — 동시에 실행돼도 서로의 중간 상태를 보지 않습니다.</li>
+                <li><strong>지속성(Durability)</strong> — 커밋된 결과는 장애가 나도 남습니다.</li>
+              </ul>`,
+        },
+        {
+          q: "격리 수준에 따라 어떤 문제가 생기나요?",
+          a: `<p>낮은 순서대로 <strong>READ UNCOMMITTED</strong>는 커밋 안 된 데이터를 읽는 dirty read가 생깁니다. <strong>READ COMMITTED</strong>는 그건 막지만 같은 행을 두 번 읽을 때 값이 달라지는 non-repeatable read가 가능합니다.</p>
+              <p><strong>REPEATABLE READ</strong>는 같은 행의 재현성은 보장하지만 조건에 맞는 행이 새로 생기는 phantom read가 남을 수 있고, <strong>SERIALIZABLE</strong>은 전부 막는 대신 동시성이 크게 떨어집니다.</p>
+              <p>격리 수준을 올릴수록 안전하지만 락 경합이 늘어나므로 요구사항에 맞춰 고릅니다.</p>`,
+        },
+        {
+          q: "N+1 문제가 무엇이고 어떻게 해결하나요?",
+          a: `<p>목록을 1번 조회한 뒤, 각 항목의 연관 엔티티를 N번 추가 조회하게 되는 문제입니다. 지연 로딩 상태에서 반복문으로 연관 객체에 접근할 때 발생합니다.</p>
+              <p>해결은 <strong>fetch join</strong>이나 <code>@EntityGraph</code>로 한 번에 가져오거나, 배치 사이즈를 설정해 IN 절로 묶어 조회하는 방법을 씁니다.</p>`,
+          link: `<b>술술 프로젝트에서 실제로 겪고 해결했습니다.</b> HikariCP 커넥션 풀 설정과 함께 쿼리 최적화를 한 경험이 이력서에 있습니다.`
+        },
+        {
+          q: "커넥션 풀은 왜 쓰고, 크기는 어떻게 정하나요?",
+          a: `<p>DB 연결은 생성 비용이 큽니다. 미리 만들어 두고 <strong>빌려 쓰고 반납</strong>하는 방식으로 그 비용을 없애고, 동시에 <strong>연결 수 상한</strong>을 두어 DB를 보호합니다.</p>
+              <p>크기는 무작정 키우면 안 됩니다. DB가 감당할 수 있는 동시 연결 수와 애플리케이션 인스턴스 수를 함께 봐야 하고, 커넥션이 제때 반환되지 않으면 풀이 고갈됩니다.</p>`,
+          link: `<b>ArgosSearch에서 직접 겪었습니다.</b> Tibero 고객사 환경에서 색인 스케줄러가 간헐적으로 멈추고 서버까지 내려갔는데, 로그 분석으로 <b>커넥션 풀 고갈</b>을 원인으로 진단하고 최대 크기·타임아웃을 조정해 재발을 없앴습니다.`
+        },
+        {
+          q: "벡터 DB는 일반 RDB와 무엇이 다른가요?",
+          a: `<p>RDB는 <strong>정확히 일치하는 값</strong>을 찾는 데 최적화돼 있습니다. 벡터 DB는 임베딩된 고차원 벡터 사이의 <strong>거리·유사도</strong>로 가까운 것을 찾습니다. "같은 것"이 아니라 "비슷한 것"을 찾는 도구입니다.</p>
+              <p>정확한 최근접 탐색은 차원이 높아지면 비싸지므로 HNSW 같은 <strong>근사 탐색(ANN)</strong> 인덱스를 써서 정확도를 약간 내주고 속도를 얻습니다.</p>`,
+          link: `<b>Argos에서 Qdrant를 썼습니다.</b> 하이브리드 검색에서 dense(벡터)와 sparse(키워드) 결과를 RRF로 합친 것도 "의미는 비슷한데 키워드가 다른" 경우와 그 반대를 모두 잡기 위해서라고 설명하면 자연스럽습니다.`
+        },
+      ]
+    },
+
+    {
+      num: "05",
+      title: "CS — Java · Spring",
+      note: "JVM 메모리 질문은 SAX 전환 경험과 바로 이어집니다.",
+      items: [
+        {
+          q: "JVM 메모리 구조를 설명해주세요.",
+          a: `<p>크게 <strong>힙</strong>과 <strong>스택</strong>으로 나뉩니다. 힙은 객체가 저장되고 GC 대상이며 모든 스레드가 공유합니다. 스택은 스레드마다 하나씩 있고 지역 변수와 메서드 호출 프레임이 쌓입니다.</p>
+              <p>그 외에 클래스 메타데이터가 들어가는 <strong>메타스페이스</strong>, JIT 컴파일 결과가 들어가는 코드 캐시가 있습니다. 힙은 다시 Young(Eden·Survivor)과 Old로 나뉘고, 대부분의 객체가 금방 죽는다는 전제로 Young을 자주 청소합니다.</p>`,
+          link: `<b>OOM을 실제로 겪은 사례로 이으세요.</b> 대용량 docx·pptx를 DOM 방식으로 파싱할 때 문서 전체가 힙에 트리로 올라가 OOM이 났고, SAX 스트리밍으로 바꿔 메모리를 74% 줄였습니다. "왜 스트리밍이 메모리를 아끼는가"를 힙 관점에서 설명할 수 있으면 강합니다.`
+        },
+        {
+          q: "GC는 어떻게 동작하나요?",
+          a: `<p>참조되지 않는 객체를 찾아 회수합니다. GC Root(스택 변수, static 필드 등)에서 <strong>도달 가능한지</strong>를 따라가 도달 못 하는 객체를 수거하는 방식입니다.</p>
+              <p>대부분의 객체는 금방 죽는다는 전제(약한 세대 가설) 아래 Young 영역을 자주 짧게 청소하고, 살아남은 객체를 Old로 올려 가끔 크게 청소합니다. Old 청소는 <strong>Stop-the-World</strong> 시간이 길어질 수 있어 지연에 민감한 서비스에서는 이 구간이 문제가 됩니다.</p>`,
+        },
+        {
+          q: "DI와 IoC가 무엇인가요?",
+          a: `<p><strong>IoC(제어의 역전)</strong>는 객체의 생성과 생명주기를 개발자가 아니라 컨테이너가 관리한다는 개념입니다. <strong>DI(의존성 주입)</strong>는 그걸 구현하는 방법으로, 필요한 의존 객체를 외부에서 넣어줍니다.</p>
+              <p>덕분에 구현체를 바꿔 끼우기 쉬워지고 테스트할 때 가짜 객체로 대체하기 쉬워집니다. 생성자 주입을 권장하는데, 의존성이 필수임을 드러내고 불변으로 만들 수 있으며 순환 참조를 컴파일·기동 시점에 발견할 수 있기 때문입니다.</p>`,
+          link: `<b>Argos의 멀티 LLM 확장 구조</b>가 이 개념의 실제 사례입니다. vLLM·OpenAI·Naver Clova를 같은 인터페이스로 두고 <b>설정 변경만으로 교체·추가</b>할 수 있게 만들었습니다.`
+        },
+        {
+          q: "@Transactional은 어떻게 동작하나요?",
+          a: `<p>Spring AOP 기반으로 <strong>프록시</strong>가 메서드 호출을 감싸서, 시작할 때 트랜잭션을 열고 정상 종료하면 커밋, 예외가 나면 롤백합니다.</p>
+              <p>주의할 점이 두 가지 있습니다. 하나는 <strong>같은 클래스 내부 호출</strong>에는 프록시를 거치지 않아 적용되지 않는다는 것이고, 다른 하나는 기본 롤백 대상이 <strong>unchecked 예외</strong>라는 점입니다. checked 예외에서 롤백하려면 <code>rollbackFor</code>를 명시해야 합니다.</p>`,
+        },
+        {
+          q: "JPA와 MyBatis 중 어떤 걸 선호하시나요?",
+          a: `<p>둘 다 써봤고 상황에 따라 다르다고 생각합니다.</p>
+              <p>JPA는 객체 중심으로 도메인을 다룰 때 생산성이 좋고 단순 CRUD에서 반복 코드를 크게 줄여줍니다. 대신 생성되는 쿼리를 의식하지 않으면 N+1 같은 문제가 숨습니다.</p>
+              <p>MyBatis는 <strong>쿼리를 직접 통제</strong>할 수 있어 복잡한 통계성 쿼리나 레거시 스키마를 다룰 때 유리합니다. 공공 시스템 유지보수에서는 기존 쿼리가 복잡하고 스키마를 바꿀 수 없어 MyBatis 쪽이 맞았습니다.</p>`,
+        },
+        {
+          q: "동기와 비동기, 블로킹과 논블로킹의 차이는 무엇인가요?",
+          a: `<p>동기·비동기는 <strong>작업 완료를 누가 신경 쓰는가</strong>의 문제이고, 블로킹·논블로킹은 <strong>호출한 쪽이 멈추는가</strong>의 문제입니다. 서로 다른 축이라 조합이 가능합니다.</p>
+              <p>I/O 대기가 많은 작업에서 비동기·논블로킹이 유리합니다. 스레드가 응답을 기다리며 놀지 않고 다른 요청을 처리할 수 있기 때문입니다. 반대로 CPU를 계속 쓰는 작업에서는 이점이 적습니다.</p>`,
+          link: `<b>Argos의 FastAPI 비동기 도메인 API</b>가 사례입니다. 외부 LLM 호출과 DB 조회처럼 대기가 긴 작업이 많아 비동기가 유효했습니다.`
+        },
+      ]
+    },
+
+    {
+      num: "06",
+      title: "CS — 보안",
+      note: "CVE 대응 경험이 있어 이 구간은 오히려 기회입니다.",
+      items: [
+        {
+          q: "XXE 공격이 무엇인가요?",
+          a: `<p>XML 파서가 <strong>외부 엔티티 참조</strong>를 처리하도록 설정돼 있을 때, 공격자가 문서 안에 외부 엔티티를 심어 보내면 파서가 그걸 해석하면서 서버의 파일을 읽거나 내부 네트워크로 요청을 보내게 만드는 공격입니다.</p>
+              <p>방어는 파서에서 <strong>외부 엔티티와 DTD 처리를 비활성화</strong>하는 것이 기본이고, 라이브러리 차원에서 이미 수정된 버전이 있으면 올리는 것이 확실합니다.</p>`,
+          link: `<b>실제로 대응한 경험이 있습니다.</b> Apache Tika의 CVE-2025-66516이 XXE였고, PDF 안에 조작된 XFA를 심어 보내는 것만으로 트리거돼 CVSS 10.0을 받았습니다. 제가 맡은 파이프라인이 외부 경로의 문서를 읽어 파싱하는 구조라 정확히 그 공격면이었고, tika-core를 3.2.2로 올려 해소했습니다.`
+        },
+        {
+          q: "SQL Injection은 어떻게 막나요?",
+          a: `<p>근본 해법은 <strong>PreparedStatement 같은 파라미터 바인딩</strong>입니다. 쿼리 구조와 값을 분리해 전달하므로 값에 SQL 구문이 들어와도 문자열로 취급됩니다.</p>
+              <p>MyBatis를 쓸 때는 <code>#{}</code>가 바인딩이고 <code>&#36;{}</code>는 문자열 치환이라 위험합니다. 정렬 컬럼처럼 <code>&#36;{}</code>가 불가피한 경우엔 <strong>화이트리스트</strong>로 허용 값을 제한해야 합니다.</p>
+              <p>추가로 DB 계정 권한을 최소화하고, 에러 메시지에 쿼리나 스키마가 노출되지 않게 합니다.</p>`,
+        },
+        {
+          q: "파일 업로드 기능에서 신경 써야 할 보안 이슈는 무엇인가요?",
+          a: `<p>먼저 <strong>경로 조작(Path Traversal)</strong>입니다. 파일명에 <code>../</code> 같은 문자가 들어오면 의도하지 않은 경로에 쓰일 수 있어, 파일명을 그대로 쓰지 말고 서버에서 새로 생성하거나 정규화 후 검증해야 합니다.</p>
+              <p>다음은 <strong>확장자·MIME 검증</strong>입니다. 클라이언트가 보낸 값은 믿을 수 없으므로 실제 내용을 확인하고 허용 목록 방식으로 제한합니다. 업로드 경로를 웹에서 직접 실행할 수 없는 위치에 두는 것도 중요합니다.</p>
+              <p>그리고 <strong>업로드된 파일을 파싱하는 단계</strong>가 공격면이 됩니다. 크기 제한과 타임아웃을 걸고, 파서 라이브러리의 보안 이력을 관리해야 합니다.</p>`,
+          link: `<b>마지막 문단이 본인 경험입니다.</b> 색인 파이프라인이 외부 문서를 읽어 파싱하는 구조였고, 파싱 타임아웃과 JVM 힙·OOM 옵션을 최후 방어선으로 걸었습니다. 블로그에도 관련 글을 쓰셨으니 언급해도 좋습니다.`
+        },
+        {
+          q: "의존성 취약점은 어떻게 관리해야 한다고 생각하시나요?",
+          a: `<p>버전을 올리는 것보다 <strong>지금 쓰는 버전이 어떤 상태인지 아는 것</strong>이 먼저라고 생각합니다. 취약점은 대부분 공개돼 있어서 확인할 수 있는데, 확인하지 않으면 그대로 운영됩니다.</p>
+              <p>그리고 <strong>어디를 올려야 실제로 막히는지</strong>를 봐야 합니다. 관련 모듈만 올려서는 해결되지 않고 코어까지 올려야 하는 경우가 있습니다.</p>
+              <p>업그레이드는 다른 의존성과의 충돌을 동반하므로, 올린 뒤 실제로 동작을 확인하는 것까지가 한 세트라고 봅니다.</p>`,
+          link: `<b>세 문단 모두 실제 경험입니다.</b> 포맷 확장 작업 중 Tika 버전의 보안 이력을 점검해 취약 버전임을 확인했고, tika-core까지 올려야 막힌다는 걸 알고 코어와 파서 패키지를 함께 올렸으며, 그 과정에서 생긴 commons-lang3 충돌을 해결했습니다.`
+        },
+      ]
+    },
+
+    {
+      num: "07",
+      title: "마지막에 물어볼 역질문",
+      note: "\"질문 있으신가요?\"에 없다고 하면 관심이 없어 보입니다. 두세 개는 준비하세요.",
+      items: [
+        {
+          q: "제가 입사하면 처음 3개월 동안 맡게 될 일은 어떤 것인가요?",
+          a: `<p>구체적인 업무를 물어 자신이 실무를 그리고 있음을 보여줍니다. 답변을 들으면 실제로 무엇을 기대하는지도 파악할 수 있습니다.</p>`,
+        },
+        {
+          q: "현재 팀에서 가장 시급하게 해결하고 싶은 기술적 과제는 무엇인가요?",
+          a: `<p>회사의 실제 문제를 묻는 질문입니다. 답을 듣고 본인 경험 중 관련된 것을 짧게 덧붙이면 마지막에 한 번 더 인상을 남길 수 있습니다.</p>`,
+        },
+        {
+          q: "코드 리뷰나 배포는 어떤 방식으로 진행되나요?",
+          a: `<p>개발 문화를 확인하는 질문이면서, 본인이 그런 프로세스에 익숙하다는 신호도 됩니다. 블로그 배포에 GitHub Actions를 쓰고 있고, 저장소에 리뷰 통과 시에만 merge되도록 게이트를 걸어둔 경험을 이어 말할 수 있습니다.</p>`,
+        },
+        {
+          q: "팀에서 성능이나 품질을 측정하는 지표가 있나요?",
+          a: `<p>측정을 중시하는 사람이라는 인상을 남기는 질문입니다. LLM judge 평가 파이프라인을 직접 만들어 개선을 검증했던 경험과 자연스럽게 이어집니다.</p>`,
+        },
+        {
+          q: "제 경력에서 이 포지션에 부족해 보이는 부분이 있다면 무엇일까요?",
+          a: `<p>용기가 필요하지만 인상에 남는 질문입니다. 답을 들으면 보완할 방향을 알 수 있고, 면접관이 우려하는 지점을 그 자리에서 해명할 기회도 생깁니다.</p>`,
+        },
+      ]
+    },
+  ],
+};
+/* ================================================================
+   ▲▲▲  여기까지만 수정  ▲▲▲
+   ================================================================ */
+
+function render() {
+  const D = DATA;
+  document.title = `${D.name} — ${D.docType}`;
+
+  const sectionsHtml = D.sections.map(s => `
+    <div class="sec">
+      <div class="sec-head">
+        <span class="sec-num">${s.num}</span>
+        <span class="sec-title">${s.title}</span>
+      </div>
+      <p class="sec-note">${s.note}</p>
+      ${s.items.map(it => `
+        <details>
+          <summary>${it.q}</summary>
+          <div class="a">${it.a}</div>
+          ${it.link ? `<div class="link">${it.link}</div>` : ''}
+          ${it.fill ? `<div class="fill">${it.fill}</div>` : ''}
+        </details>
+      `).join('')}
+    </div>
+  `).join('');
+
+  const total = D.sections.reduce((n, s) => n + s.items.length, 0);
+
+  document.body.innerHTML = `
+    <div class="page">
+      <div class="header">
+        <a class="back" href="./">← 취업 서류로 돌아가기</a>
+        <div class="name">${D.name}</div>
+        <div class="doc-type">${D.docType} · 총 ${total}문항</div>
+        <div class="notice">${D.notice}</div>
+      </div>
+      <div class="toolbar">
+        <button id="openAll">모두 펼치기</button>
+        <button id="closeAll">모두 접기</button>
+      </div>
+      <div class="body">${sectionsHtml}</div>
+    </div>`;
+
+  const all = () => document.querySelectorAll('details');
+  document.getElementById('openAll').onclick  = () => all().forEach(d => d.open = true);
+  document.getElementById('closeAll').onclick = () => all().forEach(d => d.open = false);
+}
+render();
+</script>
+</body>
+</html>
