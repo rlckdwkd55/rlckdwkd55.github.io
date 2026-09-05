@@ -25,3 +25,6 @@ package-lock.json
 # Misc
 _sass/vendors
 assets/js/dist
+
+# Claude Code instructions (local guidance only, not shared via git)
+CLAUDE.md
