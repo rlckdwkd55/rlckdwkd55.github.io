@@ -1023,10 +1023,50 @@ nav.scrolled {
 }
 
 @media (max-width: 767px) {
-    .section-title { font-size: 2rem; margin-bottom: 2rem; }
+    /* 모바일에서는 전체 길이가 7,300px을 넘어 9화면 가까이 스크롤해야 했다.
+       내용을 줄이는 대신 카드 껍데기와 여백을 걷어내 밀도를 올린다. */
 
-    .skill-card { padding: 1.25rem; }
+    section[id] { padding-top: 2.75rem; padding-bottom: 2.75rem; }
+    .section-title { font-size: 1.875rem; margin-bottom: 1.75rem; }
+    .section-label { margin-bottom: 0.5rem; }
 
-    .project-card-header { height: auto; min-height: 64px; }
-    .project-card-body { padding: 1rem 1.25rem 1.25rem; }
+    /* 기술 스택 — 태그 목록에 카드와 아이콘 칩을 씌우면 항목당 173px가 든다.
+       이력서처럼 '분류 + 인라인 태그' 한 줄로 눌러 같은 정보를 3분의 1 높이에. */
+    .skills-grid { gap: 0; }
+    .skill-card {
+        background: none;
+        border: 0;
+        border-top: 1px solid var(--border);
+        border-radius: 0;
+        box-shadow: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        padding: 0.875rem 0;
+    }
+    .skill-card:last-child { border-bottom: 1px solid var(--border); }
+    .skill-card:hover { transform: none; box-shadow: none; border-color: var(--border); }
+    .skill-card::before { display: none; }
+    .skill-card-header { margin-bottom: 0.5rem; gap: 0.5rem; }
+    .skill-card-header .skill-icon-wrap { display: none; }
+    .skill-card-header h3 { font-size: 0.8125rem; }
+
+    /* 프로젝트 — 카드당 618px. 헤더 높이와 안쪽 여백을 줄이고
+       설명 줄간격을 좁혀 읽는 데 무리 없는 선에서 압축한다. */
+    .project-card-header { height: auto; min-height: 0; padding: 0.875rem 1.125rem; }
+    .project-card-header-icon { width: 30px; height: 30px; font-size: 0.875rem; }
+    .project-card-title { font-size: 0.9375rem; }
+    .project-card-body { padding: 0.875rem 1.125rem 1.125rem; }
+    .project-card-body .text-sm { font-size: 0.8125rem; line-height: 1.65; }
+    .result-box { padding: 0.625rem 0.75rem; font-size: 0.78rem; }
+
+    /* 연락처 — 아이콘을 위에 쌓아 카드당 166px를 쓰던 것을 가로 배치로. */
+    .contact-card {
+        display: flex;
+        align-items: center;
+        gap: 0.875rem;
+        text-align: left;
+        padding: 1rem 1.125rem;
+    }
+    .contact-icon-wrap { width: 40px; height: 40px; margin: 0; }
+    .contact-card h3 { margin-bottom: 0.125rem; }
 }
