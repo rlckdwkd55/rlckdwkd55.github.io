@@ -98,10 +98,6 @@
       color: var(--accent); font-size: 11px;
     }
     .highlight-list strong { color: var(--accent); font-weight: 700; }
-    .highlight-note {
-      margin-top: 8px; text-align: right;
-      font-size: 11px; color: var(--t3);
-    }
 
     /* ── SKILLS ── */
     .tech-grid { display: grid; grid-template-columns: 76px 1fr; gap: 4px 14px; align-items: start; }
@@ -218,7 +214,6 @@ const DATA = {
     `응답 <strong>1.5초 → 0.3초</strong> · 토큰 <strong>40%↓</strong> — 불필요한 LLM 호출을 걷어내고 장기 대화를 압축`,
     `<strong>CVSS 10.0</strong> 취약점 차단 — 외부 문서를 파싱하는 색인 경로의 보안 노출을 확인·해소`,
   ],
-  highlightsNote: `상세 과정과 문제 해결 사례는 경력기술서를 참조해 주세요.`,
 
   skills: [
     { cat: "Language",     items: ["Java","Python","JavaScript","TypeScript"] },
@@ -237,19 +232,19 @@ const DATA = {
         {
           name: "Argos AI Chat Search",
           period: "2026. 01. ~",
-          contribution: "기여도 40%",
+          contribution: "기여도 40% · 2명",
           desc: "멀티에이전트 RAG 챗봇 플랫폼",
           bullets: [
             "시나리오 에이전트로 임계값 초과 질의를 LLM 호출 없이 즉시 응답(1.5초 → 0.3초, 호출 비용 약 30% 절감), 장기 대화는 롤링 요약으로 압축해 토큰 사용량 약 40% 절감",
             "dense·sparse 검색을 RRF로 융합하고 CrossEncoder로 재정렬 — 직접 만든 LLM judge 평가로 도입 전후 약 30%p 개선 확인",
             "2단계 관련성 검증(Document Grading·Terminology Validation)과 LLM judge 기반 품질 관측 체계 구축으로 할루시네이션 대응",
-            "vLLM·OpenAI·Naver Clova 멀티 LLM Factory 확장 구조와 FastAPI 비동기 도메인 API(회원·문서·스케줄러, SSE)·Next.js 관리자 대시보드 개발",
+            "vLLM·OpenAI·Naver Clova 멀티 LLM 확장 구조와 FastAPI 비동기 도메인 API(회원·문서·스케줄러, SSE)·Next.js 관리자 대시보드 개발",
           ],
         },
         {
           name: "ArgosSearch",
           period: "2025. 09. ~",
-          contribution: "기여도 20%",
+          contribution: "기여도 20% · 3명",
           desc: "엔터프라이즈 검색 엔진 운영·유지보수 — 안전보건공단·CJ 온리원푸드넷·고령군청 등",
           bullets: [
             "대용량 오피스 문서 파싱을 SAX 스트리밍으로 전환 — 메모리 74% 절감·처리 속도 3.2배, 한글 HWPX 포맷 지원 추가",
@@ -269,7 +264,7 @@ const DATA = {
         {
           name: "캐치캣",
           period: "2024. 11. ~ 2025. 04.",
-          contribution: "기여도 60%",
+          contribution: "기여도 60% · 2명",
           desc: "크롤링 & 알림 서비스 (경영 사정으로 운영 전 종료)",
           bullets: [
             "700개+ 사이트 일 3,000건 크롤링 시스템 구축(Proxy로 CORS 우회), Node.js 크론 스케줄러·FCM 알림 연동 및 Spring Boot 관리자 페이지 개발",
@@ -278,7 +273,7 @@ const DATA = {
         {
           name: "GBMS",
           period: "2024. 02. ~ 2024. 10.",
-          contribution: "기여도 15%",
+          contribution: "기여도 15% · 6명",
           desc: "경기도 광역버스 운영관리 시스템 (Oracle · 납품 운영 중)",
           bullets: [
             "SXSSFWorkbook 스트리밍 방식으로 대용량 엑셀 다운로드 신규 구현 — 응답 30초 이상 → 3초 이내(90% 단축)",
@@ -288,7 +283,7 @@ const DATA = {
         {
           name: "버스파인",
           period: "2024. 02. ~ 2024. 10.",
-          contribution: "기여도 15%",
+          contribution: "기여도 15% · 6명",
           desc: "시내버스 행정 시스템 — 용인·파주·하남 등 (PostgreSQL · 납품 운영 중)",
           bullets: [
             "GBMS와 동일한 SXSSF 스트리밍 방식을 적용해 대용량 엑셀 다운로드 구현",
@@ -309,9 +304,9 @@ const DATA = {
     { name: "KH정보교육원",       detail: "BackEnd 개발자 양성과정 수료",                              period: "2021. 06. ~ 11." },
   ],
   certifications: [
-    { name: "SQL 개발자 (SQLD)",   detail: "한국데이터산업진흥원",  period: "2024. 04." },
     { name: "리눅스마스터 2급",    detail: "한국정보통신자격협회",  period: "2026. 07." },
     { name: "네트워크 관리사 2급", detail: "한국정보통신자격협회",  period: "2026. 06." },
+    { name: "SQL 개발자 (SQLD)",   detail: "한국데이터산업진흥원",  period: "2024. 04." },
   ],
 };
 /* ================================================================
@@ -391,8 +386,7 @@ function render() {
   const highlightsHtml = `
     <ul class="highlight-list">
       ${D.highlights.map(h => `<li>${h}</li>`).join('')}
-    </ul>
-    <div class="highlight-note">${D.highlightsNote}</div>`;
+    </ul>`;
 
   document.body.innerHTML = `
     <div class="page">
