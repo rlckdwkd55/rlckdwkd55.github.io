@@ -119,6 +119,22 @@
                 <span class="section-label fade-in">WHO I AM</span>
                 <h2 class="section-title fade-in">소개</h2>
 
+                <!-- 첫 화면에서 바로 보이는 성과 숫자. 이력서의 '핵심 성과'와 같은 내용을 씀 -->
+                <div class="highlight-grid fade-in">
+                    <div class="highlight-card">
+                        <div class="highlight-metric">메모리 <em>74%</em>↓ · 처리 속도 <em>3.2배</em></div>
+                        <p class="highlight-desc">대용량 오피스 문서 파싱을 DOM → SAX 스트리밍으로 전환</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-metric"><em>1.5초</em> → <em>0.3초</em></div>
+                        <p class="highlight-desc">RAG 챗봇에 시나리오 에이전트 도입, 대화 압축으로 토큰 40% 절감</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-metric"><em>30초</em> → <em>3초</em></div>
+                        <p class="highlight-desc">공공 시스템 엑셀 다운로드를 SXSSF 스트리밍으로 교체 (90% 단축)</p>
+                    </div>
+                </div>
+
                 <div class="about-grid fade-in">
                     <div>
                         <div class="about-photo-wrap">
@@ -227,7 +243,7 @@
                             <div class="skill-icon-wrap"><svg class="icon text-sm" style="color:#f472b6"><use href="#i-robot"/></svg></div>
                             <h3 class="font-semibold" style="color:var(--text-primary)">AI & Search</h3>
                         </div>
-                        <div class="flex flex-wrap gap-2"><span class="skill-tag">RAG</span><span class="skill-tag">LangGraph</span><span class="skill-tag">vLLM</span><span class="skill-tag">Qdrant</span><span class="skill-tag">Elasticsearch</span></div>
+                        <div class="flex flex-wrap gap-2"><span class="skill-tag">RAG</span><span class="skill-tag">LangGraph</span><span class="skill-tag">vLLM</span><span class="skill-tag">Qdrant</span><span class="skill-tag">Elasticsearch</span><span class="skill-tag">Apache Tika</span></div>
                     </div>
                     <div class="skill-card fade-in">
                         <div class="skill-card-header">
@@ -241,14 +257,14 @@
                             <div class="skill-icon-wrap"><svg class="icon text-sm" style="color:#34d399"><use href="#i-database"/></svg></div>
                             <h3 class="font-semibold" style="color:var(--text-primary)">Database</h3>
                         </div>
-                        <div class="flex flex-wrap gap-2"><span class="skill-tag">PostgreSQL</span><span class="skill-tag">Oracle</span><span class="skill-tag">Redis</span></div>
+                        <div class="flex flex-wrap gap-2"><span class="skill-tag">PostgreSQL</span><span class="skill-tag">Oracle</span></div>
                     </div>
                     <div class="skill-card fade-in">
                         <div class="skill-card-header">
                             <div class="skill-icon-wrap"><svg class="icon text-sm" style="color:#f59e0b"><use href="#i-wrench"/></svg></div>
                             <h3 class="font-semibold" style="color:var(--text-primary)">Infra & Tools</h3>
                         </div>
-                        <div class="flex flex-wrap gap-2"><span class="skill-tag">Docker</span><span class="skill-tag">GitHub Actions</span><span class="skill-tag">Git</span></div>
+                        <div class="flex flex-wrap gap-2"><span class="skill-tag">Docker</span><span class="skill-tag">GitHub Actions</span><span class="skill-tag">Git</span><span class="skill-tag">Node.js</span><span class="skill-tag">Quartz</span></div>
                     </div>
                 </div>
             </div>
@@ -270,7 +286,7 @@
                                 <p class="text-xs font-semibold flex-1" style="color:var(--text-primary)">AI 챗봇 플랫폼</p>
                                 <span class="period-badge ml-2">2026.01 ~</span>
                             </div>
-                            <p class="text-sm leading-relaxed mb-4 mt-3 flex-grow" style="color:var(--text-secondary)">· 백엔드 도메인 API·AI 파이프라인·관리자 대시보드·인프라 배포 담당<br>· Qdrant 하이브리드 검색 + CrossEncoder 리랭킹으로 검색 정확도 약 30%p 향상<br>· 시나리오 에이전트로 임계값 초과 질의를 LLM 호출 없이 즉시 응답 — 응답 지연·비용 절감<br>· vLLM·OpenAI·Naver Clova 멀티 LLM Factory 및 외부 임베딩 API 확장 구조 구현<br>· FastAPI 비동기 도메인 API(회원·문서·스케줄러, SSE)와 Next.js 관리자 대시보드 개발</p>
+                            <p class="text-sm leading-relaxed mb-4 mt-3 flex-grow" style="color:var(--text-secondary)">· 백엔드 도메인 API·AI 파이프라인·관리자 대시보드·인프라 배포 담당<br>· Qdrant 하이브리드 검색 + CrossEncoder 리랭킹으로 검색 정확도 약 30%p 향상<br>· 시나리오 에이전트로 임계값 초과 질의를 LLM 호출 없이 즉시 응답 — 1.5초 → 0.3초, 호출 비용 약 30% 절감<br>· 장기 대화를 롤링 요약으로 압축 — 토큰 사용량 약 40% 절감<br>· vLLM·OpenAI·Naver Clova 멀티 LLM Factory 및 외부 임베딩 API 확장 구조 구현<br>· FastAPI 비동기 도메인 API(회원·문서·스케줄러, SSE)와 Next.js 관리자 대시보드 개발</p>
                             <div class="flex flex-wrap gap-1.5 mb-4"><span class="tech-badge">Python</span><span class="tech-badge">FastAPI</span><span class="tech-badge">LangGraph</span><span class="tech-badge">Qdrant</span><span class="tech-badge">Next.js</span><span class="tech-badge">Docker</span></div>
                             <div class="result-box mb-4">
                                 <svg class="icon mr-1.5" style="color:var(--violet-mid)"><use href="#i-check-circle"/></svg>
@@ -293,12 +309,12 @@
                                 <p class="text-xs font-semibold flex-1" style="color:var(--text-primary)">엔터프라이즈 검색 엔진</p>
                                 <span class="period-badge ml-2">2025.09 ~</span>
                             </div>
-                            <p class="text-sm leading-relaxed mb-4 mt-3 flex-grow" style="color:var(--text-secondary)">· 안전보건공단·CJ 온리원푸드넷·고령군청 등 공공기관·기업 대상 검색 엔진 운영·유지보수<br>· Apache Tika 문서 색인 파이프라인 CVSS 10.0 취약점(CVE-2025-66516) 발견·패치<br>· 대용량 오피스 문서 SAX 스트리밍 전환으로 메모리 74% 절감·처리 속도 3.2배 개선<br>· 한글 HWPX 포맷 지원 추가, Elasticsearch 색인 스케줄러·외부 DB 연동 유지보수 및 실운영 장애 대응</p>
+                            <p class="text-sm leading-relaxed mb-4 mt-3 flex-grow" style="color:var(--text-secondary)">· 안전보건공단·CJ 온리원푸드넷·고령군청 등 공공기관·기업 대상 검색 엔진 운영·유지보수<br>· 외부 경로의 문서를 읽어 색인하는 파이프라인에서, 운영 중이던 Apache Tika 버전이 XXE 취약점(CVE-2025-66516, CVSS 10.0)에 노출된 것을 확인하고 패치<br>· 대용량 오피스 문서 SAX 스트리밍 전환으로 메모리 74% 절감·처리 속도 3.2배 개선<br>· 한글 HWPX 포맷 지원 추가, Elasticsearch 색인 스케줄러·외부 DB 연동 유지보수 및 실운영 장애 대응</p>
                             <div class="flex flex-wrap gap-1.5 mb-4"><span class="tech-badge">Java</span><span class="tech-badge">Spring Boot</span><span class="tech-badge">Elasticsearch</span><span class="tech-badge">Apache Tika</span><span class="tech-badge">Quartz</span></div>
                             <div class="result-box mb-4">
                                 <svg class="icon mr-1.5" style="color:var(--violet-mid)"><use href="#i-chart-line"/></svg>
                                 <strong style="color:var(--text-primary)">결과:</strong>
-                                <span> Apache Tika 색인 파이프라인 CVSS 10.0 취약점 패치 및 성능 개선(메모리 74%↓·처리 속도 3.2배)으로 검색 엔진 보안·안정성 강화.</span>
+                                <span> 문서 파싱 메모리 74%↓·처리 속도 3.2배 개선, CVSS 10.0 취약점 노출 해소로 검색 엔진 보안·안정성 강화.</span>
                             </div>
                             <div class="flex items-center justify-between mt-auto">
                                 <div class="flex items-center gap-3"><span class="project-link-disabled"><svg class="icon"><use href="#i-lock"/></svg> 코드 비공개</span></div>
@@ -339,7 +355,7 @@
                                 <p class="text-xs font-semibold flex-1" style="color:var(--text-primary)">경기도 버스 매니지먼트 시스템</p>
                                 <span class="period-badge ml-2">2024.02 ~ 2024.10</span>
                             </div>
-                            <p class="text-sm leading-relaxed mb-4 mt-3 flex-grow" style="color:var(--text-secondary)">· 전자정부프레임워크 기반 경기도 광역 버스 운영 관리 시스템 유지보수<br>· SXSSFWorkbook 스트리밍 방식으로 대용량 엑셀 다운로드 신규 개발 — 응답 속도 대폭 개선<br>· 초기 화면 배너 UI 개선 및 이미지 관리 기능(업로드·삭제·미리보기) 신규 개발<br>· API 응답 최적화, JSP 레거시 코드 유지보수</p>
+                            <p class="text-sm leading-relaxed mb-4 mt-3 flex-grow" style="color:var(--text-secondary)">· 전자정부프레임워크 기반 경기도 광역 버스 운영 관리 시스템 유지보수<br>· SXSSFWorkbook 스트리밍 방식으로 대용량 엑셀 다운로드 신규 개발 — 30초 이상 → 3초 이내(90% 단축)<br>· 초기 화면 배너 UI 개선 및 이미지 관리 기능(업로드·삭제·미리보기) 신규 개발<br>· API 응답 최적화, JSP 레거시 코드 유지보수</p>
                             <div class="flex flex-wrap gap-1.5 mb-4"><span class="tech-badge">Java</span><span class="tech-badge">Spring Boot</span><span class="tech-badge">MyBatis</span><span class="tech-badge">Oracle</span><span class="tech-badge">JSP</span><span class="tech-badge">Apache POI</span></div>
                             <div class="result-box mb-4">
                                 <svg class="icon mr-1.5" style="color:var(--violet-mid)"><use href="#i-check-circle"/></svg>
@@ -362,7 +378,7 @@
                                 <p class="text-xs font-semibold flex-1" style="color:var(--text-primary)">공공 버스 행정 시스템</p>
                                 <span class="period-badge ml-2">2024.02 ~ 2024.10</span>
                             </div>
-                            <p class="text-sm leading-relaxed mb-4 mt-3 flex-grow" style="color:var(--text-secondary)">· 전자정부프레임워크 기반 경기도 시내버스 행정 시스템(용인·파주·하남 등) 유지보수<br>· SXSSFWorkbook 스트리밍 방식으로 대용량 엑셀 다운로드 신규 개발 — 응답 속도 대폭 개선<br>· 공공기관 요청 기능 변경·예외 처리 로직 보강 및 QC 피드백 대응<br>· UI 편의성 개선 및 협업 중심 문서화 수행</p>
+                            <p class="text-sm leading-relaxed mb-4 mt-3 flex-grow" style="color:var(--text-secondary)">· 전자정부프레임워크 기반 경기도 시내버스 행정 시스템(용인·파주·하남 등) 유지보수<br>· SXSSFWorkbook 스트리밍 방식으로 대용량 엑셀 다운로드 신규 개발 — 30초 이상 → 3초 이내(90% 단축)<br>· 공공기관 요청 기능 변경·예외 처리 로직 보강 및 QC 피드백 대응<br>· UI 편의성 개선 및 협업 중심 문서화 수행</p>
                             <div class="flex flex-wrap gap-1.5 mb-4"><span class="tech-badge">Java</span><span class="tech-badge">Spring Boot</span><span class="tech-badge">MyBatis</span><span class="tech-badge">PostgreSQL</span><span class="tech-badge">JSP</span><span class="tech-badge">Apache POI</span></div>
                             <div class="result-box mb-4">
                                 <svg class="icon mr-1.5" style="color:var(--violet-mid)"><use href="#i-check-circle"/></svg>

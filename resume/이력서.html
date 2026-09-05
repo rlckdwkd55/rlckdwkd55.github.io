@@ -181,9 +181,9 @@
         print-color-adjust: exact;
       }
       .page { margin: 0; border: none; border-radius: 0; box-shadow: none; max-width: 100%; overflow: visible; }
-      .header { padding: 0 0 12px; }
+      .header { padding: 0 0 10px; }
       .body { padding: 0; }
-      .section { padding-top: 13px; }
+      .section { padding-top: 11px; }
       /* 마지막 섹션의 잔여 여백이 새 페이지를 만들지 않도록 */
       .section:last-child { padding-bottom: 0; }
       .page { padding-bottom: 0; }
@@ -282,8 +282,7 @@ const DATA = {
           desc: "경기도 광역버스 운영관리 시스템 (Oracle · 납품 운영 중)",
           bullets: [
             "SXSSFWorkbook 스트리밍 방식으로 대용량 엑셀 다운로드 신규 구현 — 응답 30초 이상 → 3초 이내(90% 단축)",
-            "전자정부프레임워크 기반 유지보수·신규 기능 개발, 초기 화면 배너 UI 및 이미지 관리 기능(업로드·삭제·미리보기) 개발",
-            "API 응답 최적화 및 JSP 레거시 코드 유지보수",
+            "전자정부프레임워크 기반 유지보수 — 배너 UI 및 이미지 관리 기능 개발, API 응답 최적화, JSP 레거시 코드 유지보수",
           ],
         },
         {
@@ -292,6 +291,7 @@ const DATA = {
           contribution: "기여도 15%",
           desc: "시내버스 행정 시스템 — 용인·파주·하남 등 (PostgreSQL · 납품 운영 중)",
           bullets: [
+            "SXSSFWorkbook 스트리밍 방식으로 대용량 엑셀 다운로드 신규 구현 — 응답 30초 이상 → 3초 이내(90% 단축)",
             "공공기관 요청 기능 변경 및 예외 처리 로직 보강, QC 피드백 대응, 기술 문서·인수인계 문서 작성",
           ],
         },
@@ -302,7 +302,7 @@ const DATA = {
     name: "술술 — 온라인 전통주 쇼핑몰",
     period: "2023. 05. ~ 09.",
     meta: "사이드 프로젝트(3인) · 백엔드 담당 — Java · Spring Boot · PostgreSQL",
-    desc: "회원·장바구니·주문 백엔드 설계 및 구현, 소셜 로그인(OAuth 2.0)·결제 API 연동.",
+    desc: "회원·장바구니·주문 백엔드 설계, 소셜 로그인(OAuth 2.0)·결제 API 연동.",
   },
   education: [
     { name: "국가평생교육진흥원", detail: "컴퓨터공학 학사 · 재학 중 (2027년 상반기 학위취득 예정)", period: "2025. 03. ~" },
