@@ -225,6 +225,10 @@ strong { font-weight: bolder; }
 
 html { scroll-behavior: smooth; }
 
+/* 고정 nav에 제목이 가리지 않도록. 예전에는 JS가 scrollTo로 -80px를
+   보정했는데, preventDefault 탓에 URL 해시와 뒤로가기가 동작하지 않았다. */
+section[id] { scroll-margin-top: 80px; }
+
 body {
     background: var(--bg-base);
     background-image: radial-gradient(circle, rgba(124,58,237,0.065) 1px, transparent 1px);

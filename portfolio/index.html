@@ -11,6 +11,16 @@
 
     <title>임기창 | Backend Developer Portfolio</title>
 
+    <script>
+        // 렌더 전에 테마를 확정해 다크모드 첫 로드 시 흰 화면 깜빡임(FOUC)을 막는다.
+        (function () {
+            var saved = localStorage.getItem('portfolio-theme');
+            var dark = saved ? saved === 'dark'
+                             : matchMedia('(prefers-color-scheme: dark)').matches;
+            if (dark) document.documentElement.classList.add('dark');
+        })();
+    </script>
+
     <link rel="icon" type="image/x-icon" href="../assets/img/favicons/favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicons/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicons/favicon-32x32.png">
@@ -427,6 +437,68 @@
         </p>
     </footer>
 
-    <script type="module" src="js/main.js"></script>
+    <script>
+        // 테마 토글 (초기 적용은 <head>의 인라인 스크립트가 담당)
+        document.getElementById('themeToggle').addEventListener('click', function () {
+            var isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('portfolio-theme', isDark ? 'dark' : 'light');
+        });
+
+        // 모바일 햄버거 메뉴
+        var navMenu = document.getElementById('navMenu');
+        var hamburger = document.getElementById('hamburger');
+        hamburger.addEventListener('click', function () {
+            hamburger.setAttribute('aria-expanded', String(navMenu.classList.toggle('active')));
+        });
+        navMenu.addEventListener('click', function (e) {
+            if (!e.target.closest('.nav-link')) return;
+            navMenu.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+        });
+
+        // 스크롤 위치에 따른 nav 배경·진행바·상단이동 버튼
+        var nav = document.querySelector('nav');
+        var progress = document.getElementById('scrollProgress');
+        var toTop = document.getElementById('scrollToTop');
+        var ticking = false;
+        addEventListener('scroll', function () {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(function () {
+                var y = scrollY;
+                var max = document.documentElement.scrollHeight - innerHeight;
+                nav.classList.toggle('scrolled', y > 20);
+                if (max > 0) progress.style.width = (y / max * 100) + '%';
+                toTop.classList.toggle('show', y > 500);
+                ticking = false;
+            });
+        }, { passive: true });
+        toTop.addEventListener('click', function () { scrollTo({ top: 0, behavior: 'smooth' }); });
+
+        // 현재 보이는 섹션의 nav 링크 활성화 (스크롤마다 offsetTop을 읽던 방식 대체)
+        var links = {};
+        document.querySelectorAll('.nav-link').forEach(function (a) {
+            links[a.getAttribute('href').slice(1)] = a;
+        });
+        var sectionObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+                var a = links[en.target.id];
+                if (a) a.classList.toggle('active', en.isIntersecting);
+            });
+        }, { rootMargin: '-40% 0px -55% 0px' });
+        document.querySelectorAll('section[id]').forEach(function (s) { sectionObserver.observe(s); });
+
+        // 스크롤 진입 시 페이드인
+        var fadeObserver = new IntersectionObserver(function (entries, obs) {
+            entries.forEach(function (en) {
+                if (!en.isIntersecting) return;
+                en.target.classList.add('visible');
+                obs.unobserve(en.target);
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.fade-in').forEach(function (el) { fadeObserver.observe(el); });
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
