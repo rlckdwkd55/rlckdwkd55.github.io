@@ -2,10 +2,11 @@
    토큰 — 색·그림자·다크모드
    ═══════════════════════════════════════════════════════════════ */
 
-/* 액센트는 resume 문서 3종과 같은 indigo(#3730A3)로 통일했다.
-   흰 배경 대비 9.93으로 작은 글씨에도 안전하고, 인쇄에서도 깊게 앉는다.
-   accent-rgb를 따로 두는 이유: 알파를 섞은 배경·테두리를 rgba()로 하드코딩하지
-   않고 color-mix 없이 var()만으로 파생시키기 위해서다. */
+/* 액센트는 원본의 파랑(#1D4ED8)을 유지한다.
+   resume 문서는 indigo(#3730A3)를 쓰는데, 일부러 다르게 둔 것이다:
+   문서는 10~11px 텍스트에 액센트를 얹어 대비가 중요하고 인쇄까지 가지만,
+   화면은 큰 글씨 위주라 파랑의 또렷함이 더 값지다. 색을 억지로 맞추면
+   화면이 탁해진다. */
 :root {
     --bg-base:        #FAFAF8;
     --bg-surface:     #F3F2EF;
@@ -13,20 +14,19 @@
     --text-secondary: rgba(17, 17, 17, 0.58);
     --text-muted:     rgba(17, 17, 17, 0.36);
 
-    --accent:         #3730A3;
-    --accent-strong:  #312A8F;   /* hover 등 한 단계 더 진하게 */
-    --accent-muted:    #4F46B8;   /* 아이콘·보조 텍스트 */
-    --accent-rgb:     55, 48, 163;
+    --accent:         #1D4ED8;
+    --accent-strong:  #2563EB;   /* hover */
+    --accent-muted:   #2563EB;   /* 아이콘·보조 텍스트 */
+    --accent-rgb:     29, 78, 216;
 
-    --accent-tint:    rgba(var(--accent-rgb), 0.07);   /* 배지·박스 배경 */
-    --accent-tint-2:  rgba(var(--accent-rgb), 0.14);   /* 그 테두리 */
+    --accent-tint:    rgba(var(--accent-rgb), 0.07);
+    --accent-tint-2:  rgba(var(--accent-rgb), 0.14);
 
-    /* 흰 글씨가 올라가는 면(주 버튼·아이콘칩) 전용. 액센트를 그대로 쓰면
-       다크모드에서 대비가 2.98로 떨어져 따로 둔다. */
-    --accent-on-dark: #3730A3;
+    /* 흰 글씨가 올라가는 면. 라이트에선 액센트와 같지만 다크에선 따로 간다. */
+    --accent-on-dark: #1D4ED8;
 
-    /* 온통 indigo인 화면에서 유일하게 다른 색. '구직 중' 상태 하나에만 쓴다. */
-    --signal:         #D97706;
+    /* 온통 파란 화면에서 유일하게 다른 색. '구직 중' 상태 하나에만 쓴다. */
+    --signal:         #F59E0B;
 
     --border:         rgba(17, 17, 17, 0.09);
     --border-hover:   rgba(17, 17, 17, 0.22);
@@ -45,16 +45,17 @@
     --text-secondary: rgba(232, 232, 232, 0.56);
     --text-muted:     rgba(232, 232, 232, 0.32);
 
-    /* 다크 배경에서는 indigo-800이 너무 가라앉아 indigo-400으로 올린다 (대비 6.18) */
-    --accent:         #818CF8;
-    --accent-strong:  #A5B4FC;
-    --accent-muted:    #A5B4FC;
-    --accent-rgb:     129, 140, 248;
+    --accent:         #60A5FA;
+    --accent-strong:  #93C5FD;
+    --accent-muted:   #60A5FA;
+    --accent-rgb:     96, 165, 250;
 
     --accent-tint:    rgba(var(--accent-rgb), 0.10);
     --accent-tint-2:  rgba(var(--accent-rgb), 0.18);
 
-    --accent-on-dark: #4F46E5;   /* 흰 글씨 대비 6.29 */
+    /* 원본은 여기에 #3B82F6을 써서 흰 글씨 대비가 3.68이었다.
+       색감은 거의 그대로 두고 한 단계만 진하게 해 5.17로 올린다. */
+    --accent-on-dark: #2563EB;
 
     --signal:         #FBBF24;
 
@@ -168,7 +169,7 @@ strong { font-weight: bolder; }
 .text-center { text-align: center; }
 .break-all   { word-break: break-all; }
 .text-white       { color: #fff; }
-.text-amber-400   { color: var(--text-secondary); }
+.text-amber-400   { color: #fbbf24; }
 
 /* ── Misc ────────────────────────────────────────────────────────────────── */
 .bg-transparent    { background-color: transparent; }
@@ -247,7 +248,7 @@ section[id] { scroll-margin-top: 80px; }
 
 body {
     background: var(--bg-base);
-    background-image: radial-gradient(circle, var(--accent-tint) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(17,17,17,0.055) 1px, transparent 1px);
     background-size: 28px 28px;
     color: var(--text-primary);
     /* 라틴은 Space Grotesk, 한글은 Pretendard가 받는다 */
