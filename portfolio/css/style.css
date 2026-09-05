@@ -506,7 +506,7 @@ nav.scrolled {
    히어로 — 이름 + 성과 스트립
    ═══════════════════════════════════════════════════════════════ */
 
-.intro-head { margin-bottom: 2.25rem; }
+.intro-head { margin-bottom: 3rem; }
 
 .intro-name {
     font-size: 2.75rem;
@@ -516,42 +516,8 @@ nav.scrolled {
     color: var(--text-primary);
 }
 
-/* 카드가 아니라 표에 가깝게. 박스·그림자 없이 선만으로 구획한다.
-   오른쪽 학력·경력 카드와 카드가 두 겹으로 쌓이는 걸 피하려는 선택. */
-.metric-strip {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 3rem;
-}
-
-.metric-strip > div { padding: 1.375rem 1.5rem; }
-.metric-strip > div:first-child { padding-left: 0; }
-.metric-strip > div + div { border-left: 1px solid var(--border); }
-
-.metric-n {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--accent);
-    letter-spacing: -0.01em;
-    font-variant-numeric: tabular-nums;
-    line-height: 1.35;
-}
-
-.metric-d {
-    margin-top: 0.4375rem;
-    font-size: 0.8125rem;
-    line-height: 1.6;
-    color: var(--text-secondary);
-}
-
 @media (max-width: 767px) {
     .intro-name { font-size: 2.125rem; }
-    .metric-strip { grid-template-columns: 1fr; margin-bottom: 2rem; }
-    .metric-strip > div { padding: 1rem 0; }
-    .metric-strip > div:first-child { padding-top: 1.125rem; }
-    .metric-strip > div + div { border-left: 0; border-top: 1px solid var(--border); }
 }
 
 /* ═══════════════════════════════════════════════════════════════
