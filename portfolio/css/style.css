@@ -543,6 +543,9 @@ nav.scrolled {
 }
 
 @media (max-width: 767px) {
+    /* nav가 fixed라 기본 py-16(4rem)으로는 이름이 햄버거 버튼에 붙는다.
+       nav 높이(약 3.75rem)에 여백을 더해 띄운다. */
+    #home { padding-top: 7rem; }
     .intro-name { font-size: 2.125rem; }
     .metric-strip { grid-template-columns: 1fr; margin-bottom: 2rem; }
     .metric-strip > div { padding: 1rem 0; }
@@ -605,9 +608,10 @@ nav.scrolled {
     white-space: nowrap;
 }
 
-.float-badge--tl { top: -18px;  left: -30px;  animation-delay: 0s;   }
-.float-badge--tr { top: 30%;    right: -34px; animation-delay: 0.8s; }
-.float-badge--br { bottom: -16px; right: -28px; animation-delay: 1.5s; }
+/* 오른쪽 오프셋은 섹션 좌우 패딩(2rem)보다 작게 유지한다. 넘기면 가로 스크롤이 생긴다. */
+.float-badge--tl { top: -18px;  left: -26px;  animation-delay: 0s;   }
+.float-badge--tr { top: 30%;    right: -22px; animation-delay: 0.8s; }
+.float-badge--br { bottom: -16px; right: -18px; animation-delay: 1.5s; }
 
 .dark .float-badge {
     box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.20), 0 4px 16px rgba(0,0,0,0.4);

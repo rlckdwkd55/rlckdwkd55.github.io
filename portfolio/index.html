@@ -171,7 +171,9 @@
                     </div>
 
                     <!-- Right: Info cards -->
-                    <div class="about-info-col flex flex-col gap-4" style="position:relative; margin: 1.25rem 2.5rem 1.25rem 1rem;">
+                    <!-- 좌우 마진을 두지 않는다. 카드 오른쪽 끝이 위쪽 성과 스트립과 같은 선에 서야 한다.
+                         떠 있는 배지는 이 컬럼 밖으로 나가지만 섹션 좌우 패딩 안에 머물도록 오프셋을 잡았다. -->
+                    <div class="about-info-col flex flex-col gap-4" style="position:relative; margin: 1.25rem 0;">
                         <div class="float-badge float-badge--tl">
                             <svg class="icon text-xs" style="color:var(--accent-muted)"><use href="#i-code"/></svg>
                             백엔드
