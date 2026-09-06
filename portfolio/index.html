@@ -13,11 +13,12 @@
 
     <script>
         // 렌더 전에 테마를 확정해 다크모드 첫 로드 시 흰 화면 깜빡임(FOUC)을 막는다.
+        // 라이트가 기본. 채용 담당자가 처음 여는 화면이라 OS 설정을 따라가지 않고 항상 같은 모습으로 보이게 한다.
+        // 사용자가 직접 토글한 경우에만 그 선택을 기억한다.
         (function () {
-            var saved = localStorage.getItem('portfolio-theme');
-            var dark = saved ? saved === 'dark'
-                             : matchMedia('(prefers-color-scheme: dark)').matches;
-            if (dark) document.documentElement.classList.add('dark');
+            if (localStorage.getItem('portfolio-theme') === 'dark') {
+                document.documentElement.classList.add('dark');
+            }
         })();
     </script>
 
@@ -293,7 +294,7 @@
                                 <p class="text-xs font-semibold flex-1" style="color:var(--text-primary)">AI 챗봇 플랫폼</p>
                                 <span class="period-badge ml-2">2026.01 ~</span>
                             </div>
-                            <p class="text-sm leading-relaxed mb-4 mt-3 flex-grow" style="color:var(--text-secondary)">· 백엔드 도메인 API·AI 파이프라인·관리자 대시보드·인프라 배포 담당<br>· dense·sparse 검색을 RRF로 융합하고 CrossEncoder로 재정렬 — 직접 만든 LLM judge 평가로 약 30%p 개선 확인<br>· 시나리오 에이전트로 임계값 초과 질의를 LLM 호출 없이 즉시 응답 — 1.5초 → 0.3초, 호출 비용 약 30% 절감<br>· 장기 대화를 롤링 요약으로 압축 — 토큰 사용량 약 40% 절감<br>· vLLM·OpenAI·Naver Clova 멀티 LLM 및 외부 임베딩 API 확장 구조 구현<br>· FastAPI 비동기 도메인 API(회원·문서·스케줄러, SSE)와 Next.js 관리자 대시보드 개발</p>
+                            <p class="text-sm leading-relaxed mb-4 mt-3 flex-grow" style="color:var(--text-secondary)">· 백엔드 도메인 API·AI 파이프라인·관리자 대시보드 담당<br>· dense·sparse 검색을 RRF로 융합하고 CrossEncoder로 재정렬 — 직접 만든 LLM judge 평가로 약 30%p 개선 확인<br>· 시나리오 에이전트로 임계값 초과 질의를 LLM 호출 없이 즉시 응답 — 1.5초 → 0.3초, 호출 비용 약 30% 절감<br>· 장기 대화를 롤링 요약으로 압축 — 토큰 사용량 약 40% 절감<br>· vLLM·OpenAI·Naver Clova 멀티 LLM 및 외부 임베딩 API 확장 구조 구현<br>· FastAPI 비동기 도메인 API(회원·문서·스케줄러, SSE)와 Next.js 관리자 대시보드 개발</p>
                             <div class="flex flex-wrap gap-1.5 mb-4"><span class="tech-badge">Python</span><span class="tech-badge">FastAPI</span><span class="tech-badge">LangGraph</span><span class="tech-badge">Qdrant</span><span class="tech-badge">Next.js</span><span class="tech-badge">Docker</span></div>
                             <div class="flex items-center justify-between mt-auto">
                                 <div class="flex items-center gap-3"><span class="project-link-disabled"><svg class="icon"><use href="#i-lock"/></svg> 코드 비공개</span></div>
@@ -311,7 +312,7 @@
                                 <p class="text-xs font-semibold flex-1" style="color:var(--text-primary)">엔터프라이즈 검색 엔진</p>
                                 <span class="period-badge ml-2">2025.09 ~</span>
                             </div>
-                            <p class="text-sm leading-relaxed mb-4 mt-3 flex-grow" style="color:var(--text-secondary)">· 안전보건공단·CJ 온리원푸드넷·고령군청 등 공공기관·기업 대상 검색 엔진 운영·유지보수<br>· 외부 경로의 문서를 읽어 색인하는 파이프라인에서, 조작된 XFA가 삽입된 PDF만으로 트리거되는 XXE(CVE-2025-66516, CVSS 10.0)에 운영 버전이 해당함을 확인하고 패치<br>· 대용량 오피스 문서 SAX 스트리밍 전환으로 메모리 74% 절감·처리 속도 3.2배 개선<br>· 한글 HWPX 포맷 지원 추가, Elasticsearch 색인 스케줄러·외부 DB 연동 유지보수 및 실운영 장애 대응</p>
+                            <p class="text-sm leading-relaxed mb-4 mt-3 flex-grow" style="color:var(--text-secondary)">· 공공기관·기업 대상 검색 엔진 운영·유지보수<br>· 외부 경로의 문서를 읽어 색인하는 파이프라인에서, 조작된 XFA가 삽입된 PDF만으로 트리거되는 XXE(CVE-2025-66516, CVSS 10.0)에 운영 버전이 해당함을 확인하고 패치<br>· 대용량 오피스 문서 SAX 스트리밍 전환으로 메모리 74% 절감·처리 속도 3.2배 개선<br>· 한글 HWPX 포맷 지원 추가, Elasticsearch 색인 스케줄러·외부 DB 연동 유지보수 및 실운영 장애 대응</p>
                             <div class="flex flex-wrap gap-1.5 mb-4"><span class="tech-badge">Java</span><span class="tech-badge">Spring Boot</span><span class="tech-badge">Elasticsearch</span><span class="tech-badge">Apache Tika</span><span class="tech-badge">Quartz</span></div>
                             <div class="flex items-center justify-between mt-auto">
                                 <div class="flex items-center gap-3"><span class="project-link-disabled"><svg class="icon"><use href="#i-lock"/></svg> 코드 비공개</span></div>
