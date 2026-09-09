@@ -83,21 +83,6 @@
     .card-arrow { font-size: 16px; color: var(--t3); flex-shrink: 0; }
     .card:hover .card-arrow { color: var(--accent); }
 
-    .card-row { display: flex; align-items: stretch; gap: 8px; }
-    .card-row .card { flex: 1; }
-    .pdf-link {
-      display: flex; align-items: center;
-      padding: 0 14px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      background: var(--page);
-      color: var(--t2);
-      text-decoration: none;
-      font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
-      flex-shrink: 0;
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .pdf-link:hover { border-color: var(--accent-border); color: var(--accent); }
   </style>
 </head>
 <body>
@@ -109,41 +94,30 @@
     </div>
 
     <div class="cards">
-      <div class="card-row">
-        <a href="이력서.html" class="card">
-          <div class="card-icon">01</div>
-          <div class="card-body">
-            <div class="card-title">이력서</div>
-            <div class="card-desc">사진·핵심 성과·경력 요약 — 채용 담당자용</div>
-          </div>
-          <span class="card-arrow">›</span>
-        </a>
-        <a href="https://drive.google.com/file/d/1VpGFFA_ynnXnJTk_GG85omDdsCP4j4zL/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="pdf-link">PDF</a>
-      </div>
-
-      <div class="card-row">
-        <a href="경력기술서.html" class="card">
-          <div class="card-icon">02</div>
-          <div class="card-body">
-            <div class="card-title">경력기술서</div>
-            <div class="card-desc">프로젝트별 기술 상세·문제해결·성과 — 기술 면접관용</div>
-          </div>
-          <span class="card-arrow">›</span>
-        </a>
-        <a href="https://drive.google.com/file/d/10HMijYgNLHLlSXQDdmZmZIfcn_9H7TMw/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="pdf-link">PDF</a>
-      </div>
-
-      <div class="card-row">
-        <a href="자기소개서.html" class="card">
-          <div class="card-icon">03</div>
-          <div class="card-body">
-            <div class="card-title">자기소개서</div>
-            <div class="card-desc">개발자가 된 계기·문제를 대하는 방식</div>
-          </div>
-          <span class="card-arrow">›</span>
-        </a>
-        <a href="https://drive.google.com/file/d/1j4e05fwae7qu2mwjQxjRC8Vjx8n-icIh/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="pdf-link">PDF</a>
-      </div>
+      <a href="이력서.html" class="card">
+        <div class="card-icon">01</div>
+        <div class="card-body">
+          <div class="card-title">이력서</div>
+          <div class="card-desc">사진·핵심 성과·경력 요약 — 채용 담당자용</div>
+        </div>
+        <span class="card-arrow">›</span>
+      </a>
+      <a href="경력기술서.html" class="card">
+        <div class="card-icon">02</div>
+        <div class="card-body">
+          <div class="card-title">경력기술서</div>
+          <div class="card-desc">프로젝트별 기술 상세·문제해결·성과 — 기술 면접관용</div>
+        </div>
+        <span class="card-arrow">›</span>
+      </a>
+      <a href="자기소개서.html" class="card">
+        <div class="card-icon">03</div>
+        <div class="card-body">
+          <div class="card-title">자기소개서</div>
+          <div class="card-desc">개발자가 된 계기·문제를 대하는 방식</div>
+        </div>
+        <span class="card-arrow">›</span>
+      </a>
     </div>
   </div>
 </body>

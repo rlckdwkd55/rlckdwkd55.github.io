@@ -213,6 +213,7 @@ const DATA = {
     `메모리 <strong>74%↓</strong> · 처리 속도 <strong>3.2배</strong> — 검색 엔진의 대용량 문서 파싱을 스트리밍 방식으로 재설계`,
     `응답 <strong>1.5초 → 0.3초</strong> · 토큰 <strong>40%↓</strong> — 불필요한 LLM 호출을 걷어내고 장기 대화를 압축`,
     `<strong>CVSS 10.0</strong> 취약점 차단 — 외부 문서를 파싱하는 색인 경로의 보안 노출을 확인·해소`,
+    `OOM 재기동 <strong>0건</strong> — 재색인마다 힙을 고갈시키던 단일 대형 벌크 요청을 분할 전송으로 전환`,
   ],
 
   skills: [
@@ -220,7 +221,7 @@ const DATA = {
     { cat: "Backend",      items: ["Spring Boot","Spring Security","JPA","MyBatis","FastAPI"] },
     { cat: "AI & Search",  items: ["RAG","LangGraph","vLLM","Qdrant","Elasticsearch","Apache Tika"] },
     { cat: "Frontend",     items: ["Next.js","React"] },
-    { cat: "Database",     items: ["PostgreSQL","Oracle"] },
+    { cat: "Database",     items: ["PostgreSQL","Oracle","MariaDB"] },
     { cat: "Infra & Tools",items: ["Docker","GitHub Actions","Git","Node.js","Quartz"] },
   ],
   career: [
@@ -236,9 +237,9 @@ const DATA = {
           desc: "멀티에이전트 RAG 챗봇 플랫폼",
           bullets: [
             "시나리오 에이전트로 임계값 초과 질의를 LLM 호출 없이 즉시 응답(1.5초 → 0.3초, 호출 비용 약 30% 절감), 장기 대화는 롤링 요약으로 압축해 토큰 사용량 약 40% 절감",
-            "dense·sparse 검색을 RRF로 융합하고 CrossEncoder로 재정렬 — 직접 만든 LLM judge 평가로 도입 전후 약 30%p 개선 확인",
+            "dense·sparse 검색을 RRF로 융합하고 CrossEncoder로 재정렬 — 동일 질문 셋을 LLM judge로 채점해 도입 전 대비 약 30%p 개선 확인",
             "2단계 관련성 검증(Document Grading·Terminology Validation)과 LLM judge 기반 품질 관측 체계 구축으로 할루시네이션 대응",
-            "vLLM·OpenAI·Naver Clova 멀티 LLM 확장 구조와 FastAPI 비동기 도메인 API(회원·문서·스케줄러, SSE)·Next.js 관리자 대시보드 개발",
+            "FastAPI 비동기 도메인 API(회원·문서·스케줄러, SSE) 및 Next.js 관리자 대시보드 개발",
           ],
         },
         {
@@ -250,7 +251,7 @@ const DATA = {
             "대용량 오피스 문서 파싱을 SAX 스트리밍으로 전환 — 메모리 74% 절감·처리 속도 3.2배, 한글 HWPX 포맷 지원 추가",
             "외부 경로의 문서를 읽어 색인하는 파이프라인에서, 조작된 XFA가 삽입된 PDF만으로 트리거되는 XXE(CVE-2025-66516, CVSS 10.0)에 운영 버전이 해당함을 확인하고 패치",
             "파서 문자수 제한으로 장문 문서가 잘리던 결함 수정 — 텍스트 캡처율 40% → 100%",
-            "Elasticsearch 색인 스케줄러·동의어 설정 및 외부 DB 4종 연동 유지보수, 실운영 장애 원인 분석·해결",
+            "전체 재색인 OOM 재기동 해소 — 1만 행 단일 벌크가 힙을 고갈시키던 구조를 크기·건수 기준 분할 전송으로 전환(색인 소요 시간 동일)",
           ],
         },
       ],
@@ -258,14 +259,14 @@ const DATA = {
     },
     {
       company: "(주)케니컴퍼니",
-      position: "개발부 · 사원 (경영 악화에 따른 권고사직)",
+      position: "개발부 · 사원",
       period: "2023. 12. ~ 2025. 04. (1년 5개월)",
       projects: [
         {
           name: "캐치캣",
           period: "2024. 11. ~ 2025. 04.",
           contribution: "기여도 60% · 2명",
-          desc: "크롤링 & 알림 서비스 (경영 사정으로 운영 전 종료)",
+          desc: "크롤링 & 알림 서비스 — Node.js · MyBatis · PostgreSQL (경영 사정으로 운영 전 종료)",
           bullets: [
             "700개+ 사이트 일 3,000건 크롤링 시스템 구축(Proxy로 CORS 우회), Node.js 크론 스케줄러·FCM 알림 연동 및 Spring Boot 관리자 페이지 개발",
           ],
@@ -296,7 +297,7 @@ const DATA = {
   project: {
     name: "술술 — 온라인 전통주 쇼핑몰",
     period: "2023. 05. ~ 09.",
-    meta: "사이드 프로젝트(3인) · 백엔드 담당 — Java · Spring Boot · PostgreSQL",
+    meta: "사이드 프로젝트(3인) · 백엔드 담당 — Java · Spring Boot · MyBatis · PostgreSQL",
     desc: "회원·장바구니·주문 백엔드 설계, 소셜 로그인(OAuth 2.0)·결제 API 연동.",
   },
   education: [

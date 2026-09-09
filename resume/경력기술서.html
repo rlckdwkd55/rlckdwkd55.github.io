@@ -130,6 +130,24 @@
     .paar-tag { font-weight: 800; color: var(--accent); flex-shrink: 0; width: 14px; }
     .paar-row strong { color: var(--accent); }
 
+    /* ── COMPETENCY (⑤ 역량·기술) ──
+       행 앞의 '역량'·'기술' 라벨이 제목 역할을 하므로 별도 sub-label을 두지 않는다.
+       위아래 선만으로 블록을 구획한다. */
+    .competency {
+      margin-top: 14px;
+      border-top: 1px solid var(--divider);
+      border-bottom: 1px solid var(--divider);
+      padding: 10px 0;
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .competency-row { display: flex; gap: 10px; font-size: 12px; line-height: 1.6; }
+    .competency-key {
+      font-size: 11px; font-weight: 700; color: var(--t3);
+      width: 30px; flex-shrink: 0; letter-spacing: 0.03em;
+    }
+    .competency-val { color: var(--t1); font-weight: 600; }
+    .competency-tech { color: var(--t2); font-weight: 400; }
+
     /* ── EDU ── */
     .edu-list { display: flex; flex-direction: column; gap: 10px; }
     .edu-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
@@ -149,7 +167,7 @@
       .body { padding: 0; }
       .section { padding-top: 20px; }
       .section-label, .sub-label, .proj-header { break-after: avoid; }
-      .company-block, .paar-card, .edu-row, .bullets li { break-inside: avoid; }
+      .company-block, .paar-card, .edu-row, .bullets li, .competency { break-inside: avoid; }
     }
   </style>
 </head>
@@ -169,17 +187,17 @@ const DATA = {
   },
   overview: [
     { title: "Argos AI Chat Search", period: "2026.01 ~", contribution: "40%", team: "2명", tech: "LangGraph · Qdrant · FastAPI · Next.js", outcome: "응답 1.5초 → 0.3초, 토큰 사용량 40% 절감, 검색 품질 약 30%p 개선(LLM judge 평가)" },
-    { title: "ArgosSearch", period: "2025.09 ~", contribution: "20%", team: "3명", tech: "Spring Boot · Elasticsearch · Apache Tika", outcome: "문서 파싱 메모리 74% 절감·처리 속도 3.2배, CVSS 10.0 취약점 노출 해소" },
-    { title: "캐치캣", period: "2024.11 ~ 2025.04", contribution: "60%", team: "2명", tech: "Node.js · Spring Boot · FCM", outcome: "700+ 사이트 일 3,000건 크롤링 시스템 구축" },
+    { title: "ArgosSearch", period: "2025.09 ~", contribution: "20%", team: "3명", tech: "Spring Boot · Elasticsearch · Apache Tika", outcome: "문서 파싱 메모리 74% 절감·처리 속도 3.2배, 전체 재색인 OOM 재기동 해소, CVSS 10.0 취약점 노출 해소" },
+    { title: "캐치캣", period: "2024.11 ~ 2025.04", contribution: "60%", team: "2명", tech: "Node.js · Spring Boot · FCM", outcome: "차단 사이트 Proxy 우회로 700+ 사이트·일 3,000건 수집 유지, 실패 대상·사유 관측 체계 확보" },
     { title: "GBMS", period: "2024.02 ~ 2024.10", contribution: "15%", team: "6명", tech: "Spring Boot · Oracle · JSP", outcome: "엑셀 다운로드 30초 이상 → 3초 이내(90% 단축)" },
-    { title: "버스파인", period: "2024.02 ~ 2024.10", contribution: "15%", team: "6명", tech: "Spring Boot · PostgreSQL · JSP", outcome: "공공기관 요청 대응·QC 피드백 반영, 납품 운영 중" },
+    { title: "버스파인", period: "2024.02 ~ 2024.10", contribution: "15%", team: "6명", tech: "Spring Boot · PostgreSQL · JSP", outcome: "용인·파주·하남 등 다기관 요청 반영 및 예외 처리 보강 — 현재 납품 운영 중" },
   ],
   skills: [
     { cat: "Language",     items: ["Java", "Python", "JavaScript", "TypeScript"] },
     { cat: "Backend",      items: ["Spring Boot", "Spring Security", "JPA", "MyBatis", "FastAPI"] },
     { cat: "AI & Search",  items: ["RAG", "LangGraph", "vLLM", "Qdrant", "Elasticsearch", "Apache Tika"] },
     { cat: "Frontend",     items: ["Next.js", "React"] },
-    { cat: "Database",     items: ["PostgreSQL", "Oracle"] },
+    { cat: "Database",     items: ["PostgreSQL", "Oracle", "MariaDB"] },
     { cat: "Infra & Tools",items: ["Docker", "GitHub Actions", "Git", "Node.js", "Quartz"] },
   ],
   companies: [
@@ -193,13 +211,13 @@ const DATA = {
           period: "2026.01 ~",
           contribution: "40%",
           team: "2명",
-          tech: ["Python", "FastAPI", "LangGraph", "Qdrant", "Next.js"],
-          summary: "기업·공공기관 고객을 위한 멀티에이전트 RAG 챗봇 플랫폼입니다. 초기 멤버로 참여해 백엔드 도메인 API·AI 파이프라인·관리자 대시보드를 맡았고, 제품이 GS SW 1등급 인증(2026.06)과 저작권 등록(2026.03)을 거쳐 공공기관에 납품되기까지 함께했습니다.",
+          tech: ["Python", "FastAPI", "LangGraph", "Qdrant", "MariaDB", "Next.js", "Docker"],
+          competency: ["검색 품질 평가 체계 설계", "비용·지연 트레이드오프 판단", "할루시네이션 대응 설계"],
+          summary: "기업·공공기관 고객을 위한 멀티에이전트 RAG 챗봇 플랫폼입니다. 초기 멤버로 합류해 백엔드 도메인 API·AI 파이프라인·관리자 대시보드를 맡았고, 제품이 GS SW 1등급 인증(2026.06)과 저작권 등록(2026.03)을 거쳐 공공기관에 납품되기까지 함께했습니다.",
           tasks: [
-            "dense·sparse 검색 결과를 RRF로 융합하고 CrossEncoder로 재정렬하는 2단계 검색 파이프라인 구축 → 직접 만든 LLM judge 평가로 동일 질문 셋을 채점해 도입 전 대비 <strong>약 30%p 개선</strong> 확인",
+            "dense·sparse 검색 결과를 RRF로 융합하고 CrossEncoder로 재정렬하는 2단계 검색 파이프라인 구축 → 동일 질문 셋을 LLM judge로 채점해 도입 전 대비 <strong>약 30%p 개선</strong> 확인",
             "시나리오 에이전트로 임계값 초과 질의를 LLM 호출 없이 즉시 응답 → 응답 지연 <strong>80% 단축(1.5초 → 0.3초)</strong>, 호출 횟수 감소로 비용 약 30% 절감",
-            "멀티 LLM(vLLM·OpenAI·Naver Clova)과 외부 임베딩 API 3종을 확장형 구조로 통합 → 고객사별 모델을 설정 변경만으로 교체·추가",
-            "FastAPI 비동기 도메인 REST API 개발(회원·문서·스케줄러, SSE) 및 외부 DB 5종(MySQL·PostgreSQL·Oracle·MSSQL·CUBRID) 연동·자동 벡터 인덱싱 스케줄러 구현",
+            "FastAPI 비동기 도메인 REST API 개발(회원·문서·스케줄러, SSE) — 서비스 데이터는 MariaDB에 저장, 고객사 연동용 외부 DB 5종(MySQL·PostgreSQL·Oracle·MSSQL·CUBRID) 지원 및 자동 벡터 인덱싱 스케줄러 구현",
             "챗봇 응답 품질 평가 파이프라인 구축(데이터셋·LLM judge 채점·통계 자동화) → 수작업 채점을 자동화해 품질 관측 체계 확보",
             "Next.js 관리자 대시보드 및 실시간 리소스 모니터링 API 개발",
           ],
@@ -229,14 +247,16 @@ const DATA = {
           period: "2025.09 ~",
           contribution: "20%",
           team: "3명",
-          tech: ["Java", "Spring Boot", "Elasticsearch", "Apache Tika", "Quartz"],
-          summary: "공공기관·기업 고객에 제공 중인 Elasticsearch 검색 엔진을 운영하며, Apache Tika 색인 파이프라인의 보안·안정성 결함을 분석·해결했습니다.",
+          tech: ["Java", "Spring Boot", "Elasticsearch", "Apache Tika", "MariaDB", "Quartz", "Docker"],
+          competency: ["운영 장애 원인 진단", "JVM 힙·리소스 병목 분석", "변경 동등성 검증 설계", "의존성 보안 점검", "대용량 파싱 성능 튜닝", "레거시 결함 격리"],
+          summary: "공공기관·기업에 이미 납품돼 운영 중인 Elasticsearch 검색 엔진이었지만, 색인 파이프라인이 DB view의 filepath를 따라 외부 경로의 문서를 그대로 파서에 넘기는 구조여서 보안·안정성 결함이 잠재해 있었습니다. 운영을 맡으며 Apache Tika 색인 파이프라인의 결함을 분석·해결했습니다.",
           tasks: [
             "HWPX 등 포맷 지원 확장 중, 조작된 XFA가 삽입된 PDF만으로 트리거되는 XXE(CVE-2025-66516, <strong>CVSS 10.0</strong>)에 운영 버전이 해당함을 확인하고 패치 적용",
             "parseToString이 10만자에서 경고 없이 본문을 잘라내던 결함을 AutoDetectParser 기반 명시적 처리로 교체 → 텍스트 캡처율 <strong>40% → 100%</strong>",
             "오피스 문서(PPTX/DOCX) 파싱을 SAX 스트리밍 방식으로 전환 → 메모리 <strong>74% 감소</strong>·처리 속도 <strong>3.2배 개선</strong>, 한글 HWPX 포맷 지원 추가로 색인 범위 확대",
             "배치 색인 중 한 row가 실패하면 그 페이지의 나머지 문서까지 통째로 유실되던 버그를 row 단위 예외 격리로 수정 → 실패 건만 건너뛰고 나머지는 정상 색인",
-            "Elasticsearch analyzer·동의어(synonym_graph), Quartz 색인 스케줄러, 외부 DB 4종(Oracle·PostgreSQL·MariaDB·TIBERO) 연동, JWT·Spring Security 인증 유지보수",
+            "1만 행을 단일 벌크 요청으로 보내 힙을 고갈시키던 색인 구조를 크기·건수 기준 분할 전송으로 전환 → 전체 재색인 OOM 재기동 <strong>0건</strong>, 색인 소요 시간은 동일",
+            "Elasticsearch analyzer·동의어(synonym_graph), Quartz 색인 스케줄러, 고객사 연동용 외부 DB 4종(Oracle·PostgreSQL·MariaDB·TIBERO) 지원, JWT·Spring Security 인증 유지보수",
           ],
           paar: [
             {
@@ -249,13 +269,22 @@ const DATA = {
               r: "<strong>CVSS 10.0</strong> 등급 취약점이 적용된 채로 운영되던 상태를 해소",
             },
             {
-              title: "고객사 운영 장애 2건 진단·해결",
-              p: "Tibero 고객사 환경에서 색인 스케줄러가 간헐적으로 중단돼 서버 다운까지 발생했고, 별건으로 요청 본문 <strong>100MB</strong> 초과 시 색인이 거부돼 데이터가 누락되는 문제도 있었음",
+              title: "고객사 색인 스케줄러 중단 진단·해결",
+              p: "Tibero 고객사 환경에서만 색인 스케줄러가 간헐적으로 중단되고, 심한 경우 서버 다운까지 발생했음",
               actions: [
                 "로그 분석으로 DB 커넥션 풀 고갈을 원인으로 진단하고 최대 크기·타임아웃 설정 조정",
-                "Elasticsearch 설정값 분석으로 본문 크기 제한을 특정하고 http.max_content_length 상향 후 재배포",
               ],
-              r: "스케줄러 중단 재발 <strong>0건</strong>, 대용량 문서까지 누락 없이 전량 색인",
+              r: "스케줄러 중단 재발 <strong>0건</strong>",
+            },
+            {
+              title: "전체 재색인 OOM 재기동 해결",
+              p: "8월 말부터 전체 재색인마다 Elasticsearch가 OOM으로 재기동됐고, 종료 시 남은 heap dump 6개(<strong>47.5GB</strong>)가 쌓여 디스크 watermark까지 초과한 상태였음",
+              actions: [
+                "1만 행을 단일 벌크 요청 하나로 전송하던 구조를 확인하고, ES가 벌크를 처리하기 전에 요청 전체를 힙에 버퍼링하며 inflight_requests 브레이커에 요청 크기의 약 2배를 예약한다는 점에서 수백MB 요청이 8GB 힙을 소진시킴을 특정",
+                "벌크 전송을 크기(기본 5MB)·건수(기본 1,000건) 단위 분할로 변경하고, 상한을 넘는 단일 문서는 앞서 모아둔 배치를 먼저 보낸 뒤 단독 전송",
+                "11,002행 61.7MB(상한 초과 단일 문서 2건 포함)로 수정 전후를 각각 색인해 전 문서 <strong>SHA256 일치</strong>를 확인하고, 배치(alias 전환·구 인덱스 삭제)와 증분 색인 경로를 각각 검증",
+              ],
+              r: "OOM 재기동 <strong>0건</strong>, heap dump <strong>47.5GB</strong> 회수로 디스크 watermark 해소, 색인 소요 시간은 <strong>수정 전과 동일</strong>",
             },
           ],
         },
@@ -263,7 +292,7 @@ const DATA = {
     },
     {
       name: "(주)케니컴퍼니",
-      sub: "개발부 사원 · 경영 악화에 따른 권고사직",
+      sub: "개발부 사원",
       period: "2023.12 ~ 2025.04 (1년 5개월)",
       projects: [
         {
@@ -271,8 +300,9 @@ const DATA = {
           period: "2024.11 ~ 2025.04",
           contribution: "60%",
           team: "2명",
-          tech: ["Java", "Spring Boot", "Node.js", "FCM"],
-          summary: "700개 이상 사이트를 수집해 실시간 알림을 전달하는 크롤링·알림 서비스입니다. 초기 설계·구축을 단독으로 진행했고, 개발이 상당 부분 진행된 뒤 1명이 합류했습니다. 회사 경영 사정으로 실서비스 운영 전 종료됐습니다.",
+          tech: ["Java", "Spring Boot", "Node.js", "MyBatis", "PostgreSQL", "FCM"],
+          competency: ["대규모 수집 시스템 단독 설계", "실패 관측 체계 구축", "외부 의존 장애 우회 설계"],
+          summary: "700개 이상 사이트에 흩어진 정보를 사용자가 일일이 돌며 확인해야 했던 문제를, 자동 수집과 실시간 알림으로 대체하는 서비스입니다. 초기 설계·구축을 단독으로 진행했고, 개발이 상당 부분 진행된 뒤 1명이 합류했습니다. 회사 경영 사정으로 실서비스 운영 전 종료됐습니다.",
           tasks: [
             "700개 이상 사이트·일 3,000건 규모의 크롤링 시스템 설계·구축",
             "Node.js 크론 스케줄러 기반 자동 실행 로직 및 FCM 연동 실시간 알림 시스템 구현",
@@ -295,8 +325,9 @@ const DATA = {
           period: "2024.02 ~ 2024.10",
           contribution: "15%",
           team: "6명",
-          tech: ["Java", "Spring Boot", "Oracle", "JSP", "Apache POI"],
-          summary: "전자정부프레임워크 기반 경기도 광역버스 운영관리 시스템을 유지보수·개선했으며, 현재 납품 운영 중입니다. (gbms.gg.go.kr)",
+          tech: ["Java", "Spring Boot", "MyBatis", "Oracle", "JSP", "Apache POI"],
+          competency: ["레거시 성능 개선", "대용량 데이터 처리 구조 전환", "공공기관 요구사항 구현"],
+          summary: "전자정부프레임워크 기반으로 수년간 운영돼 온 경기도 광역버스 운영관리 시스템으로, 누적된 JSP 레거시 코드와 대량 조회 시 발생하는 성능 문제를 안고 있었습니다. 이를 유지보수·개선했으며 현재 납품 운영 중입니다. (gbms.gg.go.kr)",
           tasks: [
             "초기 화면 배너 UI 개선 및 이미지 관리 기능(업로드·삭제·미리보기) 신규 개발",
             "API 요청·응답 최적화, JSP 레거시 코드 유지보수 및 SQL 쿼리 개선",
@@ -317,8 +348,9 @@ const DATA = {
           period: "2024.02 ~ 2024.10",
           contribution: "15%",
           team: "6명",
-          tech: ["Java", "Spring Boot", "PostgreSQL", "JSP"],
-          summary: "전자정부프레임워크 기반 시내버스 행정 시스템을 유지보수하며 공공기관 요구사항을 분석·구현하고 QC 피드백을 반영했습니다. 현재 납품 운영 중입니다. (busfine.gtrans.or.kr)",
+          tech: ["Java", "Spring Boot", "MyBatis", "PostgreSQL", "JSP", "Apache POI"],
+          competency: ["다기관 요구사항 분석·구현", "QC 대응 및 예외 처리 보강", "인수인계 문서화"],
+          summary: "여러 지자체(용인·파주·하남 등)가 같은 시스템을 함께 쓰는 구조여서 기관별 요청과 QC 지적이 계속 유입됐고, 이를 반영하면서 기존 기능을 깨지 않는 것이 관건이었습니다. 요구사항을 분석·구현하고 QC 피드백을 반영했으며 현재 납품 운영 중입니다. (busfine.gtrans.or.kr)",
           tasks: [
             "SXSSFWorkbook 스트리밍 방식의 대용량 엑셀 다운로드를 동일하게 적용 (상세는 GBMS 항목 참조)",
             "공공기관 요청 기능 변경 및 예외 처리 로직 보강, QC 피드백 대응",
@@ -335,13 +367,13 @@ const DATA = {
       period: "2023.05 ~ 2023.09",
       contribution: "40%",
       team: "3명 (PM · 백엔드 · 프론트엔드)",
-      tech: ["Java", "Spring Boot", "PostgreSQL", "AWS EC2"],
-      summary: "3인 사이드 프로젝트의 백엔드를 맡아 아키텍처 설계부터 외부 API 연동, AWS 배포까지 진행했습니다. (github.com/rlckdwkd55/SulSul)",
+      tech: ["Java", "Spring Boot", "MyBatis", "PostgreSQL", "OAuth 2.0"],
+      competency: ["백엔드 아키텍처 설계", "외부 API 연동(OAuth·결제)", "쿼리·커넥션 풀 최적화"],
+      summary: "실제 결제와 소셜 로그인이 붙은 서비스를 직접 만들어보기 위해 시작한 3인 사이드 프로젝트입니다. 백엔드를 맡아 아키텍처 설계부터 외부 API 연동까지 진행했습니다. (github.com/rlckdwkd55/SulSul)",
       tasks: [
         "Spring Boot 기반 쇼핑몰 백엔드 구현 — 회원·장바구니·주문 플로우 및 RESTful API 설계",
         "카카오·네이버 소셜 로그인(OAuth 2.0) 및 결제 API 연동",
         "HikariCP 커넥션 풀 설정 및 N+1 문제 해결을 포함한 쿼리 최적화",
-        "AWS EC2 배포, 환경 변수 분리 및 운영 환경 구성",
       ],
       paar: [],
     },
@@ -385,6 +417,24 @@ function projectHtml(p) {
         ${p.tasks.map(t => `<li>${t}</li>`).join('')}
       </ul>
       ${paarSection}
+      ${competencyHtml(p)}
+    </div>`;
+}
+
+/* ⑤ 역량·기술 — 이 프로젝트로 증명된 역량 + 기술 스택.
+   JD를 볼 때 이 줄의 순서만 바꿔 힘줄 곳을 조정한다. */
+function competencyHtml(p) {
+  if (!p.competency || p.competency.length === 0) return '';
+  return `
+    <div class="competency">
+      <div class="competency-row">
+        <span class="competency-key">역량</span>
+        <span class="competency-val">${p.competency.join(' · ')}</span>
+      </div>
+      <div class="competency-row">
+        <span class="competency-key">기술</span>
+        <span class="competency-val competency-tech">${p.tech.join(' · ')}</span>
+      </div>
     </div>`;
 }
 

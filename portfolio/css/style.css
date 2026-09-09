@@ -512,45 +512,11 @@ nav.scrolled {
     color: var(--text-primary);
 }
 
-/* 카드가 아니라 표에 가깝게. 박스·그림자 없이 선만으로 구획한다.
-   오른쪽 학력·경력 카드와 카드가 두 겹으로 쌓이는 걸 피하려는 선택. */
-.metric-strip {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 3rem;
-}
-
-.metric-strip > div { padding: 1.375rem 1.5rem; }
-.metric-strip > div:first-child { padding-left: 0; }
-.metric-strip > div + div { border-left: 1px solid var(--border); }
-
-.metric-n {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--accent);
-    letter-spacing: -0.01em;
-    font-variant-numeric: tabular-nums;
-    line-height: 1.35;
-}
-
-.metric-d {
-    margin-top: 0.4375rem;
-    font-size: 0.8125rem;
-    line-height: 1.6;
-    color: var(--text-secondary);
-}
-
 @media (max-width: 767px) {
     /* nav가 fixed라 기본 py-16(4rem)으로는 이름이 햄버거 버튼에 붙는다.
        nav 높이(약 3.75rem)에 여백을 더해 띄운다. */
     #home { padding-top: 7rem; }
     .intro-name { font-size: 2.125rem; }
-    .metric-strip { grid-template-columns: 1fr; margin-bottom: 2rem; }
-    .metric-strip > div { padding: 1rem 0; }
-    .metric-strip > div:first-child { padding-top: 1.125rem; }
-    .metric-strip > div + div { border-left: 0; border-top: 1px solid var(--border); }
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -588,37 +554,7 @@ nav.scrolled {
     display: block;
 }
 
-.float-badge {
-    position: absolute;
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 0.875rem;
-    padding: 0.6rem 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-    z-index: 3;
-    animation: floatY 4s ease-in-out infinite;
-    white-space: nowrap;
-}
-
-/* 오른쪽 오프셋은 섹션 좌우 패딩(2rem)보다 작게 유지한다. 넘기면 가로 스크롤이 생긴다. */
-.float-badge--tl { top: -18px;  left: -26px;  animation-delay: 0s;   }
-.float-badge--tr { top: 30%;    right: -22px; animation-delay: 0.8s; }
-.float-badge--br { bottom: -16px; right: -18px; animation-delay: 1.5s; }
-
-.dark .float-badge {
-    box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.20), 0 4px 16px rgba(0,0,0,0.4);
-}
-
 @media (max-width: 1024px) {
-    .float-badge { display: none; }
     .about-info-col { margin: 0.5rem 0 !important; }
 }
 
@@ -949,11 +885,6 @@ nav.scrolled {
 @keyframes aM3 { 0% { transform: translate(0,0) scale(1); } 50% { transform: translate(55px,-45px) scale(1.08); } 100% { transform: translate(-35px,-65px) scale(1.04); } }
 @keyframes aM4 { 0% { transform: translate(0,0) scale(1); } 50% { transform: translate(-45px,55px) scale(1.12); } 100% { transform: translate(60px,-35px) scale(1.08); } }
 
-@keyframes floatY {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-}
-
 @keyframes shimmer {
     0%   { left: -100%; }
     100% { left: 180%; }
@@ -986,7 +917,7 @@ nav.scrolled {
 #scrollToTop.show { opacity: 1; pointer-events: auto; }
 
 @media (prefers-reduced-motion: reduce) {
-    .aurora-orb, .float-badge { animation: none; }
+    .aurora-orb { animation: none; }
     .fade-in, .skill-card, .project-card, .contact-card, .glass {
         transition: none; transform: none; opacity: 1; filter: none;
     }
