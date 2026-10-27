@@ -748,18 +748,6 @@ nav.scrolled {
 
 .project-link:hover { color: var(--accent-muted); gap: 0.65rem; }
 
-.project-link-disabled {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    color: var(--text-muted);
-    font-weight: 600;
-    font-size: 0.875rem;
-    cursor: not-allowed;
-    opacity: 0.55;
-    user-select: none;
-}
-
 .period-badge {
     display: inline-flex;
     align-items: center;
